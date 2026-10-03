@@ -266,6 +266,7 @@ namespace Genesis.UI
             var rail = TheaterSession.Instance?.orderRail;
             if (rail != null)
             {
+                rail.SetHoldButtonLocked(false);
                 rail.SetHoldButtonLabel(label);
                 rail.SetHoldButtonArmed(true);
             }

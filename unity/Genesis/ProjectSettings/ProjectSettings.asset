@@ -825,10 +825,10 @@ PlayerSettings:
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   enableDirectStorage: 0
-  cloudProjectId: 11e965c3-5466-41bc-9d7d-68b78b868c05
+  cloudProjectId: ddd43396-0dcc-4b0b-86f8-3dac9e19d8c4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: genesis
+  projectName: Genesis
   organizationId: unity_b09c72e8df99cc4a0c83
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1

@@ -1,0 +1,1882 @@
+{
+  "scenario": {
+    "id": "hist-1997-contagion",
+    "year": 1997,
+    "era": "1991\u20132008",
+    "title": "Contagion Desk",
+    "region": "Thailand \u00b7 Indonesia \u00b7 Korea \u00b7 global capital",
+    "meterFamily": "economy",
+    "theaterArchetype": "markets",
+    "premise": "Currency crashes cascade through Asia. You advise an IMF-facing cabinet on bailout size, conditionality, and whether to let a major firm fail as a lesson.",
+    "role": "International finance crisis counselor",
+    "tension": "Stop contagion without writing a moral-hazard blank check.",
+    "beats": [
+      {
+        "id": "hist-1997-1",
+        "title": "First bailout terms",
+        "briefing": "A program draft demands austerity and bank closures. Streets may burn; markets may stabilize.",
+        "stakes": "Conditionality is politics with decimals.",
+        "choices": [
+          {
+            "id": "hist-1997-1a",
+            "label": "Hard conditionality; front-load closures",
+            "detail": "Orthodox shock.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "HARD",
+            "callsign": "HARD CONDITIONALITY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Creditor calm"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Social pain"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Anti-IMF politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-1b",
+            "label": "Larger fund with softer fiscal path",
+            "detail": "Buy social peace.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "SOFT",
+            "callsign": "LARGER FUND",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Less unrest"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Moral hazard fear"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Liquidity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-1c",
+            "label": "Stand aside; let the float purge",
+            "detail": "No program.",
+            "kind": "political",
+            "markerId": "exchange",
+            "short": "ASIDE",
+            "callsign": "STAND ASIDE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Deeper crash"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "No bailout"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 3,
+                "summary": "Severe pain"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-2",
+        "title": "Contagion hop",
+        "briefing": "Korea and Indonesia wobble. Partners beg for a regional fund without Western vetoes.",
+        "stakes": "Architecture fights break out mid-fire.",
+        "choices": [
+          {
+            "id": "hist-1997-2a",
+            "label": "Support an IMF-centered package only",
+            "detail": "One doctor.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "IMFONLY",
+            "callsign": "SUPPORT AN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Central role"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Asian resentment"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Familiar tool"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-2b",
+            "label": "Endorse a regional swap network alongside IMF",
+            "detail": "Both layers.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "SWAP",
+            "callsign": "ENDORSE A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Regional ownership"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "More backstops"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Dilutes IMF brand"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-2c",
+            "label": "Bilateral swap to a key ally only",
+            "detail": "Pick winners.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "BILAT",
+            "callsign": "BILATERAL SWAP",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "One partner saved"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Others panic"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Favoritism"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-3",
+        "title": "Chaebol / connected firm",
+        "briefing": "A national champion is insolvent. Closing it teaches markets; saving it teaches politics.",
+        "stakes": "Lessons are expensive either way.",
+        "choices": [
+          {
+            "id": "hist-1997-3a",
+            "label": "Force restructuring with foreign participation",
+            "detail": "Open the books.",
+            "kind": "legal",
+            "markerId": "desk",
+            "short": "RESTRUCT",
+            "callsign": "FORCE RESTRUCTURING",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Cleanup"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Nationalist anger"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rules"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-3b",
+            "label": "Bridge loan with political oversight board",
+            "detail": "Save and supervise.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "BRIDGE",
+            "callsign": "BRIDGE LOAN",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Jobs held"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Bailout politics"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Zombie risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-3c",
+            "label": "Order orderly failure with deposit protections",
+            "detail": "Let it die safely.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "FAIL",
+            "callsign": "ORDER ORDERLY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "No sacred firms"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Job losses"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Clears deadwood"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-4",
+        "title": "Capital controls debate",
+        "briefing": "Some economists urge temporary controls; markets call it heresy.",
+        "stakes": "Heresy can be a tourniquet.",
+        "choices": [
+          {
+            "id": "hist-1997-4a",
+            "label": "Authorize temporary outflow controls",
+            "detail": "Stop the bleed.",
+            "kind": "legal",
+            "markerId": "em",
+            "short": "CONTROLS",
+            "callsign": "AUTHORIZE TEMPORARY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Breathing room"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Orthodoxy break"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Policy space"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-4b",
+            "label": "Reject controls; hike rates to defend",
+            "detail": "Classic defense.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "HIRE",
+            "callsign": "REJECT CONTROLS",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Orthodox"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Credit crunch"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "If it fails"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-4c",
+            "label": "Voluntary rollover roundtables with banks",
+            "detail": "Jawbone creditors.",
+            "kind": "diplomatic",
+            "markerId": "desk",
+            "short": "ROLLOVER",
+            "callsign": "VOLUNTARY ROLLOVER",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Private deal"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If honored"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Negotiation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-5",
+        "title": "Won/baht second-wave shock",
+        "briefing": "A new devaluation rumor hits before the first program bites. Your desk must choose deepen, redesign, or let float freely.",
+        "stakes": "Programs die in the second week.",
+        "choices": [
+          {
+            "id": "hist-1997-5a",
+            "label": "Deepen the program with larger official financing",
+            "detail": "Bigger firewall.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "DEEPEN",
+            "callsign": "DEEPEN THE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Firewall"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Commitment"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Austerity anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-5b",
+            "label": "Redesign toward bank restructuring first",
+            "detail": "Fix the pipes.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "BANKS",
+            "callsign": "REDESIGN TOWARD",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Solvency focus"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Sequence"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Closures"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-5c",
+            "label": "Allow a freer float and cut official money",
+            "detail": "Market purge.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "FLOAT",
+            "callsign": "ALLOW A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Overshoot risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Orthodox"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Pain"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-6",
+        "title": "Jakarta street politics",
+        "briefing": "Riots threaten program ownership. Sidelining cronies can stabilize\u2014or shatter the only implementers you have.",
+        "stakes": "Politics is the IMF\u2019s real collateral.",
+        "choices": [
+          {
+            "id": "hist-1997-6a",
+            "label": "Condition disbursements on transparent family-conglomerate cuts",
+            "detail": "Governance lever.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "CRONY",
+            "callsign": "CONDITION DISBURSEMENTS",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Reform signal"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Elite fight"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If believed"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-6b",
+            "label": "Ease conditionality to preserve a governing coalition",
+            "detail": "Ownership first.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "OWNER",
+            "callsign": "EASE CONDITIONALITY",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Cabinet holds"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Soft program"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Creditors wary"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-6c",
+            "label": "Fund social cash to buy calm while reforms proceed",
+            "detail": "Compensate losers.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "CASH",
+            "callsign": "FUND SOCIAL",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Calm"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Buffers"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Space for reform"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-7",
+        "title": "G7 coordination ask",
+        "briefing": "Partners disagree on Japan\u2019s role, US bilateral swaps, and Europe\u2019s exposure talk. A split official sector is contagion\u2019s friend.",
+        "stakes": "Official sector unity is a market instrument.",
+        "choices": [
+          {
+            "id": "hist-1997-7a",
+            "label": "Broker a joint financing statement with clear burdens",
+            "detail": "One voice.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "JOINT$",
+            "callsign": "BROKER A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Official unity"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Confidence"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Deal"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-7b",
+            "label": "Lead bilaterally and let others free-ride",
+            "detail": "Speed over fairness.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "BILAT$",
+            "callsign": "LEAD BILATERALLY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Fast money"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Resentment"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Some firepower"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-7c",
+            "label": "Push a regional fund concept alongside the Fund",
+            "detail": "Asian architecture.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "REGFUND",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Regional ownership"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Rivalry risk"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Build lag"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-8",
+        "title": "Data fog",
+        "briefing": "True NPL ratios and offshore liabilities are guesses. Markets punish opacity; transparency can trigger the run you fear.",
+        "stakes": "Accounting is crisis strategy.",
+        "choices": [
+          {
+            "id": "hist-1997-8a",
+            "label": "Force accelerated disclosure with official backstops ready",
+            "detail": "Sunlight plus net.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "DISCLOSE",
+            "callsign": "FORCE ACCELERATED",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Transparency"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If backstopped"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Shock day"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-8b",
+            "label": "Keep diagnostics private with creditors only",
+            "detail": "Quiet truth.",
+            "kind": "diplomatic",
+            "markerId": "desk",
+            "short": "PRIVATE",
+            "callsign": "KEEP DIAGNOSTICS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Creditor room"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Public fog"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Rumor premium"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-8c",
+            "label": "Publish stress ranges instead of point estimates",
+            "detail": "Honest uncertainty.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "RANGES",
+            "callsign": "PUBLISH STRESS",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Epistemic honesty"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Less fake precision"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Less cliff"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-9",
+        "title": "Capital-controls off-ramp",
+        "briefing": "A temporary controls proposal could stop outflow\u2014or destroy credibility for a decade. Malaysia\u2019s shadow hangs over the room.",
+        "stakes": "Heresy that might work.",
+        "choices": [
+          {
+            "id": "hist-1997-9a",
+            "label": "Authorize time-bound outflow controls with a sunset",
+            "detail": "Emergency brake.",
+            "kind": "economic",
+            "markerId": "em",
+            "short": "CONTROLS",
+            "callsign": "AUTHORIZE TIME",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Outflow slowed"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Orthodoxy break"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Breathing room"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-9b",
+            "label": "Reject controls; raise rates and show pain tolerance",
+            "detail": "Classic defense.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "RATES",
+            "callsign": "REJECT CONTROLS",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Orthodox"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Pain"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "If it fails"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-9c",
+            "label": "Offer selective controls only on short-term flows",
+            "detail": "Surgical heresy.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "SELECT",
+            "callsign": "OFFER SELECTIVE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Targeted"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Easier sell"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Still unorthodox"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1997-10",
+        "title": "Architecture endgame",
+        "briefing": "After the fires, cabinet asks whether to reform the Fund, build regional swaps, or preach self-insurance via reserves.",
+        "stakes": "The next crisis is designed now.",
+        "choices": [
+          {
+            "id": "hist-1997-10a",
+            "label": "Push Fund reform on transparency and banking standards",
+            "detail": "Global plumbing.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "FUNDREF",
+            "callsign": "PUSH FUND",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Lessons"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Better rules"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared project"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-10b",
+            "label": "Champion large national reserve accumulation",
+            "detail": "Self-insurance.",
+            "kind": "economic",
+            "markerId": "em",
+            "short": "RESERVES",
+            "callsign": "CHAMPION LARGE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "National buffers"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Less pooling"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Never again"
+              }
+            ]
+          },
+          {
+            "id": "hist-1997-10c",
+            "label": "Build a standing regional swap network",
+            "detail": "Neighbors first.",
+            "kind": "diplomatic",
+            "markerId": "desk",
+            "short": "SWAPS",
+            "callsign": "BUILD A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Regional glue"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Liquidity net"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Negotiation"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "se-asia",
+    "scenarioId": "hist-1997-contagion",
+    "title": "MARKET DESK",
+    "subtitle": "Global markets \u00b7 liquidity lane",
+    "water": "#061E2C",
+    "land": "#1A3A2E",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "exchange",
+        "label": "Exchange",
+        "x": 48.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fed",
+        "label": "Central bank",
+        "x": 32.0,
+        "y": 40.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "desk",
+        "label": "Trading desk",
+        "x": 58.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "treasury",
+        "label": "Treasury",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "em",
+        "label": "EM flows",
+        "x": 68.0,
+        "y": 58.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "energy",
+        "label": "Energy",
+        "x": 54.0,
+        "y": 64.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fed",
+        "to": "exchange"
+      },
+      {
+        "from": "exchange",
+        "to": "em"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "LIQUIDITY CORE",
+        "x": 36.0,
+        "y": 38.0,
+        "w": 30.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "periphery",
+        "label": "EM RING",
+        "x": 56.0,
+        "y": 52.0,
+        "w": 24.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "SE Asia (Natural Earth)",
+      "water": "#061E2C",
+      "land": "#1A3A2E",
+      "landHi": "#2A4A3E",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            76.27,
+            59.61
+          ],
+          [
+            74.38,
+            62.19
+          ],
+          [
+            76.83,
+            64.89
+          ],
+          [
+            76.25,
+            66.21
+          ],
+          [
+            79.99,
+            68.85
+          ],
+          [
+            76.04,
+            69.19
+          ],
+          [
+            74.93,
+            71.14
+          ],
+          [
+            75.07,
+            73.72
+          ],
+          [
+            71.87,
+            75.68
+          ],
+          [
+            71.78,
+            78.52
+          ],
+          [
+            70.49,
+            82.89
+          ],
+          [
+            70.0,
+            81.88
+          ],
+          [
+            66.22,
+            83.16
+          ],
+          [
+            64.9,
+            81.42
+          ],
+          [
+            62.52,
+            81.25
+          ],
+          [
+            60.86,
+            80.34
+          ],
+          [
+            56.89,
+            81.37
+          ],
+          [
+            55.68,
+            79.98
+          ],
+          [
+            53.49,
+            80.14
+          ],
+          [
+            50.75,
+            79.81
+          ],
+          [
+            50.24,
+            75.98
+          ],
+          [
+            48.57,
+            75.19
+          ],
+          [
+            46.97,
+            72.74
+          ],
+          [
+            46.51,
+            70.24
+          ],
+          [
+            46.9,
+            67.59
+          ],
+          [
+            48.88,
+            65.7
+          ],
+          [
+            49.43,
+            67.61
+          ],
+          [
+            51.71,
+            69.22
+          ],
+          [
+            53.86,
+            68.64
+          ],
+          [
+            55.99,
+            68.84
+          ],
+          [
+            57.93,
+            67.4
+          ],
+          [
+            59.53,
+            67.15
+          ],
+          [
+            62.69,
+            67.95
+          ],
+          [
+            65.4,
+            67.34
+          ],
+          [
+            67.11,
+            63.37
+          ],
+          [
+            68.4,
+            62.37
+          ],
+          [
+            69.55,
+            59.12
+          ],
+          [
+            73.38,
+            59.13
+          ],
+          [
+            76.27,
+            59.61
+          ]
+        ],
+        [
+          [
+            34.06,
+            30.65
+          ],
+          [
+            30.94,
+            30.24
+          ],
+          [
+            26.63,
+            30.78
+          ],
+          [
+            24.49,
+            33.16
+          ],
+          [
+            25.28,
+            36.61
+          ],
+          [
+            22.29,
+            35.3
+          ],
+          [
+            19.44,
+            35.35
+          ],
+          [
+            19.93,
+            33.11
+          ],
+          [
+            16.99,
+            33.12
+          ],
+          [
+            16.73,
+            36.27
+          ],
+          [
+            14.93,
+            40.44
+          ],
+          [
+            13.85,
+            42.96
+          ],
+          [
+            14.07,
+            45.03
+          ],
+          [
+            16.25,
+            45.12
+          ],
+          [
+            17.6,
+            47.73
+          ],
+          [
+            18.2,
+            50.2
+          ],
+          [
+            20.06,
+            51.84
+          ],
+          [
+            22.08,
+            52.17
+          ],
+          [
+            23.8,
+            53.65
+          ],
+          [
+            22.71,
+            54.83
+          ],
+          [
+            20.51,
+            55.17
+          ],
+          [
+            20.25,
+            53.7
+          ],
+          [
+            17.53,
+            52.45
+          ],
+          [
+            16.95,
+            52.96
+          ],
+          [
+            15.64,
+            51.86
+          ],
+          [
+            15.07,
+            50.45
+          ],
+          [
+            13.29,
+            48.83
+          ],
+          [
+            11.68,
+            47.48
+          ],
+          [
+            11.13,
+            49.16
+          ],
+          [
+            10.5,
+            47.57
+          ],
+          [
+            10.86,
+            45.79
+          ],
+          [
+            11.85,
+            43.05
+          ],
+          [
+            13.46,
+            40.11
+          ],
+          [
+            15.29,
+            37.45
+          ],
+          [
+            13.99,
+            34.84
+          ],
+          [
+            14.04,
+            33.52
+          ],
+          [
+            13.66,
+            31.92
+          ],
+          [
+            11.44,
+            29.65
+          ],
+          [
+            10.64,
+            28.22
+          ],
+          [
+            11.79,
+            27.69
+          ],
+          [
+            13.01,
+            25.21
+          ],
+          [
+            11.65,
+            23.32
+          ],
+          [
+            9.53,
+            21.23
+          ],
+          [
+            7.92,
+            18.73
+          ],
+          [
+            9.33,
+            18.21
+          ],
+          [
+            10.85,
+            15.12
+          ],
+          [
+            13.2,
+            14.99
+          ],
+          [
+            15.14,
+            13.75
+          ],
+          [
+            17.05,
+            13.09
+          ],
+          [
+            18.5,
+            13.97
+          ],
+          [
+            18.69,
+            15.69
+          ],
+          [
+            20.94,
+            15.82
+          ],
+          [
+            20.12,
+            18.83
+          ],
+          [
+            20.2,
+            21.39
+          ],
+          [
+            23.71,
+            19.69
+          ],
+          [
+            24.71,
+            20.19
+          ],
+          [
+            26.66,
+            20.11
+          ],
+          [
+            27.33,
+            19.12
+          ],
+          [
+            29.85,
+            19.31
+          ],
+          [
+            32.39,
+            21.63
+          ],
+          [
+            32.6,
+            24.45
+          ],
+          [
+            35.3,
+            26.94
+          ],
+          [
+            35.15,
+            29.36
+          ],
+          [
+            34.06,
+            30.65
+          ]
+        ],
+        [
+          [
+            31.23,
+            74.53
+          ],
+          [
+            31.8,
+            76.52
+          ],
+          [
+            32.96,
+            78.12
+          ],
+          [
+            35.41,
+            78.37
+          ],
+          [
+            37.03,
+            80.18
+          ],
+          [
+            36.19,
+            83.73
+          ],
+          [
+            36.06,
+            88.15
+          ],
+          [
+            32.37,
+            88.21
+          ],
+          [
+            29.56,
+            85.82
+          ],
+          [
+            25.28,
+            83.49
+          ],
+          [
+            23.85,
+            81.75
+          ],
+          [
+            21.33,
+            79.43
+          ],
+          [
+            19.68,
+            77.29
+          ],
+          [
+            17.14,
+            73.29
+          ],
+          [
+            14.21,
+            70.91
+          ],
+          [
+            13.23,
+            68.45
+          ],
+          [
+            12.0,
+            66.22
+          ],
+          [
+            9.0,
+            64.42
+          ],
+          [
+            7.26,
+            61.97
+          ],
+          [
+            4.75,
+            60.37
+          ],
+          [
+            1.27,
+            57.23
+          ],
+          [
+            0.98,
+            55.77
+          ],
+          [
+            3.12,
+            55.89
+          ],
+          [
+            8.28,
+            56.44
+          ],
+          [
+            11.23,
+            59.23
+          ],
+          [
+            13.81,
+            61.17
+          ],
+          [
+            15.65,
+            62.36
+          ],
+          [
+            18.8,
+            65.43
+          ],
+          [
+            22.19,
+            65.48
+          ],
+          [
+            24.99,
+            67.43
+          ],
+          [
+            26.92,
+            69.82
+          ],
+          [
+            29.46,
+            71.13
+          ],
+          [
+            28.13,
+            73.46
+          ],
+          [
+            30.04,
+            74.45
+          ],
+          [
+            31.23,
+            74.53
+          ]
+        ],
+        [
+          [
+            31.11,
+            41.47
+          ],
+          [
+            34.0,
+            40.32
+          ],
+          [
+            37.5,
+            40.11
+          ],
+          [
+            36.04,
+            38.38
+          ],
+          [
+            41.64,
+            36.18
+          ],
+          [
+            42.05,
+            32.76
+          ],
+          [
+            41.28,
+            30.85
+          ],
+          [
+            41.88,
+            27.99
+          ],
+          [
+            41.04,
+            25.98
+          ],
+          [
+            38.52,
+            23.99
+          ],
+          [
+            36.42,
+            21.47
+          ],
+          [
+            33.65,
+            18.09
+          ],
+          [
+            29.66,
+            16.39
+          ],
+          [
+            30.61,
+            15.36
+          ],
+          [
+            32.74,
+            14.61
+          ],
+          [
+            31.45,
+            12.12
+          ],
+          [
+            27.35,
+            12.1
+          ],
+          [
+            25.85,
+            9.5
+          ],
+          [
+            23.9,
+            7.24
+          ],
+          [
+            25.69,
+            6.55
+          ],
+          [
+            28.35,
+            6.56
+          ],
+          [
+            31.59,
+            6.23
+          ],
+          [
+            34.43,
+            4.71
+          ],
+          [
+            36.04,
+            5.78
+          ],
+          [
+            39.08,
+            6.3
+          ],
+          [
+            38.56,
+            7.95
+          ],
+          [
+            40.14,
+            9.11
+          ],
+          [
+            43.5,
+            9.85
+          ],
+          [
+            39.05,
+            12.29
+          ],
+          [
+            36.27,
+            14.99
+          ],
+          [
+            35.54,
+            16.98
+          ],
+          [
+            38.09,
+            19.99
+          ],
+          [
+            41.21,
+            23.72
+          ],
+          [
+            44.23,
+            25.49
+          ],
+          [
+            46.26,
+            27.78
+          ],
+          [
+            47.78,
+            33.07
+          ],
+          [
+            47.33,
+            38.09
+          ],
+          [
+            44.55,
+            39.98
+          ],
+          [
+            40.74,
+            41.82
+          ],
+          [
+            38.02,
+            44.2
+          ],
+          [
+            33.86,
+            46.86
+          ],
+          [
+            32.65,
+            45.03
+          ],
+          [
+            33.59,
+            43.09
+          ],
+          [
+            31.11,
+            41.47
+          ]
+        ],
+        [
+          [
+            76.27,
+            59.61
+          ],
+          [
+            73.38,
+            59.13
+          ],
+          [
+            69.55,
+            59.12
+          ],
+          [
+            68.4,
+            62.37
+          ],
+          [
+            67.11,
+            63.37
+          ],
+          [
+            65.4,
+            67.34
+          ],
+          [
+            62.69,
+            67.95
+          ],
+          [
+            59.53,
+            67.15
+          ],
+          [
+            57.93,
+            67.4
+          ],
+          [
+            55.99,
+            68.84
+          ],
+          [
+            53.86,
+            68.64
+          ],
+          [
+            51.71,
+            69.22
+          ],
+          [
+            49.43,
+            67.61
+          ],
+          [
+            48.88,
+            65.7
+          ],
+          [
+            51.32,
+            66.67
+          ],
+          [
+            53.9,
+            66.14
+          ],
+          [
+            54.57,
+            63.72
+          ],
+          [
+            55.99,
+            63.18
+          ],
+          [
+            59.99,
+            62.56
+          ],
+          [
+            62.38,
+            60.3
+          ],
+          [
+            64.01,
+            58.5
+          ],
+          [
+            65.53,
+            59.98
+          ],
+          [
+            66.23,
+            59.0
+          ],
+          [
+            67.82,
+            59.1
+          ],
+          [
+            68.02,
+            57.27
+          ],
+          [
+            68.17,
+            55.86
+          ],
+          [
+            70.74,
+            53.88
+          ],
+          [
+            72.42,
+            51.64
+          ],
+          [
+            73.77,
+            51.63
+          ],
+          [
+            75.48,
+            53.08
+          ],
+          [
+            75.63,
+            54.32
+          ],
+          [
+            77.83,
+            55.12
+          ],
+          [
+            80.61,
+            55.98
+          ],
+          [
+            80.37,
+            57.1
+          ],
+          [
+            78.13,
+            57.24
+          ],
+          [
+            78.73,
+            58.63
+          ],
+          [
+            76.27,
+            59.61
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Bangkok",
+          "x": 50.0,
+          "y": 32.0
+        },
+        {
+          "name": "Singapore",
+          "x": 52.0,
+          "y": 62.0
+        },
+        {
+          "name": "Jakarta",
+          "x": 58.0,
+          "y": 82.0
+        },
+        {
+          "name": "HK",
+          "x": 60.0,
+          "y": 12.0
+        }
+      ]
+    }
+  }
+}

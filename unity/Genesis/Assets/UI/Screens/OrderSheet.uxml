@@ -1,0 +1,45 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/OrderSheet.uss" />
+
+    <!-- Safe-area root: fills the panel -->
+    <ui:VisualElement name="safeRoot" picking-mode="Ignore" class="screen-fill">
+
+        <!-- Map spacer: transparent, fills space above sheet so map shows through -->
+        <ui:VisualElement name="mapSpacerSheet" class="flex-grow" picking-mode="Ignore" />
+
+        <!-- Glass bottom sheet (initially hidden, shown by OrderRailController) -->
+        <ui:VisualElement name="sheet" class="order-sheet hidden">
+
+            <!-- Drag handle strip -->
+            <ui:VisualElement name="dragHandle" class="drag-handle">
+                <ui:VisualElement class="drag-pill" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <!-- Header: place name · beat title -->
+            <ui:VisualElement name="sheetHeader" class="sheet-header" picking-mode="Ignore">
+                <ui:Label name="placeNameLabel" text="LOCATION" class="place-name-label" picking-mode="Ignore" />
+                <ui:Label name="beatTitleLabel" text="Select an order" class="beat-title-label" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <!-- Horizontal scrollable order cards -->
+            <ui:ScrollView name="cardScrollView" class="card-scroll"
+                           horizontal-scroller-visibility="Hidden"
+                           vertical-scroller-visibility="Hidden"
+                           mode="Horizontal"
+                           mouse-wheel-scroll-size="100" />
+
+            <!-- Hold-to-confirm button (injected by C#) -->
+            <ui:VisualElement name="holdButtonContainer" class="hold-button-container" />
+
+            <!-- Bottom safe area spacer -->
+            <ui:VisualElement name="gestureSpacer" class="gesture-spacer" picking-mode="Ignore" />
+
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

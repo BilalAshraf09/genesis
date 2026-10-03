@@ -1,0 +1,262 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* CommandHud.uss — Top bar + meter strip for the GenesisPlay command screen.
+   Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
+   Do NOT edit tokens.uss or components.uss — new rules only here. */
+
+/* ---- Layout helpers ----------------------------------------- */
+
+.screen-fill {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---- Top bar ------------------------------------------------- */
+
+.top-bar {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    min-height: 112px;
+    background-color: var(--color-glass);
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-border);
+    border-radius: 0;
+}
+
+.back-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background-color: rgba(255,255,255,0.06);
+    border-width: 1px;
+    border-color: var(--color-border);
+    margin-right: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    flex-shrink: 0;
+    transition-duration: 0.15s;
+}
+
+.back-btn > Label {
+    color: var(--color-text-primary);
+    font-size: 28px;
+    -unity-text-align: middle-center;
+    margin-right: 4px; /* optical center for triangle */
+}
+
+.back-btn:active {
+    background-color: rgba(255,255,255,0.12);
+    scale: 0.95 0.95;
+}
+
+.top-title {
+    flex-grow: 1;
+    font-size: 36px;
+    color: var(--color-text-primary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.top-right-group {
+    align-items: flex-end;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+.phase-label {
+    font-size: 26px;
+    color: var(--color-text-secondary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.timer-label {
+    font-size: 24px;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+}
+
+/* ---- Timer bar (amber accent) -------------------------------- */
+
+.timer-bar {
+    width: 120px;
+    height: 6px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+    overflow: hidden;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.05);
+}
+
+.timer-fill {
+    height: 100%;
+    background-color: var(--color-accent);
+    border-radius: 3px;
+    transition-duration: 0.5s;
+}
+
+.timer-fill--urgent {
+    background-color: var(--color-cost);
+}
+
+/* ---- Meter strip --------------------------------------------- */
+
+.meter-strip {
+    flex-direction: row;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgba(11,18,32,0.85);
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-border);
+    min-height: 72px;
+}
+
+.meter-col {
+    flex: 1;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.meter-label {
+    font-size: 22px;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.5px;
+}
+
+.meter {
+    height: 10px;
+    background-color: rgba(0,0,0,0.25);
+    border-radius: 5px;
+    overflow: hidden;
+    border-width: 1px;
+    border-color: rgba(255,255,255,0.03);
+}
+
+.meter__fill {
+    height: 100%;
+    border-radius: 5px;
+    transition-duration: 0.8s;
+}
+
+/* Pillar colors */
+.meter__fill--stab { background-color: var(--color-gain); }
+.meter__fill--cred { background-color: var(--color-info); }
+.meter__fill--toll { background-color: var(--color-cost); }
+.meter__fill--esc  { background-color: var(--color-accent); }
+
+/* ---- Intel chip ---------------------------------------------- */
+
+.intel-chip {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 12px;
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--color-glass);
+    border-radius: var(--radius-md);
+    border-width: 1px;
+    border-color: rgba(90, 169, 230, 0.2); /* Info tint border */
+}
+
+.intel-icon {
+    font-size: 32px;
+    color: var(--color-info);
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.intel-body {
+    flex-grow: 1;
+    font-size: 30px;
+    color: var(--color-text-primary);
+    white-space: normal;
+}
+
+/* ---- Field brief card ---------------------------------------- */
+
+.field-brief {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 12px;
+    padding: 24px 28px;
+    flex-direction: column;
+    background-color: rgba(17,26,43,0.92);
+    border-radius: var(--radius-lg);
+    border-width: 1px;
+    border-color: rgba(245, 165, 36, 0.25); /* Accent tint border */
+}
+
+.brief-headline {
+    font-size: 34px;
+    color: var(--color-accent);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 8px;
+}
+
+.brief-fact {
+    font-size: 30px;
+    color: var(--color-text-secondary);
+    white-space: normal;
+}
+
+/* ---- Commit toast -------------------------------------------- */
+
+.commit-toast {
+    align-self: center;
+    margin-top: 16px;
+    font-size: 32px;
+    color: var(--color-accent);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: middle-center;
+    padding: 12px 32px;
+    background-color: rgba(245,165,36,0.15);
+    border-radius: 40px;
+    border-width: 1px;
+    border-color: rgba(245,165,36,0.3);
+}
+
+/* ---- Mission toast (absolute, centered) ---------------------- */
+
+.mission-toast {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    top: 38%;
+    font-size: 44px;
+    color: var(--color-text-primary);
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    background-color: rgba(11,18,32,0.95);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    align-self: center;
+    border-width: 2px;
+    border-color: var(--color-accent);
+    text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+}
+

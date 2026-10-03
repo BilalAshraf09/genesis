@@ -1,0 +1,73 @@
+<!--
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+
+    <!-- Root fills the whole panel -->
+    <ui:VisualElement name="smokeTestRoot" class="screen"
+        style="background-color: #0B1220; flex-direction: column;">
+
+        <!-- Top bar (glass) -->
+        <ui:VisualElement name="topBar" class="glass"
+            style="flex-direction: row; align-items: center;
+                   padding-left: 24px; padding-right: 24px;
+                   padding-top: 16px; padding-bottom: 16px;
+                   border-radius: 0; border-bottom-left-radius: 0;
+                   border-bottom-right-radius: 0; border-top-left-radius: 0;
+                   border-top-right-radius: 0;">
+            <ui:Label name="backArrow" text="◀" class="label-title"
+                style="margin-right: 16px;" />
+            <ui:Label name="topBarTitle" text="1947 · India Partition" class="label-title"
+                style="flex-grow: 1;" />
+            <ui:Label name="phaseLabel" text="Phase 1/3" class="label-caption" />
+        </ui:VisualElement>
+
+        <!-- Spacer / map area placeholder -->
+        <ui:VisualElement name="mapPlaceholder"
+            style="flex-grow: 1; background-color: #0B1220;
+                   align-items: center; justify-content: center;">
+            <ui:Label text="[ Map Area ]" class="label-muted" />
+        </ui:VisualElement>
+
+        <!-- Card section -->
+        <ui:VisualElement name="contentArea"
+            style="padding: 16px; flex-direction: column;">
+
+            <ui:VisualElement name="sampleCard" class="card card--selected"
+                style="margin-bottom: 16px;">
+                <ui:Label name="cardTitle" text="Punjab Partition" class="label-title"
+                    style="margin-bottom: 8px;" />
+                <ui:Label name="cardBody"
+                    text="Mountbatten sets 15 Aug as the transfer date — two days before the Radcliffe award is published."
+                    class="label-body"
+                    style="margin-bottom: 12px;" />
+
+                <!-- Chips row -->
+                <ui:VisualElement name="chipsRow"
+                    style="flex-direction: row; flex-wrap: wrap;">
+                    <ui:Label name="chipGain" text="▲ Credibility" class="chip chip--gain"
+                        style="margin-right: 8px; margin-bottom: 4px;" />
+                    <ui:Label name="chipCost" text="▼ Civilian cost" class="chip chip--cost"
+                        style="margin-right: 8px; margin-bottom: 4px;" />
+                    <ui:Label name="chipWarn" text="⚠ Escalation" class="chip chip--warn"
+                        style="margin-bottom: 4px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- Primary action button -->
+            <ui:Button name="authoriseBtn" class="btn btn--primary"
+                style="margin-top: 12px;">
+                <ui:Label text="HOLD TO AUTHORISE" class="label-title"
+                    style="color: #1A1206;" />
+            </ui:Button>
+
+        </ui:VisualElement>
+
+        <!-- Safe-area spacer at bottom -->
+        <ui:VisualElement name="bottomSafeArea" style="height: 24px;" />
+
+    </ui:VisualElement>
+</ui:UXML>

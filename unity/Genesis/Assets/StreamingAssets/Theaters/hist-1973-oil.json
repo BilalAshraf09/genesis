@@ -1,0 +1,1658 @@
+{
+  "scenario": {
+    "id": "hist-1973-oil",
+    "year": 1973,
+    "era": "1962\u20131979",
+    "title": "Embargo Shock",
+    "region": "Gulf producers \u00b7 OPEC \u00b7 consumer economies",
+    "meterFamily": "economy",
+    "theaterArchetype": "markets",
+    "premise": "An oil embargo and price spike hit growth, alliances, and domestic order. You advise a consumer-government crisis cell on rationing, diplomacy, and whether to threaten force for supply.",
+    "role": "Energy and economy crisis director",
+    "tension": "Keep society functioning without turning energy into open war.",
+    "beats": [
+      {
+        "id": "hist-1973-1",
+        "title": "Rationing politics",
+        "briefing": "Queues form. Industry wants priority; voters want fairness.",
+        "stakes": "Allocation is legitimacy.",
+        "choices": [
+          {
+            "id": "hist-1973-1a",
+            "label": "Odd-even rationing with industrial priority carve-outs",
+            "detail": "Hybrid fairness.",
+            "kind": "civic",
+            "markerId": "energy",
+            "short": "RATION",
+            "callsign": "ODD EVEN",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Some order"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Industry held"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Carve-out anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-1b",
+            "label": "Price liberalization to clear queues",
+            "detail": "Let prices ration.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "PRICE",
+            "callsign": "PRICE LIBERALIZATION",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Queues shrink"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Cost shock"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Voters hurt"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-1c",
+            "label": "Strategic reserve release for essentials only",
+            "detail": "Targeted calm.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "SPR",
+            "callsign": "STRATEGIC RESERVE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Blunts spike"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys weeks"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Finite card"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-2",
+        "title": "Alliance split",
+        "briefing": "Partners cut separate deals with producers. Your unity message is failing.",
+        "stakes": "Every bilateral deal weakens the next negotiation.",
+        "choices": [
+          {
+            "id": "hist-1973-2a",
+            "label": "Propose a consumers\u2019 cartel coordination desk",
+            "detail": "Joint purchasing.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "CARTEL",
+            "callsign": "PROPOSE A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared frame"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Buyer power"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Counter-table"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-2b",
+            "label": "Authorize your own bilateral supply deal",
+            "detail": "Secure your barrels.",
+            "kind": "economic",
+            "markerId": "energy",
+            "short": "BILAT",
+            "callsign": "AUTHORIZE YOUR",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Your supply"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Defect"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Lectures ring hollow"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-2c",
+            "label": "Tie diplomacy to a Middle East ceasefire push",
+            "detail": "Politics for oil.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "PEACE",
+            "callsign": "TIE DIPLOMACY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Linkage"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Complex talks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-3",
+        "title": "Force talk",
+        "briefing": "Admirals float contingency plans to seize fields. Leak risk is extreme.",
+        "stakes": "Even studying force can explode the crisis.",
+        "choices": [
+          {
+            "id": "hist-1973-3a",
+            "label": "Kill force planning; invest in efficiency mandates",
+            "detail": "Demand destruction.",
+            "kind": "civic",
+            "markerId": "desk",
+            "short": "EFFIC",
+            "callsign": "KILL FORCE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Longer fix"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "No war path"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Lifestyle hit"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-3b",
+            "label": "Keep planning secret as deterrent only",
+            "detail": "Shadow option.",
+            "kind": "kinetic",
+            "markerId": "energy",
+            "short": "SHADOW",
+            "callsign": "KEEP PLANNING",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Unknown risk"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "If leaked"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hypocrisy risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-3c",
+            "label": "Publicly rule out seizure; seek producer investment deals",
+            "detail": "Interdependence.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "INVEST",
+            "callsign": "PUBLICLY RULE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Positive sum pitch"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Capital flows"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "No stick"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-4",
+        "title": "New normal",
+        "briefing": "Prices may not return. You need a multi-year energy doctrine.",
+        "stakes": "Crisis policy becomes industrial policy.",
+        "choices": [
+          {
+            "id": "hist-1973-4a",
+            "label": "Crash program for domestic supply and nuclear",
+            "detail": "Independence bid.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "DOMESTIC",
+            "callsign": "CRASH PROGRAM",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Long game"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Future supply"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Siting fights"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-4b",
+            "label": "International energy agency with shared stocks",
+            "detail": "Institutionalize buffers.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "IEA",
+            "callsign": "INTERNATIONAL ENERGY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared stocks"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Buffers"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Rules"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-4c",
+            "label": "Accept higher prices; protect poorest with transfers",
+            "detail": "Adaptation.",
+            "kind": "civic",
+            "markerId": "exchange",
+            "short": "TRANSFER",
+            "callsign": "ACCEPT HIGHER",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Targeted help"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Cushion"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Prices work"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-5",
+        "title": "Spot price spike shock",
+        "briefing": "Prices gap beyond models. Rationing lines form. Your next 48 hours decide whether markets or politics allocate scarcity.",
+        "stakes": "Allocation is legitimacy.",
+        "choices": [
+          {
+            "id": "hist-1973-5a",
+            "label": "Impose odd-even rationing with hardship exceptions",
+            "detail": "Administrative fairness.",
+            "kind": "political",
+            "markerId": "energy",
+            "short": "RATION",
+            "callsign": "IMPOSE ODD",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Perceived fairness"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Distortion"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some equity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-5b",
+            "label": "Let prices clear and expand targeted cash transfers",
+            "detail": "Market plus cushion.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "PRICE",
+            "callsign": "LET PRICES",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Clearing"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Anger at prices"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Coherent tool"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-5c",
+            "label": "Seize stocks and allocate to priority sectors by decree",
+            "detail": "Command allocation.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "SEIZE",
+            "callsign": "SEIZE STOCKS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Control"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Property shock"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Chaos premium"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-6",
+        "title": "Domestic heating politics",
+        "briefing": "Winter approaches. Regional equity fights erupt. Your coalition can break on thermostat politics.",
+        "stakes": "Energy is federalism under stress.",
+        "choices": [
+          {
+            "id": "hist-1973-6a",
+            "label": "Create a national heating equalization fund",
+            "detail": "Share the cold.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "HEAT",
+            "callsign": "CREATE A",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Equity"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Less regional war"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Fiscal cost"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-6b",
+            "label": "Leave allocation to states with federal guidance only",
+            "detail": "Federalism.",
+            "kind": "political",
+            "markerId": "em",
+            "short": "STATES",
+            "callsign": "LEAVE ALLOCATION",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Patchwork"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Blame shifts"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Faster local"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-6c",
+            "label": "Prioritize industrial continuity over household comfort",
+            "detail": "Production first.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "INDUSTRY",
+            "callsign": "PRIORITIZE INDUSTRIAL",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Output"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Households suffer"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Class anger"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-7",
+        "title": "Alliance recycling ask",
+        "briefing": "Partners want petrodollar recycling and shared stock drawdowns. Free-riding accusations fly.",
+        "stakes": "Consumer solidarity is hard under scarcity.",
+        "choices": [
+          {
+            "id": "hist-1973-7a",
+            "label": "Commit to proportional SPR-like draws with partners",
+            "detail": "Share the buffer.",
+            "kind": "diplomatic",
+            "markerId": "energy",
+            "short": "SPR",
+            "callsign": "COMMIT TO",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Consumer bloc"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Coordinated calm"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys weeks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-7b",
+            "label": "Hoard national stocks; offer only intelligence sharing",
+            "detail": "National first.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "HOARD",
+            "callsign": "HOARD NATIONAL",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "National buffer"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -3,
+                "summary": "Partners bitter"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Selfish optics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-7c",
+            "label": "Propose a joint purchasing agency to reduce bidding wars",
+            "detail": "Buyer power.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "BUYER",
+            "callsign": "PROPOSE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Less frenzy"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Institution"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Setup"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-8",
+        "title": "Force-option rumor fog",
+        "briefing": "Rumors of seizure plans against fields circulate. Markets spike on the rumor alone. You must kill, confirm, or instrumentalize it.",
+        "stakes": "Deterrence theater can become accidental policy.",
+        "choices": [
+          {
+            "id": "hist-1973-8a",
+            "label": "Publicly renounce seizure options; double diplomacy",
+            "detail": "Kill the rumor.",
+            "kind": "diplomatic",
+            "markerId": "exchange",
+            "short": "RENOUNCE",
+            "callsign": "PUBLICLY RENOUNCE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talks first"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "War talk down"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less fear leverage"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-8b",
+            "label": "Keep ambiguity as bargaining leverage",
+            "detail": "Strategic silence.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "AMBIG2",
+            "callsign": "KEEP AMBIGUITY",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Fear premium"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Misread risk"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Risk premium"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-8c",
+            "label": "Launch a leak probe and brief markets on continuity plans",
+            "detail": "Calm the tape.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "PROBE2",
+            "callsign": "LAUNCH A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Messaging"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Adult supervision"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Focus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-9",
+        "title": "Diplomatic off-ramp",
+        "briefing": "A package links partial supply restoration to a negotiation calendar on the underlying conflict. Spoilers abound.",
+        "stakes": "Energy peace is rarely only about energy.",
+        "choices": [
+          {
+            "id": "hist-1973-9a",
+            "label": "Endorse a linked calendar with verification on barrels",
+            "detail": "Oil for process.",
+            "kind": "diplomatic",
+            "markerId": "energy",
+            "short": "OILPROC",
+            "callsign": "ENDORSE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Linked deal"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Supply hope"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared track"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-9b",
+            "label": "Insist on delinking energy from the political dispute",
+            "detail": "Separate tracks.",
+            "kind": "political",
+            "markerId": "fed",
+            "short": "DELINK",
+            "callsign": "INSIST ON",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Principle"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder bargain"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Delay"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-9c",
+            "label": "Offer technology and food offsets for interim barrels",
+            "detail": "Side payments.",
+            "kind": "economic",
+            "markerId": "em",
+            "short": "OFFSET",
+            "callsign": "OFFER TECHNOLOGY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Sweeteners"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Some barrels"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Transactional"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1973-10",
+        "title": "New-normal endgame",
+        "briefing": "You must choose whether to treat scarcity as temporary or to lock in efficiency, diversification, and strategic stocks as doctrine.",
+        "stakes": "The shock becomes structure\u2014or is forgotten.",
+        "choices": [
+          {
+            "id": "hist-1973-10a",
+            "label": "Mandate strategic stocks and efficiency standards",
+            "detail": "Institutionalize resilience.",
+            "kind": "economic",
+            "markerId": "energy",
+            "short": "RESIL",
+            "callsign": "MANDATE STRATEGIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Buffers"
+              },
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Learned lesson"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Regulation fights"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-10b",
+            "label": "Sunset emergency powers and return to pre-shock norms",
+            "detail": "Normalcy bias.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "SUNSET2",
+            "callsign": "SUNSET EMERGENCY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Emergency ends"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Unprepared next time"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Relief"
+              }
+            ]
+          },
+          {
+            "id": "hist-1973-10c",
+            "label": "Prioritize producer-consumer conference architecture",
+            "detail": "Diplomacy as structure.",
+            "kind": "diplomatic",
+            "markerId": "exchange",
+            "short": "CONF",
+            "callsign": "PRIORITIZE PRODUCER",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Standing forum"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared table"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "gulf",
+    "scenarioId": "hist-1973-oil",
+    "title": "MARKET DESK",
+    "subtitle": "Global markets \u00b7 liquidity lane",
+    "water": "#0A2434",
+    "land": "#2A2818",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "exchange",
+        "label": "Exchange",
+        "x": 48.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fed",
+        "label": "Central bank",
+        "x": 32.0,
+        "y": 40.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "desk",
+        "label": "Trading desk",
+        "x": 58.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "treasury",
+        "label": "Treasury",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "em",
+        "label": "EM flows",
+        "x": 68.0,
+        "y": 58.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "energy",
+        "label": "Energy",
+        "x": 54.0,
+        "y": 64.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fed",
+        "to": "exchange"
+      },
+      {
+        "from": "exchange",
+        "to": "em"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "LIQUIDITY CORE",
+        "x": 36.0,
+        "y": 38.0,
+        "w": 30.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "periphery",
+        "label": "EM RING",
+        "x": 56.0,
+        "y": 52.0,
+        "w": 24.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "gulf",
+    "geo": {
+      "label": "Persian Gulf \u00b7 Hormuz (Natural Earth)",
+      "water": "#0A2434",
+      "land": "#2A2818",
+      "landHi": "#3A3824",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "gulf",
+      "reliefKey": "gulf",
+      "lands": [
+        [
+          [
+            20.76,
+            44.85
+          ],
+          [
+            18.25,
+            41.93
+          ],
+          [
+            18.2,
+            38.97
+          ],
+          [
+            16.75,
+            38.97
+          ],
+          [
+            17.5,
+            34.95
+          ],
+          [
+            15.16,
+            30.73
+          ],
+          [
+            9.59,
+            27.68
+          ],
+          [
+            6.44,
+            22.4
+          ],
+          [
+            7.49,
+            18.07
+          ],
+          [
+            9.78,
+            16.15
+          ],
+          [
+            9.44,
+            12.9
+          ],
+          [
+            6.46,
+            11.24
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            1.03,
+            0.5
+          ],
+          [
+            1.92,
+            0.5
+          ],
+          [
+            6.63,
+            0.5
+          ],
+          [
+            9.74,
+            0.5
+          ],
+          [
+            11.39,
+            0.5
+          ],
+          [
+            18.23,
+            0.5
+          ],
+          [
+            21.07,
+            0.5
+          ],
+          [
+            22.2,
+            0.5
+          ],
+          [
+            23.63,
+            2.32
+          ],
+          [
+            27.94,
+            3.47
+          ],
+          [
+            31.1,
+            6.26
+          ],
+          [
+            37.56,
+            7.22
+          ],
+          [
+            44.66,
+            5.75
+          ],
+          [
+            45.1,
+            4.45
+          ],
+          [
+            49.09,
+            3.38
+          ],
+          [
+            52.33,
+            0.5
+          ],
+          [
+            55.37,
+            0.5
+          ],
+          [
+            57.36,
+            0.5
+          ],
+          [
+            60.59,
+            0.5
+          ],
+          [
+            65.62,
+            2.65
+          ],
+          [
+            69.25,
+            3.26
+          ],
+          [
+            74.44,
+            8.18
+          ],
+          [
+            77.83,
+            8.38
+          ],
+          [
+            78.23,
+            13.06
+          ],
+          [
+            76.38,
+            19.98
+          ],
+          [
+            75.13,
+            24.02
+          ],
+          [
+            77.11,
+            24.84
+          ],
+          [
+            75.16,
+            27.88
+          ],
+          [
+            76.65,
+            32.32
+          ],
+          [
+            77.01,
+            35.84
+          ],
+          [
+            80.45,
+            36.78
+          ],
+          [
+            80.82,
+            40.36
+          ],
+          [
+            76.7,
+            45.39
+          ],
+          [
+            78.95,
+            48.32
+          ],
+          [
+            80.78,
+            51.67
+          ],
+          [
+            85.13,
+            54.11
+          ],
+          [
+            85.25,
+            59.01
+          ],
+          [
+            87.43,
+            59.91
+          ],
+          [
+            87.8,
+            62.46
+          ],
+          [
+            81.25,
+            65.33
+          ],
+          [
+            79.53,
+            71.79
+          ],
+          [
+            70.98,
+            70.11
+          ],
+          [
+            66.03,
+            68.83
+          ],
+          [
+            60.9,
+            68.11
+          ],
+          [
+            58.96,
+            61.3
+          ],
+          [
+            56.78,
+            60.31
+          ],
+          [
+            53.29,
+            61.31
+          ],
+          [
+            48.7,
+            64.0
+          ],
+          [
+            43.15,
+            62.15
+          ],
+          [
+            38.56,
+            57.88
+          ],
+          [
+            34.19,
+            56.3
+          ],
+          [
+            31.15,
+            51.03
+          ],
+          [
+            27.8,
+            43.62
+          ],
+          [
+            25.35,
+            44.52
+          ],
+          [
+            22.46,
+            42.68
+          ],
+          [
+            20.76,
+            44.85
+          ]
+        ],
+        [
+          [
+            0.5,
+            4.13
+          ],
+          [
+            1.33,
+            5.55
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            6.46,
+            11.24
+          ],
+          [
+            9.44,
+            12.9
+          ],
+          [
+            9.78,
+            16.15
+          ],
+          [
+            7.49,
+            18.07
+          ],
+          [
+            6.44,
+            22.4
+          ],
+          [
+            9.59,
+            27.68
+          ],
+          [
+            15.16,
+            30.73
+          ],
+          [
+            17.5,
+            34.95
+          ],
+          [
+            16.75,
+            38.97
+          ],
+          [
+            18.2,
+            38.97
+          ],
+          [
+            18.25,
+            41.93
+          ],
+          [
+            20.76,
+            44.85
+          ],
+          [
+            18.07,
+            44.58
+          ],
+          [
+            15.01,
+            44.12
+          ],
+          [
+            11.68,
+            49.45
+          ],
+          [
+            3.22,
+            49.01
+          ],
+          [
+            0.5,
+            4.13
+          ]
+        ],
+        [
+          [
+            3.22,
+            49.01
+          ],
+          [
+            11.68,
+            49.45
+          ],
+          [
+            15.73,
+            49.99
+          ],
+          [
+            16.86,
+            52.63
+          ],
+          [
+            20.07,
+            52.49
+          ],
+          [
+            21.85,
+            57.28
+          ],
+          [
+            24.09,
+            58.55
+          ],
+          [
+            24.87,
+            60.5
+          ],
+          [
+            27.97,
+            62.84
+          ],
+          [
+            28.24,
+            65.13
+          ],
+          [
+            27.79,
+            66.98
+          ],
+          [
+            28.36,
+            68.84
+          ],
+          [
+            29.67,
+            70.4
+          ],
+          [
+            30.28,
+            72.22
+          ],
+          [
+            30.96,
+            73.58
+          ],
+          [
+            32.33,
+            74.69
+          ],
+          [
+            33.59,
+            74.29
+          ],
+          [
+            34.45,
+            76.41
+          ],
+          [
+            34.63,
+            77.7
+          ],
+          [
+            36.37,
+            83.33
+          ],
+          [
+            50.03,
+            86.13
+          ],
+          [
+            50.95,
+            84.95
+          ],
+          [
+            53.03,
+            88.89
+          ],
+          [
+            50.0,
+            99.5
+          ],
+          [
+            3.22,
+            49.01
+          ]
+        ],
+        [
+          [
+            50.95,
+            84.95
+          ],
+          [
+            51.07,
+            82.72
+          ],
+          [
+            52.39,
+            80.42
+          ],
+          [
+            52.4,
+            78.15
+          ],
+          [
+            54.46,
+            77.05
+          ],
+          [
+            53.66,
+            76.28
+          ],
+          [
+            54.03,
+            72.66
+          ],
+          [
+            56.35,
+            72.64
+          ],
+          [
+            58.39,
+            76.44
+          ],
+          [
+            60.92,
+            78.45
+          ],
+          [
+            64.26,
+            79.18
+          ],
+          [
+            66.95,
+            80.19
+          ],
+          [
+            69.0,
+            83.38
+          ],
+          [
+            70.23,
+            85.22
+          ],
+          [
+            71.85,
+            85.92
+          ],
+          [
+            71.85,
+            87.16
+          ],
+          [
+            70.19,
+            90.47
+          ],
+          [
+            69.47,
+            92.03
+          ],
+          [
+            67.55,
+            93.81
+          ],
+          [
+            65.85,
+            97.62
+          ],
+          [
+            63.79,
+            97.33
+          ],
+          [
+            62.85,
+            98.65
+          ],
+          [
+            62.12,
+            99.5
+          ],
+          [
+            50.0,
+            99.5
+          ],
+          [
+            53.03,
+            88.89
+          ],
+          [
+            50.95,
+            84.95
+          ]
+        ],
+        [
+          [
+            34.45,
+            76.41
+          ],
+          [
+            35.26,
+            76.14
+          ],
+          [
+            35.43,
+            77.67
+          ],
+          [
+            38.99,
+            76.79
+          ],
+          [
+            42.75,
+            76.94
+          ],
+          [
+            45.49,
+            77.1
+          ],
+          [
+            48.6,
+            73.35
+          ],
+          [
+            52.0,
+            69.78
+          ],
+          [
+            54.87,
+            66.36
+          ],
+          [
+            55.73,
+            68.25
+          ],
+          [
+            56.35,
+            72.64
+          ],
+          [
+            54.03,
+            72.66
+          ],
+          [
+            53.66,
+            76.28
+          ],
+          [
+            54.46,
+            77.05
+          ],
+          [
+            52.4,
+            78.15
+          ],
+          [
+            52.39,
+            80.42
+          ],
+          [
+            51.07,
+            82.72
+          ],
+          [
+            50.95,
+            84.95
+          ],
+          [
+            50.03,
+            86.13
+          ],
+          [
+            36.37,
+            83.33
+          ],
+          [
+            34.63,
+            77.7
+          ],
+          [
+            34.45,
+            76.41
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Hormuz",
+          "x": 60.0,
+          "y": 50.0
+        },
+        {
+          "name": "Tehran",
+          "x": 68.0,
+          "y": 24.0
+        },
+        {
+          "name": "Riyadh",
+          "x": 32.0,
+          "y": 70.0
+        },
+        {
+          "name": "Dubai",
+          "x": 54.0,
+          "y": 56.0
+        }
+      ]
+    }
+  }
+}

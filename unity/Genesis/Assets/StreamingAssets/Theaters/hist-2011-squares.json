@@ -1,0 +1,1918 @@
+{
+  "scenario": {
+    "id": "hist-2011-squares",
+    "year": 2011,
+    "era": "2008\u20132026",
+    "title": "Square and Square",
+    "region": "Arab capitals \u00b7 Mediterranean \u00b7 alliance desks",
+    "meterFamily": "politics",
+    "theaterArchetype": "redsea",
+    "premise": "Mass protests topple and threaten regimes across the region. You advise on when to endorse transitions, whether to intervene from the air, and how to handle migrant and energy shocks.",
+    "role": "Regional crisis director",
+    "tension": "Support dignity politics without owning chaos\u2014or backing endless strongmen.",
+    "beats": [
+      {
+        "id": "hist-2011-1",
+        "title": "First ally wobbles",
+        "briefing": "A long-standing partner uses live fire on crowds. Your public line will be replayed for years.",
+        "stakes": "Silence is a side.",
+        "choices": [
+          {
+            "id": "hist-2011-1a",
+            "label": "Publicly condemn violence; urge orderly transition",
+            "detail": "Break with the old.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "CONDEMN",
+            "callsign": "PUBLICLY CONDEMN",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rights line"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Other autocrats nervous"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-1b",
+            "label": "Private pressure; public caution",
+            "detail": "Preserve channel.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "PRIVATE",
+            "callsign": "PRIVATE PRESSURE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel held"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks complicit"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Options"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-1c",
+            "label": "Back the partner as bulwark against chaos",
+            "detail": "Order narrative.",
+            "kind": "political",
+            "markerId": "proxy",
+            "short": "ORDER",
+            "callsign": "BACK THE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If it holds"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Repression enabled"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Street rage"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-2",
+        "title": "No-fly debate",
+        "briefing": "A coastal civil war triggers calls for air intervention under humanitarian cover.",
+        "stakes": "Airpower can stop a massacre and start an ownership problem.",
+        "choices": [
+          {
+            "id": "hist-2011-2a",
+            "label": "Support a UN-mandated no-fly / civilian protection mission",
+            "detail": "Multilateral force.",
+            "kind": "kinetic",
+            "markerId": "escort",
+            "short": "NOFLY",
+            "callsign": "SUPPORT A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Protection claim"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "War joined"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If authorized"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-2b",
+            "label": "Arms and intel to rebels only",
+            "detail": "Indirect.",
+            "kind": "economic",
+            "markerId": "proxy",
+            "short": "ARMS",
+            "callsign": "ARMS AND",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Proxy war"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Not absent"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Weapon spread"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-2c",
+            "label": "Refuse intervention; maximize humanitarian corridors",
+            "detail": "Aid not bombs.",
+            "kind": "civic",
+            "markerId": "port",
+            "short": "AID",
+            "callsign": "REFUSE INTERVENTION",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some relief"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Inaction charge"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Humanitarian frame"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-3",
+        "title": "Islamist victories at ballot boxes",
+        "briefing": "Elections produce winners your publics distrust. Do you respect results, condition aid, or cultivate deep-state alternatives?",
+        "stakes": "Democracy is a stress test of your preferences.",
+        "choices": [
+          {
+            "id": "hist-2011-3a",
+            "label": "Recognize results; condition aid on rights benchmarks",
+            "detail": "Engage and bind.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "ENGAGE",
+            "callsign": "RECOGNIZE RESULTS",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 2,
+                "summary": "Respect votes"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Rights link"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Home skeptics"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-3b",
+            "label": "Freeze aid until cabinets exclude hardliners",
+            "detail": "Shape politics.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "FREEZE",
+            "callsign": "FREEZE AID",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Leverage"
+              },
+              {
+                "tag": "democratic_mandate",
+                "weight": -2,
+                "summary": "Undercuts vote"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Foreign hand charge"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-3c",
+            "label": "Quietly back secular security elites",
+            "detail": "Insurance policy.",
+            "kind": "political",
+            "markerId": "proxy",
+            "short": "DEEP",
+            "callsign": "QUIETLY BACK",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Short order"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Anti-democratic"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hypocrisy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-4",
+        "title": "Migration and energy aftershock",
+        "briefing": "Flows across the sea and price spikes hit your domestic politics.",
+        "stakes": "Foreign policy becomes home politics overnight.",
+        "choices": [
+          {
+            "id": "hist-2011-4a",
+            "label": "EU-style burden-sharing and search-and-rescue surge",
+            "detail": "Collective response.",
+            "kind": "civic",
+            "markerId": "chokepoint",
+            "short": "RESCUE",
+            "callsign": "EU STYLE",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Shared burden"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Managed flows"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Lives saved"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-4b",
+            "label": "Bilateral interception deals with origin/transit states",
+            "detail": "Externalize.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "DEALS",
+            "callsign": "BILATERAL INTERCEPTION",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Lower arrivals"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Rights risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Cynical optics"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-4c",
+            "label": "Strategic petroleum + targeted resettlement quota",
+            "detail": "Dual cushion.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "DUAL",
+            "callsign": "STRATEGIC PETROLEUM",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Energy calm"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": 1,
+                "summary": "Quota openness"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Quota politics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-5",
+        "title": "Regime-violence shock",
+        "briefing": "Live feeds show lethal force against crowds. Your recognition and intervention clocks accelerate under moral and strategic pressure.",
+        "stakes": "Images collapse decision time.",
+        "choices": [
+          {
+            "id": "hist-2011-5a",
+            "label": "Lead a sanctions-plus-ICC referral package",
+            "detail": "Law and costs.",
+            "kind": "legal",
+            "markerId": "port",
+            "short": "ICC",
+            "callsign": "LEAD A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Accountability"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Costs"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Coalition path"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-5b",
+            "label": "Move toward a no-fly / civilian-protection mandate",
+            "detail": "Air power.",
+            "kind": "kinetic",
+            "markerId": "escort",
+            "short": "NFZ",
+            "callsign": "MOVE TOWARD",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "War entry"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some protection"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If authorized"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-5c",
+            "label": "Limit to evacuation and humanitarian corridors",
+            "detail": "Narrow duty.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "HUMCOR",
+            "callsign": "LIMIT TO",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "People out"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Limited"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Inaction charge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-6",
+        "title": "Domestic war-appetite politics",
+        "briefing": "Publics cheer values until body bags. Your mandate language must survive month three.",
+        "stakes": "Democracies overpromise in week one.",
+        "choices": [
+          {
+            "id": "hist-2011-6a",
+            "label": "Write a narrow civilian-protection mandate with reporting",
+            "detail": "Limits in law.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "NARROW2",
+            "callsign": "WRITE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Honest scope"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Sellable"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less regime change"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-6b",
+            "label": "Embrace regime-change rhetoric to match the street",
+            "detail": "Maximal story.",
+            "kind": "civic",
+            "markerId": "proxy",
+            "short": "REGIME",
+            "callsign": "EMBRACE REGIME",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Moral clarity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Deeper war"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder end"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-6c",
+            "label": "Keep rhetoric vague to hold a fragile coalition",
+            "detail": "Ambiguity.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "VAGUE",
+            "callsign": "KEEP RHETORIC",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Holds for now"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Later whiplash"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-7",
+        "title": "Regional ally divergence",
+        "briefing": "Partners split on Islamist electoral wins and monarchy stability. Your desk cannot please both.",
+        "stakes": "The region\u2019s order vs. the region\u2019s ballot.",
+        "choices": [
+          {
+            "id": "hist-2011-7a",
+            "label": "Defend electoral outcomes if nonviolent and inclusive enough",
+            "detail": "Ballot preference.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "BALLOT2",
+            "callsign": "DEFEND ELECTORAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Democracy"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Monarchies cold"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Consistent"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-7b",
+            "label": "Back stability partners while urging reform timelines",
+            "detail": "Order with homework.",
+            "kind": "diplomatic",
+            "markerId": "proxy",
+            "short": "STABPART",
+            "callsign": "BACK STABILITY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Monarchies held"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Democracy deferred"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less chaos now"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-7c",
+            "label": "Stay neutral publicly; fund civil-society quietly",
+            "detail": "Deniable values.",
+            "kind": "civic",
+            "markerId": "canal",
+            "short": "CIVSOC",
+            "callsign": "STAY NEUTRAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Quiet help"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hypocrisy risk"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Flexibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-8",
+        "title": "Migration and energy fog",
+        "briefing": "Displacement spikes and energy routes wobble. Numbers conflict; fear fills the gaps.",
+        "stakes": "Secondary effects can outrun the original square.",
+        "choices": [
+          {
+            "id": "hist-2011-8a",
+            "label": "Stand up burden-sharing resettlement and search-and-rescue",
+            "detail": "Absorb humanely.",
+            "kind": "civic",
+            "markerId": "port",
+            "short": "RESETL2",
+            "callsign": "STAND UP",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Lives"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Home backlash"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-8b",
+            "label": "Harden borders and prioritize energy contracts",
+            "detail": "Control first.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "HARDEN",
+            "callsign": "HARDEN BORDERS",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Energy"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Nativism"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Stranded people"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-8c",
+            "label": "Publish verified flow and price dashboards weekly",
+            "detail": "Fight fog with data.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "DASH2",
+            "callsign": "PUBLISH VERIFIED",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Facts"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Less rumor"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Attention"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-9",
+        "title": "Transition off-ramp",
+        "briefing": "A negotiated exit for a wobbling ally appears\u2014amnesty versus accountability. Spoilers prefer the battlefield.",
+        "stakes": "Justice sequencing is the bargain.",
+        "choices": [
+          {
+            "id": "hist-2011-9a",
+            "label": "Broker exile-plus-asset deals to stop the killing",
+            "detail": "Ugly peace.",
+            "kind": "diplomatic",
+            "markerId": "proxy",
+            "short": "EXILE",
+            "callsign": "BROKER EXILE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Guns down"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Impunity"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Lives saved"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-9b",
+            "label": "Insist on domestic trials before any exit deal",
+            "detail": "Accountability first.",
+            "kind": "legal",
+            "markerId": "port",
+            "short": "TRIALS2",
+            "callsign": "INSIST ON",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Justice"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder deal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fight continues"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-9c",
+            "label": "Support a technocratic interim without old elites or street vetoes",
+            "detail": "Neither side fully wins.",
+            "kind": "political",
+            "markerId": "canal",
+            "short": "TECHNO",
+            "callsign": "SUPPORT A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Admin continuity"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Both camps mad"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Narrow path"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2011-10",
+        "title": "Aftershock doctrine endgame",
+        "briefing": "Cabinet asks whether 2011 was a freedom wave to repeat, a cautionary tale, or a region-specific exception.",
+        "stakes": "The memo shapes the next square.",
+        "choices": [
+          {
+            "id": "hist-2011-10a",
+            "label": "Codify civilian-protection criteria and exit metrics",
+            "detail": "Rules for next time.",
+            "kind": "political",
+            "markerId": "escort",
+            "short": "CRIT2",
+            "callsign": "CODIFY CIVILIAN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Learned limits"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shareable"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Clearer brakes"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-10b",
+            "label": "Declare non-intervention except for direct threats",
+            "detail": "Retrenchment.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "RETRENCH",
+            "callsign": "DECLARE NON",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Fewer wars"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Values gap"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners alone"
+              }
+            ]
+          },
+          {
+            "id": "hist-2011-10c",
+            "label": "Invest in prevention: mediation, jobs, and broadcast pluralism",
+            "detail": "Upstream strategy.",
+            "kind": "civic",
+            "markerId": "insurer",
+            "short": "UPSTREAM",
+            "callsign": "INVEST IN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Prevention"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Less fuel"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Long game"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "maghreb-east",
+    "scenarioId": "hist-2011-squares",
+    "title": "RED SEA LANE",
+    "subtitle": "Red Sea \u00b7 Bab el-Mandeb",
+    "water": "#0A1E2C",
+    "land": "#2A2818",
+    "accent": "#C45C3A",
+    "markers": [
+      {
+        "id": "chokepoint",
+        "label": "Chokepoint",
+        "x": 50.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "port",
+        "label": "Port",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "escort",
+        "label": "Escort",
+        "x": 58.0,
+        "y": 64.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "proxy",
+        "label": "Proxy",
+        "x": 56.0,
+        "y": 42.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "insurer",
+        "label": "Insurer",
+        "x": 28.0,
+        "y": 36.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "canal",
+        "label": "Canal link",
+        "x": 48.0,
+        "y": 28.0,
+        "kind": "corridor"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "canal",
+        "to": "chokepoint"
+      },
+      {
+        "from": "escort",
+        "to": "port"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SHIPPING LANE",
+        "x": 40.0,
+        "y": 44.0,
+        "w": 28.0,
+        "h": 28.0,
+        "tension": 0.85
+      },
+      {
+        "id": "shore",
+        "label": "SHORE NODES",
+        "x": 48.0,
+        "y": 34.0,
+        "w": 22.0,
+        "h": 16.0,
+        "tension": 0.6
+      }
+    ],
+    "terrainKey": "redsea",
+    "geo": {
+      "label": "Maghreb \u00b7 East Med (Natural Earth)",
+      "water": "#0A1E2C",
+      "land": "#2A2818",
+      "landHi": "#3A3824",
+      "accent": "#C45C3A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "redsea",
+      "reliefKey": "redsea",
+      "lands": [
+        [
+          [
+            2.63,
+            46.11
+          ],
+          [
+            2.67,
+            45.26
+          ],
+          [
+            2.67,
+            44.97
+          ],
+          [
+            2.65,
+            39.82
+          ],
+          [
+            5.88,
+            36.61
+          ],
+          [
+            7.88,
+            35.95
+          ],
+          [
+            9.52,
+            34.78
+          ],
+          [
+            10.28,
+            32.6
+          ],
+          [
+            12.62,
+            30.88
+          ],
+          [
+            12.71,
+            27.66
+          ],
+          [
+            13.86,
+            27.28
+          ],
+          [
+            14.77,
+            25.68
+          ],
+          [
+            17.38,
+            24.94
+          ],
+          [
+            17.75,
+            23.25
+          ],
+          [
+            17.22,
+            22.33
+          ],
+          [
+            16.53,
+            17.74
+          ],
+          [
+            16.41,
+            15.1
+          ],
+          [
+            15.66,
+            12.31
+          ],
+          [
+            17.58,
+            9.94
+          ],
+          [
+            19.75,
+            9.18
+          ],
+          [
+            21.01,
+            7.39
+          ],
+          [
+            22.93,
+            6.06
+          ],
+          [
+            26.32,
+            5.29
+          ],
+          [
+            29.63,
+            4.93
+          ],
+          [
+            30.64,
+            5.58
+          ],
+          [
+            32.52,
+            3.87
+          ],
+          [
+            34.66,
+            3.83
+          ],
+          [
+            35.47,
+            4.84
+          ],
+          [
+            36.84,
+            4.58
+          ],
+          [
+            36.44,
+            6.81
+          ],
+          [
+            36.75,
+            10.96
+          ],
+          [
+            36.28,
+            14.54
+          ],
+          [
+            35.05,
+            16.97
+          ],
+          [
+            35.23,
+            20.24
+          ],
+          [
+            36.86,
+            22.83
+          ],
+          [
+            36.88,
+            23.89
+          ],
+          [
+            38.11,
+            25.64
+          ],
+          [
+            38.96,
+            33.45
+          ],
+          [
+            39.61,
+            37.28
+          ],
+          [
+            39.72,
+            39.3
+          ],
+          [
+            39.37,
+            42.85
+          ],
+          [
+            39.51,
+            44.83
+          ],
+          [
+            39.26,
+            47.21
+          ],
+          [
+            39.43,
+            49.95
+          ],
+          [
+            38.64,
+            51.76
+          ],
+          [
+            39.82,
+            54.93
+          ],
+          [
+            39.9,
+            56.8
+          ],
+          [
+            40.61,
+            59.22
+          ],
+          [
+            41.54,
+            58.42
+          ],
+          [
+            43.12,
+            60.44
+          ],
+          [
+            44.0,
+            63.17
+          ],
+          [
+            37.15,
+            71.45
+          ],
+          [
+            31.36,
+            79.99
+          ],
+          [
+            28.53,
+            81.93
+          ],
+          [
+            26.32,
+            82.36
+          ],
+          [
+            26.29,
+            79.59
+          ],
+          [
+            25.37,
+            78.89
+          ],
+          [
+            24.12,
+            77.64
+          ],
+          [
+            23.65,
+            75.61
+          ],
+          [
+            16.9,
+            66.12
+          ],
+          [
+            10.15,
+            56.63
+          ],
+          [
+            2.63,
+            46.11
+          ]
+        ],
+        [
+          [
+            70.0,
+            69.57
+          ],
+          [
+            70.0,
+            78.25
+          ],
+          [
+            67.7,
+            78.26
+          ],
+          [
+            67.68,
+            80.08
+          ],
+          [
+            59.7,
+            71.76
+          ],
+          [
+            51.72,
+            63.44
+          ],
+          [
+            49.7,
+            65.81
+          ],
+          [
+            48.29,
+            67.43
+          ],
+          [
+            47.16,
+            65.04
+          ],
+          [
+            44.0,
+            63.17
+          ],
+          [
+            43.12,
+            60.44
+          ],
+          [
+            41.54,
+            58.42
+          ],
+          [
+            40.61,
+            59.22
+          ],
+          [
+            39.9,
+            56.8
+          ],
+          [
+            39.82,
+            54.93
+          ],
+          [
+            38.64,
+            51.76
+          ],
+          [
+            39.43,
+            49.95
+          ],
+          [
+            39.26,
+            47.21
+          ],
+          [
+            39.51,
+            44.83
+          ],
+          [
+            39.37,
+            42.85
+          ],
+          [
+            39.72,
+            39.3
+          ],
+          [
+            39.61,
+            37.28
+          ],
+          [
+            38.96,
+            33.45
+          ],
+          [
+            39.94,
+            32.44
+          ],
+          [
+            40.11,
+            30.6
+          ],
+          [
+            39.9,
+            28.8
+          ],
+          [
+            41.27,
+            27.12
+          ],
+          [
+            41.89,
+            25.73
+          ],
+          [
+            42.86,
+            24.48
+          ],
+          [
+            42.98,
+            21.14
+          ],
+          [
+            45.33,
+            22.64
+          ],
+          [
+            46.17,
+            22.27
+          ],
+          [
+            47.84,
+            22.99
+          ],
+          [
+            50.49,
+            24.93
+          ],
+          [
+            51.43,
+            28.8
+          ],
+          [
+            53.22,
+            29.64
+          ],
+          [
+            56.04,
+            31.46
+          ],
+          [
+            58.17,
+            33.62
+          ],
+          [
+            59.15,
+            32.5
+          ],
+          [
+            60.11,
+            30.5
+          ],
+          [
+            59.64,
+            27.17
+          ],
+          [
+            60.27,
+            25.05
+          ],
+          [
+            61.71,
+            23.01
+          ],
+          [
+            63.09,
+            22.42
+          ],
+          [
+            65.79,
+            23.31
+          ],
+          [
+            66.47,
+            25.25
+          ],
+          [
+            67.22,
+            25.27
+          ],
+          [
+            67.85,
+            26.01
+          ],
+          [
+            69.84,
+            26.52
+          ],
+          [
+            70.33,
+            27.96
+          ],
+          [
+            69.61,
+            30.05
+          ],
+          [
+            69.92,
+            31.91
+          ],
+          [
+            69.4,
+            34.59
+          ],
+          [
+            70.0,
+            38.09
+          ],
+          [
+            70.0,
+            53.55
+          ],
+          [
+            70.0,
+            69.57
+          ]
+        ],
+        [
+          [
+            93.73,
+            69.57
+          ],
+          [
+            85.8,
+            69.57
+          ],
+          [
+            78.04,
+            69.57
+          ],
+          [
+            70.0,
+            69.57
+          ],
+          [
+            70.0,
+            53.55
+          ],
+          [
+            70.0,
+            38.09
+          ],
+          [
+            69.4,
+            34.59
+          ],
+          [
+            69.92,
+            31.91
+          ],
+          [
+            69.61,
+            30.05
+          ],
+          [
+            70.33,
+            27.96
+          ],
+          [
+            72.99,
+            27.89
+          ],
+          [
+            74.92,
+            29.04
+          ],
+          [
+            76.9,
+            30.32
+          ],
+          [
+            77.83,
+            31.0
+          ],
+          [
+            79.37,
+            29.62
+          ],
+          [
+            80.19,
+            28.38
+          ],
+          [
+            81.95,
+            28.02
+          ],
+          [
+            83.38,
+            28.57
+          ],
+          [
+            83.92,
+            30.72
+          ],
+          [
+            84.38,
+            29.3
+          ],
+          [
+            85.99,
+            30.33
+          ],
+          [
+            87.55,
+            30.58
+          ],
+          [
+            88.53,
+            29.48
+          ],
+          [
+            88.53,
+            29.48
+          ],
+          [
+            89.65,
+            35.82
+          ],
+          [
+            89.85,
+            36.95
+          ],
+          [
+            89.28,
+            38.7
+          ],
+          [
+            88.85,
+            41.98
+          ],
+          [
+            88.31,
+            44.25
+          ],
+          [
+            87.84,
+            45.01
+          ],
+          [
+            87.18,
+            43.6
+          ],
+          [
+            86.27,
+            41.66
+          ],
+          [
+            84.85,
+            35.43
+          ],
+          [
+            84.64,
+            35.82
+          ],
+          [
+            85.47,
+            40.41
+          ],
+          [
+            86.7,
+            44.78
+          ],
+          [
+            88.21,
+            51.56
+          ],
+          [
+            88.95,
+            53.92
+          ],
+          [
+            89.59,
+            56.38
+          ],
+          [
+            91.38,
+            61.19
+          ],
+          [
+            90.99,
+            61.95
+          ],
+          [
+            91.05,
+            64.77
+          ],
+          [
+            93.38,
+            68.67
+          ],
+          [
+            93.73,
+            69.57
+          ]
+        ],
+        [
+          [
+            65.02,
+            99.5
+          ],
+          [
+            64.61,
+            99.5
+          ],
+          [
+            65.14,
+            99.5
+          ],
+          [
+            66.05,
+            97.04
+          ],
+          [
+            67.77,
+            97.34
+          ],
+          [
+            67.68,
+            80.08
+          ],
+          [
+            67.7,
+            78.26
+          ],
+          [
+            70.0,
+            78.25
+          ],
+          [
+            70.0,
+            69.57
+          ],
+          [
+            78.04,
+            69.57
+          ],
+          [
+            85.8,
+            69.57
+          ],
+          [
+            93.73,
+            69.57
+          ],
+          [
+            94.38,
+            73.83
+          ],
+          [
+            93.94,
+            74.62
+          ],
+          [
+            94.23,
+            79.1
+          ],
+          [
+            94.96,
+            84.29
+          ],
+          [
+            95.73,
+            85.36
+          ],
+          [
+            96.82,
+            86.96
+          ],
+          [
+            95.81,
+            89.45
+          ],
+          [
+            94.33,
+            90.16
+          ],
+          [
+            93.71,
+            91.49
+          ],
+          [
+            93.51,
+            94.38
+          ],
+          [
+            92.65,
+            99.5
+          ],
+          [
+            92.86,
+            99.5
+          ],
+          [
+            65.02,
+            99.5
+          ]
+        ],
+        [
+          [
+            15.66,
+            12.31
+          ],
+          [
+            16.41,
+            15.1
+          ],
+          [
+            16.53,
+            17.74
+          ],
+          [
+            17.22,
+            22.33
+          ],
+          [
+            17.75,
+            23.25
+          ],
+          [
+            17.38,
+            24.94
+          ],
+          [
+            14.77,
+            25.68
+          ],
+          [
+            13.86,
+            27.28
+          ],
+          [
+            12.71,
+            27.66
+          ],
+          [
+            12.62,
+            30.88
+          ],
+          [
+            10.28,
+            32.6
+          ],
+          [
+            9.52,
+            34.78
+          ],
+          [
+            7.88,
+            35.95
+          ],
+          [
+            5.88,
+            36.61
+          ],
+          [
+            2.65,
+            39.82
+          ],
+          [
+            2.67,
+            44.97
+          ],
+          [
+            2.36,
+            44.97
+          ],
+          [
+            2.41,
+            47.3
+          ],
+          [
+            1.17,
+            47.44
+          ],
+          [
+            0.53,
+            48.43
+          ],
+          [
+            0.5,
+            48.43
+          ],
+          [
+            0.5,
+            47.87
+          ],
+          [
+            0.5,
+            48.33
+          ],
+          [
+            0.5,
+            51.72
+          ],
+          [
+            0.5,
+            42.83
+          ],
+          [
+            0.5,
+            39.86
+          ],
+          [
+            0.5,
+            38.7
+          ],
+          [
+            0.87,
+            35.07
+          ],
+          [
+            0.5,
+            29.66
+          ],
+          [
+            1.13,
+            25.92
+          ],
+          [
+            1.4,
+            23.63
+          ],
+          [
+            2.69,
+            20.69
+          ],
+          [
+            4.69,
+            18.71
+          ],
+          [
+            6.17,
+            16.91
+          ],
+          [
+            7.51,
+            12.41
+          ],
+          [
+            8.14,
+            9.74
+          ],
+          [
+            9.61,
+            9.76
+          ],
+          [
+            10.82,
+            11.61
+          ],
+          [
+            12.72,
+            11.3
+          ],
+          [
+            14.79,
+            12.26
+          ],
+          [
+            15.66,
+            12.31
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Cairo",
+          "x": 68.0,
+          "y": 48.0
+        },
+        {
+          "name": "Tunis",
+          "x": 32.0,
+          "y": 36.0
+        },
+        {
+          "name": "Tripoli",
+          "x": 44.0,
+          "y": 52.0
+        },
+        {
+          "name": "Damascus",
+          "x": 80.0,
+          "y": 40.0
+        }
+      ]
+    }
+  }
+}

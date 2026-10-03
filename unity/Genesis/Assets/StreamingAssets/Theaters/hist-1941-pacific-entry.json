@@ -1,0 +1,1142 @@
+{
+  "scenario": {
+    "id": "hist-1941-pacific-entry",
+    "year": 1941,
+    "era": "1939\u20131945",
+    "title": "Pacific Threshold",
+    "region": "Pacific \u00b7 Embargo desks \u00b7 Allied coordination",
+    "meterFamily": "conflict",
+    "theaterArchetype": "pacific",
+    "premise": "Oil embargoes, frozen assets, and fleet movements push a Pacific confrontation toward open war. You advise on whether to negotiate, tighten coercion, or prepare the public for a two-ocean fight.",
+    "role": "National security advisor to a Pacific-facing democracy",
+    "tension": "Coerce a settlement without forcing a surprise you cannot absorb.",
+    "beats": [
+      {
+        "id": "hist-1941-1",
+        "title": "Embargo intensity",
+        "briefing": "Energy sanctions are biting. Hawks want a total cut; traders warn of a cornered adversary.",
+        "stakes": "Maximum pressure can mean maximum desperation.",
+        "choices": [
+          {
+            "id": "hist-1941-1a",
+            "label": "Tighten to a full oil cutoff",
+            "detail": "No exceptions.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "OILOFF",
+            "callsign": "TIGHTEN TO",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Severe squeeze"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Cornering risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Resolve shown"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-1b",
+            "label": "Offer a phased oil for withdrawal deal",
+            "detail": "Sequence relief with pullbacks.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "PHASE",
+            "callsign": "OFFER A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Bargain frame"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Softens leverage"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners can sell it"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-1c",
+            "label": "Hold current sanctions; surge fleet presence",
+            "detail": "Show force without new paper.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "SURGE",
+            "callsign": "HOLD CURRENT",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Visible navy"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident risk"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Insurance spikes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-2",
+        "title": "Negotiating brief",
+        "briefing": "Envoys still talk. Your draft can demand full rollback or accept a temporary freeze in place.",
+        "stakes": "A freeze can become the new map.",
+        "choices": [
+          {
+            "id": "hist-1941-2a",
+            "label": "Demand full withdrawal as precondition",
+            "detail": "No partials.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "FULLWD",
+            "callsign": "DEMAND FULL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Hard standard"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Talks may die"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fewer exits"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-2b",
+            "label": "Accept a freeze-in-place for six months",
+            "detail": "Buy time; keep talking.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "FREEZE",
+            "callsign": "ACCEPT A",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Window"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Gains linger"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Pause"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-2c",
+            "label": "Link Pacific talks to European lend-lease tempo",
+            "detail": "One war economy logic.",
+            "kind": "political",
+            "markerId": "strait",
+            "short": "LINK",
+            "callsign": "LINK PACIFIC",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Grand strategy"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Widens stakes"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Complexity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-3",
+        "title": "Warning indicators",
+        "briefing": "Intelligence flags unusual fleet radio silence. You can disperse assets, wait for proof, or publicize a warning.",
+        "stakes": "Acting early looks alarmist; acting late looks negligent.",
+        "choices": [
+          {
+            "id": "hist-1941-3a",
+            "label": "Disperse fleet and raise alert",
+            "detail": "Assume the worst.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "ALERT",
+            "callsign": "DISPERSE FLEET",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Harder target"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Visible prep"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Prudence"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-3b",
+            "label": "Wait for confirmatory intercepts",
+            "detail": "Avoid false alarm.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "WAIT",
+            "callsign": "WAIT FOR",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Delay"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Calm optics"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "If wrong"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-3c",
+            "label": "Public warning to adversaries and publics",
+            "detail": "Remove surprise premium.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "WARN",
+            "callsign": "PUBLIC WARNING",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "On record"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "May accelerate"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Prepares public"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-4",
+        "title": "After the first strike",
+        "briefing": "Reports of attacks arrive. Cabinet asks for the first 48-hour package: limited retaliation, full war declaration, or coalition-first diplomacy.",
+        "stakes": "The opening response shapes a years-long war.",
+        "choices": [
+          {
+            "id": "hist-1941-4a",
+            "label": "Full declaration and coalition summons",
+            "detail": "Total war frame.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "DECLARE",
+            "callsign": "FULL DECLARATION",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Coalition forms"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Unlimited war"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Unity surge"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-4b",
+            "label": "Limited retaliatory strikes only",
+            "detail": "Keep options.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "LIMIT",
+            "callsign": "LIMITED RETALIATORY",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Controlled reply"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "May look weak"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Room left"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-4c",
+            "label": "Secure sea lanes before offensive action",
+            "detail": "Logistics first.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "LANES",
+            "callsign": "SECURE SEA",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Sustainment"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slower revenge"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Trade arteries"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-5",
+        "title": "Embargo leakage shock",
+        "briefing": "Third-party tankers and shell companies blunt your oil squeeze. Enforcement means confronting neutrals\u2014or admitting the tool is dull.",
+        "stakes": "Sanctions fail quietly before they fail loudly.",
+        "choices": [
+          {
+            "id": "hist-1941-5a",
+            "label": "Tighten end-use enforcement with neutral registries",
+            "detail": "Close the leaks.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "LEAK",
+            "callsign": "TIGHTEN END",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeeze restores"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Neutral anger"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Confrontation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-5b",
+            "label": "Offer a staged oil tranche for verified talks",
+            "detail": "Conditionality with a carrot.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "TRANCHE",
+            "callsign": "OFFER A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Bargain fuel"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Relief offered"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Talks window"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-5c",
+            "label": "Ignore leakage; escalate naval presence instead",
+            "detail": "Guns over customs.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "PRESENCE",
+            "callsign": "IGNORE LEAKAGE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Hard signal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident risk"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Insurance up"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-6",
+        "title": "Domestic Asia-first politics",
+        "briefing": "Public opinion splits between Europe-first and Pacific revenge narratives. Your brief must pick a sequencing story.",
+        "stakes": "Strategy without a home story dies in hearings.",
+        "choices": [
+          {
+            "id": "hist-1941-6a",
+            "label": "Argue Germany-first with Pacific holding actions",
+            "detail": "Sequence the wars.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "SEQWAR",
+            "callsign": "ARGUE GERMANY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Atlantic partners glad"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Pacific hawks mad"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear strategy"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-6b",
+            "label": "Elevate Pacific as co-equal theater immediately",
+            "detail": "Two-ocean politics.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "2OCEAN",
+            "callsign": "ELEVATE PACIFIC",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Matches anger"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Europe worried"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Pacific focus"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-6c",
+            "label": "Keep strategy classified; sell only unity themes",
+            "detail": "Ambiguity at home.",
+            "kind": "civic",
+            "markerId": "island",
+            "short": "UNITY",
+            "callsign": "KEEP STRATEGY",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Less faction"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Opaque aims"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-7",
+        "title": "Ally\u2019s basing ask",
+        "briefing": "A partner wants emergency basing and shared codebreaking. Help deepens entanglement; refusal leaves you blind.",
+        "stakes": "Intelligence sharing is alliance glue and risk.",
+        "choices": [
+          {
+            "id": "hist-1941-7a",
+            "label": "Grant temporary basing with status-of-forces rules",
+            "detail": "Legalized presence.",
+            "kind": "naval",
+            "markerId": "island",
+            "short": "BASE",
+            "callsign": "GRANT TEMPORARY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner held"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Forward posture"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Target value up"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-7b",
+            "label": "Share warning product only, no basing",
+            "detail": "Eyes without footprint.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "WARN",
+            "callsign": "SHARE WARNING",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Useful help"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Better awareness"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Less lock-in"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-7c",
+            "label": "Refuse until a formal treaty is ratified",
+            "detail": "Politics before ops.",
+            "kind": "legal",
+            "markerId": "capital_b",
+            "short": "TREATY",
+            "callsign": "REFUSE UNTIL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Constitutional care"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Delay hurts"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Slow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-8",
+        "title": "Indicator contradiction",
+        "briefing": "Signals suggest both a southern resource grab and a northern feint. Your fleet dispositions cannot cover every theory.",
+        "stakes": "Wrong deployment is a strategic gift.",
+        "choices": [
+          {
+            "id": "hist-1941-8a",
+            "label": "Weight dispositions to the southern resource axis",
+            "detail": "Protect the oil logic.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "SOUTH",
+            "callsign": "WEIGHT DISPOSITIONS",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Covers likely path"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Concentrated risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear priority"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-8b",
+            "label": "Keep a balanced but thinner screen everywhere",
+            "detail": "Avoid a single wrong bet.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "BALANCE",
+            "callsign": "KEEP A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Presence wide"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less mass anywhere"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-8c",
+            "label": "Demand a red-team brief before moving capital ships",
+            "detail": "Challenge consensus.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "REDTEAM",
+            "callsign": "DEMAND A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Better judgment"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Decision lag"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Process rigor"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-9",
+        "title": "Negotiation last window",
+        "briefing": "A final note exchange could delay conflict\u2014or be used as cover for a first strike. Trust is nearly gone.",
+        "stakes": "Talks under suspicion still change clocks.",
+        "choices": [
+          {
+            "id": "hist-1941-9a",
+            "label": "Keep negotiators in place with a short clock",
+            "detail": "Talk while watching.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "CLOCK",
+            "callsign": "KEEP NEGOTIATORS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Channel open"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Days bought"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "May be played"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-9b",
+            "label": "Suspend talks until verifiable force freezes",
+            "detail": "Verification first.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "FREEZE2",
+            "callsign": "SUSPEND TALKS",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Safety ask"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Talks pause"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If accepted, cooler"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-9c",
+            "label": "Issue a final public warning of war if strikes occur",
+            "detail": "Clarity for history and home.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "WARNPUB",
+            "callsign": "ISSUE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear red line"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Rhetoric heat"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Public braced"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1941-10",
+        "title": "After-first-strike endgame",
+        "briefing": "Whether or not the opening blow has landed, cabinet needs war aims: punishment, rollback, or unconditional surrender doctrine.",
+        "stakes": "Aims decide duration and alliances.",
+        "choices": [
+          {
+            "id": "hist-1941-10a",
+            "label": "Define limited aims: halt aggression and restore status quo",
+            "detail": "Finite war.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "LIMIT",
+            "callsign": "DEFINE LIMITED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Negotiable end"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners can join"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "May look soft"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-10b",
+            "label": "Adopt unconditional surrender as public doctrine",
+            "detail": "Total war frame.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "UNCOND",
+            "callsign": "ADOPT UNCONDITIONAL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Absolute aim"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Longer war"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "No early exit"
+              }
+            ]
+          },
+          {
+            "id": "hist-1941-10c",
+            "label": "Prioritize coalition-building before locking aims",
+            "detail": "Partners first.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "COAL",
+            "callsign": "PRIORITIZE COALITION",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Broad war"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Coordination"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Aims foggy"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "pacific-hawaii",
+    "scenarioId": "hist-1941-pacific-entry",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#061E2C",
+    "land": "#1A3834",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "Pacific \u00b7 Hawaii (Natural Earth)",
+      "water": "#061E2C",
+      "land": "#1A3834",
+      "landHi": "#2A4844",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            61.49,
+            59.68
+          ],
+          [
+            61.94,
+            60.03
+          ],
+          [
+            62.34,
+            60.56
+          ],
+          [
+            62.98,
+            61.97
+          ],
+          [
+            62.92,
+            62.19
+          ],
+          [
+            61.94,
+            63.04
+          ],
+          [
+            61.14,
+            63.67
+          ],
+          [
+            60.78,
+            64.34
+          ],
+          [
+            60.16,
+            63.76
+          ],
+          [
+            60.23,
+            62.64
+          ],
+          [
+            59.82,
+            61.19
+          ],
+          [
+            59.94,
+            60.74
+          ],
+          [
+            60.37,
+            60.09
+          ],
+          [
+            60.2,
+            59.3
+          ],
+          [
+            60.35,
+            58.93
+          ],
+          [
+            60.54,
+            59.01
+          ],
+          [
+            61.49,
+            59.68
+          ]
+        ],
+        [
+          [
+            60.01,
+            56.94
+          ],
+          [
+            59.8,
+            57.42
+          ],
+          [
+            58.96,
+            57.71
+          ],
+          [
+            58.53,
+            56.87
+          ],
+          [
+            58.25,
+            56.54
+          ],
+          [
+            58.22,
+            56.29
+          ],
+          [
+            58.47,
+            55.95
+          ],
+          [
+            59.36,
+            56.33
+          ],
+          [
+            60.01,
+            56.94
+          ]
+        ],
+        [
+          [
+            54.94,
+            53.13
+          ],
+          [
+            55.15,
+            53.39
+          ],
+          [
+            55.87,
+            54.71
+          ],
+          [
+            55.73,
+            54.94
+          ],
+          [
+            55.55,
+            54.89
+          ],
+          [
+            54.68,
+            54.75
+          ],
+          [
+            54.37,
+            53.84
+          ],
+          [
+            54.27,
+            53.68
+          ],
+          [
+            54.94,
+            53.13
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Pearl Harbor",
+          "x": 54.0,
+          "y": 48.0
+        },
+        {
+          "name": "Honolulu",
+          "x": 58.0,
+          "y": 50.0
+        },
+        {
+          "name": "Midway",
+          "x": 22.0,
+          "y": 30.0
+        },
+        {
+          "name": "Wake",
+          "x": 78.0,
+          "y": 24.0
+        }
+      ]
+    }
+  }
+}

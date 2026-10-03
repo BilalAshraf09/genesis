@@ -1,0 +1,181 @@
+{
+  "theaterId": "hist-1947-radcliffe",
+  "regionName": "South Asia \u2014 India Partition, 1947",
+  "placeFacts": [
+    {
+      "markerId": "loc",
+      "fact": "The Radcliffe Line cut Punjab in two, leaving Lahore in Pakistan and Amritsar in India. Mass violence along this border in 1947 displaced millions."
+    },
+    {
+      "markerId": "capital_a",
+      "fact": "Delhi became the capital of independent India on 15 August 1947, absorbing hundreds of thousands of Hindu and Sikh refugees fleeing West Punjab."
+    },
+    {
+      "markerId": "capital_b",
+      "fact": "Karachi was Pakistan\u2019s first capital and main port, receiving millions of Muslim migrants (Mohajirs) from India after Partition."
+    },
+    {
+      "markerId": "valley",
+      "fact": "Kashmir\u2019s Hindu maharaja delayed accession; Pakistani-backed raiders invaded in October 1947, prompting India\u2019s intervention and the first Indo-Pakistani War."
+    },
+    {
+      "markerId": "media",
+      "fact": "Bengal was partitioned: Calcutta stayed in India while the Muslim-majority east became East Pakistan. Communal violence in 1947 Bengal was severe."
+    },
+    {
+      "markerId": "third",
+      "fact": "Hyderabad\u2019s Muslim Nizam ruled a Hindu-majority state and refused to join either dominion. India launched the 1948 \u2018Police Action\u2019, annexing it in five days."
+    }
+  ],
+  "beatHistory": [
+    {
+      "beatId": "hist-1947-1",
+      "history": "British India\u2019s independence was fixed for 15 August 1947, just ten weeks after Mountbatten announced the accelerated timeline. Boundary commissions for Punjab and Bengal each had roughly five weeks to divide contested territory. The speed allowed no time to plan for mass population movement."
+    },
+    {
+      "beatId": "hist-1947-2",
+      "history": "Sir Cyril Radcliffe chaired both boundary commissions despite no prior knowledge of India. His award was published 17 August 1947\u2014two days after independence\u2014splitting Punjab and Bengal along religious majority lines. Advance knowledge of the boundary may have triggered pre-emptive communal violence."
+    },
+    {
+      "beatId": "hist-1947-3",
+      "history": "At independence, 562 princely states each had to sign an instrument of accession to India or Pakistan. Most acceded quickly under political pressure. Kashmir, Hyderabad, and Junagadh refused initially, becoming the new nations\u2019 first major territorial disputes."
+    },
+    {
+      "beatId": "hist-1947-4",
+      "history": "An estimated 10\u201320 million people crossed Punjab and Bengal in both directions\u2014Muslims west, Hindus and Sikhs east. Estimates of deaths from violence, disease, and exposure range from several hundred thousand to two million. It was the largest forced migration in recorded history."
+    },
+    {
+      "beatId": "hist-1947-5",
+      "history": "As the Radcliffe Line\u2019s exact path became known, communal massacres erupted across Punjab. Villages were razed, women abducted, and convoys attacked. The violence in West and East Punjab was especially intense, though Bengal also suffered severe intercommunal killing."
+    },
+    {
+      "beatId": "hist-1947-6",
+      "history": "Nehru\u2019s Congress government led India from Delhi; Jinnah\u2019s Muslim League led Pakistan from Karachi. Both dominions remained within the British Commonwealth and inherited colonial institutions. Each government faced the enormous task of building a state amid a refugee crisis."
+    },
+    {
+      "beatId": "hist-1947-7",
+      "history": "India pressed Hyderabad\u2019s Nizam and Kashmir\u2019s Maharaja to accede. After Pakistani-backed tribal forces invaded Kashmir in October 1947, Maharaja Hari Singh signed accession to India. The resulting first Indo-Pakistani War ended in a UN-brokered ceasefire in January 1949."
+    },
+    {
+      "beatId": "hist-1947-8",
+      "history": "Information across the new border was chaotic in August\u2013September 1947. Rumour-driven fear intensified violence as news of killings spread faster than relief could be organised. Both governments lacked the infrastructure to verify or counter false reports in real time."
+    },
+    {
+      "beatId": "hist-1947-9",
+      "history": "Military-escorted \u2018foot columns\u2019 of hundreds of thousands were organised to move refugees more safely. The Indian and Pakistani armies coordinated convoy escorts\u2014one of their first joint operations despite hostility over Kashmir. Violence against convoys nevertheless continued through late 1947."
+    },
+    {
+      "beatId": "hist-1947-10",
+      "history": "By January 1948 the main cross-border refugee movements had largely concluded. Gandhi undertook a fast-unto-death in Delhi to stop anti-Muslim violence, then was assassinated on 30 January 1948 by Nathuram Godse, a Hindu nationalist. Both dominions turned to the immense task of rebuilding."
+    }
+  ],
+  "fieldBriefs": [
+    {
+      "beatId": "hist-1947-1",
+      "markerId": "loc",
+      "headline": "15 August 1947: independence at midnight",
+      "fact": "Independence transferred at midnight, 14\u201315 Aug 1947. Mountbatten\u2019s timetable left boundary commissions only ~40 days to divide Punjab and Bengal."
+    },
+    {
+      "beatId": "hist-1947-2",
+      "markerId": "loc",
+      "headline": "Radcliffe\u2019s five-week map",
+      "fact": "Sir Cyril Radcliffe had never visited India before 1947. His award, published 17 Aug, drew a ~3,000 km border in five weeks under intense political pressure."
+    },
+    {
+      "beatId": "hist-1947-3",
+      "markerId": "third",
+      "headline": "562 princes face a choice",
+      "fact": "562 princely states covered ~40% of British India. Most acceded quickly; Hyderabad, Kashmir, and Junagadh delayed, each sparking a separate crisis."
+    },
+    {
+      "beatId": "hist-1947-4",
+      "markerId": "loc",
+      "headline": "Largest mass migration in history",
+      "fact": "10\u201320 million fled across Punjab and Bengal. Some trains arrived carrying only corpses\u2014called \u2018ghost trains\u2019 by survivors."
+    },
+    {
+      "beatId": "hist-1947-5",
+      "markerId": "loc",
+      "headline": "Punjab erupts along the line",
+      "fact": "Violence surged along the Punjab boundary days after the Radcliffe Award. Lahore and Amritsar, just 50 km apart, became epicentres of communal killing."
+    },
+    {
+      "beatId": "hist-1947-6",
+      "markerId": "capital_a",
+      "headline": "Two parliaments, one colonial legacy",
+      "fact": "India and Pakistan inherited British law, civil services, and railways. Nehru led from Delhi\u2019s Red Fort; Jinnah from Karachi\u2019s Government House."
+    },
+    {
+      "beatId": "hist-1947-7",
+      "markerId": "valley",
+      "headline": "Kashmir: accession in crisis",
+      "fact": "Maharaja Hari Singh signed accession to India on 26 Oct 1947. The ceasefire line became the Line of Control\u2014still disputed today."
+    },
+    {
+      "beatId": "hist-1947-8",
+      "markerId": "media",
+      "headline": "Bengal\u2019s divided press",
+      "fact": "Bengal\u2019s partition placed Calcutta in India and the Muslim-majority east in Pakistan. Reports of violence across the new border reached Calcutta slowly."
+    },
+    {
+      "beatId": "hist-1947-9",
+      "markerId": "loc",
+      "headline": "Escort convoys across the Punjab",
+      "fact": "Military-escorted foot columns crossed Punjab in late 1947. Despite their Kashmir rivalry, India and Pakistan cooperated on convoy protection."
+    },
+    {
+      "beatId": "hist-1947-10",
+      "markerId": "capital_a",
+      "headline": "Gandhi\u2019s fast and assassination",
+      "fact": "Gandhi fasted in Delhi to stop anti-Muslim riots, then was assassinated on 30 Jan 1948 by Nathuram Godse, a Hindu nationalist who opposed his conciliation."
+    }
+  ],
+  "storyLines": [
+    {
+      "id": "radcliffe-west",
+      "label": "Radcliffe Line (Punjab)",
+      "beatIds": ["hist-1947-2", "hist-1947-5"],
+      "color": "#E5534B",
+      "points": [
+        { "lat": 32.20, "lon": 75.50 },
+        { "lat": 31.90, "lon": 75.10 },
+        { "lat": 31.60, "lon": 74.70 },
+        { "lat": 31.10, "lon": 74.20 },
+        { "lat": 30.50, "lon": 73.80 },
+        { "lat": 29.80, "lon": 73.30 },
+        { "lat": 29.00, "lon": 72.50 }
+      ]
+    },
+    {
+      "id": "radcliffe-east",
+      "label": "Radcliffe Line (Bengal)",
+      "beatIds": ["hist-1947-2"],
+      "color": "#E5534B",
+      "points": [
+        { "lat": 21.80, "lon": 89.10 },
+        { "lat": 22.30, "lon": 89.10 },
+        { "lat": 22.80, "lon": 89.00 },
+        { "lat": 23.40, "lon": 89.20 },
+        { "lat": 24.00, "lon": 89.60 },
+        { "lat": 24.70, "lon": 89.90 },
+        { "lat": 25.30, "lon": 89.40 },
+        { "lat": 25.80, "lon": 88.80 }
+      ]
+    },
+    {
+      "id": "refugee-west",
+      "label": "Refugee route: Lahore \u2192 Delhi",
+      "beatIds": ["hist-1947-4", "hist-1947-9"],
+      "color": "#D9B45A",
+      "points": [
+        { "lat": 31.55, "lon": 74.34 },
+        { "lat": 31.63, "lon": 74.87 },
+        { "lat": 30.90, "lon": 75.80 },
+        { "lat": 30.40, "lon": 76.40 },
+        { "lat": 29.50, "lon": 77.00 },
+        { "lat": 28.61, "lon": 77.21 }
+      ]
+    }
+  ]
+}

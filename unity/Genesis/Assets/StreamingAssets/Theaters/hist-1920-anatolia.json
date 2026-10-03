@@ -1,0 +1,1526 @@
+{
+  "scenario": {
+    "id": "hist-1920-anatolia",
+    "year": 1920,
+    "era": "1919\u20131939",
+    "title": "Anatolian Mandate",
+    "region": "Anatolia \u00b7 Aegean \u00b7 Allied occupation zones",
+    "meterFamily": "conflict",
+    "theaterArchetype": "redsea",
+    "premise": "Occupation zones, Greek advances, and a rising nationalist assembly collide. You advise an Allied high commission on whether to enforce partition maps or bargain with the new Ankara leadership.",
+    "role": "Political officer, Allied High Commission",
+    "tension": "Treaty paper versus facts on the ground; minority protections versus endless war.",
+    "beats": [
+      {
+        "id": "hist-1920-1",
+        "title": "Zone enforcement",
+        "briefing": "Nationalist irregulars disrupt a coastal zone. Admirals want a show of force; diplomats warn of a wider Anatolian war.",
+        "stakes": "Enforcement can make the treaty real\u2014or obsolete.",
+        "choices": [
+          {
+            "id": "hist-1920-1a",
+            "label": "Limited naval demonstration",
+            "detail": "Shell empty water; signal presence.",
+            "kind": "naval",
+            "markerId": "escort",
+            "short": "DEMO",
+            "callsign": "LIMITED NAVAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Shows capacity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Risk of misread"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Looks firm"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-1b",
+            "label": "Open talks with Ankara envoys",
+            "detail": "Test whether maps can be revised quietly.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "TALKS",
+            "callsign": "OPEN TALKS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Opens revision path"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Treaty looks soft"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lowers clash odds"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-1c",
+            "label": "Back a local client advance",
+            "detail": "Encourage a partner army to fill the vacuum.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "PROXY",
+            "callsign": "BACK A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War widens"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners diverge"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Displacement rises"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-2",
+        "title": "Minority petitions",
+        "briefing": "Community leaders demand protected enclaves and Allied garrisons. Nationalists call them foreign footholds.",
+        "stakes": "Protection without partition language is hard to sell.",
+        "choices": [
+          {
+            "id": "hist-1920-2a",
+            "label": "Guarantee minority courts and transit rights",
+            "detail": "Rights without new borders.",
+            "kind": "legal",
+            "markerId": "canal",
+            "short": "RIGHTS",
+            "callsign": "GUARANTEE MINORITY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Legal shield"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Bargainable"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Both sides uneasy"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-2b",
+            "label": "Draw temporary protected districts",
+            "detail": "Maps with sunset clauses.",
+            "kind": "political",
+            "markerId": "chokepoint",
+            "short": "DISTRICT",
+            "callsign": "DRAW TEMPORARY",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Short-term shelter"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Looks like partition"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Visible action"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-2c",
+            "label": "Refer to a future League process",
+            "detail": "Delay with institutional promise.",
+            "kind": "diplomatic",
+            "markerId": "insurer",
+            "short": "LEAGUE",
+            "callsign": "REFER TO",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Defers clash"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Looks like evasion"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Rights deferred"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-3",
+        "title": "Straits and trade",
+        "briefing": "Insurers freeze Black Sea traffic until the straits regime is clarified.",
+        "stakes": "Commerce will not wait for perfect sovereignty theory.",
+        "choices": [
+          {
+            "id": "hist-1920-3a",
+            "label": "Propose internationalized straits rules",
+            "detail": "Neutral traffic guarantees under commission.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "STRAITS",
+            "callsign": "PROPOSE INTERNATIONALIZED",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Traffic resumes"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear regime"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Nationalists object"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-3b",
+            "label": "Accept Ankara control with transit treaty",
+            "detail": "Trade guarantees without foreign flags.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "TREATY",
+            "callsign": "ACCEPT ANKARA",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Local ownership"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Allies split"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Partial calm"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-3c",
+            "label": "Keep occupation of key batteries",
+            "detail": "Hold guns until a final peace.",
+            "kind": "naval",
+            "markerId": "escort",
+            "short": "HOLDGUN",
+            "callsign": "KEEP OCCUPATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Leverage retained"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Target for attack"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Uncertainty persists"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-4",
+        "title": "Settlement window",
+        "briefing": "A draft exchange-of-populations and border package appears. Humanitarians warn of trauma; soldiers say it ends the war.",
+        "stakes": "Ending fighting can create lasting grievance.",
+        "choices": [
+          {
+            "id": "hist-1920-4a",
+            "label": "Support a supervised population exchange",
+            "detail": "Orderly transfers with monitors.",
+            "kind": "civic",
+            "markerId": "port",
+            "short": "EXCHANGE",
+            "callsign": "SUPPORT A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "War winds down"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Mass upheaval"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Deal exists"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-4b",
+            "label": "Reject exchange; insist on mixed citizenship guarantees",
+            "detail": "Keep communities in place with rights.",
+            "kind": "legal",
+            "markerId": "canal",
+            "short": "MIXED",
+            "callsign": "REJECT EXCHANGE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Pluralist frame"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fighting may continue"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Hard to enforce"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-4c",
+            "label": "Narrow military truce only; delay politics",
+            "detail": "Stop guns; leave status unresolved.",
+            "kind": "diplomatic",
+            "markerId": "insurer",
+            "short": "TRUCE",
+            "callsign": "NARROW MILITARY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Pause"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "No finality"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less killing now"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-5",
+        "title": "Proxy clash at the zone edge",
+        "briefing": "Irregulars and occupation patrols exchange fire near a disputed district. Your escorts can reinforce, mediate, or pull back to ports.",
+        "stakes": "A local firefight can rewrite the mandate map.",
+        "choices": [
+          {
+            "id": "hist-1920-5a",
+            "label": "Reinforce escort corridors only",
+            "detail": "Protect lanes; avoid inland pursuit.",
+            "kind": "naval",
+            "markerId": "escort",
+            "short": "CORRIDOR",
+            "callsign": "REINFORCE ESCORT",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Lane security"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "More force present"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Trade safer"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-5b",
+            "label": "Convene an immediate local armistice board",
+            "detail": "Stop fire before maps harden.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "ARMLOC",
+            "callsign": "CONVENE AN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Local table"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Pause fighting"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Honest broker"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-5c",
+            "label": "Authorize limited kinetic clearing of the edge",
+            "detail": "Restore zone lines by force.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "CLEAR",
+            "callsign": "AUTHORIZE LIMITED",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War deepens"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Lines enforced"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Village harm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-6",
+        "title": "Home parliament revolt",
+        "briefing": "Deputies call occupation a \u201cbleeding adventure.\u201d Budget hawks want ships home; minority advocates demand you stay.",
+        "stakes": "Domestic consent is part of the theater.",
+        "choices": [
+          {
+            "id": "hist-1920-6a",
+            "label": "Table a time-bound mandate renewal vote",
+            "detail": "Ask for months, not forever.",
+            "kind": "political",
+            "markerId": "canal",
+            "short": "RENEW",
+            "callsign": "TABLE A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Democratic cover"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Defined horizon"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners see clock"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-6b",
+            "label": "Cut inland posts; keep only coastal enforcement",
+            "detail": "Shrink footprint under fire.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "SHRINK",
+            "callsign": "CUT INLAND",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less exposure"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Inland vacuum"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks like retreat"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-6c",
+            "label": "Ignore the chamber; govern by cabinet decree",
+            "detail": "Speed over consent.",
+            "kind": "political",
+            "markerId": "chokepoint",
+            "short": "DECREE",
+            "callsign": "IGNORE THE",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Fast decisions"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Parliamentary bypass"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Street anger"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-7",
+        "title": "Allied split on the straits",
+        "briefing": "One ally wants internationalized straits with hard naval teeth; another wants commercial openness without occupation optics.",
+        "stakes": "Alliance unity can break on a waterway.",
+        "choices": [
+          {
+            "id": "hist-1920-7a",
+            "label": "Broker a commercial-first straits statute",
+            "detail": "Transit rules over flags.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "STATUTE",
+            "callsign": "BROKER A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Trade priority"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Compromise text"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Softer teeth"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-7b",
+            "label": "Back a standing international naval commission",
+            "detail": "Hard multilateral control.",
+            "kind": "naval",
+            "markerId": "chokepoint",
+            "short": "COMM",
+            "callsign": "BACK A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Enforcement body"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared burden"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Permanent friction"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-7c",
+            "label": "Side with your senior ally\u2019s maximal brief",
+            "detail": "Unity over refinement.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "SIDE",
+            "callsign": "SIDE WITH",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Senior partner happy"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Others iced out"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks vassal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-8",
+        "title": "Atrocity claim fog",
+        "briefing": "Competing wires allege massacres in different districts. Insurers halt coverage until a narrative settles.",
+        "stakes": "Markets and morals both demand a map of truth.",
+        "choices": [
+          {
+            "id": "hist-1920-8a",
+            "label": "Deploy a mixed fact-finding mission",
+            "detail": "Slow, credible, incomplete.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "FACT",
+            "callsign": "DEPLOY A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Process integrity"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Investigation lag"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Insurers watch"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-8b",
+            "label": "Issue provisional sanctions on the accused party",
+            "detail": "Act on first reports.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "SANC",
+            "callsign": "ISSUE PROVISIONAL",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Punishment signal"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "May be wrong"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Hardens camps"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-8c",
+            "label": "Quietly restore insurer backstops without judgment",
+            "detail": "Trade first; truth later.",
+            "kind": "economic",
+            "markerId": "canal",
+            "short": "BACKSTOP",
+            "callsign": "QUIETLY RESTORE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Coverage returns"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Justice deferred"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Victims wait"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-9",
+        "title": "Settlement conference window",
+        "briefing": "Nationalists and occupation powers hint at a treaty revision if minority clauses and demobilization are sequenced carefully.",
+        "stakes": "Sequencing is the bargain.",
+        "choices": [
+          {
+            "id": "hist-1920-9a",
+            "label": "Sequence demobilization before final borders",
+            "detail": "Guns down, then maps.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "SEQ",
+            "callsign": "SEQUENCE DEMOBILIZATION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Workable order"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Force thins"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Staged clock"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-9b",
+            "label": "Insist on minority courts before any troop cut",
+            "detail": "Rights first.",
+            "kind": "legal",
+            "markerId": "proxy",
+            "short": "COURTS",
+            "callsign": "INSIST ON",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Protections first"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder deal"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Moral coalition"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-9c",
+            "label": "Offer trade preferences as the sweetener",
+            "detail": "Commerce as glue.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "PREF",
+            "callsign": "OFFER TRADE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Economic buy-in"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Positive sum"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks transactional"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1920-10",
+        "title": "Mandate endgame",
+        "briefing": "Either you ratify a revised settlement and thin forces, or dig into indefinite occupation with rising costs.",
+        "stakes": "Paper peace or permanent garrison.",
+        "choices": [
+          {
+            "id": "hist-1920-10a",
+            "label": "Ratify revision and announce phased withdrawal",
+            "detail": "Own the transition.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "PHASE",
+            "callsign": "RATIFY REVISION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Settlement locked"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Occupation shrinks"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared exit"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-10b",
+            "label": "Hold coastal enclaves indefinitely",
+            "detail": "Keep cards and costs.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "ENCLAVE",
+            "callsign": "HOLD COASTAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Permanent leverage"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Chronic tension"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Local resentment"
+              }
+            ]
+          },
+          {
+            "id": "hist-1920-10c",
+            "label": "Transfer responsibility to a League-like commission",
+            "detail": "Internationalize the problem.",
+            "kind": "legal",
+            "markerId": "escort",
+            "short": "XFER",
+            "callsign": "TRANSFER RESPONSIBILITY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Institutional path"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Burden shared"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Slow machinery"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "anatolia",
+    "scenarioId": "hist-1920-anatolia",
+    "title": "RED SEA LANE",
+    "subtitle": "Red Sea \u00b7 Bab el-Mandeb",
+    "water": "#0A2230",
+    "land": "#2A2A1C",
+    "accent": "#C45C3A",
+    "markers": [
+      {
+        "id": "chokepoint",
+        "label": "Chokepoint",
+        "x": 50.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "port",
+        "label": "Port",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "escort",
+        "label": "Escort",
+        "x": 58.0,
+        "y": 64.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "proxy",
+        "label": "Proxy",
+        "x": 56.0,
+        "y": 42.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "insurer",
+        "label": "Insurer",
+        "x": 28.0,
+        "y": 36.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "canal",
+        "label": "Canal link",
+        "x": 48.0,
+        "y": 28.0,
+        "kind": "corridor"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "canal",
+        "to": "chokepoint"
+      },
+      {
+        "from": "escort",
+        "to": "port"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SHIPPING LANE",
+        "x": 40.0,
+        "y": 44.0,
+        "w": 28.0,
+        "h": 28.0,
+        "tension": 0.85
+      },
+      {
+        "id": "shore",
+        "label": "SHORE NODES",
+        "x": 48.0,
+        "y": 34.0,
+        "w": 22.0,
+        "h": 16.0,
+        "tension": 0.6
+      }
+    ],
+    "terrainKey": "redsea",
+    "geo": {
+      "label": "Anatolia (Natural Earth)",
+      "water": "#0A2230",
+      "land": "#2A2A1C",
+      "landHi": "#3A3A28",
+      "accent": "#C45C3A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "redsea",
+      "reliefKey": "redsea",
+      "lands": [
+        [
+          [
+            86.55,
+            68.3
+          ],
+          [
+            84.56,
+            69.98
+          ],
+          [
+            83.09,
+            67.44
+          ],
+          [
+            78.25,
+            66.15
+          ],
+          [
+            76.46,
+            67.7
+          ],
+          [
+            71.72,
+            69.26
+          ],
+          [
+            69.47,
+            69.09
+          ],
+          [
+            64.68,
+            72.84
+          ],
+          [
+            61.25,
+            72.87
+          ],
+          [
+            59.03,
+            70.99
+          ],
+          [
+            54.44,
+            73.77
+          ],
+          [
+            53.08,
+            71.82
+          ],
+          [
+            52.86,
+            77.4
+          ],
+          [
+            51.74,
+            79.59
+          ],
+          [
+            50.62,
+            81.78
+          ],
+          [
+            49.09,
+            77.25
+          ],
+          [
+            50.67,
+            73.49
+          ],
+          [
+            48.13,
+            74.35
+          ],
+          [
+            44.64,
+            72.04
+          ],
+          [
+            41.78,
+            77.8
+          ],
+          [
+            35.45,
+            78.92
+          ],
+          [
+            32.08,
+            73.56
+          ],
+          [
+            27.59,
+            73.22
+          ],
+          [
+            26.63,
+            77.37
+          ],
+          [
+            23.75,
+            78.56
+          ],
+          [
+            19.72,
+            73.23
+          ],
+          [
+            15.17,
+            73.41
+          ],
+          [
+            12.7,
+            63.47
+          ],
+          [
+            9.66,
+            57.92
+          ],
+          [
+            11.69,
+            50.14
+          ],
+          [
+            9.04,
+            45.36
+          ],
+          [
+            13.67,
+            35.8
+          ],
+          [
+            20.08,
+            35.4
+          ],
+          [
+            21.83,
+            27.8
+          ],
+          [
+            29.77,
+            29.12
+          ],
+          [
+            34.78,
+            22.64
+          ],
+          [
+            39.64,
+            19.81
+          ],
+          [
+            46.53,
+            19.6
+          ],
+          [
+            53.8,
+            26.65
+          ],
+          [
+            59.78,
+            30.51
+          ],
+          [
+            64.64,
+            28.97
+          ],
+          [
+            68.22,
+            29.86
+          ],
+          [
+            73.14,
+            24.64
+          ],
+          [
+            77.58,
+            24.17
+          ],
+          [
+            81.59,
+            29.08
+          ],
+          [
+            82.3,
+            32.6
+          ],
+          [
+            81.9,
+            37.46
+          ],
+          [
+            85.0,
+            39.95
+          ],
+          [
+            86.64,
+            42.87
+          ],
+          [
+            83.79,
+            45.72
+          ],
+          [
+            85.09,
+            57.19
+          ],
+          [
+            84.27,
+            60.28
+          ],
+          [
+            86.55,
+            68.3
+          ],
+          [
+            86.55,
+            68.3
+          ]
+        ],
+        [
+          [
+            50.28,
+            99.5
+          ],
+          [
+            52.55,
+            97.98
+          ],
+          [
+            51.87,
+            94.06
+          ],
+          [
+            49.99,
+            93.55
+          ],
+          [
+            49.6,
+            85.9
+          ],
+          [
+            50.62,
+            81.78
+          ],
+          [
+            51.74,
+            79.59
+          ],
+          [
+            52.86,
+            77.4
+          ],
+          [
+            53.08,
+            71.82
+          ],
+          [
+            54.44,
+            73.77
+          ],
+          [
+            59.03,
+            70.99
+          ],
+          [
+            61.25,
+            72.87
+          ],
+          [
+            64.68,
+            72.84
+          ],
+          [
+            69.47,
+            69.09
+          ],
+          [
+            71.72,
+            69.26
+          ],
+          [
+            76.46,
+            67.7
+          ],
+          [
+            74.32,
+            73.94
+          ],
+          [
+            72.04,
+            76.41
+          ],
+          [
+            72.43,
+            83.72
+          ],
+          [
+            70.86,
+            95.81
+          ],
+          [
+            50.28,
+            99.5
+          ]
+        ],
+        [
+          [
+            70.86,
+            95.81
+          ],
+          [
+            72.43,
+            83.72
+          ],
+          [
+            72.04,
+            76.41
+          ],
+          [
+            74.32,
+            73.94
+          ],
+          [
+            76.46,
+            67.7
+          ],
+          [
+            78.25,
+            66.15
+          ],
+          [
+            83.09,
+            67.44
+          ],
+          [
+            84.56,
+            69.98
+          ],
+          [
+            86.55,
+            68.3
+          ],
+          [
+            89.25,
+            80.22
+          ],
+          [
+            91.98,
+            83.23
+          ],
+          [
+            92.3,
+            89.07
+          ],
+          [
+            90.2,
+            92.52
+          ],
+          [
+            89.24,
+            99.5
+          ],
+          [
+            70.86,
+            95.81
+          ]
+        ],
+        [
+          [
+            8.82,
+            21.73
+          ],
+          [
+            13.07,
+            18.59
+          ],
+          [
+            16.65,
+            19.93
+          ],
+          [
+            17.15,
+            23.77
+          ],
+          [
+            20.79,
+            27.0
+          ],
+          [
+            20.03,
+            29.45
+          ],
+          [
+            15.08,
+            30.0
+          ],
+          [
+            13.3,
+            33.09
+          ],
+          [
+            9.83,
+            38.48
+          ],
+          [
+            8.51,
+            33.82
+          ],
+          [
+            8.57,
+            31.76
+          ],
+          [
+            9.56,
+            30.64
+          ],
+          [
+            10.85,
+            24.38
+          ],
+          [
+            8.82,
+            21.73
+          ]
+        ],
+        [
+          [
+            0.5,
+            26.62
+          ],
+          [
+            0.5,
+            26.91
+          ],
+          [
+            2.05,
+            24.16
+          ],
+          [
+            4.99,
+            27.66
+          ],
+          [
+            8.78,
+            26.71
+          ],
+          [
+            8.82,
+            21.73
+          ],
+          [
+            10.85,
+            24.38
+          ],
+          [
+            9.56,
+            30.64
+          ],
+          [
+            8.57,
+            31.76
+          ],
+          [
+            6.03,
+            31.47
+          ],
+          [
+            3.86,
+            30.53
+          ],
+          [
+            0.5,
+            33.13
+          ],
+          [
+            1.7,
+            38.75
+          ],
+          [
+            0.5,
+            40.38
+          ],
+          [
+            0.5,
+            40.39
+          ],
+          [
+            0.5,
+            35.24
+          ],
+          [
+            0.5,
+            43.41
+          ],
+          [
+            0.5,
+            48.1
+          ],
+          [
+            0.5,
+            50.29
+          ],
+          [
+            0.5,
+            54.9
+          ],
+          [
+            0.5,
+            57.8
+          ],
+          [
+            0.5,
+            63.45
+          ],
+          [
+            0.5,
+            60.8
+          ],
+          [
+            0.5,
+            65.9
+          ],
+          [
+            0.5,
+            75.77
+          ],
+          [
+            0.5,
+            26.62
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Istanbul",
+          "x": 42.0,
+          "y": 26.0
+        },
+        {
+          "name": "Ankara",
+          "x": 58.0,
+          "y": 40.0
+        },
+        {
+          "name": "Smyrna",
+          "x": 32.0,
+          "y": 48.0
+        },
+        {
+          "name": "Athens",
+          "x": 20.0,
+          "y": 58.0
+        }
+      ]
+    }
+  }
+}

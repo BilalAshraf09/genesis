@@ -1,0 +1,53 @@
+/*
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* ============================================================
+   Genesis — Night Atlas design tokens
+   Reference resolution: 1080 × 1920 (ScaleWithScreenSize 0.5)
+   ============================================================ */
+
+:root {
+    /* ---- Colours ------------------------------------------ */
+    --color-ocean:        #0B1220;
+    --color-surface:      #111A2B;
+    --color-surface-2:    #17233A;
+    /* Glass: rgba(17,26,43,0.86) expressed as 8-digit hex */
+    --color-glass:        #111A2BDB;
+    /* Border: rgba(255,255,255,0.08) → alpha 0x14 */
+    --color-border:       #FFFFFF14;
+
+    --color-text-primary:   #F2EFE6;
+    --color-text-secondary: #A9B3C4;
+    --color-text-muted:     #6E7A8F;
+
+    --color-accent:       #F5A524;
+    --color-gain:         #3FB97A;
+    --color-cost:         #E5534B;
+    --color-escalation:   #E5534B;
+    --color-diplomacy:    #D9B45A;
+    --color-info:         #5AA9E6;
+
+    /* ---- Radii -------------------------------------------- */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+
+    /* ---- Spacing scale (4-base) --------------------------- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+
+    /* ---- Type scale (reference px at 1080 ref res) -------- */
+    --font-caption: 26px;
+    --font-body:    30px;
+    --font-title:   36px;
+    --font-h2:      44px;
+    --font-h1:      64px;
+
+    /* ---- Default font ------------------------------------- */
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+}

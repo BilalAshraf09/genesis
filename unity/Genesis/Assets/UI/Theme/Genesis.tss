@@ -1,0 +1,8 @@
+/*
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* Genesis — Living Atlas theme entry point */
+@import url("unity-theme://default");
+@import url("project://database/Assets/UI/Theme/tokens.uss");
+@import url("project://database/Assets/UI/Theme/components.uss");

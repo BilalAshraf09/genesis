@@ -1,0 +1,1673 @@
+{
+  "scenario": {
+    "id": "hist-1950-korea",
+    "year": 1950,
+    "era": "1945\u20131962",
+    "title": "Parallel War",
+    "region": "Korean War \u00b7 UN Command \u00b7 38th Parallel combat",
+    "meterFamily": "conflict",
+    "theaterArchetype": "pacific",
+    "premise": "This is the Korean War theater\u2014not the founding of two states. North Korean forces have crossed the 38th parallel; UN collective-security machinery must prove it exists. You advise on authorization, war aims, Chinese intervention risk, and whether to carry the fight north of the parallel.",
+    "role": "UN coalition strategy counselor",
+    "tension": "Repel aggression and restore the parallel without turning a limited war into a continental war with China.",
+    "beats": [
+      {
+        "id": "hist-1950-1",
+        "title": "First response",
+        "briefing": "Forces reeling south. Options: emergency air cover, full ground commitment, or diplomatic condemnation only.",
+        "stakes": "Hours matter more than communiqu\u00e9s.",
+        "choices": [
+          {
+            "id": "hist-1950-1a",
+            "label": "Authorize emergency air and naval support",
+            "detail": "Stabilize the perimeter.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "AIRNAV",
+            "callsign": "AUTHORIZE EMERGENCY",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Immediate aid"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "War joined"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "UN acts"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-1b",
+            "label": "Full ground expedition under UN flag",
+            "detail": "Commit troops.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "GROUND",
+            "callsign": "FULL GROUND",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Major war"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Coalition war"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Battlefield toll"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-1c",
+            "label": "Condemn and seek mediation first",
+            "detail": "Words before armies.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "MEDIATE",
+            "callsign": "CONDEMN AND",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talks try"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Slow"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner panic"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-2",
+        "title": "War aims",
+        "briefing": "Some want restoration of the parallel only; others want reunification by force.",
+        "stakes": "Aims decide whether China intervenes.",
+        "choices": [
+          {
+            "id": "hist-1950-2a",
+            "label": "Limit aim to restoring the status quo ante",
+            "detail": "Push back to the parallel.",
+            "kind": "political",
+            "markerId": "strait",
+            "short": "STATUS",
+            "callsign": "LIMIT AIM",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Limited"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear aim"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Easier coalition"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-2b",
+            "label": "Authorize advance north for reunification",
+            "detail": "End the division.",
+            "kind": "kinetic",
+            "markerId": "capital_b",
+            "short": "NORTH",
+            "callsign": "AUTHORIZE ADVANCE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Wider war risk"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Total victory bid"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Neighbors alarmed"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-2c",
+            "label": "Seek a ceasefire in place wherever lines settle",
+            "detail": "Freeze early.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "FREEZE",
+            "callsign": "SEEK A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Stop bleeding"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Aggression rewarded?"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Talks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-3",
+        "title": "Neighbor warning",
+        "briefing": "Intelligence suggests a great-power neighbor may intervene if you approach its border.",
+        "stakes": "Ignoring the warning may be catastrophic; heeding it may forfeit initiative.",
+        "choices": [
+          {
+            "id": "hist-1950-3a",
+            "label": "Halt short of the sensitive belt",
+            "detail": "Geographic self-limit.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "HALT",
+            "callsign": "HALT SHORT",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Reduces intervention odds"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Looks cautious"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Coalition relief"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-3b",
+            "label": "Continue; issue private reassurances of limited aims",
+            "detail": "Talk while moving.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "ASSURE",
+            "callsign": "CONTINUE ISSUE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Still advancing"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Tries both"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-3c",
+            "label": "Dare the intervention; accelerate",
+            "detail": "Speed as strategy.",
+            "kind": "kinetic",
+            "markerId": "fleet",
+            "short": "DASH",
+            "callsign": "DARE THE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Intervention likelier"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Resolve"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Wider fight"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-4",
+        "title": "Armistice politics",
+        "briefing": "After months of grinding war, a prisoner and border package is on the table.",
+        "stakes": "Peace can look like betrayal to those who paid.",
+        "choices": [
+          {
+            "id": "hist-1950-4a",
+            "label": "Accept an armistice near the parallel",
+            "detail": "Stop the meat grinder.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "ARMIST",
+            "callsign": "ACCEPT AN",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -3,
+                "summary": "Guns quiet"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Limited success"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "No victory parade"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-4b",
+            "label": "Hold out for forced repatriation terms",
+            "detail": "Principle over speed.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "POWS",
+            "callsign": "HOLD OUT",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Choice principle"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "War continues"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "More losses"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-4c",
+            "label": "Threaten escalation to compel better terms",
+            "detail": "Raise the shadow.",
+            "kind": "kinetic",
+            "markerId": "cable",
+            "short": "THREAT",
+            "callsign": "THREATEN ESCALATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Pressure"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Dangerous bluff"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners nervous"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-5",
+        "title": "Chinese warning shock",
+        "briefing": "Neighbor signals that crossing a parallel invites intervention. Your war aims speech must choose limited restoration or rollback.",
+        "stakes": "Geography is a red line written in another capital.",
+        "choices": [
+          {
+            "id": "hist-1950-5a",
+            "label": "Reaffirm limited aims: restore the status quo ante",
+            "detail": "Finite war.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "SQA",
+            "callsign": "REAFFIRM LIMITED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Limited frame"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lower intervention odds"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Coalition comfort"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-5b",
+            "label": "Authorize operational pursuit beyond the parallel",
+            "detail": "Rollback.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "ROLLBACK",
+            "callsign": "AUTHORIZE OPERATIONAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Offense"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Wider war risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Total victory frame"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-5c",
+            "label": "Pause offensives and seek a buffer demilitarized concept",
+            "detail": "Geography as bargain.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "BUFFER",
+            "callsign": "PAUSE OFFENSIVES",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Map talk"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Pause"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Incomplete win"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-6",
+        "title": "Home casualty politics",
+        "briefing": "Lists lengthen. A draft expansion vote looms. Limited war is hard to explain at funerals.",
+        "stakes": "Democratic consent is a logistics constraint.",
+        "choices": [
+          {
+            "id": "hist-1950-6a",
+            "label": "Define and broadcast clear limited objectives weekly",
+            "detail": "Narrative discipline.",
+            "kind": "civic",
+            "markerId": "cable",
+            "short": "OBJECT",
+            "callsign": "DEFINE AND",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Clarity helps"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Honest war"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared story"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-6b",
+            "label": "Expand the draft and ask for sacrifice without new aims",
+            "detail": "More force, same speech.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "DRAFT",
+            "callsign": "EXPAND THE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Manpower"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Draft anger"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Social strain"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-6c",
+            "label": "Open an armistice track publicly to show an exit",
+            "detail": "Peace politics.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "ARMPUB",
+            "callsign": "OPEN AN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Exit visible"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Hope"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Looks eager"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-7",
+        "title": "UN coalition ask",
+        "briefing": "Partners want rules on bombing, prisoners, and national caveats. Unity requires constraint.",
+        "stakes": "Coalitions fight at the speed of the most cautious capital.",
+        "choices": [
+          {
+            "id": "hist-1950-7a",
+            "label": "Accept tighter targeting rules for coalition cohesion",
+            "detail": "Restraint as glue.",
+            "kind": "diplomatic",
+            "markerId": "fleet",
+            "short": "RULES",
+            "callsign": "ACCEPT TIGHTER",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Partners stay"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less blast"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Reduced options"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-7b",
+            "label": "Lead with national command exceptions when needed",
+            "detail": "Freedom of action.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "EXCEPT",
+            "callsign": "LEAD WITH",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Flexible force"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Caveat wars"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "National ops"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-7c",
+            "label": "Create a coalition targeting board with vetoes",
+            "detail": "Institutionalize argument.",
+            "kind": "legal",
+            "markerId": "cable",
+            "short": "BOARD3",
+            "callsign": "CREATE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Process"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Slower strikes"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared ownership"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-8",
+        "title": "Atrocity and POW fog",
+        "briefing": "Competing claims about prisoners and civilian deaths threaten the moral frame of a UN war.",
+        "stakes": "Information is a second front.",
+        "choices": [
+          {
+            "id": "hist-1950-8a",
+            "label": "Invite ICRC-like access and publish what you can verify",
+            "detail": "Transparency offensive.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "ICRC",
+            "callsign": "INVITE ICRC",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Moral high ground"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Verification"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Norms"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-8b",
+            "label": "Counter with rapid propaganda before facts settle",
+            "detail": "Speed over certainty.",
+            "kind": "civic",
+            "markerId": "cable",
+            "short": "PROP",
+            "callsign": "COUNTER WITH",
+            "effects": [
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Info war"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Risk of falsehood"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Rally"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-8c",
+            "label": "Quietly improve camp conditions; stay silent publicly",
+            "detail": "Fix first, speak later.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "CAMPS",
+            "callsign": "QUIETLY IMPROVE",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Better treatment"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Silence read badly"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Quiet compliance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-9",
+        "title": "Armistice off-ramp",
+        "briefing": "A ceasefire-in-place proposal appears. Hardliners want more ground; partners want an end.",
+        "stakes": "Stopping can look like losing.",
+        "choices": [
+          {
+            "id": "hist-1950-9a",
+            "label": "Accept ceasefire-in-place with inspection machinery",
+            "detail": "Lock the line.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "CFIP",
+            "callsign": "ACCEPT CEASEFIRE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "War paused"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Guns quiet"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Incomplete"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-9b",
+            "label": "Demand territorial improvements before any pause",
+            "detail": "Better map first.",
+            "kind": "kinetic",
+            "markerId": "fleet",
+            "short": "BETMAP",
+            "callsign": "DEMAND TERRITORIAL",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Fight continues"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Pressure"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners tire"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-9c",
+            "label": "Seek a temporary humanitarian pause only",
+            "detail": "Narrow mercy.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "HUM2",
+            "callsign": "SEEK A",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Relief window"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Days"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1950-10",
+        "title": "Limited-war endgame",
+        "briefing": "You must write the doctrine: Korea as exception, template, or warning against land wars in Asia.",
+        "stakes": "Doctrine is how the next cabinet fights.",
+        "choices": [
+          {
+            "id": "hist-1950-10a",
+            "label": "Codify limited-war rules and nuclear non-use thresholds",
+            "detail": "Boundaries in writing.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "LIMITDOC",
+            "callsign": "CODIFY LIMITED",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Restraints"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Clearer brakes"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Doctrine clarity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-10b",
+            "label": "Treat Korea as unique; refuse general doctrine",
+            "detail": "Case-by-case.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "UNIQUE",
+            "callsign": "TREAT KOREA",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Fog for allies"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Uncertainty"
+              }
+            ]
+          },
+          {
+            "id": "hist-1950-10c",
+            "label": "Pivot resources to other theaters and accept a frozen line",
+            "detail": "Strategic triage.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "TRIAGE",
+            "callsign": "PIVOT RESOURCES",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Global balance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Freeze accepted"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Abandoned feel"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "korea",
+    "scenarioId": "hist-1950-korea",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#0A2030",
+    "land": "#1A342E",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "Korean Peninsula (Natural Earth)",
+      "water": "#0A2030",
+      "land": "#1A342E",
+      "landHi": "#2A443E",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            0.5,
+            0.5
+          ],
+          [
+            55.08,
+            0.5
+          ],
+          [
+            52.39,
+            5.35
+          ],
+          [
+            47.53,
+            4.24
+          ],
+          [
+            44.1,
+            6.45
+          ],
+          [
+            45.15,
+            11.8
+          ],
+          [
+            44.58,
+            19.19
+          ],
+          [
+            42.54,
+            19.36
+          ],
+          [
+            42.56,
+            22.53
+          ],
+          [
+            39.98,
+            18.84
+          ],
+          [
+            38.39,
+            22.34
+          ],
+          [
+            32.21,
+            25.04
+          ],
+          [
+            32.83,
+            28.33
+          ],
+          [
+            29.38,
+            28.11
+          ],
+          [
+            27.48,
+            26.15
+          ],
+          [
+            24.73,
+            30.58
+          ],
+          [
+            20.32,
+            33.94
+          ],
+          [
+            17.06,
+            37.95
+          ],
+          [
+            11.47,
+            39.76
+          ],
+          [
+            8.53,
+            42.68
+          ],
+          [
+            4.22,
+            44.39
+          ],
+          [
+            6.34,
+            41.49
+          ],
+          [
+            5.51,
+            39.06
+          ],
+          [
+            8.67,
+            34.86
+          ],
+          [
+            6.56,
+            31.59
+          ],
+          [
+            3.07,
+            33.79
+          ],
+          [
+            0.5,
+            38.14
+          ],
+          [
+            0.5,
+            42.17
+          ],
+          [
+            0.5,
+            50.64
+          ],
+          [
+            0.5,
+            53.45
+          ],
+          [
+            0.5,
+            55.27
+          ],
+          [
+            3.29,
+            50.81
+          ],
+          [
+            6.85,
+            53.24
+          ],
+          [
+            9.43,
+            53.41
+          ],
+          [
+            10.08,
+            56.68
+          ],
+          [
+            4.42,
+            58.43
+          ],
+          [
+            2.55,
+            61.8
+          ],
+          [
+            0.5,
+            64.94
+          ],
+          [
+            0.5,
+            69.31
+          ],
+          [
+            0.91,
+            72.75
+          ],
+          [
+            2.48,
+            78.9
+          ],
+          [
+            4.92,
+            84.62
+          ],
+          [
+            7.63,
+            89.42
+          ],
+          [
+            7.57,
+            94.07
+          ],
+          [
+            5.06,
+            95.77
+          ],
+          [
+            6.01,
+            99.11
+          ],
+          [
+            8.37,
+            99.5
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        [
+          [
+            87.54,
+            42.62
+          ],
+          [
+            83.84,
+            48.91
+          ],
+          [
+            83.91,
+            55.36
+          ],
+          [
+            82.4,
+            60.35
+          ],
+          [
+            83.1,
+            63.48
+          ],
+          [
+            81.01,
+            67.89
+          ],
+          [
+            75.9,
+            70.83
+          ],
+          [
+            68.87,
+            71.21
+          ],
+          [
+            63.17,
+            78.34
+          ],
+          [
+            60.48,
+            75.94
+          ],
+          [
+            60.32,
+            71.27
+          ],
+          [
+            53.36,
+            72.65
+          ],
+          [
+            48.63,
+            75.59
+          ],
+          [
+            43.94,
+            75.71
+          ],
+          [
+            48.0,
+            80.31
+          ],
+          [
+            45.33,
+            90.94
+          ],
+          [
+            42.75,
+            93.57
+          ],
+          [
+            40.81,
+            91.14
+          ],
+          [
+            41.79,
+            85.5
+          ],
+          [
+            39.26,
+            83.69
+          ],
+          [
+            37.63,
+            79.4
+          ],
+          [
+            41.42,
+            77.47
+          ],
+          [
+            43.51,
+            73.55
+          ],
+          [
+            47.54,
+            70.31
+          ],
+          [
+            50.47,
+            66.04
+          ],
+          [
+            58.43,
+            64.18
+          ],
+          [
+            62.71,
+            65.46
+          ],
+          [
+            66.9,
+            54.34
+          ],
+          [
+            69.56,
+            57.33
+          ],
+          [
+            75.43,
+            51.08
+          ],
+          [
+            77.71,
+            48.65
+          ],
+          [
+            80.22,
+            41.01
+          ],
+          [
+            79.53,
+            33.98
+          ],
+          [
+            81.22,
+            30.03
+          ],
+          [
+            85.48,
+            28.88
+          ],
+          [
+            87.66,
+            37.55
+          ],
+          [
+            87.54,
+            42.62
+          ]
+        ],
+        [
+          [
+            42.56,
+            22.53
+          ],
+          [
+            42.56,
+            22.53
+          ],
+          [
+            43.12,
+            23.62
+          ],
+          [
+            41.6,
+            23.25
+          ],
+          [
+            39.86,
+            25.37
+          ],
+          [
+            38.67,
+            27.49
+          ],
+          [
+            38.82,
+            31.98
+          ],
+          [
+            36.75,
+            33.36
+          ],
+          [
+            36.04,
+            34.47
+          ],
+          [
+            34.53,
+            36.31
+          ],
+          [
+            31.87,
+            37.34
+          ],
+          [
+            30.13,
+            39.02
+          ],
+          [
+            30.01,
+            41.73
+          ],
+          [
+            29.54,
+            42.42
+          ],
+          [
+            31.13,
+            43.43
+          ],
+          [
+            33.4,
+            46.17
+          ],
+          [
+            32.82,
+            47.69
+          ],
+          [
+            31.12,
+            48.1
+          ],
+          [
+            28.29,
+            48.4
+          ],
+          [
+            26.73,
+            51.22
+          ],
+          [
+            24.95,
+            51.0
+          ],
+          [
+            24.7,
+            51.56
+          ],
+          [
+            22.76,
+            50.37
+          ],
+          [
+            22.27,
+            51.55
+          ],
+          [
+            21.1,
+            52.07
+          ],
+          [
+            20.96,
+            50.89
+          ],
+          [
+            19.92,
+            50.32
+          ],
+          [
+            18.85,
+            49.32
+          ],
+          [
+            19.94,
+            46.57
+          ],
+          [
+            20.89,
+            45.84
+          ],
+          [
+            20.53,
+            44.7
+          ],
+          [
+            21.55,
+            41.33
+          ],
+          [
+            21.28,
+            40.3
+          ],
+          [
+            18.95,
+            39.62
+          ],
+          [
+            17.06,
+            37.95
+          ],
+          [
+            20.32,
+            33.94
+          ],
+          [
+            24.73,
+            30.58
+          ],
+          [
+            27.48,
+            26.15
+          ],
+          [
+            29.38,
+            28.11
+          ],
+          [
+            32.83,
+            28.33
+          ],
+          [
+            32.21,
+            25.04
+          ],
+          [
+            38.39,
+            22.34
+          ],
+          [
+            39.98,
+            18.84
+          ],
+          [
+            42.56,
+            22.53
+          ]
+        ],
+        [
+          [
+            24.7,
+            51.56
+          ],
+          [
+            24.95,
+            51.0
+          ],
+          [
+            26.73,
+            51.22
+          ],
+          [
+            28.29,
+            48.4
+          ],
+          [
+            31.12,
+            48.1
+          ],
+          [
+            32.82,
+            47.69
+          ],
+          [
+            33.4,
+            46.17
+          ],
+          [
+            36.85,
+            53.55
+          ],
+          [
+            37.84,
+            57.6
+          ],
+          [
+            37.87,
+            64.8
+          ],
+          [
+            36.37,
+            68.23
+          ],
+          [
+            32.74,
+            69.44
+          ],
+          [
+            29.55,
+            72.03
+          ],
+          [
+            25.94,
+            72.56
+          ],
+          [
+            25.5,
+            69.16
+          ],
+          [
+            26.24,
+            64.47
+          ],
+          [
+            24.47,
+            57.97
+          ],
+          [
+            27.44,
+            56.91
+          ],
+          [
+            24.7,
+            51.56
+          ]
+        ],
+        [
+          [
+            98.45,
+            12.74
+          ],
+          [
+            99.5,
+            10.1
+          ],
+          [
+            99.5,
+            17.11
+          ],
+          [
+            96.24,
+            18.82
+          ],
+          [
+            92.74,
+            25.03
+          ],
+          [
+            86.45,
+            20.76
+          ],
+          [
+            84.27,
+            27.6
+          ],
+          [
+            79.82,
+            27.69
+          ],
+          [
+            79.27,
+            21.48
+          ],
+          [
+            81.25,
+            16.67
+          ],
+          [
+            85.52,
+            16.32
+          ],
+          [
+            86.69,
+            7.67
+          ],
+          [
+            87.87,
+            2.8
+          ],
+          [
+            92.57,
+            9.31
+          ],
+          [
+            95.64,
+            11.41
+          ],
+          [
+            98.45,
+            12.74
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            42.0,
+            50.0
+          ],
+          [
+            62.0,
+            50.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Seoul",
+          "x": 50.0,
+          "y": 56.0
+        },
+        {
+          "name": "Pyongyang",
+          "x": 48.0,
+          "y": 40.0
+        },
+        {
+          "name": "Busan",
+          "x": 56.0,
+          "y": 80.0
+        },
+        {
+          "name": "Incheon",
+          "x": 44.0,
+          "y": 54.0
+        }
+      ]
+    }
+  }
+}

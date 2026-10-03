@@ -1,0 +1,264 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* Codex.uss — Atlas Codex full-screen overlay.
+   Night Atlas visual language: deep slate glass, amber accent, paper-white text.
+   Typography: body ≥ 28 px, titles ≥ 36 px, buttons ≥ 32 px (1080×1920 ref).
+*/
+
+/* ── Root overlay ────────────────────────────────────────────────────────── */
+
+.codex-root {
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: rgba(11, 18, 32, 0.88);
+}
+
+/* ── Glass panel ─────────────────────────────────────────────────────────── */
+
+.codex-panel {
+    flex-grow: 1;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(17, 26, 43, 0.97);
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+
+.codex-header {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 28px;
+    padding-right: 20px;
+    padding-top: 24px;
+    padding-bottom: 16px;
+    border-bottom-width: 1px;
+    border-color: rgba(255, 255, 255, 0.07);
+    flex-shrink: 0;
+}
+
+.codex-header-titles {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.codex-title {
+    font-size: 44px;
+    color: rgba(245, 165, 36, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 2px;
+}
+
+.codex-subtitle {
+    font-size: 26px;
+    color: rgba(110, 122, 143, 1);
+    margin-top: 2px;
+}
+
+.codex-close-btn {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(23, 35, 58, 1);
+    border-radius: 40px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition-duration: 0.12s;
+}
+
+.codex-close-btn > Label {
+    font-size: 32px;
+    color: rgba(169, 179, 196, 1);
+}
+
+.codex-close-btn:active {
+    scale: 0.93 0.93;
+}
+
+/* ── Overall progress ────────────────────────────────────────────────────── */
+
+.codex-overall-progress {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-shrink: 0;
+    border-bottom-width: 1px;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.codex-overall-label {
+    font-size: 28px;
+    color: rgba(242, 239, 230, 1);
+    margin-bottom: 10px;
+}
+
+.codex-meter {
+    height: 10px;
+}
+
+.codex-overall-fill {
+    background-color: rgba(245, 165, 36, 1);
+}
+
+/* ── Scroll view ─────────────────────────────────────────────────────────── */
+
+.codex-scroll {
+    flex-grow: 1;
+}
+
+.codex-theater-sections {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 32px;
+}
+
+/* ── Theater section ─────────────────────────────────────────────────────── */
+
+.codex-theater-section {
+    flex-direction: column;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    background-color: rgba(23, 35, 58, 0.5);
+    border-radius: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.codex-theater-header {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.codex-theater-title {
+    font-size: 36px;
+    color: rgba(242, 239, 230, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    flex-grow: 1;
+    white-space: normal;
+}
+
+.codex-theater-year {
+    font-size: 26px;
+    color: rgba(110, 122, 143, 1);
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.codex-theater-progress-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.codex-theater-count {
+    font-size: 26px;
+    color: rgba(169, 179, 196, 1);
+    flex-grow: 1;
+}
+
+.codex-theater-pct {
+    font-size: 26px;
+    color: rgba(245, 165, 36, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    flex-shrink: 0;
+}
+
+.codex-theater-meter {
+    height: 6px;
+    margin-bottom: 16px;
+}
+
+.codex-theater-fill {
+    background-color: rgba(245, 165, 36, 0.75);
+}
+
+/* ── Place cards grid ────────────────────────────────────────────────────── */
+
+.codex-place-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ── Discovered place card ───────────────────────────────────────────────── */
+
+.codex-place-card {
+    flex-direction: column;
+    background-color: rgba(11, 18, 32, 0.6);
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.07);
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    width: 46%;
+}
+
+.codex-place-name {
+    font-size: 30px;
+    color: rgba(242, 239, 230, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    white-space: normal;
+    margin-bottom: 4px;
+}
+
+.codex-place-latlon {
+    font-size: 22px;
+    color: rgba(110, 122, 143, 1);
+    margin-bottom: 8px;
+}
+
+.codex-place-fact {
+    font-size: 26px;
+    color: rgba(169, 179, 196, 1);
+    white-space: normal;
+}
+
+/* ── Locked (undiscovered) place card ────────────────────────────────────── */
+
+.codex-place-card--locked {
+    border-color: rgba(110, 122, 143, 0.2);
+}
+
+.codex-place-locked-name {
+    font-size: 30px;
+    color: rgba(110, 122, 143, 0.8);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 6px;
+}
+
+.codex-place-locked-hint {
+    font-size: 24px;
+    color: rgba(110, 122, 143, 0.6);
+    white-space: normal;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+
+.codex-empty {
+    font-size: 28px;
+    color: rgba(110, 122, 143, 1);
+    padding-top: 24px;
+    padding-bottom: 8px;
+    -unity-text-align: middle-center;
+}

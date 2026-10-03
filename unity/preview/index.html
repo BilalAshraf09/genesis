@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Genesis — Unity AAA board preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Sora:wght@400;600&display=swap');
+    :root {
+      --ink: #061018;
+      --cyan: #3de0ef;
+      --ember: #e07040;
+      --gold: #d4a04a;
+      --glass: rgba(8, 16, 24, 0.72);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: var(--ink); color: #e8eef4; font-family: Sora, sans-serif; }
+    #c { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+    .hud {
+      position: fixed; left: 0; right: 0; top: 0; z-index: 2;
+      pointer-events: none; padding: 1.1rem 1.25rem 0;
+      background: linear-gradient(180deg, rgba(4,10,16,.85), transparent 85%);
+    }
+    .brand {
+      font-family: Orbitron, sans-serif; letter-spacing: .28em; font-size: .72rem;
+      color: var(--cyan); text-transform: uppercase; margin-bottom: .55rem;
+    }
+    .theater {
+      font-family: Orbitron, sans-serif; font-weight: 700; font-size: clamp(1.1rem, 2.4vw, 1.65rem);
+      letter-spacing: .08em;
+    }
+    .objective {
+      margin-top: .55rem; font-family: Orbitron, sans-serif; font-size: .78rem;
+      letter-spacing: .12em; color: #cfe8f0;
+    }
+    .stakes { margin-top: .35rem; max-width: 42rem; font-size: .84rem; opacity: .82; line-height: 1.35; }
+    .phase {
+      position: fixed; top: 1.1rem; right: 5.5rem; z-index: 2;
+      font-family: Orbitron, sans-serif; font-size: .7rem; letter-spacing: .18em; color: #9bb;
+      pointer-events: none;
+    }
+    .timer {
+      position: fixed; top: 1rem; right: 1rem; z-index: 2; width: 64px; height: 64px;
+      border-radius: 50%; border: 2px solid rgba(61,224,239,.35);
+      display: grid; place-items: center; background: rgba(6,16,24,.65);
+      font-family: Orbitron, sans-serif; font-size: .85rem; color: var(--cyan);
+      pointer-events: none;
+    }
+    .timer::before {
+      content: ''; position: absolute; inset: -2px; border-radius: 50%;
+      border: 3px solid transparent; border-top-color: var(--cyan);
+      animation: spin 45s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .rail {
+      position: fixed; left: 3%; right: 3%; bottom: 5.8rem; z-index: 2;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem;
+    }
+    .order {
+      pointer-events: auto; cursor: pointer; border: 1px solid rgba(61,224,239,.22);
+      background: var(--glass); backdrop-filter: blur(10px); padding: .85rem .7rem;
+      text-align: center; transition: border-color .2s, transform .2s, background .2s;
+    }
+    .order:hover, .order.selected {
+      border-color: var(--cyan); background: rgba(12, 40, 48, .88); transform: translateY(-2px);
+    }
+    .order .call { font-family: Orbitron, sans-serif; color: var(--cyan); letter-spacing: .1em; font-size: .78rem; }
+    .order .meta { margin-top: .35rem; font-size: .68rem; opacity: .7; text-transform: uppercase; letter-spacing: .08em; }
+    .execute {
+      position: fixed; left: 12%; right: 12%; bottom: 1.1rem; z-index: 2; height: 3.1rem;
+      border: 0; font-family: Orbitron, sans-serif; letter-spacing: .14em; font-size: .85rem;
+      background: #3a3f45; color: #9aa; cursor: not-allowed;
+    }
+    .execute.armed {
+      background: linear-gradient(90deg, #c04520, #e07040); color: #fff; cursor: pointer;
+      box-shadow: 0 0 24px rgba(224,112,64,.35);
+    }
+    .resolve {
+      position: fixed; inset: 0; z-index: 5; display: none; place-items: center;
+      background: rgba(2,6,10,.72); padding: 1.5rem;
+    }
+    .resolve.show { display: grid; }
+    .resolve .card {
+      width: min(560px, 94vw); background: rgba(8,16,24,.94); border: 1px solid rgba(61,224,239,.25);
+      padding: 1.6rem 1.4rem; text-align: center;
+    }
+    .resolve h2 { font-family: Orbitron, sans-serif; letter-spacing: .08em; font-size: 1.05rem; margin-bottom: .8rem; }
+    .resolve .course { opacity: .88; margin-bottom: 1rem; line-height: 1.4; }
+    .resolve .challenge { color: var(--gold); font-family: Orbitron, sans-serif; font-size: .72rem; letter-spacing: .1em; margin-bottom: 1.2rem; }
+    .resolve button {
+      border: 0; background: var(--cyan); color: #041018; font-family: Orbitron, sans-serif;
+      letter-spacing: .12em; padding: .7rem 1.4rem; cursor: pointer;
+    }
+    .note {
+      position: fixed; left: 1rem; bottom: 5.2rem; z-index: 2; font-size: .65rem; opacity: .55;
+      pointer-events: none; max-width: 16rem;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div class="hud">
+    <div class="brand">Genesis · Unity AAA preview</div>
+    <div class="theater" id="theaterTitle">1947 · PARTITION LINE</div>
+    <div class="objective" id="objective">PRIMARY OBJECTIVE — …</div>
+    <div class="stakes" id="stakes"></div>
+  </div>
+  <div class="phase" id="phase">PHASE 1/3</div>
+  <div class="timer" id="timer">45s</div>
+  <div class="note">Board preview mirrors Unity StreamingAssets JSON. Not the Editor Play Mode — open unity/Genesis on a licensed Unity 6000.0.84f1 machine for the real slice.</div>
+  <div class="rail" id="rail"></div>
+  <button class="execute" id="execute" disabled>EXECUTE ORDER</button>
+  <div class="resolve" id="resolve">
+    <div class="card">
+      <h2 id="resolveTitle">ORDER LOCKED</h2>
+      <p class="course" id="resolveCourse"></p>
+      <p class="challenge" id="resolveChallenge">WORLD COURSE LOCKED — challenge a rival to beat your Partition desk.</p>
+      <button id="continueBtn">CONTINUE</button>
+    </div>
+  </div>
+  <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+
+    const DATA_URL = new URL('../Genesis/Assets/StreamingAssets/Theaters/hist-1947-radcliffe.json', import.meta.url).href;
+    const canvas = document.getElementById('c');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setSize(innerWidth, innerHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x061018);
+    scene.fog = new THREE.FogExp2(0x061018, 0.028);
+
+    const camera = new THREE.PerspectiveCamera(42, innerWidth / innerHeight, 0.1, 200);
+    camera.position.set(0, 14, 11);
+    camera.lookAt(0, 0, 0);
+
+    const key = new THREE.DirectionalLight(0xffebc8, 1.2);
+    key.position.set(-6, 16, 4);
+    scene.add(key);
+    const fill = new THREE.DirectionalLight(0x5a8cb0, 0.45);
+    fill.position.set(8, 8, -6);
+    scene.add(fill);
+    const rim = new THREE.SpotLight(0xe07040, 2.4, 50, Math.PI / 4, 0.4);
+    rim.position.set(4, 12, -2);
+    rim.target.position.set(0, 0, 0);
+    scene.add(rim, rim.target);
+    scene.add(new THREE.AmbientLight(0x142028, 0.55));
+
+    const boardW = 24, boardD = 16, landH = 0.35;
+    const mapToWorld = (x, y) => new THREE.Vector3((x / 100 - 0.5) * boardW, landH + 0.05, (0.5 - y / 100) * boardD);
+
+    let selectedOrder = null;
+    let beatIndex = 0;
+    let remaining = 45;
+    let armed = false;
+    let data = null;
+    const hotspots = new Map();
+    let shockwave = null;
+
+    function extrudeRing(pts, height, color) {
+      const shape = new THREE.Shape();
+      pts.forEach(([x, y], i) => {
+        const w = mapToWorld(x, y);
+        if (i === 0) shape.moveTo(w.x, w.z); else shape.lineTo(w.x, w.z);
+      });
+      const geo = new THREE.ExtrudeGeometry(shape, { depth: height, bevelEnabled: false });
+      geo.rotateX(-Math.PI / 2);
+      const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.55, metalness: 0.35 });
+      return new THREE.Mesh(geo, mat);
+    }
+
+    function buildBoard(board) {
+      const water = new THREE.Mesh(
+        new THREE.PlaneGeometry(boardW * 1.15, boardD * 1.15),
+        new THREE.MeshStandardMaterial({ color: board.water || '#0C2030', roughness: 0.85, metalness: 0.15 })
+      );
+      water.rotation.x = -Math.PI / 2;
+      scene.add(water);
+
+      const lands = board.geo?.lands || [];
+      lands.forEach((ring, i) => {
+        scene.add(extrudeRing(ring, landH, i === 0 ? (board.land || '#1E3340') : (board.geo.landHi || '#3A4A34')));
+      });
+
+      (board.geo?.borders || []).forEach(ring => {
+        for (let i = 0; i < ring.length - 1; i++) {
+          const a = mapToWorld(ring[i][0], ring[i][1]);
+          const b = mapToWorld(ring[i + 1][0], ring[i + 1][1]);
+          a.y = landH + 0.08; b.y = landH + 0.08;
+          const len = a.distanceTo(b);
+          const beam = new THREE.Mesh(
+            new THREE.BoxGeometry(0.06, 0.06, len),
+            new THREE.MeshStandardMaterial({ color: board.accent || '#D4A04A', emissive: 0x553300, emissiveIntensity: 0.35 })
+          );
+          beam.position.copy(a).add(b).multiplyScalar(0.5);
+          beam.lookAt(b);
+          scene.add(beam);
+        }
+      });
+
+      (board.zones || []).forEach(z => {
+        const mesh = new THREE.Mesh(
+          new THREE.BoxGeometry(boardW * (z.w / 100), 0.03, boardD * (z.h / 100)),
+          new THREE.MeshStandardMaterial({ color: 0xe07040, transparent: true, opacity: 0.18 + z.tension * 0.12 })
+        );
+        const c = mapToWorld(z.x + z.w / 2, z.y + z.h / 2);
+        mesh.position.set(c.x, landH + 0.02, c.z);
+        scene.add(mesh);
+      });
+
+      (board.markers || []).forEach(m => {
+        const group = new THREE.Group();
+        const pos = mapToWorld(m.x, m.y);
+        group.position.set(pos.x, landH + 0.35, pos.z);
+        const cyl = new THREE.Mesh(
+          new THREE.CylinderGeometry(0.28, 0.28, 0.7, 16),
+          new THREE.MeshStandardMaterial({ color: 0x3de0ef, emissive: 0x0a4048, emissiveIntensity: 0.6 })
+        );
+        const beacon = new THREE.Mesh(
+          new THREE.SphereGeometry(0.18, 16, 16),
+          new THREE.MeshStandardMaterial({ color: 0xd4a04a, emissive: 0xaa6600, emissiveIntensity: 0.8 })
+        );
+        beacon.position.y = 0.7;
+        group.add(cyl, beacon);
+        group.userData = m;
+        scene.add(group);
+        hotspots.set(m.id, group);
+      });
+    }
+
+    function showBeat() {
+      const beat = data.scenario.beats[beatIndex];
+      document.getElementById('theaterTitle').textContent = `${data.scenario.year}  ·  ${data.board.title}`;
+      document.getElementById('objective').textContent = `PRIMARY OBJECTIVE — ${beat.title.toUpperCase()}`;
+      document.getElementById('stakes').textContent = beat.stakes;
+      document.getElementById('phase').textContent = `PHASE ${beatIndex + 1}/3`;
+      remaining = 45;
+      armed = false;
+      selectedOrder = null;
+      const exec = document.getElementById('execute');
+      exec.disabled = true;
+      exec.classList.remove('armed');
+      exec.textContent = 'EXECUTE ORDER';
+      const rail = document.getElementById('rail');
+      rail.innerHTML = '';
+      beat.choices.forEach(ch => {
+        const el = document.createElement('button');
+        el.className = 'order';
+        el.innerHTML = `<div class="call">${ch.callsign}</div><div class="meta">${ch.kind} · ${ch.short || ch.shortName || ''}</div>`;
+        el.onclick = () => selectOrder(ch, el);
+        rail.appendChild(el);
+      });
+    }
+
+    function selectOrder(ch, el) {
+      selectedOrder = ch;
+      armed = true;
+      [...document.querySelectorAll('.order')].forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      const exec = document.getElementById('execute');
+      exec.disabled = false;
+      exec.classList.add('armed');
+      exec.textContent = `EXECUTE ORDER — ${ch.callsign}`;
+      const hs = hotspots.get(ch.markerId);
+      if (hs) {
+        const target = hs.position.clone();
+        camera.position.lerp(new THREE.Vector3(target.x + 0, 9, target.z + 7), 0.35);
+        camera.lookAt(target);
+      }
+    }
+
+    function playExecute() {
+      if (!selectedOrder) return;
+      const hs = hotspots.get(selectedOrder.markerId);
+      const center = hs ? hs.position.clone() : new THREE.Vector3();
+      shockwave = new THREE.Mesh(
+        new THREE.RingGeometry(0.2, 0.35, 48),
+        new THREE.MeshBasicMaterial({ color: 0xffaa55, transparent: true, opacity: 0.7, side: THREE.DoubleSide })
+      );
+      shockwave.rotation.x = -Math.PI / 2;
+      shockwave.position.set(center.x, landH + 0.25, center.z);
+      scene.add(shockwave);
+      key.color.set(0xff8833);
+      const effect = selectedOrder.effects?.[0]?.summary || selectedOrder.detail;
+      setTimeout(() => {
+        document.getElementById('resolveTitle').textContent =
+          `${data.scenario.title.toUpperCase()}\nORDER LOCKED — ${selectedOrder.callsign}`;
+        document.getElementById('resolveCourse').textContent = effect;
+        document.getElementById('resolve').classList.add('show');
+        key.color.set(0xffebc8);
+      }, 900);
+    }
+
+    document.getElementById('execute').onclick = playExecute;
+    document.getElementById('continueBtn').onclick = () => {
+      document.getElementById('resolve').classList.remove('show');
+      if (shockwave) { scene.remove(shockwave); shockwave = null; }
+      beatIndex = Math.min(beatIndex + 1, 2);
+      showBeat();
+    };
+
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    canvas.addEventListener('pointerdown', (e) => {
+      pointer.x = (e.clientX / innerWidth) * 2 - 1;
+      pointer.y = -(e.clientY / innerHeight) * 2 + 1;
+      raycaster.setFromCamera(pointer, camera);
+      const hits = raycaster.intersectObjects([...hotspots.values()], true);
+      if (!hits.length) return;
+      let obj = hits[0].object;
+      while (obj && !obj.userData?.id) obj = obj.parent;
+      if (!obj?.userData?.id) return;
+      const beat = data.scenario.beats[beatIndex];
+      const match = beat.choices.find(c => c.markerId === obj.userData.id) || beat.choices[0];
+      const tile = [...document.querySelectorAll('.order')][beat.choices.indexOf(match)];
+      if (match && tile) selectOrder(match, tile);
+    });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(innerWidth, innerHeight);
+    });
+
+    setInterval(() => {
+      if (document.getElementById('resolve').classList.contains('show')) return;
+      remaining = Math.max(0, remaining - 1);
+      document.getElementById('timer').textContent = `${String(remaining).padStart(2, '0')}s`;
+      if (remaining === 0 && selectedOrder) playExecute();
+    }, 1000);
+
+    function tick(t) {
+      if (shockwave) {
+        const s = 1 + (t % 1000) / 80;
+        shockwave.scale.setScalar(Math.min(40, shockwave.scale.x + 0.35));
+        shockwave.material.opacity *= 0.97;
+      }
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    const res = await fetch(DATA_URL);
+    data = await res.json();
+    buildBoard(data.board);
+    showBeat();
+  </script>
+</body>
+</html>

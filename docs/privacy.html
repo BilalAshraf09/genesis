@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy Policy — Genesis</title>
+    <meta
+      name="description"
+      content="Privacy Policy for Genesis (com.bilalashraf.genesis), a historical decision game by Bilal Ashraf."
+    />
+    <style>
+      :root {
+        --void: #05070c;
+        --deep: #0a0e18;
+        --chalk: #f4f7fb;
+        --mist: #9aadc2;
+        --dim: #b4c2d4;
+        --fog: #5e7188;
+        --cyan: #2ee6c8;
+        --cyan-hot: #6ff5de;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: radial-gradient(1200px 600px at 20% -10%, #122038 0%, var(--void) 55%);
+        color: var(--chalk);
+        line-height: 1.55;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .brand {
+        letter-spacing: 0.28em;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--cyan);
+        margin: 0 0 8px;
+      }
+      h1 {
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+        margin: 0 0 12px;
+        letter-spacing: 0.02em;
+      }
+      .meta {
+        color: var(--mist);
+        font-size: 0.95rem;
+        margin: 0 0 32px;
+      }
+      h2 {
+        font-size: 1.05rem;
+        color: var(--cyan-hot);
+        margin: 28px 0 8px;
+      }
+      p,
+      li {
+        color: var(--dim);
+        margin: 0 0 10px;
+      }
+      ul {
+        margin: 0 0 12px;
+        padding-left: 1.2rem;
+      }
+      .note {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(140, 180, 210, 0.2);
+        color: var(--fog);
+        font-size: 0.85rem;
+      }
+      a {
+        color: var(--cyan);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="brand">GENESIS</p>
+      <h1>Privacy Policy</h1>
+      <p class="meta">
+        <strong>Last updated:</strong> 24 September 2026<br />
+        <strong>App:</strong> Genesis (<code>com.bilalashraf.genesis</code>)<br />
+        <strong>Developer:</strong> Bilal Ashraf
+      </p>
+
+      <h2>1. Overview</h2>
+      <p>
+        Genesis is a historical decision / strategy game. This policy explains what information the
+        app handles, how purchases and subscriptions work, and what choices you have.
+      </p>
+
+      <h2>2. Accounts and authentication (current build)</h2>
+      <p>Today Genesis uses <strong>local (on-device) authentication</strong>:</p>
+      <ul>
+        <li>
+          You may create an account with an <strong>email address</strong> and
+          <strong>password</strong> to deploy into theaters.
+        </li>
+        <li>
+          Credentials and session data are stored on your device using platform secure storage where
+          available (<code>SecureStore</code> on native; local storage on web demos).
+        </li>
+        <li>Passwords are stored as a <strong>local hash</strong>, not as plaintext.</li>
+        <li>
+          There is <strong>no Genesis cloud account server</strong> in the current build.
+          Uninstalling the app or clearing app data removes local account data.
+        </li>
+      </ul>
+      <p>
+        If authentication is later moved to a provider such as Supabase or Firebase, that provider’s
+        processing will apply; this policy should be updated and the Play Data safety form revised
+        before that release ships.
+      </p>
+
+      <h2>3. Game progress and preferences</h2>
+      <p>We store on your device information needed to run the game, for example:</p>
+      <ul>
+        <li>Which theaters you have played and Pro / entitlement status</li>
+        <li>Retention features (streaks, Crisis of the Day state)</li>
+        <li>
+          Endings / mastery progress, leaderboard personal bests (local), invite/deep-link handling
+        </li>
+        <li>UI preferences such as audio mute</li>
+      </ul>
+      <p>
+        This data stays on device unless a future update adds an optional cloud sync (not present
+        today).
+      </p>
+
+      <h2>4. Notifications</h2>
+      <p>
+        Crisis / reminder notifications are <strong>optional</strong>. The app requests notification
+        permission only when you enable reminders. You can revoke permission in system settings. We
+        do not use notifications for unrelated advertising in the current build.
+      </p>
+
+      <h2>5. Purchases and subscriptions (Google Play and RevenueCat)</h2>
+      <p>
+        Paid access uses <strong>Google Play Billing</strong>, mediated by
+        <strong>RevenueCat</strong> when configured:
+      </p>
+      <ul>
+        <li>Entitlement: <strong><code>genesis_pro</code></strong> (full timeline access)</li>
+        <li>
+          Offerings may include <strong>lifetime</strong>, <strong>yearly</strong>, and
+          <strong>monthly</strong> plans (exact product IDs and prices are shown in the Play
+          purchase sheet / in-app RevenueCat Paywall)
+        </li>
+        <li>
+          You can manage or cancel auto-renewing subscriptions in Google Play → Payments &amp;
+          subscriptions, or via the in-app <strong>Customer Center</strong> when that UI is enabled
+        </li>
+      </ul>
+      <p>
+        Payment details are processed by <strong>Google</strong>. RevenueCat validates entitlements
+        and restore state. Google and RevenueCat process purchase tokens and related identifiers
+        under their own policies. Genesis does not receive your full payment card number.
+      </p>
+      <p>
+        Use restore / Customer Center flows if you reinstall or change devices while Pro is active.
+      </p>
+
+      <h2>6. Optional AI evaluation (OpenAI)</h2>
+      <p>
+        If the developer enables an OpenAI API key in the build configuration, end-of-run
+        evaluations may send <strong>gameplay context</strong> (scenario choices / scores — not your
+        password) to OpenAI over HTTPS to generate text feedback. If that key is not configured,
+        Genesis uses a built-in on-device / mock evaluator and no evaluation traffic leaves the
+        device for that feature.
+      </p>
+
+      <h2>7. Analytics and crash reporting</h2>
+      <p>
+        The current first-party app code does not ship a separate advertising SDK. Google Play may
+        collect standard install / vitals / crash information when you install from Play. RevenueCat
+        and Google Play Billing may collect technical data required to operate purchases and
+        subscriptions (see their documentation).
+      </p>
+
+      <h2>8. Data we do not collect (current build)</h2>
+      <p>Genesis does not request access to:</p>
+      <ul>
+        <li>Precise or approximate location</li>
+        <li>Camera, microphone, or photos</li>
+        <li>Contacts or SMS</li>
+        <li>Health or fitness data</li>
+      </ul>
+
+      <h2>9. Children</h2>
+      <p>
+        Genesis is intended for a general audience comfortable with historical conflict themes as
+        strategy subject matter. It is not directed at children under 13. Do not create an account
+        for a child under 13.
+      </p>
+
+      <h2>10. Retention</h2>
+      <ul>
+        <li><strong>On-device data:</strong> retained until you clear app storage or uninstall.</li>
+        <li>
+          <strong>Purchase / subscription records:</strong> retained by Google / RevenueCat as
+          required to provide the entitlement and for legal/accounting purposes.
+        </li>
+        <li>
+          <strong>Optional OpenAI requests:</strong> subject to OpenAI’s retention practices when
+          that feature is enabled.
+        </li>
+      </ul>
+
+      <h2>11. Your choices</h2>
+      <ul>
+        <li>Play without purchasing; free theaters remain available after sign-in.</li>
+        <li>Decline notification permission.</li>
+        <li>Clear local data / uninstall to remove on-device account and progress.</li>
+        <li>
+          Manage or cancel Play subscriptions in Google Play (or Customer Center when available).
+        </li>
+        <li>
+          Contact the developer (below) for privacy questions. When cloud accounts exist, a deletion
+          request path will be documented here.
+        </li>
+      </ul>
+
+      <h2>12. Security</h2>
+      <p>
+        We use platform secure storage for session secrets on native builds and HTTPS for any
+        network features that are enabled (Play, RevenueCat, optional OpenAI, future auth backends).
+        No method of transmission or storage is 100% secure.
+      </p>
+
+      <h2>13. Changes</h2>
+      <p>
+        We may update this policy when the app’s data practices change (for example, adding cloud
+        auth or changing subscription offerings). The “Last updated” date will change; material
+        changes should also be reflected in the Play Data safety form.
+      </p>
+
+      <h2>14. Contact</h2>
+      <p>
+        <strong>Developer:</strong> Bilal Ashraf<br />
+        <strong>App package:</strong> <code>com.bilalashraf.genesis</code><br />
+        <strong>Email:</strong> <em>(add the address you will monitor before using this page as the
+        Play Console privacy URL)</em>
+      </p>
+
+      <p class="note">
+        Host this file over HTTPS (GitHub/Origin Pages, Netlify, Cloudflare Pages, or any static
+        host), then paste that live URL into Google Play Console → App content → Privacy policy.
+        Do not invent a placeholder URL. In-app copy also lives at the Expo route
+        <code>/privacy</code>.
+      </p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+    <ui:Style src="project://database/Assets/UI/Screens/Settings.uss" />
+
+    <!-- Full-screen root, safe-area applied by C# SafeAreaRoot.Apply -->
+    <ui:VisualElement name="settingsRoot" class="settings-screen">
+
+        <!-- ── HEADER BAR ── -->
+        <ui:VisualElement name="headerBar" class="settings-header">
+            <ui:Button name="backBtn" class="settings-header__back-btn">
+                <ui:Label text="◀" />
+            </ui:Button>
+            <ui:Label text="SETTINGS" class="settings-header__title" />
+        </ui:VisualElement>
+
+        <!-- ── SCROLLABLE CONTENT ── -->
+        <ui:ScrollView name="settingsScroll" mode="Vertical"
+                       class="settings-scroll"
+                       vertical-scrollbar-visibility="Hidden">
+
+            <!-- ── GRAPHICS QUALITY ── -->
+            <ui:VisualElement class="settings-section">
+                <ui:Label text="GRAPHICS" class="settings-section__heading" />
+
+                <!-- Current quality label (populated by C#) -->
+                <ui:Label name="qualityLabel" text="Quality: Standard"
+                          class="settings-section__label" />
+
+                <ui:Button name="highQualityBtn" class="quality-btn">
+                    <ui:Label text="Force High Quality" />
+                    <ui:Label text="60 fps flagship" class="quality-btn__badge" />
+                </ui:Button>
+                <ui:Button name="standardQualityBtn" class="quality-btn">
+                    <ui:Label text="Standard Quality" />
+                    <ui:Label text="Balanced" class="quality-btn__badge" />
+                </ui:Button>
+            </ui:VisualElement>
+
+            <!-- ── HAPTICS ── -->
+            <ui:VisualElement class="settings-section">
+                <ui:Label text="INPUT" class="settings-section__heading" />
+                <ui:VisualElement class="toggle-row">
+                    <ui:Label text="Haptic feedback" class="toggle-row__label" />
+                    <ui:Button name="hapticsToggle" class="toggle-pill">
+                        <ui:Label name="hapticsToggleLabel" text="OFF" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- ── ACCOUNT / PREMIUM ── -->
+            <ui:VisualElement class="settings-section">
+                <ui:Label text="ACCESS" class="settings-section__heading" />
+                <ui:Label name="clearanceLabel" text="Clearance: Standard"
+                          class="settings-status-label" />
+                <ui:Button name="specialOpsBtn" class="settings-action-btn">
+                    <ui:Label text="Access Special Operations" />
+                </ui:Button>
+            </ui:VisualElement>
+
+        </ui:ScrollView>
+
+    </ui:VisualElement>
+</ui:UXML>

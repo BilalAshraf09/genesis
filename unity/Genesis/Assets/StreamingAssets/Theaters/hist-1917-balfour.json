@@ -1,0 +1,1430 @@
+{
+  "scenario": {
+    "id": "hist-1917-balfour",
+    "year": 1917,
+    "era": "1914\u20131918",
+    "title": "Balfour Declaration",
+    "region": "Palestine \u00b7 London \u00b7 Arab Revolt \u00b7 wartime diplomacy",
+    "meterFamily": "conflict",
+    "theaterArchetype": "redsea",
+    "premise": "In the middle of a world war, Britain weighs a public declaration favoring a Jewish national home in Palestine while already courting Arab partners against the Ottomans and negotiating secretly with France over postwar spoils. You advise the War Cabinet on wording, timing, and how much contradiction the empire can absorb.",
+    "role": "War Cabinet Near East counselor",
+    "tension": "A wartime pledge can win allies now and mortgage the postwar map for generations.",
+    "beats": [
+      {
+        "id": "hist-1917-balfour-1",
+        "title": "Draft language",
+        "briefing": "Zionist envoys press for a clear national-home pledge. India Office and Arab Bureau warn that absolutist wording will detonate promises already made to Arab leaders.",
+        "stakes": "One paragraph will be read as a charter\u2014or a betrayal\u2014for decades.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-1a",
+            "label": "Issue a firm national-home declaration",
+            "detail": "Clarity over hedge.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "DECLARE",
+            "callsign": "ISSUE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Zionist alignment"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Arab partners shaken"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Public line set"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-1b",
+            "label": "Hedge: national home subject to existing civil rights",
+            "detail": "Qualified pledge.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "HEDGE",
+            "callsign": "HEDGE NATIONAL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Balanced text"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Ambiguity weaponized"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Rights clause"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-1c",
+            "label": "Delay any public letter until after the next offensive",
+            "detail": "Silence as policy.",
+            "kind": "political",
+            "markerId": "canal",
+            "short": "DELAY",
+            "callsign": "DELAY ANY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Room to bargain"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Lobby pressure builds"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "No new spark yet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-2",
+        "title": "Arab liaison",
+        "briefing": "Sharifian contacts demand to know whether London still honors independence understandings. A vague cable will not hold the desert flank.",
+        "stakes": "The revolt\u2019s loyalty is transactional and watching London\u2019s ink.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-2a",
+            "label": "Reaffirm Arab independence pledges in a parallel note",
+            "detail": "Two tracks, same week.",
+            "kind": "diplomatic",
+            "markerId": "proxy",
+            "short": "PARNOTE",
+            "callsign": "REAFFIRM ARAB",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Revolt steadied"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Contradictory pledges"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Dual outreach"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-2b",
+            "label": "Tell Arab partners the declaration is wartime propaganda only",
+            "detail": "Downplay in private.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "PRIVATE",
+            "callsign": "TELL ARAB",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Short-term calm"
+              },
+              {
+                "tag": "credibility",
+                "weight": -3,
+                "summary": "Bad faith risk"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Later explosion"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-2c",
+            "label": "Offer postwar conference seats instead of textual fixes",
+            "detail": "Process as substitute.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "FORUM",
+            "callsign": "OFFER POSTWAR",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Talks path"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Defers clash"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Expectations diverge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-3",
+        "title": "French factor",
+        "briefing": "Paris reminds you of Sykes\u2013Picot maps. A unilateral British letter on Palestine can be read as reneging on the carve-up.",
+        "stakes": "Ally management is as sharp as local politics.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-3a",
+            "label": "Brief France before publication; offer joint stewardship language",
+            "detail": "Share the burden.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "BRIEF",
+            "callsign": "BRIEF FRANCE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Entente soothed"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Coordinated text"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Negotiating delay"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-3b",
+            "label": "Publish unilaterally; treat Picot as obsolete wartime sketch",
+            "detail": "British lead.",
+            "kind": "political",
+            "markerId": "chokepoint",
+            "short": "SOLO",
+            "callsign": "PUBLISH UNILATERALLY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Decisive"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Paris slighted"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Mandate fight later"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-3c",
+            "label": "Fold Palestine into a wider Levant condominium proposal",
+            "detail": "Enlarge the deal.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "CONDO",
+            "callsign": "FOLD PALESTINE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Grand bargain try"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Complex map"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "More claimants"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-4",
+        "title": "Domestic cabinet split",
+        "briefing": "Some ministers want the letter as a war measure; others fear imperial overstretch and Indian Muslim reaction.",
+        "stakes": "Cabinet unity is the launch pad\u2014or the veto.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-4a",
+            "label": "Force a Cabinet vote and publish with majority backing",
+            "detail": "Own the decision.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "VOTE",
+            "callsign": "FORCE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Cabinet seal"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Losers resent"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Clear mandate"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-4b",
+            "label": "Issue as Foreign Office note without full Cabinet drama",
+            "detail": "Bureaucratic path.",
+            "kind": "legal",
+            "markerId": "canal",
+            "short": "FO-NOTE",
+            "callsign": "ISSUE AS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Faster release"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Thin legitimacy"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Less theater"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-4c",
+            "label": "Water down further to keep India Office onboard",
+            "detail": "Empire first.",
+            "kind": "political",
+            "markerId": "escort",
+            "short": "DILUTE",
+            "callsign": "WATER DOWN",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "India soothed"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Zionist disillusion"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less heat now"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-5",
+        "title": "Jerusalem approach",
+        "briefing": "Allenby\u2019s forces near the city. Military government will inherit whatever political text you just floated.",
+        "stakes": "Occupation policy must match the letter\u2014or expose it.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-5a",
+            "label": "Instruct military admin to protect all communities equally",
+            "detail": "Neutral occupation.",
+            "kind": "civic",
+            "markerId": "port",
+            "short": "EQUAL",
+            "callsign": "INSTRUCT MILITARY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Equal protection"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Street steadier"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Neither side fully won"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-5b",
+            "label": "Prioritize Jewish immigration facilitation under arms",
+            "detail": "Implement the spirit.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "FACIL",
+            "callsign": "PRIORITIZE JEWISH",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Pledge made real"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Arab unrest"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Clash risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-5c",
+            "label": "Freeze demographic change until a peace conference",
+            "detail": "Hold the map.",
+            "kind": "legal",
+            "markerId": "chokepoint",
+            "short": "FREEZE",
+            "callsign": "FREEZE DEMOGRAPHIC",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Conference window"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Pledge hollowed"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Short-term quiet"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-6",
+        "title": "American opinion",
+        "briefing": "Washington\u2019s sympathy matters for loans and postwar settlement. Zionist networks and missionary lobbies pull opposite ways.",
+        "stakes": "Transatlantic narrative can lock your text in place.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-6a",
+            "label": "Coordinate messaging with Wilson\u2019s advisors",
+            "detail": "Align the allies.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "WILSON",
+            "callsign": "COORDINATE MESSAGING",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "US cover"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Shared frame"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Coordination lag"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-6b",
+            "label": "Keep the declaration a British initiative",
+            "detail": "Own the brand.",
+            "kind": "political",
+            "markerId": "insurer",
+            "short": "BRITISH",
+            "callsign": "KEEP THE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Imperial lead"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Less US buy-in"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 0,
+                "summary": "Solo path"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-6c",
+            "label": "Leak competing drafts to test US reaction",
+            "detail": "Trial balloons.",
+            "kind": "civic",
+            "markerId": "canal",
+            "short": "LEAK",
+            "callsign": "LEAK COMPETING",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Signal read"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Chaos of drafts"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Lobbies mobilize"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-7",
+        "title": "Holy sites crisis",
+        "briefing": "Rumors of temple-mount and church status changes spark riots in waiting. Clerics demand written guarantees.",
+        "stakes": "Sacred geography can override any cabinet minute.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-7a",
+            "label": "Issue a multi-faith holy-sites guarantee",
+            "detail": "Sacred status quo.",
+            "kind": "legal",
+            "markerId": "port",
+            "short": "SITES",
+            "callsign": "ISSUE A",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Clerics eased"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Status quo"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Broader buy-in"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-7b",
+            "label": "Leave holy sites to future commission",
+            "detail": "Defer the fuse.",
+            "kind": "political",
+            "markerId": "escort",
+            "short": "DEFER",
+            "callsign": "LEAVE HOLY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Kicks down road"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Uncertainty"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Evades core"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-7c",
+            "label": "Place sites under international trusteeship language",
+            "detail": "Internationalize.",
+            "kind": "diplomatic",
+            "markerId": "chokepoint",
+            "short": "TRUST",
+            "callsign": "PLACE SITES",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Shared custody idea"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Who governs?"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners interested"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-8",
+        "title": "Immigration numbers",
+        "briefing": "Activists want large entry quotas now; officers on the ground say ports and villages cannot absorb a surge mid-war.",
+        "stakes": "Demography is strategy wearing a passenger list.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-8a",
+            "label": "Authorize controlled wartime immigration corridors",
+            "detail": "Managed flow.",
+            "kind": "civic",
+            "markerId": "proxy",
+            "short": "CORRIDOR",
+            "callsign": "AUTHORIZE CONTROLLED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Pledge tangible"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Strain on ground"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Local backlash"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-8b",
+            "label": "Cap entry tightly until armistice",
+            "detail": "Numbers later.",
+            "kind": "political",
+            "markerId": "port",
+            "short": "CAP",
+            "callsign": "CAP ENTRY",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less shock"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Hollow home"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Admin breathing room"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-8c",
+            "label": "Tie immigration to land-purchase transparency rules",
+            "detail": "Law before volume.",
+            "kind": "legal",
+            "markerId": "insurer",
+            "short": "LANDLAW",
+            "callsign": "TIE IMMIGRATION",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rule of law frame"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Clearer titles"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Both sides litigate"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-9",
+        "title": "Postwar mandate ask",
+        "briefing": "Peace planners want to know: is Palestine a British mandate, international zone, or Arab federation member with special clauses?",
+        "stakes": "The declaration must attach to a governing form\u2014or it floats as myth.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-9a",
+            "label": "Push for a British Mandate with national-home article",
+            "detail": "Empire as guarantor.",
+            "kind": "political",
+            "markerId": "chokepoint",
+            "short": "MANDATE",
+            "callsign": "PUSH FOR",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Enforceable frame"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Imperial load"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Rivals object"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-9b",
+            "label": "Propose international administration under a new league",
+            "detail": "Collective custody.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "LEAGUE",
+            "callsign": "PROPOSE INTERNATIONAL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Multilateral"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "Diffuse authority"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Institutional path"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-9c",
+            "label": "Nest special Jewish rights inside a wider Arab state",
+            "detail": "Autonomy clause.",
+            "kind": "diplomatic",
+            "markerId": "proxy",
+            "short": "AUTONOMY",
+            "callsign": "NEST SPECIAL",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Arab frame"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Zionist rejection risk"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Both claim betrayal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1917-balfour-10",
+        "title": "Legacy brief",
+        "briefing": "You must write the standing guidance: was the declaration a war expedient, a moral commitment, or a reversible instrument?",
+        "stakes": "How Whitehall remembers this letter becomes the next century\u2019s opening move.",
+        "choices": [
+          {
+            "id": "hist-1917-balfour-10a",
+            "label": "Codify it as a binding national commitment",
+            "detail": "Irreversible line.",
+            "kind": "legal",
+            "markerId": "insurer",
+            "short": "BIND",
+            "callsign": "CODIFY IT",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 3,
+                "summary": "Hard pledge"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Conflict locked in"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Clear for allies"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-10b",
+            "label": "File it as wartime expediency subject to peace conference",
+            "detail": "Contingent tool.",
+            "kind": "political",
+            "markerId": "canal",
+            "short": "WARTIME",
+            "callsign": "FILE IT",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Reopen at peace"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Bad-faith charge"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Negotiating room"
+              }
+            ]
+          },
+          {
+            "id": "hist-1917-balfour-10c",
+            "label": "Pair the letter with a public Arab-rights charter of equal weight",
+            "detail": "Twin pillars.",
+            "kind": "civic",
+            "markerId": "port",
+            "short": "TWIN",
+            "callsign": "PAIR THE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Dual rights"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Balanced record"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Both enforce maximal"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "levant",
+    "scenarioId": "hist-1917-balfour",
+    "title": "RED SEA LANE",
+    "subtitle": "Red Sea \u00b7 Bab el-Mandeb",
+    "water": "#0A1E2C",
+    "land": "#2A2818",
+    "accent": "#C4A878",
+    "markers": [
+      {
+        "id": "chokepoint",
+        "label": "Chokepoint",
+        "x": 50.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "port",
+        "label": "Port",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "escort",
+        "label": "Escort",
+        "x": 58.0,
+        "y": 64.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "proxy",
+        "label": "Proxy",
+        "x": 56.0,
+        "y": 42.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "insurer",
+        "label": "Insurer",
+        "x": 28.0,
+        "y": 36.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "canal",
+        "label": "Canal link",
+        "x": 48.0,
+        "y": 28.0,
+        "kind": "corridor"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "canal",
+        "to": "chokepoint"
+      },
+      {
+        "from": "escort",
+        "to": "port"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SHIPPING LANE",
+        "x": 40.0,
+        "y": 44.0,
+        "w": 28.0,
+        "h": 28.0,
+        "tension": 0.85
+      },
+      {
+        "id": "shore",
+        "label": "SHORE NODES",
+        "x": 48.0,
+        "y": 34.0,
+        "w": 22.0,
+        "h": 16.0,
+        "tension": 0.6
+      }
+    ],
+    "terrainKey": "redsea",
+    "geo": {
+      "label": "Levant (Natural Earth)",
+      "water": "#0A1E2C",
+      "land": "#2A2818",
+      "landHi": "#3A3824",
+      "accent": "#C4A878",
+      "source": "natural-earth+atlas",
+      "terrainKey": "redsea",
+      "reliefKey": "redsea",
+      "lands": [
+        [
+          [
+            47.67,
+            52.91
+          ],
+          [
+            47.51,
+            52.84
+          ],
+          [
+            48.64,
+            51.32
+          ],
+          [
+            48.51,
+            47.23
+          ],
+          [
+            50.55,
+            41.75
+          ],
+          [
+            55.1,
+            37.98
+          ],
+          [
+            53.73,
+            34.06
+          ],
+          [
+            49.99,
+            33.55
+          ],
+          [
+            49.21,
+            25.9
+          ],
+          [
+            51.25,
+            21.78
+          ],
+          [
+            53.48,
+            19.59
+          ],
+          [
+            55.71,
+            17.4
+          ],
+          [
+            56.16,
+            11.82
+          ],
+          [
+            58.89,
+            13.77
+          ],
+          [
+            68.06,
+            10.99
+          ],
+          [
+            72.5,
+            12.87
+          ],
+          [
+            79.35,
+            12.84
+          ],
+          [
+            88.94,
+            9.09
+          ],
+          [
+            93.43,
+            9.26
+          ],
+          [
+            99.5,
+            7.7
+          ],
+          [
+            98.64,
+            13.94
+          ],
+          [
+            94.08,
+            16.41
+          ],
+          [
+            94.87,
+            23.72
+          ],
+          [
+            91.72,
+            35.81
+          ],
+          [
+            73.27,
+            46.21
+          ],
+          [
+            56.95,
+            56.87
+          ],
+          [
+            47.67,
+            52.91
+          ]
+        ],
+        [
+          [
+            0.5,
+            68.13
+          ],
+          [
+            0.79,
+            65.27
+          ],
+          [
+            8.14,
+            64.44
+          ],
+          [
+            14.07,
+            65.7
+          ],
+          [
+            16.34,
+            70.66
+          ],
+          [
+            18.27,
+            67.4
+          ],
+          [
+            24.95,
+            69.76
+          ],
+          [
+            31.45,
+            70.33
+          ],
+          [
+            35.55,
+            67.81
+          ],
+          [
+            35.55,
+            67.81
+          ],
+          [
+            40.19,
+            82.39
+          ],
+          [
+            41.02,
+            84.99
+          ],
+          [
+            38.68,
+            89.01
+          ],
+          [
+            36.89,
+            96.56
+          ],
+          [
+            34.62,
+            99.5
+          ],
+          [
+            32.68,
+            99.5
+          ],
+          [
+            29.9,
+            99.5
+          ],
+          [
+            26.14,
+            95.82
+          ],
+          [
+            20.19,
+            81.49
+          ],
+          [
+            19.34,
+            82.4
+          ],
+          [
+            22.79,
+            92.95
+          ],
+          [
+            27.91,
+            99.5
+          ],
+          [
+            0.5,
+            68.13
+          ]
+        ],
+        [
+          [
+            46.21,
+            56.06
+          ],
+          [
+            47.67,
+            52.91
+          ],
+          [
+            56.95,
+            56.87
+          ],
+          [
+            73.27,
+            46.21
+          ],
+          [
+            76.63,
+            58.39
+          ],
+          [
+            75.04,
+            59.9
+          ],
+          [
+            58.35,
+            64.92
+          ],
+          [
+            66.66,
+            74.91
+          ],
+          [
+            63.9,
+            76.61
+          ],
+          [
+            62.53,
+            79.96
+          ],
+          [
+            56.17,
+            81.35
+          ],
+          [
+            54.18,
+            84.95
+          ],
+          [
+            50.57,
+            88.03
+          ],
+          [
+            41.3,
+            86.43
+          ],
+          [
+            41.02,
+            84.99
+          ],
+          [
+            45.17,
+            69.0
+          ],
+          [
+            44.98,
+            65.11
+          ],
+          [
+            46.21,
+            62.17
+          ],
+          [
+            46.21,
+            56.06
+          ]
+        ],
+        [
+          [
+            47.67,
+            52.91
+          ],
+          [
+            46.21,
+            56.06
+          ],
+          [
+            43.2,
+            54.67
+          ],
+          [
+            41.46,
+            61.33
+          ],
+          [
+            43.55,
+            62.46
+          ],
+          [
+            41.42,
+            63.83
+          ],
+          [
+            41.06,
+            66.47
+          ],
+          [
+            44.98,
+            65.11
+          ],
+          [
+            45.17,
+            69.0
+          ],
+          [
+            41.02,
+            84.99
+          ],
+          [
+            40.19,
+            82.39
+          ],
+          [
+            35.55,
+            67.81
+          ],
+          [
+            35.55,
+            67.81
+          ],
+          [
+            35.55,
+            67.81
+          ],
+          [
+            37.97,
+            64.51
+          ],
+          [
+            37.4,
+            63.94
+          ],
+          [
+            39.6,
+            59.27
+          ],
+          [
+            41.3,
+            51.73
+          ],
+          [
+            42.49,
+            49.19
+          ],
+          [
+            42.72,
+            49.09
+          ],
+          [
+            45.51,
+            49.11
+          ],
+          [
+            46.27,
+            47.36
+          ],
+          [
+            48.51,
+            47.23
+          ],
+          [
+            48.64,
+            51.32
+          ],
+          [
+            47.51,
+            52.84
+          ],
+          [
+            47.67,
+            52.91
+          ]
+        ],
+        [
+          [
+            48.51,
+            47.23
+          ],
+          [
+            46.27,
+            47.36
+          ],
+          [
+            45.51,
+            49.11
+          ],
+          [
+            42.72,
+            49.09
+          ],
+          [
+            45.69,
+            40.95
+          ],
+          [
+            49.83,
+            33.9
+          ],
+          [
+            49.99,
+            33.55
+          ],
+          [
+            53.73,
+            34.06
+          ],
+          [
+            55.1,
+            37.98
+          ],
+          [
+            50.55,
+            41.75
+          ],
+          [
+            48.51,
+            47.23
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Jerusalem",
+          "x": 50.0,
+          "y": 58.0
+        },
+        {
+          "name": "Cairo",
+          "x": 36.0,
+          "y": 74.0
+        },
+        {
+          "name": "Damascus",
+          "x": 54.0,
+          "y": 48.0
+        },
+        {
+          "name": "Istanbul",
+          "x": 42.0,
+          "y": 18.0
+        }
+      ]
+    }
+  }
+}

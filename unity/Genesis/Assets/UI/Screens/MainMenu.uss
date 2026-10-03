@@ -1,0 +1,232 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* ============================================================
+   Genesis — Main Menu  (Night Atlas)
+   ============================================================ */
+
+/* ── Screen root ─────────────────────────────────────────── */
+.main-menu {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+    background-color: #0B1220;
+}
+
+/* ── Map background (animated in C# via transform) ─────────
+   Slightly oversized so the drift stays within screen bounds */
+.main-menu__map-bg {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+/* ── Dark scrim layers ───────────────────────────────────── */
+.main-menu__scrim {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 18, 32, 0.68);
+}
+
+/* Extra scrim on the bottom half where buttons live */
+.main-menu__scrim-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background-color: rgba(11, 18, 32, 0.5);
+}
+
+/* ── Safe-area content root (padding set by C# SafeAreaRoot.Apply) */
+.main-menu__safe-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    padding: 24px;
+}
+
+/* ── Hero area ─────────────────────────────────────────────  */
+.main-menu__hero {
+    align-items: center;
+    margin-top: 80px;
+}
+
+.main-menu__title {
+    font-size: 80px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 10px;
+    -unity-text-align: middle-center;
+}
+
+.main-menu__subtitle {
+    font-size: 28px;
+    color: #F5A524;
+    letter-spacing: 3px;
+    -unity-text-align: middle-center;
+    margin-top: 8px;
+}
+
+/* ── Flexible spacer ─────────────────────────────────────── */
+.main-menu__spacer {
+    flex-grow: 1;
+}
+
+/* ── Resume card ─────────────────────────────────────────── */
+.main-menu__resume-card {
+    background-color: #111A2BDB;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-radius: 20px;
+    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.main-menu__resume-info {
+    flex-grow: 1;
+    flex-direction: column;
+    margin-right: 16px;
+}
+
+.main-menu__resume-title {
+    font-size: 32px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    white-space: normal;
+}
+
+.main-menu__resume-meta {
+    font-size: 26px;
+    color: #A9B3C4;
+    margin-top: 4px;
+}
+
+.main-menu__resume-actions {
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-end;
+}
+
+.main-menu__resume-btn {
+    background-color: #F5A524;
+    border-width: 0;
+    border-radius: 16px;
+    min-width: 156px;
+    height: 76px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 8px;
+    transition-duration: 0.12s;
+}
+
+.main-menu__resume-btn > Label {
+    font-size: 28px;
+    color: #1A1206;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.main-menu__resume-btn:active {
+    scale: 0.97 0.97;
+}
+
+.main-menu__abandon-btn {
+    background-color: #17233A;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-radius: 16px;
+    min-width: 156px;
+    height: 56px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    transition-duration: 0.12s;
+}
+
+.main-menu__abandon-btn > Label {
+    font-size: 24px;
+    color: #E5534B;
+}
+
+.main-menu__abandon-btn:active {
+    scale: 0.97 0.97;
+}
+
+/* ── Main button stack ───────────────────────────────────── */
+.main-menu__btn-stack {
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.main-menu__play-btn {
+    background-color: #F5A524;
+    border-width: 0;
+    border-radius: 16px;
+    height: 112px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 12px;
+    transition-duration: 0.12s;
+}
+
+.main-menu__play-btn > Label {
+    font-size: 36px;
+    color: #1A1206;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.main-menu__play-btn:active {
+    scale: 0.97 0.97;
+}
+
+/* Nav row: 3 equal buttons, evenly spaced */
+.main-menu__nav-row {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main-menu__nav-btn {
+    flex-grow: 1;
+    background-color: #17233A;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-radius: 16px;
+    height: 88px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    transition-duration: 0.12s;
+}
+
+.main-menu__nav-btn > Label {
+    font-size: 28px;
+    color: #F2EFE6;
+    -unity-text-align: middle-center;
+}
+
+.main-menu__nav-btn:active {
+    scale: 0.97 0.97;
+}
+
+/* Gap between nav buttons applied via left margin on middle and right buttons */
+.main-menu__nav-btn-gap {
+    margin-left: 8px;
+}

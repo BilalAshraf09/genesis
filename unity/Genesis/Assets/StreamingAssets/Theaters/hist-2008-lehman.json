@@ -1,0 +1,2178 @@
+{
+  "scenario": {
+    "id": "hist-2008-lehman",
+    "year": 2008,
+    "era": "2008\u20132026",
+    "title": "Lehman Weekend",
+    "region": "Wall Street \u00b7 Treasuries \u00b7 global interbank",
+    "meterFamily": "economy",
+    "theaterArchetype": "markets",
+    "premise": "A cascading financial failure forces choices on bailouts, nationalizations, and whether to let a legendary firm die. You advise a finance ministry through a weekend that will define a decade.",
+    "role": "Treasury crisis chief of staff",
+    "tension": "Prevent systemic collapse without making failure costless for the powerful.",
+    "beats": [
+      {
+        "id": "hist-2008-1",
+        "title": "Sunday night firm",
+        "briefing": "A major investment bank cannot open Monday. Buyers want government guarantees.",
+        "stakes": "Guarantees socialize risk in hours.",
+        "choices": [
+          {
+            "id": "hist-2008-1a",
+            "label": "Broker a sale with temporary public guarantees",
+            "detail": "Private face, public balance sheet.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "SALE",
+            "callsign": "BROKER A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Opens Monday"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Bailout politics"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Moral hazard"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-1b",
+            "label": "Refuse guarantees; allow orderly bankruptcy",
+            "detail": "Let it fail.",
+            "kind": "legal",
+            "markerId": "treasury",
+            "short": "FAIL",
+            "callsign": "REFUSE GUARANTEES",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "No blank check"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Contagion risk"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Populist fuel later"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-1c",
+            "label": "Temporary public conservatorship",
+            "detail": "Nationalize bridge.",
+            "kind": "political",
+            "markerId": "fed",
+            "short": "CONSERV",
+            "callsign": "TEMPORARY PUBLIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Stabilizes"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Control"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Socialism charge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-2",
+        "title": "Interbank freeze",
+        "briefing": "Banks stop lending to each other. Commercial paper dies.",
+        "stakes": "The real economy is days from payroll failure.",
+        "choices": [
+          {
+            "id": "hist-2008-2a",
+            "label": "Unlimited liquidity to solvent banks",
+            "detail": "Open the window wide.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "LIQUID",
+            "callsign": "UNLIMITED LIQUIDITY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Thaws markets"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Inflation fears"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys days"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-2b",
+            "label": "Guarantee money-market funds",
+            "detail": "Stop the retail run.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "MMF",
+            "callsign": "GUARANTEE MONEY",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Household calm"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Stops run"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "New backstop"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-2c",
+            "label": "Targeted paper facility only; no broad guarantees",
+            "detail": "Narrow tool.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "PAPER",
+            "callsign": "TARGETED PAPER",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Partial"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Limited"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Some payroll risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-3",
+        "title": "Fiscal package fight",
+        "briefing": "Congress wants limits, clawbacks, and homeowner relief. Banks want capital fast and quiet.",
+        "stakes": "Speed and fairness collide.",
+        "choices": [
+          {
+            "id": "hist-2008-3a",
+            "label": "Capital injections with warrants and executive caps",
+            "detail": "Tough aid.",
+            "kind": "legal",
+            "markerId": "treasury",
+            "short": "CAPITAL",
+            "callsign": "CAPITAL INJECTIONS",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Recap"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Accountability"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Caps land"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-3b",
+            "label": "Asset purchases to clear toxic books",
+            "detail": "Buy the sludge.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "TARP",
+            "callsign": "ASSET PURCHASES",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Clears uncertainty"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Opaque pricing"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Wall Street first"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-3c",
+            "label": "Homeowner restructuring mandate first",
+            "detail": "Main Street optics.",
+            "kind": "civic",
+            "markerId": "em",
+            "short": "HOMES",
+            "callsign": "HOMEOWNER RESTRUCTURING",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Households"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Slower bank fix"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Fairness story"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-4",
+        "title": "Global coordination",
+        "briefing": "Partners want a joint statement on deposit guarantees and stimulus. Defecting looks tempting.",
+        "stakes": "A crisis is a coordination game.",
+        "choices": [
+          {
+            "id": "hist-2008-4a",
+            "label": "Lead a synchronized guarantee and stimulus pledge",
+            "detail": "No beggar-thy-neighbor.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "SYNC",
+            "callsign": "LEAD A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "G-joint action"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Confidence"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Leadership"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-4b",
+            "label": "National measures first; coordinate later",
+            "detail": "Own voters first.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "NATIONAL",
+            "callsign": "NATIONAL MEASURES",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Sovereignty"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Fragmentation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners annoyed"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-4c",
+            "label": "Push banking union / joint supervision ideas",
+            "detail": "Institutional leap.",
+            "kind": "legal",
+            "markerId": "desk",
+            "short": "UNION",
+            "callsign": "PUSH BANKING",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "If Europe follows"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slow build"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Architecture"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-5",
+        "title": "Money-market break-the-buck shock",
+        "briefing": "A flagship fund breaks. Without a guarantee, the real economy\u2019s cash management freezes.",
+        "stakes": "Plumbing panic becomes Main Street.",
+        "choices": [
+          {
+            "id": "hist-2008-5a",
+            "label": "Guarantee money-market funds temporarily",
+            "detail": "Stop the run.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "MMFG",
+            "callsign": "GUARANTEE MONEY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Run stops"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Moral hazard"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Bailout politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-5b",
+            "label": "Let funds gate redemptions without a public guarantee",
+            "detail": "Private brake.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "GATE",
+            "callsign": "LET FUNDS",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Friction"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Less taxpayer"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Cash stuck"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-5c",
+            "label": "Force sponsor recapitalizations under threat of resolution",
+            "detail": "Accountability.",
+            "kind": "legal",
+            "markerId": "treasury",
+            "short": "SPONSOR",
+            "callsign": "FORCE SPONSOR",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Costs on owners"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Negotiation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-6",
+        "title": "Main Street rage politics",
+        "briefing": "Taxpayers see Wall Street rescued first. Your fiscal package dies without a fairness story.",
+        "stakes": "Political economy is the constraint set.",
+        "choices": [
+          {
+            "id": "hist-2008-6a",
+            "label": "Attach executive-pay and equity warrants to any aid",
+            "detail": "Fairness tools.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "WARRANTS",
+            "callsign": "ATTACH EXECUTIVE",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Fairness"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Aid possible"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Skin in game"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-6b",
+            "label": "Prioritize speed; defer fairness conditions",
+            "detail": "Fire first.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "SPEED",
+            "callsign": "PRIORITIZE SPEED",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Fast"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Rage"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Bailout stain"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-6c",
+            "label": "Lead with household foreclosure relief optics first",
+            "detail": "Main Street first.",
+            "kind": "civic",
+            "markerId": "em",
+            "short": "HOUSING",
+            "callsign": "LEAD WITH",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Optics"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some relief"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Banks wait"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-7",
+        "title": "Cross-border coordination ask",
+        "briefing": "Europe wants consistent guarantees; inconsistent national schemes pull deposits across borders.",
+        "stakes": "One market, many treasuries.",
+        "choices": [
+          {
+            "id": "hist-2008-7a",
+            "label": "Align guarantee language in a 48-hour concert",
+            "detail": "One signal.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "CONCERT",
+            "callsign": "ALIGN GUARANTEE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Official unity"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Less shopping"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Deal"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-7b",
+            "label": "Go national and accept temporary fragmentation",
+            "detail": "Sovereignty.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "NATL2",
+            "callsign": "GO NATIONAL",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Faster local"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Fragmentation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Blame"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-7c",
+            "label": "Create a temporary FX and swap mega-facility first",
+            "detail": "Dollar liquidity.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "SWAPMEGA",
+            "callsign": "CREATE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Dollar calm"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared pipes"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Central banks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-8",
+        "title": "Solvency versus liquidity fog",
+        "briefing": "Some firms are illiquid; some are dead. Treating corpses as patients wastes capital; treating patients as corpses deepens panic.",
+        "stakes": "Triage under uncertainty.",
+        "choices": [
+          {
+            "id": "hist-2008-8a",
+            "label": "Stand up a public-private triage facility with haircuts",
+            "detail": "Structured judgment.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "TRIAGE2",
+            "callsign": "STAND UP",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Clearing"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Discipline"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-8b",
+            "label": "Assume systemic liquidity and flood broadly",
+            "detail": "Hose first.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "HOSE",
+            "callsign": "ASSUME SYSTEMIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Calm"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Zombie risk"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Blank check fear"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-8c",
+            "label": "Resolve the weakest quickly to scare the rest into raising capital",
+            "detail": "Example.",
+            "kind": "legal",
+            "markerId": "treasury",
+            "short": "RESOLVE",
+            "callsign": "RESOLVE THE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Discipline"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Fear spike"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Contagion risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-9",
+        "title": "Fiscal off-ramp",
+        "briefing": "A stimulus-plus-stability package can pass if sold as temporary and audited. Spoilers want purity or revenge.",
+        "stakes": "Congress is part of the crisis committee.",
+        "choices": [
+          {
+            "id": "hist-2008-9a",
+            "label": "Push a temporary, audited, bipartisan package",
+            "detail": "Grand bargain lite.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "PACKAGE2",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Votes"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Fiscal backstop"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-9b",
+            "label": "Rely on monetary tools alone to avoid fiscal fight",
+            "detail": "Central bank only.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "MONONLY",
+            "callsign": "RELY ON",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Some help"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Less congress war"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Limits of money"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-9c",
+            "label": "Attach industrial policy riders to buy votes",
+            "detail": "Logroll.",
+            "kind": "political",
+            "markerId": "em",
+            "short": "LOGROLL",
+            "callsign": "ATTACH INDUSTRIAL",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Passes"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Pork"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Something passes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2008-10",
+        "title": "Macroprudential endgame",
+        "briefing": "After the fire, you choose: bigger capital, resolution regimes, or \u201cnever bail again\u201d pledges that markets may not believe.",
+        "stakes": "Credibility about the next bailout is the reform.",
+        "choices": [
+          {
+            "id": "hist-2008-10a",
+            "label": "Build living wills and resolution authority for giants",
+            "detail": "Failability.",
+            "kind": "legal",
+            "markerId": "treasury",
+            "short": "LIVING",
+            "callsign": "BUILD LIVING",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Can fail"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Clearer"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Rule of law"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-10b",
+            "label": "Raise capital and liquidity ratios hard",
+            "detail": "Buffers.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "BUFFERS",
+            "callsign": "RAISE CAPITAL",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Safer banks"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Credit squeeze fight"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Prudence"
+              }
+            ]
+          },
+          {
+            "id": "hist-2008-10c",
+            "label": "Pledge no more bailouts without new tools to make it true",
+            "detail": "Words plus gears.",
+            "kind": "political",
+            "markerId": "desk",
+            "short": "NOMORE",
+            "callsign": "PLEDGE NO",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Popular"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "If tools weak"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Uncertainty"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "atlantic-finance",
+    "scenarioId": "hist-2008-lehman",
+    "title": "MARKET DESK",
+    "subtitle": "Global markets \u00b7 liquidity lane",
+    "water": "#081828",
+    "land": "#1A2830",
+    "accent": "#C4A878",
+    "markers": [
+      {
+        "id": "exchange",
+        "label": "Exchange",
+        "x": 48.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fed",
+        "label": "Central bank",
+        "x": 32.0,
+        "y": 40.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "desk",
+        "label": "Trading desk",
+        "x": 58.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "treasury",
+        "label": "Treasury",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "em",
+        "label": "EM flows",
+        "x": 68.0,
+        "y": 58.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "energy",
+        "label": "Energy",
+        "x": 54.0,
+        "y": 64.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fed",
+        "to": "exchange"
+      },
+      {
+        "from": "exchange",
+        "to": "em"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "LIQUIDITY CORE",
+        "x": 36.0,
+        "y": 38.0,
+        "w": 30.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "periphery",
+        "label": "EM RING",
+        "x": 56.0,
+        "y": 52.0,
+        "w": 24.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "markets",
+    "geo": {
+      "label": "Atlantic finance desks (Natural Earth)",
+      "water": "#081828",
+      "land": "#1A2830",
+      "landHi": "#2A3840",
+      "accent": "#C4A878",
+      "source": "natural-earth+atlas",
+      "terrainKey": "markets",
+      "reliefKey": "markets",
+      "lands": [
+        [
+          [
+            0.5,
+            9.47
+          ],
+          [
+            0.5,
+            12.64
+          ],
+          [
+            0.95,
+            11.55
+          ],
+          [
+            1.55,
+            8.13
+          ],
+          [
+            0.97,
+            2.86
+          ],
+          [
+            0.5,
+            1.11
+          ],
+          [
+            1.97,
+            0.5
+          ],
+          [
+            3.23,
+            0.5
+          ],
+          [
+            20.22,
+            0.5
+          ],
+          [
+            21.7,
+            0.5
+          ],
+          [
+            22.7,
+            0.5
+          ],
+          [
+            24.47,
+            0.5
+          ],
+          [
+            25.19,
+            1.24
+          ],
+          [
+            25.63,
+            4.07
+          ],
+          [
+            26.49,
+            4.51
+          ],
+          [
+            26.94,
+            5.77
+          ],
+          [
+            27.02,
+            9.51
+          ],
+          [
+            26.21,
+            10.76
+          ],
+          [
+            25.41,
+            11.93
+          ],
+          [
+            23.58,
+            13.12
+          ],
+          [
+            22.19,
+            15.86
+          ],
+          [
+            20.31,
+            16.4
+          ],
+          [
+            17.93,
+            15.7
+          ],
+          [
+            16.26,
+            15.67
+          ],
+          [
+            15.11,
+            15.9
+          ],
+          [
+            14.18,
+            18.29
+          ],
+          [
+            12.77,
+            19.77
+          ],
+          [
+            11.16,
+            24.18
+          ],
+          [
+            9.88,
+            27.26
+          ],
+          [
+            10.83,
+            26.71
+          ],
+          [
+            12.61,
+            22.33
+          ],
+          [
+            14.94,
+            19.56
+          ],
+          [
+            16.6,
+            19.22
+          ],
+          [
+            17.59,
+            20.86
+          ],
+          [
+            16.54,
+            23.1
+          ],
+          [
+            16.89,
+            26.69
+          ],
+          [
+            17.25,
+            29.21
+          ],
+          [
+            18.7,
+            30.87
+          ],
+          [
+            20.53,
+            30.39
+          ],
+          [
+            21.65,
+            26.64
+          ],
+          [
+            21.72,
+            29.06
+          ],
+          [
+            22.44,
+            30.27
+          ],
+          [
+            21.07,
+            32.45
+          ],
+          [
+            18.61,
+            34.43
+          ],
+          [
+            17.5,
+            35.78
+          ],
+          [
+            16.26,
+            38.18
+          ],
+          [
+            15.42,
+            37.94
+          ],
+          [
+            15.38,
+            35.12
+          ],
+          [
+            17.31,
+            32.36
+          ],
+          [
+            15.53,
+            32.47
+          ],
+          [
+            14.29,
+            32.87
+          ],
+          [
+            13.57,
+            30.99
+          ],
+          [
+            13.57,
+            26.45
+          ],
+          [
+            13.07,
+            25.48
+          ],
+          [
+            12.33,
+            26.05
+          ],
+          [
+            11.96,
+            25.17
+          ],
+          [
+            11.11,
+            27.69
+          ],
+          [
+            10.77,
+            30.28
+          ],
+          [
+            10.38,
+            31.8
+          ],
+          [
+            9.91,
+            32.32
+          ],
+          [
+            9.55,
+            32.48
+          ],
+          [
+            9.44,
+            33.31
+          ],
+          [
+            7.39,
+            33.31
+          ],
+          [
+            5.7,
+            33.33
+          ],
+          [
+            5.2,
+            33.95
+          ],
+          [
+            4.03,
+            36.35
+          ],
+          [
+            3.89,
+            36.61
+          ],
+          [
+            3.53,
+            37.9
+          ],
+          [
+            2.51,
+            37.9
+          ],
+          [
+            1.42,
+            37.92
+          ],
+          [
+            0.92,
+            38.45
+          ],
+          [
+            1.1,
+            39.1
+          ],
+          [
+            1.2,
+            40.12
+          ],
+          [
+            1.18,
+            40.45
+          ],
+          [
+            0.5,
+            42.11
+          ],
+          [
+            0.5,
+            42.64
+          ],
+          [
+            0.5,
+            9.47
+          ]
+        ],
+        [
+          [
+            0.5,
+            42.64
+          ],
+          [
+            0.5,
+            42.11
+          ],
+          [
+            1.18,
+            40.45
+          ],
+          [
+            1.2,
+            40.12
+          ],
+          [
+            1.1,
+            39.1
+          ],
+          [
+            0.92,
+            38.45
+          ],
+          [
+            1.42,
+            37.92
+          ],
+          [
+            2.51,
+            37.9
+          ],
+          [
+            3.53,
+            37.9
+          ],
+          [
+            3.89,
+            36.61
+          ],
+          [
+            4.03,
+            36.35
+          ],
+          [
+            5.2,
+            33.95
+          ],
+          [
+            5.7,
+            33.33
+          ],
+          [
+            7.39,
+            33.31
+          ],
+          [
+            9.44,
+            33.31
+          ],
+          [
+            9.55,
+            32.48
+          ],
+          [
+            9.91,
+            32.32
+          ],
+          [
+            10.38,
+            31.8
+          ],
+          [
+            10.77,
+            30.28
+          ],
+          [
+            11.11,
+            27.69
+          ],
+          [
+            11.96,
+            25.17
+          ],
+          [
+            12.33,
+            26.05
+          ],
+          [
+            13.07,
+            25.48
+          ],
+          [
+            13.57,
+            26.45
+          ],
+          [
+            13.57,
+            30.99
+          ],
+          [
+            14.29,
+            32.87
+          ],
+          [
+            14.48,
+            33.97
+          ],
+          [
+            13.3,
+            35.58
+          ],
+          [
+            12.16,
+            36.73
+          ],
+          [
+            10.98,
+            37.72
+          ],
+          [
+            10.39,
+            39.7
+          ],
+          [
+            10.21,
+            40.45
+          ],
+          [
+            10.19,
+            42.22
+          ],
+          [
+            10.56,
+            43.98
+          ],
+          [
+            11.02,
+            44.07
+          ],
+          [
+            10.91,
+            42.85
+          ],
+          [
+            11.24,
+            43.59
+          ],
+          [
+            11.15,
+            44.54
+          ],
+          [
+            10.4,
+            45.08
+          ],
+          [
+            9.87,
+            45.02
+          ],
+          [
+            9.04,
+            45.6
+          ],
+          [
+            8.56,
+            45.77
+          ],
+          [
+            7.92,
+            45.93
+          ],
+          [
+            6.99,
+            46.9
+          ],
+          [
+            8.62,
+            46.27
+          ],
+          [
+            8.95,
+            46.9
+          ],
+          [
+            7.39,
+            47.9
+          ],
+          [
+            6.69,
+            47.91
+          ],
+          [
+            6.72,
+            47.5
+          ],
+          [
+            6.38,
+            48.42
+          ],
+          [
+            6.71,
+            48.57
+          ],
+          [
+            6.47,
+            50.97
+          ],
+          [
+            5.66,
+            53.53
+          ],
+          [
+            5.58,
+            52.68
+          ],
+          [
+            5.33,
+            52.51
+          ],
+          [
+            4.97,
+            51.67
+          ],
+          [
+            5.2,
+            53.47
+          ],
+          [
+            5.48,
+            54.06
+          ],
+          [
+            5.49,
+            55.32
+          ],
+          [
+            5.14,
+            56.61
+          ],
+          [
+            4.51,
+            59.28
+          ],
+          [
+            4.41,
+            59.14
+          ],
+          [
+            4.75,
+            56.88
+          ],
+          [
+            4.19,
+            55.6
+          ],
+          [
+            4.06,
+            52.83
+          ],
+          [
+            3.84,
+            54.27
+          ],
+          [
+            4.08,
+            56.39
+          ],
+          [
+            3.34,
+            55.87
+          ],
+          [
+            4.11,
+            56.94
+          ],
+          [
+            4.16,
+            60.11
+          ],
+          [
+            4.48,
+            60.34
+          ],
+          [
+            4.59,
+            61.5
+          ],
+          [
+            4.75,
+            64.83
+          ],
+          [
+            4.04,
+            67.3
+          ],
+          [
+            2.89,
+            68.29
+          ],
+          [
+            2.16,
+            70.25
+          ],
+          [
+            1.61,
+            70.46
+          ],
+          [
+            1.04,
+            71.69
+          ],
+          [
+            0.88,
+            72.81
+          ],
+          [
+            0.5,
+            74.97
+          ],
+          [
+            0.5,
+            76.56
+          ],
+          [
+            0.5,
+            78.53
+          ],
+          [
+            0.5,
+            80.9
+          ],
+          [
+            0.5,
+            83.21
+          ],
+          [
+            0.5,
+            86.07
+          ],
+          [
+            0.5,
+            88.43
+          ],
+          [
+            0.5,
+            89.87
+          ],
+          [
+            0.5,
+            93.73
+          ],
+          [
+            0.5,
+            95.98
+          ],
+          [
+            0.5,
+            97.28
+          ],
+          [
+            0.5,
+            99.31
+          ],
+          [
+            0.5,
+            99.5
+          ],
+          [
+            0.5,
+            99.33
+          ],
+          [
+            0.5,
+            97.87
+          ],
+          [
+            0.5,
+            97.1
+          ],
+          [
+            0.5,
+            42.64
+          ]
+        ],
+        [
+          [
+            95.76,
+            18.45
+          ],
+          [
+            96.29,
+            19.33
+          ],
+          [
+            97.89,
+            19.94
+          ],
+          [
+            97.33,
+            22.22
+          ],
+          [
+            97.19,
+            24.6
+          ],
+          [
+            96.88,
+            25.17
+          ],
+          [
+            96.37,
+            24.86
+          ],
+          [
+            96.41,
+            25.71
+          ],
+          [
+            95.6,
+            27.58
+          ],
+          [
+            95.58,
+            29.09
+          ],
+          [
+            96.11,
+            28.57
+          ],
+          [
+            96.49,
+            30.03
+          ],
+          [
+            96.45,
+            30.97
+          ],
+          [
+            96.77,
+            32.22
+          ],
+          [
+            96.39,
+            33.24
+          ],
+          [
+            96.68,
+            35.82
+          ],
+          [
+            97.28,
+            36.24
+          ],
+          [
+            97.15,
+            37.69
+          ],
+          [
+            96.14,
+            39.57
+          ],
+          [
+            93.95,
+            38.67
+          ],
+          [
+            92.33,
+            39.75
+          ],
+          [
+            92.21,
+            41.76
+          ],
+          [
+            90.92,
+            42.19
+          ],
+          [
+            89.67,
+            40.68
+          ],
+          [
+            89.26,
+            41.4
+          ],
+          [
+            87.22,
+            39.89
+          ],
+          [
+            86.78,
+            38.59
+          ],
+          [
+            87.35,
+            36.59
+          ],
+          [
+            87.56,
+            29.95
+          ],
+          [
+            86.42,
+            26.45
+          ],
+          [
+            85.6,
+            24.77
+          ],
+          [
+            83.9,
+            23.48
+          ],
+          [
+            83.79,
+            21.05
+          ],
+          [
+            85.23,
+            20.33
+          ],
+          [
+            87.09,
+            21.19
+          ],
+          [
+            86.74,
+            17.41
+          ],
+          [
+            87.79,
+            18.84
+          ],
+          [
+            90.38,
+            16.24
+          ],
+          [
+            90.71,
+            13.51
+          ],
+          [
+            91.68,
+            12.84
+          ],
+          [
+            91.84,
+            14.01
+          ],
+          [
+            92.36,
+            14.07
+          ],
+          [
+            92.88,
+            15.4
+          ],
+          [
+            93.65,
+            16.98
+          ],
+          [
+            94.22,
+            16.72
+          ],
+          [
+            95.19,
+            18.24
+          ],
+          [
+            95.44,
+            18.52
+          ],
+          [
+            95.76,
+            18.45
+          ]
+        ],
+        [
+          [
+            85.45,
+            5.32
+          ],
+          [
+            85.45,
+            5.32
+          ],
+          [
+            85.62,
+            3.38
+          ],
+          [
+            84.87,
+            1.33
+          ],
+          [
+            84.86,
+            1.28
+          ],
+          [
+            83.51,
+            0.7
+          ],
+          [
+            83.24,
+            0.5
+          ],
+          [
+            83.65,
+            0.5
+          ],
+          [
+            83.28,
+            0.5
+          ],
+          [
+            82.68,
+            0.5
+          ],
+          [
+            82.62,
+            0.5
+          ],
+          [
+            85.42,
+            0.5
+          ],
+          [
+            86.57,
+            0.5
+          ],
+          [
+            86.66,
+            0.5
+          ],
+          [
+            87.65,
+            1.25
+          ],
+          [
+            88.41,
+            1.79
+          ],
+          [
+            89.09,
+            5.58
+          ],
+          [
+            89.41,
+            6.9
+          ],
+          [
+            90.76,
+            7.53
+          ],
+          [
+            90.62,
+            9.67
+          ],
+          [
+            90.06,
+            10.64
+          ],
+          [
+            90.5,
+            12.37
+          ],
+          [
+            89.5,
+            14.11
+          ],
+          [
+            88.01,
+            14.08
+          ],
+          [
+            86.12,
+            15.0
+          ],
+          [
+            85.6,
+            14.34
+          ],
+          [
+            84.87,
+            15.91
+          ],
+          [
+            83.84,
+            15.53
+          ],
+          [
+            83.06,
+            16.8
+          ],
+          [
+            82.47,
+            16.13
+          ],
+          [
+            84.1,
+            12.63
+          ],
+          [
+            85.09,
+            11.91
+          ],
+          [
+            85.09,
+            11.91
+          ],
+          [
+            83.35,
+            11.36
+          ],
+          [
+            83.04,
+            10.03
+          ],
+          [
+            84.2,
+            9.0
+          ],
+          [
+            83.59,
+            7.2
+          ],
+          [
+            83.8,
+            5.02
+          ],
+          [
+            85.45,
+            5.32
+          ]
+        ],
+        [
+          [
+            27.11,
+            12.28
+          ],
+          [
+            26.52,
+            14.38
+          ],
+          [
+            25.78,
+            17.29
+          ],
+          [
+            26.51,
+            16.17
+          ],
+          [
+            27.25,
+            16.88
+          ],
+          [
+            26.86,
+            18.04
+          ],
+          [
+            27.85,
+            18.96
+          ],
+          [
+            28.36,
+            18.14
+          ],
+          [
+            29.47,
+            19.17
+          ],
+          [
+            29.13,
+            21.61
+          ],
+          [
+            29.9,
+            21.04
+          ],
+          [
+            30.05,
+            22.81
+          ],
+          [
+            30.39,
+            24.88
+          ],
+          [
+            29.92,
+            27.82
+          ],
+          [
+            29.42,
+            27.94
+          ],
+          [
+            28.69,
+            27.31
+          ],
+          [
+            28.93,
+            24.58
+          ],
+          [
+            28.62,
+            24.16
+          ],
+          [
+            27.33,
+            27.05
+          ],
+          [
+            26.67,
+            26.93
+          ],
+          [
+            27.45,
+            25.37
+          ],
+          [
+            26.39,
+            24.56
+          ],
+          [
+            25.19,
+            24.76
+          ],
+          [
+            23.04,
+            24.66
+          ],
+          [
+            22.87,
+            23.67
+          ],
+          [
+            23.56,
+            22.49
+          ],
+          [
+            23.08,
+            21.59
+          ],
+          [
+            24.01,
+            19.58
+          ],
+          [
+            25.16,
+            14.27
+          ],
+          [
+            25.85,
+            12.38
+          ],
+          [
+            26.81,
+            11.23
+          ],
+          [
+            27.33,
+            11.37
+          ],
+          [
+            27.11,
+            12.28
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "New York",
+          "x": 24.0,
+          "y": 36.0
+        },
+        {
+          "name": "London",
+          "x": 66.0,
+          "y": 28.0
+        },
+        {
+          "name": "Paris",
+          "x": 70.0,
+          "y": 48.0
+        },
+        {
+          "name": "Boston",
+          "x": 28.0,
+          "y": 24.0
+        }
+      ]
+    }
+  }
+}

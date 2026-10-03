@@ -1,0 +1,1859 @@
+{
+  "scenario": {
+    "id": "hist-2014-crimea",
+    "year": 2014,
+    "era": "2008\u20132026",
+    "title": "Peninsula Shock",
+    "region": "Crimea \u00b7 Donbas \u00b7 NATO \u00b7 energy corridors",
+    "meterFamily": "conflict",
+    "theaterArchetype": "europe",
+    "premise": "Unmarked forces and a snap referendum rewrite a European border. You advise on sanctions design, military reassurance, and whether to arm a partner under fire.",
+    "role": "European security advisor",
+    "tension": "Impose costs for annexation without a direct great-power war.",
+    "beats": [
+      {
+        "id": "hist-2014-1",
+        "title": "First 72 hours",
+        "briefing": "Facts on the ground harden. Options: sanctions sprint, military deployment to allies, or a diplomatic contact group.",
+        "stakes": "Speed signals whether borders still matter.",
+        "choices": [
+          {
+            "id": "hist-2014-1a",
+            "label": "Immediate targeted sanctions on decision-makers",
+            "detail": "Name and freeze.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "SANCT",
+            "callsign": "IMMEDIATE TARGETED",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Personal cost"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Fast"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Non-kinetic"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-1b",
+            "label": "Surge reassurance forces to exposed allies",
+            "detail": "Tripwire politics.",
+            "kind": "kinetic",
+            "markerId": "streets",
+            "short": "SURGE",
+            "callsign": "SURGE REASSURANCE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Alliance real"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Reassured"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Posture up"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-1c",
+            "label": "Propose an emergency contact group including the aggressor",
+            "detail": "Talk first.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "CONTACT",
+            "callsign": "PROPOSE AN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Table"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks soft"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-2",
+        "title": "Energy leverage",
+        "briefing": "Pipeline politics cut both ways. Your industry fears winter; partners fear dependence.",
+        "stakes": "Sanctions without energy strategy leak.",
+        "choices": [
+          {
+            "id": "hist-2014-2a",
+            "label": "Exempt energy; hit finance and tech",
+            "detail": "Surgical pain.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "EXEMPT",
+            "callsign": "EXEMPT ENERGY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Winter cushion"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Partial"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Half-measure charge"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-2b",
+            "label": "Phase energy import cuts with shared storage",
+            "detail": "Collective wean.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "WEAN",
+            "callsign": "PHASE ENERGY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared cost"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Real squeeze"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Price risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-2c",
+            "label": "Threaten full embargo immediately",
+            "detail": "Maximal.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "EMBARGO",
+            "callsign": "THREATEN FULL",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Hard hit"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Shock"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Bills spike"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-3",
+        "title": "Arming decision",
+        "briefing": "The partner asks for defensive heavy weapons. Some allies fear escalation; others fear another frozen defeat.",
+        "stakes": "Weapons are a strategy, not a gesture.",
+        "choices": [
+          {
+            "id": "hist-2014-3a",
+            "label": "Provide defensive arms with training",
+            "detail": "Raise cost of advance.",
+            "kind": "kinetic",
+            "markerId": "streets",
+            "short": "ARMS",
+            "callsign": "PROVIDE DEFENSIVE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Defense aided"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Aid as stake"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If coordinated"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-3b",
+            "label": "Non-lethal aid only",
+            "detail": "Helmets and radars.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "NLETHAL",
+            "callsign": "NON LETHAL",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lower"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Thin support"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some protection"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-3c",
+            "label": "Condition arms on negotiation track participation",
+            "detail": "Link tracks.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "LINK",
+            "callsign": "CONDITION ARMS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talks leverage"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Slower aid"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner frustration"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-4",
+        "title": "Minsk-like bargain",
+        "briefing": "A ceasefire draft freezes lines and promises political status talks. Spoilers abound.",
+        "stakes": "A bad freeze can become the new border.",
+        "choices": [
+          {
+            "id": "hist-2014-4a",
+            "label": "Back the ceasefire with monitoring mission",
+            "detail": "Stop the killing first.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "MONITOR",
+            "callsign": "BACK THE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Quieter lines"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Process"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Frozen gains"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-4b",
+            "label": "Reject while occupation stands",
+            "detail": "No legitimizing.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "REJECT",
+            "callsign": "REJECT WHILE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "No reward"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fight continues"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Ongoing toll"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-4c",
+            "label": "Accept freeze; escalate sanctions if violated",
+            "detail": "Snapback logic.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "SNAP",
+            "callsign": "ACCEPT FREEZE",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Leverage held"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Conditional"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Tests compliance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-5",
+        "title": "Little-green-men fog",
+        "briefing": "Unmarked forces seize sites. Attribution is politically obvious and legally contested. Your first labeled word matters.",
+        "stakes": "Ambiguity is the invasion\u2019s armor.",
+        "choices": [
+          {
+            "id": "hist-2014-5a",
+            "label": "Attribute publicly with intelligence releases",
+            "detail": "Name the actor.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "ATTRIB",
+            "callsign": "ATTRIBUTE PUBLICLY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clarity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Confrontation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared fact"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-5b",
+            "label": "Keep language legalistic\u2014\u201cviolations\u201d\u2014without naming",
+            "detail": "Slow escalation.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "LEGALIST",
+            "callsign": "KEEP LANGUAGE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less heat"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Evasion charge"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Room"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-5c",
+            "label": "Demand immediate OSCE-like access as the test",
+            "detail": "Process tripwire.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "OSCE",
+            "callsign": "DEMAND IMMEDIATE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Access ask"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Monitors"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Clock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-6",
+        "title": "Energy and winter politics",
+        "briefing": "Gas leverage hits households. Solidarity costs money; folding teaches the wrong lesson.",
+        "stakes": "Pipelines are ballot issues.",
+        "choices": [
+          {
+            "id": "hist-2014-6a",
+            "label": "Coordinate reverse flows and winter storage solidarity",
+            "detail": "Share warmth.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "REVERSE",
+            "callsign": "COORDINATE REVERSE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Energy union"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Buffered"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Homes warmer"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-6b",
+            "label": "Negotiate a narrow commercial gas deal separately",
+            "detail": "Delink.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "GASDEAL",
+            "callsign": "NEGOTIATE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Supply"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Mixed signal"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-6c",
+            "label": "Accept higher prices as the cost of principle",
+            "detail": "Pay for norms.",
+            "kind": "political",
+            "markerId": "streets",
+            "short": "PAY",
+            "callsign": "ACCEPT HIGHER",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Principled"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Bills"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Anger"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-7",
+        "title": "Arming ask",
+        "briefing": "Partners request defensive arms. Lethal aid can deter\u2014or provide pretext. Training-only may be too little.",
+        "stakes": "Weapons are messages.",
+        "choices": [
+          {
+            "id": "hist-2014-7a",
+            "label": "Authorize defensive lethal aid with end-use monitoring",
+            "detail": "Teeth with rules.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "DEFENSE",
+            "callsign": "AUTHORIZE DEFENSIVE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Costly advance"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Aid as issue"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partner held"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-7b",
+            "label": "Limit to non-lethal and intelligence support",
+            "detail": "Soft help.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "NONLETH",
+            "callsign": "LIMIT TO",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lower pretext"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Weaker"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner underwhelmed"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-7c",
+            "label": "Lead with sanctions intensity instead of arms",
+            "detail": "Economic theater.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "SANC2",
+            "callsign": "LEAD WITH",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Costs"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If unified"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Blowback"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-8",
+        "title": "Referendum information fog",
+        "briefing": "A hurried poll under occupation claims consent. Debunking is necessary; obsessing can distract from Donbas guns.",
+        "stakes": "Fake consent still shapes narratives.",
+        "choices": [
+          {
+            "id": "hist-2014-8a",
+            "label": "Issue a legal non-recognition doctrine immediately",
+            "detail": "Paper shield.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "NONREC2",
+            "callsign": "ISSUE A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 3,
+                "summary": "Conquest denied"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Coalition tool"
+              },
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear line"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-8b",
+            "label": "Flood counter-messaging but avoid mirror referenda talk",
+            "detail": "Narrative fight.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "COUNTER",
+            "callsign": "FLOOD COUNTER",
+            "effects": [
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Info war"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rebuttal"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Attention"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-8c",
+            "label": "Ignore the spectacle; focus resources on the active front",
+            "detail": "Guns over ballots.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "FRONT",
+            "callsign": "IGNORE THE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Priority clear"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Spectacle stands"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Legalists uneasy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-9",
+        "title": "Minsk-like off-ramp",
+        "briefing": "A ceasefire-plus-status formula appears. It can freeze gains or stop the dying. Spoilers prefer either purity or conquest.",
+        "stakes": "Freezes are peaces with expiration dates.",
+        "choices": [
+          {
+            "id": "hist-2014-9a",
+            "label": "Back a ceasefire with monitors and delayed status talks",
+            "detail": "Stop the guns first.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "CFIRST",
+            "callsign": "BACK A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Pause"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Process"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Frozen injustice"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-9b",
+            "label": "Refuse any text that legitimizes territorial faits accomplis",
+            "detail": "Purity.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "PURITY",
+            "callsign": "REFUSE ANY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "No reward"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fight continues"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Less deal space"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-9c",
+            "label": "Accept a narrow local ceasefire only around critical cities",
+            "detail": "Surgical pause.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "LOCALCF",
+            "callsign": "ACCEPT A",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some relief"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Partial"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Incomplete"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2014-10",
+        "title": "European security endgame",
+        "briefing": "You write whether this is a regional crisis or a systemic challenge to the post-1945 map\u2014and what budgets follow.",
+        "stakes": "Naming the problem funds the response.",
+        "choices": [
+          {
+            "id": "hist-2014-10a",
+            "label": "Treat annexation as systemic; fund long deterrence adaptation",
+            "detail": "Era marker.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "SYSTEMIC",
+            "callsign": "TREAT ANNEXATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 3,
+                "summary": "Long posture"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "NATO awaken"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "New normal confrontation"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-10b",
+            "label": "Contain as regional; keep global agendas primary",
+            "detail": "Triage.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "REGIONAL",
+            "callsign": "CONTAIN AS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Bandwidth"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Frontline worry"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Underweight"
+              }
+            ]
+          },
+          {
+            "id": "hist-2014-10c",
+            "label": "Prioritize energy transition and financial isolation tools",
+            "detail": "Structural counters.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "STRUCT",
+            "callsign": "PRIORITIZE ENERGY",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Long squeeze"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Transition"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Non-kinetic"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "black-sea",
+    "scenarioId": "hist-2014-crimea",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0A2030",
+    "land": "#1C2C30",
+    "accent": "#8EB4C8",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Black Sea (Natural Earth)",
+      "water": "#0A2030",
+      "land": "#1C2C30",
+      "landHi": "#2C3C40",
+      "accent": "#8EB4C8",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            99.5,
+            51.61
+          ],
+          [
+            98.53,
+            52.99
+          ],
+          [
+            94.01,
+            61.59
+          ],
+          [
+            98.14,
+            69.5
+          ],
+          [
+            97.69,
+            75.11
+          ],
+          [
+            99.5,
+            84.93
+          ],
+          [
+            99.5,
+            84.93
+          ],
+          [
+            99.5,
+            88.28
+          ],
+          [
+            99.16,
+            90.4
+          ],
+          [
+            97.15,
+            89.84
+          ],
+          [
+            94.03,
+            84.77
+          ],
+          [
+            92.75,
+            84.49
+          ],
+          [
+            89.89,
+            82.56
+          ],
+          [
+            88.5,
+            79.14
+          ],
+          [
+            84.26,
+            77.4
+          ],
+          [
+            81.51,
+            78.71
+          ],
+          [
+            80.71,
+            77.16
+          ],
+          [
+            74.52,
+            73.16
+          ],
+          [
+            67.83,
+            71.82
+          ],
+          [
+            63.99,
+            70.39
+          ],
+          [
+            63.43,
+            71.38
+          ],
+          [
+            57.64,
+            64.33
+          ],
+          [
+            52.45,
+            61.19
+          ],
+          [
+            48.52,
+            56.29
+          ],
+          [
+            51.83,
+            54.96
+          ],
+          [
+            55.6,
+            47.99
+          ],
+          [
+            53.06,
+            44.7
+          ],
+          [
+            59.76,
+            41.29
+          ],
+          [
+            59.64,
+            39.47
+          ],
+          [
+            55.56,
+            40.82
+          ],
+          [
+            55.71,
+            37.11
+          ],
+          [
+            58.05,
+            34.79
+          ],
+          [
+            62.45,
+            34.18
+          ],
+          [
+            63.16,
+            31.4
+          ],
+          [
+            62.16,
+            26.8
+          ],
+          [
+            64.0,
+            22.44
+          ],
+          [
+            63.95,
+            19.99
+          ],
+          [
+            57.25,
+            17.28
+          ],
+          [
+            54.59,
+            17.37
+          ],
+          [
+            51.79,
+            13.47
+          ],
+          [
+            48.3,
+            14.79
+          ],
+          [
+            42.53,
+            11.86
+          ],
+          [
+            42.63,
+            10.22
+          ],
+          [
+            41.01,
+            6.6
+          ],
+          [
+            37.39,
+            6.2
+          ],
+          [
+            37.01,
+            3.61
+          ],
+          [
+            38.14,
+            1.93
+          ],
+          [
+            35.24,
+            0.5
+          ],
+          [
+            30.53,
+            0.5
+          ],
+          [
+            29.15,
+            0.5
+          ],
+          [
+            28.0,
+            0.5
+          ],
+          [
+            26.3,
+            0.5
+          ],
+          [
+            26.3,
+            0.5
+          ],
+          [
+            99.5,
+            11.62
+          ],
+          [
+            99.5,
+            17.71
+          ],
+          [
+            97.95,
+            12.88
+          ],
+          [
+            94.33,
+            22.03
+          ],
+          [
+            95.65,
+            23.73
+          ],
+          [
+            93.03,
+            30.05
+          ],
+          [
+            96.89,
+            35.7
+          ],
+          [
+            99.5,
+            35.47
+          ],
+          [
+            99.5,
+            41.04
+          ],
+          [
+            99.5,
+            45.32
+          ],
+          [
+            99.5,
+            51.61
+          ]
+        ],
+        [
+          [
+            26.3,
+            0.5
+          ],
+          [
+            28.0,
+            0.5
+          ],
+          [
+            29.15,
+            0.5
+          ],
+          [
+            30.53,
+            0.5
+          ],
+          [
+            35.24,
+            0.5
+          ],
+          [
+            38.14,
+            1.93
+          ],
+          [
+            37.01,
+            3.61
+          ],
+          [
+            37.39,
+            6.2
+          ],
+          [
+            41.01,
+            6.6
+          ],
+          [
+            42.63,
+            10.22
+          ],
+          [
+            42.53,
+            11.86
+          ],
+          [
+            48.3,
+            14.79
+          ],
+          [
+            51.79,
+            13.47
+          ],
+          [
+            54.59,
+            17.37
+          ],
+          [
+            57.25,
+            17.28
+          ],
+          [
+            63.95,
+            19.99
+          ],
+          [
+            64.0,
+            22.44
+          ],
+          [
+            62.16,
+            26.8
+          ],
+          [
+            63.16,
+            31.4
+          ],
+          [
+            62.45,
+            34.18
+          ],
+          [
+            58.05,
+            34.79
+          ],
+          [
+            55.71,
+            37.11
+          ],
+          [
+            55.56,
+            40.82
+          ],
+          [
+            51.93,
+            41.48
+          ],
+          [
+            48.91,
+            44.18
+          ],
+          [
+            44.65,
+            44.62
+          ],
+          [
+            40.74,
+            47.72
+          ],
+          [
+            40.97,
+            52.19
+          ],
+          [
+            40.28,
+            51.93
+          ],
+          [
+            39.69,
+            50.29
+          ],
+          [
+            38.23,
+            49.96
+          ],
+          [
+            35.0,
+            48.17
+          ],
+          [
+            33.8,
+            50.23
+          ],
+          [
+            33.18,
+            49.33
+          ],
+          [
+            26.11,
+            47.22
+          ],
+          [
+            25.8,
+            44.11
+          ],
+          [
+            21.59,
+            45.14
+          ],
+          [
+            19.9,
+            49.73
+          ],
+          [
+            16.38,
+            55.89
+          ],
+          [
+            14.32,
+            54.46
+          ],
+          [
+            12.18,
+            55.8
+          ],
+          [
+            10.15,
+            54.26
+          ],
+          [
+            11.3,
+            53.36
+          ],
+          [
+            12.09,
+            50.5
+          ],
+          [
+            13.34,
+            47.84
+          ],
+          [
+            13.01,
+            46.35
+          ],
+          [
+            13.96,
+            45.69
+          ],
+          [
+            14.41,
+            46.84
+          ],
+          [
+            17.09,
+            47.08
+          ],
+          [
+            18.29,
+            46.47
+          ],
+          [
+            17.45,
+            45.62
+          ],
+          [
+            17.77,
+            44.38
+          ],
+          [
+            16.18,
+            42.26
+          ],
+          [
+            15.52,
+            38.78
+          ],
+          [
+            13.87,
+            37.41
+          ],
+          [
+            14.19,
+            34.59
+          ],
+          [
+            12.14,
+            32.35
+          ],
+          [
+            10.27,
+            32.04
+          ],
+          [
+            6.92,
+            29.44
+          ],
+          [
+            3.9,
+            30.26
+          ],
+          [
+            2.82,
+            31.49
+          ],
+          [
+            0.9,
+            31.49
+          ],
+          [
+            0.5,
+            33.44
+          ],
+          [
+            0.5,
+            34.24
+          ],
+          [
+            0.5,
+            0.74
+          ],
+          [
+            1.54,
+            1.4
+          ],
+          [
+            6.61,
+            3.4
+          ],
+          [
+            10.19,
+            3.56
+          ],
+          [
+            11.9,
+            4.77
+          ],
+          [
+            13.6,
+            3.32
+          ],
+          [
+            14.8,
+            5.26
+          ],
+          [
+            18.9,
+            4.87
+          ],
+          [
+            20.71,
+            5.67
+          ],
+          [
+            21.0,
+            1.48
+          ],
+          [
+            22.4,
+            0.5
+          ],
+          [
+            26.3,
+            0.5
+          ]
+        ],
+        [
+          [
+            0.78,
+            99.5
+          ],
+          [
+            5.82,
+            96.5
+          ],
+          [
+            12.82,
+            96.17
+          ],
+          [
+            14.73,
+            89.83
+          ],
+          [
+            23.39,
+            90.94
+          ],
+          [
+            28.85,
+            85.53
+          ],
+          [
+            34.15,
+            83.18
+          ],
+          [
+            41.67,
+            83.0
+          ],
+          [
+            49.61,
+            88.87
+          ],
+          [
+            56.13,
+            92.1
+          ],
+          [
+            61.42,
+            90.81
+          ],
+          [
+            65.33,
+            91.55
+          ],
+          [
+            70.7,
+            87.2
+          ],
+          [
+            75.54,
+            86.81
+          ],
+          [
+            79.92,
+            90.9
+          ],
+          [
+            80.69,
+            93.83
+          ],
+          [
+            80.26,
+            97.89
+          ],
+          [
+            83.64,
+            99.5
+          ],
+          [
+            85.43,
+            99.5
+          ],
+          [
+            82.31,
+            99.5
+          ],
+          [
+            0.78,
+            99.5
+          ]
+        ],
+        [
+          [
+            10.15,
+            54.26
+          ],
+          [
+            12.18,
+            55.8
+          ],
+          [
+            14.32,
+            54.46
+          ],
+          [
+            16.38,
+            55.89
+          ],
+          [
+            16.48,
+            58.04
+          ],
+          [
+            14.28,
+            59.83
+          ],
+          [
+            12.9,
+            59.05
+          ],
+          [
+            11.63,
+            69.1
+          ],
+          [
+            8.96,
+            68.23
+          ],
+          [
+            5.65,
+            65.2
+          ],
+          [
+            0.5,
+            67.14
+          ],
+          [
+            0.5,
+            69.26
+          ],
+          [
+            0.5,
+            34.24
+          ],
+          [
+            0.5,
+            33.44
+          ],
+          [
+            0.9,
+            31.49
+          ],
+          [
+            2.82,
+            31.49
+          ],
+          [
+            4.2,
+            32.31
+          ],
+          [
+            5.61,
+            34.78
+          ],
+          [
+            7.05,
+            38.29
+          ],
+          [
+            9.67,
+            43.25
+          ],
+          [
+            9.82,
+            46.9
+          ],
+          [
+            9.34,
+            50.46
+          ],
+          [
+            10.15,
+            54.26
+          ]
+        ],
+        [
+          [
+            2.82,
+            31.49
+          ],
+          [
+            3.9,
+            30.26
+          ],
+          [
+            6.92,
+            29.44
+          ],
+          [
+            10.27,
+            32.04
+          ],
+          [
+            12.14,
+            32.35
+          ],
+          [
+            14.19,
+            34.59
+          ],
+          [
+            13.87,
+            37.41
+          ],
+          [
+            15.52,
+            38.78
+          ],
+          [
+            16.18,
+            42.26
+          ],
+          [
+            17.77,
+            44.38
+          ],
+          [
+            17.45,
+            45.62
+          ],
+          [
+            18.29,
+            46.47
+          ],
+          [
+            17.09,
+            47.08
+          ],
+          [
+            14.41,
+            46.84
+          ],
+          [
+            13.96,
+            45.69
+          ],
+          [
+            13.01,
+            46.35
+          ],
+          [
+            13.34,
+            47.84
+          ],
+          [
+            12.09,
+            50.5
+          ],
+          [
+            11.3,
+            53.36
+          ],
+          [
+            10.15,
+            54.26
+          ],
+          [
+            9.34,
+            50.46
+          ],
+          [
+            9.82,
+            46.9
+          ],
+          [
+            9.67,
+            43.25
+          ],
+          [
+            7.05,
+            38.29
+          ],
+          [
+            5.61,
+            34.78
+          ],
+          [
+            4.2,
+            32.31
+          ],
+          [
+            2.82,
+            31.49
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Crimea",
+          "x": 56.0,
+          "y": 52.0
+        },
+        {
+          "name": "Kyiv",
+          "x": 48.0,
+          "y": 22.0
+        },
+        {
+          "name": "Sevastopol",
+          "x": 54.0,
+          "y": 56.0
+        },
+        {
+          "name": "Moscow",
+          "x": 70.0,
+          "y": 14.0
+        }
+      ]
+    }
+  }
+}

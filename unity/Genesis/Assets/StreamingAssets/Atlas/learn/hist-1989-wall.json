@@ -1,0 +1,168 @@
+{
+  "theaterId": "hist-1989-wall",
+  "regionName": "Central Europe \u2014 Fall of the Berlin Wall, 1989",
+  "placeFacts": [
+    {
+      "markerId": "capital",
+      "fact": "East Berlin was the GDR\u2019s capital from 1949. The Berlin Wall, built on 13 Aug 1961, sealed it from West Berlin until the night of 9 Nov 1989."
+    },
+    {
+      "markerId": "brussels",
+      "fact": "Bonn was West Germany\u2019s \u2018provisional\u2019 capital from 1949 to 1991\u2014a modest Rhineland city chosen to symbolise democracy\u2019s humble new start after the Nazi era."
+    },
+    {
+      "markerId": "parliament",
+      "fact": "Leipzig\u2019s Monday Demonstrations peaked on 9 Oct 1989, when 70,000 marched peacefully, breaking the regime\u2019s will to use force."
+    },
+    {
+      "markerId": "streets",
+      "fact": "Checkpoint Charlie was the most famous crossing between East and West Berlin. Crowds breached it on 9\u201310 Nov 1989 after Bornholmer Stra\u00dfe opened first at 23:30."
+    },
+    {
+      "markerId": "districts",
+      "fact": "The inner German border ran 1,393 km from the Baltic to Bavaria. Helmstedt guarded the main Autobahn crossing between West Germany and East Germany."
+    },
+    {
+      "markerId": "ballot",
+      "fact": "Dresden saw major 1989 protests. Kohl\u2019s speech at the Frauenkirche ruins in Dec 1989 signalled German reunification was imminent."
+    }
+  ],
+  "beatHistory": [
+    {
+      "beatId": "hist-1989-1",
+      "history": "On 9 November 1989, SED spokesman G\u00fcnter Schabowski announced East Germans could travel freely, effective \u2018immediately, without delay\u2019\u2014misreading his briefing notes. Crowds flooded border crossings; Bornholmer Stra\u00dfe opened first at 23:30. Jubilant Berliners began dismantling the Wall that night."
+    },
+    {
+      "beatId": "hist-1989-2",
+      "history": "News of the Wall\u2019s opening spread rapidly, and Western governments quickly recognised the changes as irreversible. The GDR had already been haemorrhaging citizens through Hungary and Czechoslovakia since August 1989, when those countries opened their borders. The regime had lost legitimacy before the Wall fell."
+    },
+    {
+      "beatId": "hist-1989-3",
+      "history": "East Germans poured into West Germany seeking the Deutschmark and Western goods. On 1 July 1990, monetary union replaced the East Mark at a controversial 1:1 rate for most savings. The move accelerated reunification but caused severe deindustrialisation as East German products became uncompetitive."
+    },
+    {
+      "beatId": "hist-1989-4",
+      "history": "NATO membership for a unified Germany was a central issue in international diplomacy. The Two-plus-Four Treaty, signed 12 September 1990, resolved this: unified Germany would remain in NATO, but NATO forces and nuclear weapons would not be deployed on the territory of the former GDR."
+    },
+    {
+      "beatId": "hist-1989-5",
+      "history": "Bornholmer Stra\u00dfe border guards, facing tens of thousands and receiving no orders from above, opened the crossing at 23:30 to prevent a dangerous crush. The regime had no contingency for peaceful, mass civil defiance at that scale. Checkpoint Charlie opened minutes later."
+    },
+    {
+      "beatId": "hist-1989-6",
+      "history": "West German Chancellor Kohl presented his Ten-Point Plan for reunification on 28 November 1989 without consulting France, Britain, or the United States. East Germany\u2019s first free elections on 18 March 1990 produced a CDU-led government that backed rapid reunification."
+    },
+    {
+      "beatId": "hist-1989-7",
+      "history": "France and Britain privately worried about reunified Germany\u2019s power and potential domination of Europe. The Soviet Union initially opposed NATO membership for a unified Germany. Gorbachev ultimately accepted in July 1990 in exchange for German financial assistance and a ban on NATO forces in the former GDR."
+    },
+    {
+      "beatId": "hist-1989-8",
+      "history": "Western intelligence agencies struggled to assess whether hardliners in East Germany or the Soviet Union might stage a coup and reverse the democratic changes. Memories of Hungary 1956 and Czechoslovakia 1968 haunted analysts. No military crackdown came; the regime collapsed peacefully from within."
+    },
+    {
+      "beatId": "hist-1989-9",
+      "history": "Monetary union on 1 July 1990 halted the mass emigration to West Germany by giving East Germans access to Deutschmarks. Chancellor Kohl promised \u2018flourishing landscapes\u2019 in the east, a vision that proved economically painful as deindustrialisation swept the former GDR in the short term."
+    },
+    {
+      "beatId": "hist-1989-10",
+      "history": "Germany reunified at midnight on 3 October 1990, when the GDR formally acceded to the Federal Republic. The Two-plus-Four Treaty of 12 September 1990 formally ended Four Power rights over Germany. Berlin was designated the future capital; the government moved there from Bonn in 1999."
+    }
+  ],
+  "fieldBriefs": [
+    {
+      "beatId": "hist-1989-1",
+      "markerId": "streets",
+      "headline": "Schabowski\u2019s mistake opens the Wall",
+      "fact": "G\u00fcnter Schabowski misread his briefing notes live on TV. Bornholmer Stra\u00dfe opened first at 23:30 on 9 Nov 1989; Checkpoint Charlie followed minutes later."
+    },
+    {
+      "beatId": "hist-1989-2",
+      "markerId": "districts",
+      "headline": "Hungary opens its wire: Aug 1989",
+      "fact": "Hungary opened its Austrian border on 11 Sept 1989; over 13,000 East Germans fled in three days. The inner German border became porous long before the Wall fell."
+    },
+    {
+      "beatId": "hist-1989-3",
+      "markerId": "brussels",
+      "headline": "1:1 exchange: costly but decisive",
+      "fact": "Monetary union on 1 July 1990 set East Marks to Deutschmarks at 1:1. This made East German industry uncompetitive overnight, triggering deindustrialisation."
+    },
+    {
+      "beatId": "hist-1989-4",
+      "markerId": "districts",
+      "headline": "Two-plus-Four: Germany stays in NATO",
+      "fact": "The Two-plus-Four Treaty (12 Sept 1990) ended Four Power rights. Unified Germany stayed in NATO; NATO forces were barred from the former East German territory."
+    },
+    {
+      "beatId": "hist-1989-5",
+      "markerId": "streets",
+      "headline": "Bornholmer first, Charlie second",
+      "fact": "Bornholmer Stra\u00dfe opened first at 23:30 on 9 Nov 1989\u2014not Checkpoint Charlie. Guards, overwhelmed and without orders, opened barriers to prevent a crush."
+    },
+    {
+      "beatId": "hist-1989-6",
+      "markerId": "brussels",
+      "headline": "Kohl\u2019s Ten Points: allies blindsided",
+      "fact": "Kohl\u2019s Ten-Point plan (28 Nov 1989) surprised France and Britain. Thatcher and Mitterrand privately feared the consequences of German reunification."
+    },
+    {
+      "beatId": "hist-1989-7",
+      "markerId": "capital",
+      "headline": "Gorbachev\u2019s concession: NATO stays",
+      "fact": "Gorbachev accepted German NATO membership in July 1990. Germany paid billions to fund Soviet troop withdrawal\u2014the price of Gorbachev\u2019s historic concession."
+    },
+    {
+      "beatId": "hist-1989-8",
+      "markerId": "capital",
+      "headline": "No crackdown: lessons of Leipzig",
+      "fact": "After Tiananmen (June 1989), analysts feared an East German crackdown. The SED\u2019s decision not to fire on Leipzig\u2019s marchers on 9 Oct 1989 proved decisive."
+    },
+    {
+      "beatId": "hist-1989-9",
+      "markerId": "brussels",
+      "headline": "Kohl\u2019s \u2018flourishing landscapes\u2019",
+      "fact": "Kohl promised prosperity in the east. Monetary union (1 July 1990) halted emigration by giving East Germans Deutschmarks\u2014but deindustrialisation followed."
+    },
+    {
+      "beatId": "hist-1989-10",
+      "markerId": "parliament",
+      "headline": "3 October 1990: German Unity Day",
+      "fact": "Germany reunified at midnight 3 Oct 1990, the GDR joining the Federal Republic. Leipzig\u2019s Monday protesters had helped make the regime\u2019s collapse inevitable."
+    }
+  ],
+  "storyLines": [
+    {
+      "id": "inner-german-border",
+      "label": "Inner German Border",
+      "beatIds": ["hist-1989-1", "hist-1989-4"],
+      "color": "#E5534B",
+      "points": [
+        { "lat": 54.00, "lon": 10.90 },
+        { "lat": 53.50, "lon": 10.90 },
+        { "lat": 53.00, "lon": 10.90 },
+        { "lat": 52.50, "lon": 11.00 },
+        { "lat": 52.00, "lon": 11.00 },
+        { "lat": 51.50, "lon": 10.80 },
+        { "lat": 51.00, "lon": 10.60 },
+        { "lat": 50.50, "lon": 11.10 },
+        { "lat": 50.30, "lon": 11.90 }
+      ]
+    },
+    {
+      "id": "berlin-wall",
+      "label": "Berlin Wall",
+      "beatIds": ["hist-1989-1", "hist-1989-5"],
+      "color": "#E5534B",
+      "points": [
+        { "lat": 52.65, "lon": 13.15 },
+        { "lat": 52.70, "lon": 13.40 },
+        { "lat": 52.60, "lon": 13.65 },
+        { "lat": 52.40, "lon": 13.65 },
+        { "lat": 52.38, "lon": 13.20 },
+        { "lat": 52.45, "lon": 13.05 },
+        { "lat": 52.65, "lon": 13.15 }
+      ]
+    }
+  ]
+}

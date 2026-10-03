@@ -1,0 +1,1787 @@
+{
+  "scenario": {
+    "id": "hist-1919-versailles",
+    "year": 1919,
+    "era": "1919\u20131939",
+    "title": "Versailles Table",
+    "region": "Paris \u00b7 Allied capitals \u00b7 defeated Central Powers",
+    "meterFamily": "politics",
+    "theaterArchetype": "europe",
+    "premise": "Victors draft a peace that must demobilize armies, redraw borders, and sell the settlement at home. You staff a delegation balancing punishment, stability, and League hopes.",
+    "role": "Delegation counselor at the peace conference",
+    "tension": "Justice narratives versus a Europe that can still function.",
+    "beats": [
+      {
+        "id": "hist-1919-1",
+        "title": "War guilt clause",
+        "briefing": "Publics want blame named. Economists warn a moralized indemnity will poison recovery.",
+        "stakes": "Symbolic language can outlive the money.",
+        "choices": [
+          {
+            "id": "hist-1919-1a",
+            "label": "Keep a guilt clause; soften payment schedule",
+            "detail": "Symbol hard, cash flexible.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "GUILT",
+            "callsign": "KEEP A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Home press satisfied"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Humiliation lingers"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Payable path"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-1b",
+            "label": "Drop guilt language; focus on repair costs",
+            "detail": "Technical liability only.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "REPAIR",
+            "callsign": "DROP GUILT",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Less poison"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Voters feel cheated"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Legalist frame"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-1c",
+            "label": "Maximal indemnity with occupation threat",
+            "detail": "Pay or stay occupied.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "MAXIND",
+            "callsign": "MAXIMAL INDEMNITY",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Heavy burden"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Revisionism fuel"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard victory"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-2",
+        "title": "Border commissions",
+        "briefing": "Ethnic maps conflict with rail and coal geography. Minorities beg for plebiscites; generals want clean strategic lines.",
+        "stakes": "Every line creates a new revisionist.",
+        "choices": [
+          {
+            "id": "hist-1919-2a",
+            "label": "Mandate plebiscites in contested belts",
+            "detail": "Let local votes settle edges.",
+            "kind": "civic",
+            "markerId": "ballot",
+            "short": "PLEB",
+            "callsign": "MANDATE PLEBISCITES",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 2,
+                "summary": "Consent frame"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Delays finality"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Campaigns harden"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-2b",
+            "label": "Draw strategic corridors for coal and rail",
+            "detail": "Prioritize economic viability.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "CORRIDOR",
+            "callsign": "DRAW STRATEGIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Functional map"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Self-determination diluted"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Allies get resources"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-2c",
+            "label": "Create League mandates for flashpoint zones",
+            "detail": "Internationalize the hardest scraps.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "MANDATE",
+            "callsign": "CREATE LEAGUE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Institutional cover"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks like empire 2.0"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Buffers clash"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-3",
+        "title": "League covenant fight",
+        "briefing": "Some partners want a strong League; others refuse any constraint on sovereignty.",
+        "stakes": "Without buy-in, the covenant is theater.",
+        "choices": [
+          {
+            "id": "hist-1919-3a",
+            "label": "Push a strong collective-security article",
+            "detail": "Automatic consultation on aggression.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "COLSEC",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared deterrent idea"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Ambitious order"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Sovereignty hawks resist"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-3b",
+            "label": "Water down to a discussion forum",
+            "detail": "Preserve signatures over teeth.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "FORUM",
+            "callsign": "WATER DOWN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "More signatories"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -2,
+                "summary": "Weak teeth"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Easier ratification"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-3c",
+            "label": "Bilateral guarantees instead of League primacy",
+            "detail": "Old alliance logic in new clothes.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "BILAT",
+            "callsign": "BILATERAL GUARANTEES",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Clear pledges"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Undercuts League"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Core partners tight"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-4",
+        "title": "Signature day",
+        "briefing": "The defeated ask for revisions before signing. Refusing may create a martyr treaty; yielding may unravel the whole package.",
+        "stakes": "A signed bitter peace versus an unsigned vacuum.",
+        "choices": [
+          {
+            "id": "hist-1919-4a",
+            "label": "Require signature as drafted",
+            "detail": "Revisions only via future League petitions.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "SIGN",
+            "callsign": "REQUIRE SIGNATURE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Finality"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Resentment locked"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Revisionist fuel"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-4b",
+            "label": "Allow narrow technical amendments",
+            "detail": "Face-saving tweaks without reopening borders.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "TWEAK",
+            "callsign": "ALLOW NARROW",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Slight off-ramp"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks soft"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Another round"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-4c",
+            "label": "Threaten renewed blockade if unsigned",
+            "detail": "Pressure without new armies.",
+            "kind": "economic",
+            "markerId": "streets",
+            "short": "BLOCK",
+            "callsign": "THREATEN RENEWED",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Coercive continuity"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Hunger politics"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Peace by siege"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-5",
+        "title": "Reparations arithmetic shock",
+        "briefing": "Experts produce incompatible totals. One path bankrupts the defeated; another looks like betrayal at home.",
+        "stakes": "Numbers are politics with decimal points.",
+        "choices": [
+          {
+            "id": "hist-1919-5a",
+            "label": "Back a capacity-to-pay schedule with review clauses",
+            "detail": "Solvency over vengeance.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "CAPPAY",
+            "callsign": "BACK A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Payable path"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Workable peace"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Hawks furious"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-5b",
+            "label": "Insist on headline maximum with later \u201cadjustments\u201d",
+            "detail": "Optics now, realism later.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "HEADLINE",
+            "callsign": "INSIST ON",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Victory framed"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Known fiction"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Debt overhang"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-5c",
+            "label": "Park the number in a technical commission for six months",
+            "detail": "Buy time.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "PARK",
+            "callsign": "PARK THE",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Delay fight"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Keeps talks"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks evasive"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-6",
+        "title": "Street justice politics",
+        "briefing": "Crowds demand hangings and hard borders. Your delegation\u2019s soft clauses are burned in effigy.",
+        "stakes": "Peace can die of applause.",
+        "choices": [
+          {
+            "id": "hist-1919-6a",
+            "label": "Defend legal process over spectacle punishment",
+            "detail": "Courts, not carnival.",
+            "kind": "legal",
+            "markerId": "streets",
+            "short": "PROCESS",
+            "callsign": "DEFEND LEGAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Legal peace"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Street rage"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rule of law"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-6b",
+            "label": "Add symbolic war-crime trials to buy clause space",
+            "detail": "Trade symbolism for structure.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "TRIALS",
+            "callsign": "ADD SYMBOLIC",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Some catharsis"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Hardens losers"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Revenge politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-6c",
+            "label": "Refuse to campaign on the treaty until signature",
+            "detail": "Silence as strategy.",
+            "kind": "civic",
+            "markerId": "districts",
+            "short": "QUIET",
+            "callsign": "REFUSE TO",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Less theater"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Vacuum"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Cabinet focus"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-7",
+        "title": "Ally\u2019s security ask",
+        "briefing": "A senior ally wants permanent occupation zones and automatic sanctions triggers. Another wants a leaner League.",
+        "stakes": "Security architecture is the real treaty.",
+        "choices": [
+          {
+            "id": "hist-1919-7a",
+            "label": "Broker automatic economic sanctions, not occupation",
+            "detail": "Teeth without garrisons.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "AUTO",
+            "callsign": "BROKER AUTOMATIC",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Costly violation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Compromise"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Sanction risk premium"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-7b",
+            "label": "Accept limited occupation with a sunset clause",
+            "detail": "Time-bound enforcement.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "SUNSET",
+            "callsign": "ACCEPT LIMITED",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "On-ground leverage"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Friction baked in"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Ally satisfied"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-7c",
+            "label": "Push a thin covenant and bilateral side letters",
+            "detail": "Paper unity, private deals.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "SIDE",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Opaque peace"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Uneven terms"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-8",
+        "title": "Map commission leaks",
+        "briefing": "Border sketches leak showing minorities stranded. Your press and theirs demand incompatible fixes.",
+        "stakes": "Every line creates a future grievance.",
+        "choices": [
+          {
+            "id": "hist-1919-8a",
+            "label": "Mandate minority treaties with monitoring",
+            "detail": "Rights as border softener.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "MINOR",
+            "callsign": "MANDATE MINORITY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Protections written"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Softer maps"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Complex drafting"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-8b",
+            "label": "Redraw for strategic railways even if populations suffer",
+            "detail": "Security topography first.",
+            "kind": "political",
+            "markerId": "districts",
+            "short": "RAIL",
+            "callsign": "REDRAW FOR",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Strategic depth"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Displaced communities"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Ethnic anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-8c",
+            "label": "Call a short expert re-hearing before ink",
+            "detail": "Slow the map.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "REHEAR",
+            "callsign": "CALL A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Due process"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Revision window"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners impatient"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-9",
+        "title": "Signature off-ramp",
+        "briefing": "The defeated hint they will sign under protest if reparations review and League entry paths are real. Hardliners want humiliation complete.",
+        "stakes": "A signed bad peace versus an unsigned worse one.",
+        "choices": [
+          {
+            "id": "hist-1919-9a",
+            "label": "Offer review clauses and eventual League path",
+            "detail": "Dignity enough to sign.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "PATH",
+            "callsign": "OFFER REVIEW",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Signature likelier"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Softness charge"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Certainty"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-9b",
+            "label": "Refuse revisions; demand unconditional signature",
+            "detail": "Dictate the peace.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "DICTATE",
+            "callsign": "REFUSE REVISIONS",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard line clear"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "May refuse"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Future revision wars"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-9c",
+            "label": "Split: sign political clauses now, economics later",
+            "detail": "Two-stage treaty.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "SPLIT",
+            "callsign": "SPLIT SIGN",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Staged deal"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Uncertainty"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Partial lock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1919-10",
+        "title": "Ratification endgame",
+        "briefing": "Home legislatures threaten to gut the League articles. You must choose what to salvage.",
+        "stakes": "The peace dies twice\u2014at signature and at ratification.",
+        "choices": [
+          {
+            "id": "hist-1919-10a",
+            "label": "Defend the covenant as a package",
+            "detail": "All or renegotiate.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "PACKAGE",
+            "callsign": "DEFEND THE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Institution intact"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Legislative fight"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Internationalists cheer"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-10b",
+            "label": "Accept reservations to secure a majority",
+            "detail": "Imperfect membership.",
+            "kind": "legal",
+            "markerId": "ballot",
+            "short": "RESERVE",
+            "callsign": "ACCEPT RESERVATIONS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Votes secured"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hollowed pledge"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners wary"
+              }
+            ]
+          },
+          {
+            "id": "hist-1919-10c",
+            "label": "Let the League fail at home; keep bilateral enforcement",
+            "detail": "Old diplomacy returns.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "BILAT",
+            "callsign": "LET THE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Weaker order"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Bilateral teeth"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": -1,
+                "summary": "Multilateral loss"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "europe-west",
+    "scenarioId": "hist-1919-versailles",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0C2434",
+    "land": "#223428",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Western Europe (Natural Earth)",
+      "water": "#0C2434",
+      "land": "#223428",
+      "landHi": "#324838",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            64.75,
+            53.35
+          ],
+          [
+            66.63,
+            54.99
+          ],
+          [
+            72.4,
+            56.14
+          ],
+          [
+            70.37,
+            60.42
+          ],
+          [
+            69.87,
+            64.87
+          ],
+          [
+            68.77,
+            65.94
+          ],
+          [
+            66.95,
+            65.36
+          ],
+          [
+            67.07,
+            66.95
+          ],
+          [
+            64.15,
+            70.46
+          ],
+          [
+            64.09,
+            73.29
+          ],
+          [
+            66.0,
+            72.31
+          ],
+          [
+            67.37,
+            75.06
+          ],
+          [
+            67.21,
+            76.82
+          ],
+          [
+            68.39,
+            79.17
+          ],
+          [
+            67.0,
+            81.07
+          ],
+          [
+            68.03,
+            85.91
+          ],
+          [
+            70.2,
+            86.7
+          ],
+          [
+            69.74,
+            89.41
+          ],
+          [
+            66.12,
+            92.94
+          ],
+          [
+            58.23,
+            91.25
+          ],
+          [
+            52.4,
+            93.28
+          ],
+          [
+            51.94,
+            97.04
+          ],
+          [
+            47.31,
+            97.85
+          ],
+          [
+            42.81,
+            95.03
+          ],
+          [
+            41.35,
+            96.38
+          ],
+          [
+            33.99,
+            93.54
+          ],
+          [
+            32.39,
+            91.11
+          ],
+          [
+            34.46,
+            87.36
+          ],
+          [
+            35.22,
+            74.91
+          ],
+          [
+            31.1,
+            68.35
+          ],
+          [
+            28.15,
+            65.19
+          ],
+          [
+            22.03,
+            62.78
+          ],
+          [
+            21.63,
+            58.22
+          ],
+          [
+            26.82,
+            56.86
+          ],
+          [
+            33.53,
+            58.47
+          ],
+          [
+            32.27,
+            51.4
+          ],
+          [
+            36.04,
+            54.08
+          ],
+          [
+            45.36,
+            49.21
+          ],
+          [
+            46.56,
+            44.08
+          ],
+          [
+            50.05,
+            42.82
+          ],
+          [
+            50.63,
+            45.02
+          ],
+          [
+            52.49,
+            45.12
+          ],
+          [
+            54.35,
+            47.63
+          ],
+          [
+            57.14,
+            50.58
+          ],
+          [
+            59.2,
+            50.09
+          ],
+          [
+            62.7,
+            52.94
+          ],
+          [
+            63.59,
+            53.48
+          ],
+          [
+            64.75,
+            53.35
+          ]
+        ],
+        [
+          [
+            96.48,
+            26.52
+          ],
+          [
+            97.41,
+            29.7
+          ],
+          [
+            96.3,
+            31.37
+          ],
+          [
+            97.75,
+            33.59
+          ],
+          [
+            98.74,
+            36.94
+          ],
+          [
+            98.43,
+            39.09
+          ],
+          [
+            99.5,
+            43.08
+          ],
+          [
+            98.28,
+            43.74
+          ],
+          [
+            97.23,
+            43.02
+          ],
+          [
+            96.22,
+            44.21
+          ],
+          [
+            93.35,
+            45.42
+          ],
+          [
+            91.87,
+            46.97
+          ],
+          [
+            88.96,
+            48.34
+          ],
+          [
+            89.66,
+            50.19
+          ],
+          [
+            90.08,
+            52.83
+          ],
+          [
+            92.13,
+            54.33
+          ],
+          [
+            94.38,
+            57.02
+          ],
+          [
+            92.97,
+            59.9
+          ],
+          [
+            91.54,
+            60.69
+          ],
+          [
+            92.1,
+            64.77
+          ],
+          [
+            91.73,
+            65.83
+          ],
+          [
+            90.48,
+            64.55
+          ],
+          [
+            88.57,
+            64.36
+          ],
+          [
+            85.71,
+            65.48
+          ],
+          [
+            82.18,
+            65.21
+          ],
+          [
+            81.61,
+            66.86
+          ],
+          [
+            79.58,
+            65.12
+          ],
+          [
+            78.38,
+            65.47
+          ],
+          [
+            74.09,
+            63.56
+          ],
+          [
+            73.27,
+            64.92
+          ],
+          [
+            69.87,
+            64.87
+          ],
+          [
+            70.37,
+            60.42
+          ],
+          [
+            72.4,
+            56.14
+          ],
+          [
+            66.63,
+            54.99
+          ],
+          [
+            64.75,
+            53.35
+          ],
+          [
+            64.97,
+            50.61
+          ],
+          [
+            64.17,
+            49.2
+          ],
+          [
+            64.63,
+            44.98
+          ],
+          [
+            63.95,
+            38.43
+          ],
+          [
+            66.36,
+            38.42
+          ],
+          [
+            67.37,
+            36.07
+          ],
+          [
+            68.37,
+            30.35
+          ],
+          [
+            67.62,
+            28.24
+          ],
+          [
+            68.4,
+            26.91
+          ],
+          [
+            71.74,
+            26.57
+          ],
+          [
+            72.49,
+            27.95
+          ],
+          [
+            75.2,
+            24.87
+          ],
+          [
+            74.29,
+            22.53
+          ],
+          [
+            74.1,
+            18.98
+          ],
+          [
+            77.13,
+            19.81
+          ],
+          [
+            79.69,
+            18.86
+          ],
+          [
+            79.76,
+            21.27
+          ],
+          [
+            83.8,
+            22.73
+          ],
+          [
+            83.76,
+            24.95
+          ],
+          [
+            87.83,
+            23.77
+          ],
+          [
+            90.07,
+            22.06
+          ],
+          [
+            94.59,
+            24.53
+          ],
+          [
+            96.48,
+            26.52
+          ]
+        ],
+        [
+          [
+            27.62,
+            28.72
+          ],
+          [
+            27.63,
+            28.72
+          ],
+          [
+            28.22,
+            25.09
+          ],
+          [
+            25.54,
+            21.24
+          ],
+          [
+            25.48,
+            21.16
+          ],
+          [
+            20.62,
+            20.06
+          ],
+          [
+            19.67,
+            18.36
+          ],
+          [
+            21.12,
+            15.57
+          ],
+          [
+            19.81,
+            13.85
+          ],
+          [
+            17.65,
+            16.81
+          ],
+          [
+            17.42,
+            10.78
+          ],
+          [
+            15.4,
+            7.59
+          ],
+          [
+            16.85,
+            1.13
+          ],
+          [
+            19.96,
+            0.5
+          ],
+          [
+            23.15,
+            0.5
+          ],
+          [
+            27.98,
+            0.5
+          ],
+          [
+            23.7,
+            2.79
+          ],
+          [
+            27.78,
+            1.94
+          ],
+          [
+            32.16,
+            1.97
+          ],
+          [
+            31.12,
+            7.06
+          ],
+          [
+            27.52,
+            12.66
+          ],
+          [
+            31.66,
+            13.06
+          ],
+          [
+            31.98,
+            13.72
+          ],
+          [
+            35.54,
+            21.09
+          ],
+          [
+            38.28,
+            22.1
+          ],
+          [
+            40.74,
+            29.22
+          ],
+          [
+            41.88,
+            31.69
+          ],
+          [
+            46.73,
+            32.88
+          ],
+          [
+            46.24,
+            36.88
+          ],
+          [
+            44.2,
+            38.71
+          ],
+          [
+            45.8,
+            41.94
+          ],
+          [
+            42.2,
+            45.21
+          ],
+          [
+            36.85,
+            45.16
+          ],
+          [
+            30.04,
+            46.87
+          ],
+          [
+            28.17,
+            45.64
+          ],
+          [
+            25.53,
+            48.57
+          ],
+          [
+            21.83,
+            47.86
+          ],
+          [
+            19.02,
+            50.25
+          ],
+          [
+            16.89,
+            49.0
+          ],
+          [
+            22.76,
+            42.44
+          ],
+          [
+            26.34,
+            41.09
+          ],
+          [
+            26.31,
+            41.08
+          ],
+          [
+            20.06,
+            40.04
+          ],
+          [
+            18.93,
+            37.55
+          ],
+          [
+            23.11,
+            35.62
+          ],
+          [
+            20.92,
+            32.25
+          ],
+          [
+            21.68,
+            28.16
+          ],
+          [
+            27.62,
+            28.72
+          ]
+        ],
+        [
+          [
+            14.44,
+            99.5
+          ],
+          [
+            13.33,
+            99.5
+          ],
+          [
+            10.99,
+            99.5
+          ],
+          [
+            10.31,
+            99.5
+          ],
+          [
+            7.95,
+            99.5
+          ],
+          [
+            6.94,
+            98.25
+          ],
+          [
+            5.31,
+            99.16
+          ],
+          [
+            3.86,
+            99.5
+          ],
+          [
+            4.06,
+            96.3
+          ],
+          [
+            2.43,
+            93.58
+          ],
+          [
+            8.09,
+            89.07
+          ],
+          [
+            12.98,
+            90.2
+          ],
+          [
+            18.35,
+            90.16
+          ],
+          [
+            22.61,
+            91.23
+          ],
+          [
+            25.93,
+            90.9
+          ],
+          [
+            32.39,
+            91.11
+          ],
+          [
+            33.99,
+            93.54
+          ],
+          [
+            41.35,
+            96.38
+          ],
+          [
+            42.81,
+            95.03
+          ],
+          [
+            47.31,
+            97.85
+          ],
+          [
+            51.94,
+            97.04
+          ],
+          [
+            52.16,
+            99.5
+          ],
+          [
+            48.37,
+            99.5
+          ],
+          [
+            14.44,
+            99.5
+          ]
+        ],
+        [
+          [
+            67.62,
+            28.24
+          ],
+          [
+            68.37,
+            30.35
+          ],
+          [
+            67.37,
+            36.07
+          ],
+          [
+            66.36,
+            38.42
+          ],
+          [
+            63.95,
+            38.43
+          ],
+          [
+            64.63,
+            44.98
+          ],
+          [
+            62.43,
+            43.52
+          ],
+          [
+            59.9,
+            40.78
+          ],
+          [
+            56.19,
+            42.08
+          ],
+          [
+            53.26,
+            41.59
+          ],
+          [
+            53.26,
+            41.59
+          ],
+          [
+            55.32,
+            39.87
+          ],
+          [
+            58.82,
+            30.68
+          ],
+          [
+            64.3,
+            28.06
+          ],
+          [
+            67.62,
+            28.24
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Paris",
+          "x": 46.0,
+          "y": 40.0
+        },
+        {
+          "name": "London",
+          "x": 42.0,
+          "y": 16.0
+        },
+        {
+          "name": "Berlin",
+          "x": 64.0,
+          "y": 28.0
+        },
+        {
+          "name": "Brussels",
+          "x": 50.0,
+          "y": 30.0
+        }
+      ]
+    }
+  }
+}

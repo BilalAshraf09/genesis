@@ -1,0 +1,1826 @@
+{
+  "scenario": {
+    "id": "hist-1949-october",
+    "year": 1949,
+    "era": "1945\u20131962",
+    "title": "October Mandate",
+    "region": "China \u00b7 Taiwan Strait \u00b7 recognition desks",
+    "meterFamily": "politics",
+    "theaterArchetype": "pacific",
+    "premise": "A new government in Beijing forces recognition choices, trade continuity, and alliance signaling across Asia. You advise a major capital on the first ninety days.",
+    "role": "Asia desk director, foreign ministry",
+    "tension": "Acknowledge facts without surrendering partners who fled the mainland.",
+    "beats": [
+      {
+        "id": "hist-1949-1",
+        "title": "Recognition timing",
+        "briefing": "Do you recognize immediately, wait for peers, or maintain the old credentials?",
+        "stakes": "Recognition is a strategic act, not a notarization.",
+        "choices": [
+          {
+            "id": "hist-1949-1a",
+            "label": "Recognize promptly with conditions on treaties",
+            "detail": "Facts plus continuity clauses.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "RECOG",
+            "callsign": "RECOGNIZE PROMPTLY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Channel opens"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Some partners angered"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Realist clarity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-1b",
+            "label": "Delay; coordinate a joint allied stance",
+            "detail": "No one alone.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "COORD",
+            "callsign": "DELAY COORDINATE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Unity"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Wait"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Beijing may freeze"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-1c",
+            "label": "Refuse recognition; keep old embassy fiction",
+            "detail": "Non-recognition as policy.",
+            "kind": "political",
+            "markerId": "cable",
+            "short": "REFUSE",
+            "callsign": "REFUSE RECOGNITION",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "With die-hards"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "No channel"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Denies map"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-2",
+        "title": "Trade and missionaries",
+        "briefing": "Businesses want access; security services fear technology leakage.",
+        "stakes": "Commerce without a political frame becomes a vulnerability.",
+        "choices": [
+          {
+            "id": "hist-1949-2a",
+            "label": "Allow non-strategic trade under license",
+            "detail": "Controlled opening.",
+            "kind": "economic",
+            "markerId": "strait",
+            "short": "LICENSE",
+            "callsign": "ALLOW NON",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Trade resumes"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Controlled"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less isolation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-2b",
+            "label": "Embargo until political concessions",
+            "detail": "Pressure first.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "EMBARGO",
+            "callsign": "EMBARGO UNTIL",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeeze"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Hardens"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "If partners cheat"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-2c",
+            "label": "Quiet humanitarian and cultural corridors only",
+            "detail": "People first.",
+            "kind": "civic",
+            "markerId": "island",
+            "short": "HUMANE",
+            "callsign": "QUIET HUMANITARIAN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Soft channel"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some relief"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Commerce limited"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-3",
+        "title": "Island partner",
+        "briefing": "The retreated government asks for a defense guarantee. Granting it may freeze a civil war into an international one.",
+        "stakes": "A guarantee can deter\u2014or invite tests.",
+        "choices": [
+          {
+            "id": "hist-1949-3a",
+            "label": "Issue a limited defensive guarantee",
+            "detail": "Island only.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "GUARD",
+            "callsign": "ISSUE A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Clear shield"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Tripwire"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner held"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-3b",
+            "label": "Arms sales without a treaty",
+            "detail": "Capacity, not pledge.",
+            "kind": "economic",
+            "markerId": "fleet",
+            "short": "ARMS",
+            "callsign": "ARMS SALES",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Some teeth"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fuel"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Ambiguity left"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-3c",
+            "label": "Encourage negotiated dual representation ideas",
+            "detail": "Diplomatic creativity.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "DUAL",
+            "callsign": "ENCOURAGE NEGOTIATED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Forum ideas"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "May please none"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Domestic fight"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-4",
+        "title": "UN seat fight",
+        "briefing": "Credentials contests begin. Your vote will be remembered for decades.",
+        "stakes": "Procedure is power.",
+        "choices": [
+          {
+            "id": "hist-1949-4a",
+            "label": "Vote to seat Beijing",
+            "detail": "Match recognition to the UN.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "SEAT",
+            "callsign": "VOTE TO",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Effective control"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Splits coalition"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "UN channel"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-4b",
+            "label": "Vote to keep the old credentials",
+            "detail": "Hold the line.",
+            "kind": "political",
+            "markerId": "cable",
+            "short": "HOLDUN",
+            "callsign": "VOTE TO",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "With non-recognizers"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Fiction"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Beijing frozen out"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-4c",
+            "label": "Push a study committee delay",
+            "detail": "Kick the can.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "STUDY",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Defer"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Evasion"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Avoids rupture now"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-5",
+        "title": "Embassy scramble shock",
+        "briefing": "Staff and archives must move as recognition realities shift. A botched evacuation becomes a hostage crisis; haste looks like betrayal of the island partner.",
+        "stakes": "Logistics is recognition policy.",
+        "choices": [
+          {
+            "id": "hist-1949-5a",
+            "label": "Execute orderly drawdown with third-country custody of consular functions",
+            "detail": "Managed exit.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "DRAWDOWN",
+            "callsign": "EXECUTE ORDERLY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Orderly"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Staff safer"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Island partner uneasy"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-5b",
+            "label": "Hold the embassy as a recognition bargaining chip",
+            "detail": "Presence as leverage.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "HOLDCHIP",
+            "callsign": "HOLD THE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Leverage"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hostage optics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-5c",
+            "label": "Split: keep a listening post, move formal mission offshore",
+            "detail": "Ambiguous footprint.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "SPLIT2",
+            "callsign": "SPLIT KEEP",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Muddy status"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Some continuity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-6",
+        "title": "China lobby at home",
+        "briefing": "Domestic factions demand you never \u201close China.\u201d Trade desks want reality. Your speech will set decades of posture.",
+        "stakes": "Home myth versus map.",
+        "choices": [
+          {
+            "id": "hist-1949-6a",
+            "label": "Acknowledge mainland control without full political recognition yet",
+            "detail": "Facts without blessing.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "FACTS2",
+            "callsign": "ACKNOWLEDGE MAINLAND",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Reality-based"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Lobby fury"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Room later"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-6b",
+            "label": "Refuse any acknowledgment; double support to the island",
+            "detail": "Loyalty politics.",
+            "kind": "political",
+            "markerId": "island",
+            "short": "LOYAL",
+            "callsign": "REFUSE ANY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner held"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Mainland freeze"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Lobby pleased"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-6c",
+            "label": "Kick the question to a bipartisan commission",
+            "detail": "Delay doctrine.",
+            "kind": "civic",
+            "markerId": "cable",
+            "short": "COMMISH2",
+            "callsign": "KICK THE",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Buys months"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Shared ownership"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Indecision"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-7",
+        "title": "Ally\u2019s UN credentials ask",
+        "briefing": "Partners want a coordinated seat strategy. Splitting the vote could isolate you\u2014or preserve a principle.",
+        "stakes": "The UN seat is the recognition war\u2019s cathedral.",
+        "choices": [
+          {
+            "id": "hist-1949-7a",
+            "label": "Coordinate a delay-and-study credentials approach",
+            "detail": "Buy time multilaterally.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "CREDDEL",
+            "callsign": "COORDINATE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Process"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Deferred fight"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Common line"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-7b",
+            "label": "Fight to keep the island\u2019s seat at all costs",
+            "detail": "Symbolic redoubt.",
+            "kind": "political",
+            "markerId": "island",
+            "short": "SEAT",
+            "callsign": "FIGHT TO",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partner priority"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Majority against"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "UN theater"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-7c",
+            "label": "Quietly prepare a dual-representation formula",
+            "detail": "Creative ambiguity.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "DUALREP",
+            "callsign": "QUIETLY PREPARE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Novel path"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Both may reject"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Inclusive try"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-8",
+        "title": "Trade-mission fog",
+        "briefing": "Business lobbies report informal mainland deals while your controls say otherwise. Enforcement theater versus porous reality.",
+        "stakes": "Commercial facts outrun decrees.",
+        "choices": [
+          {
+            "id": "hist-1949-8a",
+            "label": "Legalize limited nonstrategic trade with reporting",
+            "detail": "Regulate reality.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "TRADE2",
+            "callsign": "LEGALIZE LIMITED",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Clear rules"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Hawks mad"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-8b",
+            "label": "Tighten controls and prosecute leakers",
+            "detail": "Law over leakage.",
+            "kind": "legal",
+            "markerId": "capital_a",
+            "short": "TIGHT",
+            "callsign": "TIGHTEN CONTROLS",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Denial"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Enforcement"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Friction"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-8c",
+            "label": "Look the other way while studying a new regime",
+            "detail": "Ambiguous interim.",
+            "kind": "political",
+            "markerId": "fleet",
+            "short": "LOOK",
+            "callsign": "LOOK THE",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Hypocrisy"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Deals continue"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-9",
+        "title": "Strait off-ramp",
+        "briefing": "A quiet proposal: non-invasion assurances for trade contacts. Too soft abandons a partner; too hard kills the channel.",
+        "stakes": "Assurances are the new recognition.",
+        "choices": [
+          {
+            "id": "hist-1949-9a",
+            "label": "Explore mutual non-use-of-force language without recognition",
+            "detail": "Security without seals.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "NUF",
+            "callsign": "EXPLORE MUTUAL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Off-ramp"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lower heat"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner wary"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-9b",
+            "label": "Refuse any assurance that implies two Chinas forever",
+            "detail": "One-China politics.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "ONE",
+            "callsign": "REFUSE ANY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Some partners"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Channel cools"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear theory"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-9c",
+            "label": "Offer assurances only with verified demilitarization steps",
+            "detail": "Reciprocity.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "RECIP2",
+            "callsign": "OFFER ASSURANCES",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Linked to force"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Conditional"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Verification"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1949-10",
+        "title": "Recognition endgame",
+        "briefing": "You must freeze a standing guidance: when, whether, and how to recognize\u2014and what the island guarantee becomes.",
+        "stakes": "Guidance outlives cabinets.",
+        "choices": [
+          {
+            "id": "hist-1949-10a",
+            "label": "Adopt \u201cstrategic ambiguity\u201d as formal guidance",
+            "detail": "Deter without clarity.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "AMBIG",
+            "callsign": "ADOPT STRATEGIC",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Uncertainty as tool"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partner not abandoned"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Ambiguous pledge"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-10b",
+            "label": "Set a dated path to recognition tied to behavior tests",
+            "detail": "Conditionality calendar.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "PATH2",
+            "callsign": "SET A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Incentives"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Horizon"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Lobby fight"
+              }
+            ]
+          },
+          {
+            "id": "hist-1949-10c",
+            "label": "Lock non-recognition and a clear defense commitment to the island",
+            "detail": "Hard choice.",
+            "kind": "naval",
+            "markerId": "island",
+            "short": "LOCK",
+            "callsign": "LOCK NON",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner locked"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "War risk"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Mainland freeze"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "china-east",
+    "scenarioId": "hist-1949-october",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#0A2430",
+    "land": "#243828",
+    "accent": "#C45C3A",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "East China (Natural Earth)",
+      "water": "#0A2430",
+      "land": "#243828",
+      "landHi": "#344838",
+      "accent": "#C45C3A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            0.5,
+            9.17
+          ],
+          [
+            2.82,
+            8.65
+          ],
+          [
+            6.11,
+            9.2
+          ],
+          [
+            11.04,
+            11.45
+          ],
+          [
+            15.07,
+            11.45
+          ],
+          [
+            16.55,
+            12.6
+          ],
+          [
+            20.43,
+            10.61
+          ],
+          [
+            25.82,
+            9.33
+          ],
+          [
+            30.81,
+            9.19
+          ],
+          [
+            34.71,
+            7.88
+          ],
+          [
+            37.1,
+            5.9
+          ],
+          [
+            39.43,
+            4.66
+          ],
+          [
+            38.89,
+            3.43
+          ],
+          [
+            37.83,
+            2.01
+          ],
+          [
+            39.58,
+            0.5
+          ],
+          [
+            41.45,
+            0.5
+          ],
+          [
+            44.88,
+            0.71
+          ],
+          [
+            48.2,
+            0.5
+          ],
+          [
+            53.28,
+            0.5
+          ],
+          [
+            99.5,
+            0.5
+          ],
+          [
+            99.5,
+            3.29
+          ],
+          [
+            99.5,
+            7.67
+          ],
+          [
+            99.5,
+            7.77
+          ],
+          [
+            99.5,
+            9.65
+          ],
+          [
+            99.5,
+            7.46
+          ],
+          [
+            98.66,
+            9.54
+          ],
+          [
+            93.51,
+            11.13
+          ],
+          [
+            94.03,
+            13.09
+          ],
+          [
+            91.15,
+            12.95
+          ],
+          [
+            89.56,
+            11.79
+          ],
+          [
+            87.27,
+            14.42
+          ],
+          [
+            83.6,
+            16.41
+          ],
+          [
+            80.89,
+            18.78
+          ],
+          [
+            76.23,
+            19.86
+          ],
+          [
+            73.77,
+            21.59
+          ],
+          [
+            70.18,
+            22.6
+          ],
+          [
+            71.95,
+            20.89
+          ],
+          [
+            71.26,
+            19.44
+          ],
+          [
+            73.9,
+            16.95
+          ],
+          [
+            72.13,
+            15.01
+          ],
+          [
+            69.23,
+            16.32
+          ],
+          [
+            65.47,
+            18.9
+          ],
+          [
+            63.41,
+            21.29
+          ],
+          [
+            60.14,
+            21.47
+          ],
+          [
+            58.44,
+            23.19
+          ],
+          [
+            60.2,
+            25.7
+          ],
+          [
+            62.93,
+            26.31
+          ],
+          [
+            63.04,
+            27.97
+          ],
+          [
+            65.68,
+            29.05
+          ],
+          [
+            69.41,
+            26.41
+          ],
+          [
+            72.37,
+            27.85
+          ],
+          [
+            74.53,
+            27.95
+          ],
+          [
+            75.07,
+            29.89
+          ],
+          [
+            70.35,
+            30.92
+          ],
+          [
+            68.79,
+            32.92
+          ],
+          [
+            65.55,
+            34.78
+          ],
+          [
+            63.84,
+            37.37
+          ],
+          [
+            67.43,
+            39.41
+          ],
+          [
+            68.73,
+            43.05
+          ],
+          [
+            70.76,
+            46.44
+          ],
+          [
+            73.03,
+            49.29
+          ],
+          [
+            72.97,
+            52.04
+          ],
+          [
+            70.88,
+            53.05
+          ],
+          [
+            71.68,
+            55.03
+          ],
+          [
+            73.64,
+            56.18
+          ],
+          [
+            73.13,
+            59.19
+          ],
+          [
+            72.28,
+            62.13
+          ],
+          [
+            70.42,
+            62.46
+          ],
+          [
+            67.98,
+            66.47
+          ],
+          [
+            65.28,
+            71.33
+          ],
+          [
+            62.19,
+            75.75
+          ],
+          [
+            57.61,
+            79.17
+          ],
+          [
+            52.97,
+            82.29
+          ],
+          [
+            49.21,
+            82.71
+          ],
+          [
+            47.18,
+            84.36
+          ],
+          [
+            46.02,
+            83.15
+          ],
+          [
+            44.14,
+            84.99
+          ],
+          [
+            39.48,
+            86.85
+          ],
+          [
+            35.95,
+            87.42
+          ],
+          [
+            34.81,
+            91.33
+          ],
+          [
+            32.97,
+            91.55
+          ],
+          [
+            32.09,
+            88.86
+          ],
+          [
+            32.88,
+            87.43
+          ],
+          [
+            28.41,
+            86.24
+          ],
+          [
+            26.83,
+            86.84
+          ],
+          [
+            23.48,
+            85.88
+          ],
+          [
+            21.89,
+            84.38
+          ],
+          [
+            22.42,
+            82.24
+          ],
+          [
+            19.37,
+            81.57
+          ],
+          [
+            17.76,
+            80.18
+          ],
+          [
+            14.92,
+            82.15
+          ],
+          [
+            11.68,
+            82.58
+          ],
+          [
+            9.02,
+            82.56
+          ],
+          [
+            7.23,
+            83.46
+          ],
+          [
+            5.51,
+            84.01
+          ],
+          [
+            6.01,
+            88.24
+          ],
+          [
+            4.23,
+            88.14
+          ],
+          [
+            3.93,
+            87.27
+          ],
+          [
+            3.83,
+            85.74
+          ],
+          [
+            1.39,
+            86.82
+          ],
+          [
+            0.5,
+            86.14
+          ],
+          [
+            0.5,
+            84.75
+          ],
+          [
+            0.5,
+            81.67
+          ],
+          [
+            0.5,
+            80.95
+          ],
+          [
+            0.5,
+            77.54
+          ],
+          [
+            0.5,
+            70.67
+          ],
+          [
+            0.5,
+            67.62
+          ],
+          [
+            0.5,
+            64.78
+          ],
+          [
+            0.5,
+            9.17
+          ]
+        ],
+        [
+          [
+            19.75,
+            99.5
+          ],
+          [
+            16.98,
+            97.53
+          ],
+          [
+            12.99,
+            95.31
+          ],
+          [
+            13.94,
+            93.98
+          ],
+          [
+            16.08,
+            93.01
+          ],
+          [
+            14.78,
+            89.78
+          ],
+          [
+            10.68,
+            89.75
+          ],
+          [
+            9.18,
+            86.39
+          ],
+          [
+            7.23,
+            83.46
+          ],
+          [
+            9.02,
+            82.56
+          ],
+          [
+            11.68,
+            82.58
+          ],
+          [
+            14.92,
+            82.15
+          ],
+          [
+            17.76,
+            80.18
+          ],
+          [
+            19.37,
+            81.57
+          ],
+          [
+            22.42,
+            82.24
+          ],
+          [
+            21.89,
+            84.38
+          ],
+          [
+            23.48,
+            85.88
+          ],
+          [
+            26.83,
+            86.84
+          ],
+          [
+            22.38,
+            90.01
+          ],
+          [
+            19.61,
+            93.51
+          ],
+          [
+            18.87,
+            96.08
+          ],
+          [
+            21.42,
+            99.5
+          ],
+          [
+            24.54,
+            99.5
+          ],
+          [
+            19.75,
+            99.5
+          ]
+        ],
+        [
+          [
+            99.5,
+            9.65
+          ],
+          [
+            99.5,
+            9.65
+          ],
+          [
+            99.5,
+            10.3
+          ],
+          [
+            99.5,
+            10.07
+          ],
+          [
+            99.5,
+            11.33
+          ],
+          [
+            98.89,
+            12.59
+          ],
+          [
+            99.02,
+            15.25
+          ],
+          [
+            97.29,
+            16.07
+          ],
+          [
+            96.7,
+            16.72
+          ],
+          [
+            95.44,
+            17.82
+          ],
+          [
+            93.22,
+            18.42
+          ],
+          [
+            91.78,
+            19.42
+          ],
+          [
+            91.67,
+            21.02
+          ],
+          [
+            91.28,
+            21.43
+          ],
+          [
+            92.61,
+            22.03
+          ],
+          [
+            94.5,
+            23.66
+          ],
+          [
+            94.02,
+            24.55
+          ],
+          [
+            92.6,
+            24.8
+          ],
+          [
+            90.24,
+            24.98
+          ],
+          [
+            88.95,
+            26.65
+          ],
+          [
+            87.46,
+            26.52
+          ],
+          [
+            87.25,
+            26.85
+          ],
+          [
+            85.63,
+            26.15
+          ],
+          [
+            85.23,
+            26.84
+          ],
+          [
+            84.25,
+            27.15
+          ],
+          [
+            84.13,
+            26.45
+          ],
+          [
+            83.27,
+            26.12
+          ],
+          [
+            82.37,
+            25.52
+          ],
+          [
+            83.29,
+            23.89
+          ],
+          [
+            84.07,
+            23.46
+          ],
+          [
+            83.78,
+            22.78
+          ],
+          [
+            84.62,
+            20.79
+          ],
+          [
+            84.4,
+            20.18
+          ],
+          [
+            82.46,
+            19.78
+          ],
+          [
+            80.89,
+            18.78
+          ],
+          [
+            83.6,
+            16.41
+          ],
+          [
+            87.27,
+            14.42
+          ],
+          [
+            89.56,
+            11.79
+          ],
+          [
+            91.15,
+            12.95
+          ],
+          [
+            94.03,
+            13.09
+          ],
+          [
+            93.51,
+            11.13
+          ],
+          [
+            98.66,
+            9.54
+          ],
+          [
+            99.5,
+            7.46
+          ],
+          [
+            99.5,
+            9.65
+          ]
+        ],
+        [
+          [
+            87.25,
+            26.85
+          ],
+          [
+            87.46,
+            26.52
+          ],
+          [
+            88.95,
+            26.65
+          ],
+          [
+            90.24,
+            24.98
+          ],
+          [
+            92.6,
+            24.8
+          ],
+          [
+            94.02,
+            24.55
+          ],
+          [
+            94.5,
+            23.66
+          ],
+          [
+            97.38,
+            28.03
+          ],
+          [
+            98.2,
+            30.43
+          ],
+          [
+            98.23,
+            34.7
+          ],
+          [
+            96.97,
+            36.73
+          ],
+          [
+            93.95,
+            37.44
+          ],
+          [
+            91.29,
+            38.98
+          ],
+          [
+            88.29,
+            39.3
+          ],
+          [
+            87.91,
+            37.28
+          ],
+          [
+            88.53,
+            34.5
+          ],
+          [
+            87.06,
+            30.65
+          ],
+          [
+            89.53,
+            30.02
+          ],
+          [
+            87.25,
+            26.85
+          ]
+        ],
+        [
+          [
+            72.59,
+            76.32
+          ],
+          [
+            70.59,
+            82.26
+          ],
+          [
+            69.16,
+            85.29
+          ],
+          [
+            67.4,
+            82.17
+          ],
+          [
+            67.02,
+            79.42
+          ],
+          [
+            68.98,
+            75.78
+          ],
+          [
+            71.65,
+            72.98
+          ],
+          [
+            73.17,
+            74.08
+          ],
+          [
+            72.59,
+            76.32
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Beijing",
+          "x": 54.0,
+          "y": 26.0
+        },
+        {
+          "name": "Shanghai",
+          "x": 70.0,
+          "y": 48.0
+        },
+        {
+          "name": "Nanjing",
+          "x": 64.0,
+          "y": 44.0
+        },
+        {
+          "name": "Guangzhou",
+          "x": 56.0,
+          "y": 72.0
+        }
+      ]
+    }
+  }
+}

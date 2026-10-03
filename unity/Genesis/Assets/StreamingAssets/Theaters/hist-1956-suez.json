@@ -1,0 +1,1455 @@
+{
+  "scenario": {
+    "id": "hist-1956-suez",
+    "year": 1956,
+    "era": "1945\u20131962",
+    "title": "Canal Crisis",
+    "region": "Suez \u00b7 Middle East \u00b7 UN \u00b7 financial markets",
+    "meterFamily": "conflict",
+    "theaterArchetype": "redsea",
+    "premise": "Nationalization of the canal and secret war plans collide with Cold War pressures and sterling vulnerability. You advise a cabinet that can still choose law, force, or finance.",
+    "role": "Cabinet crisis secretary",
+    "tension": "Imperial habits versus postwar rules\u2014and a currency that may not survive a long fight.",
+    "beats": [
+      {
+        "id": "hist-1956-1",
+        "title": "Legal versus kinetic",
+        "briefing": "Admirals want a rapid seizure plan. Lawyers want UN cover you may not get.",
+        "stakes": "Speed without legitimacy may forfeit alliances.",
+        "choices": [
+          {
+            "id": "hist-1956-1a",
+            "label": "Pursue UN Users\u2019 Association track",
+            "detail": "Multilateral legal frame.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "USERS",
+            "callsign": "PURSUE UN",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Legal path"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slower"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rules story"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-1b",
+            "label": "Authorize a limited airborne-naval operation",
+            "detail": "Facts on water.",
+            "kind": "kinetic",
+            "markerId": "chokepoint",
+            "short": "SEIZE",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War opens"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Shows force"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Partners split"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-1c",
+            "label": "Freeze related financial assets first",
+            "detail": "Money before marines.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "FREEZE",
+            "callsign": "FREEZE RELATED",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeeze"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less kinetic"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Nerves"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-2",
+        "title": "Collusion risk",
+        "briefing": "A partner proposes timing your move with a third party\u2019s campaign. Intelligence deniability is thin.",
+        "stakes": "Secret coordination can become a scandal that ends cabinets.",
+        "choices": [
+          {
+            "id": "hist-1956-2a",
+            "label": "Refuse collusion; keep an independent track",
+            "detail": "Clean hands.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "CLEAN",
+            "callsign": "REFUSE COLLUSION",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Integrity"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner anger"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "UN space"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-2b",
+            "label": "Accept covert coordination",
+            "detail": "Synchronize.",
+            "kind": "political",
+            "markerId": "proxy",
+            "short": "COVERT",
+            "callsign": "ACCEPT COVERT",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Wider plot"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "If exposed"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Operational sync"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-2c",
+            "label": "Leak the proposal to kill it",
+            "detail": "Force sunlight.",
+            "kind": "civic",
+            "markerId": "insurer",
+            "short": "LEAK",
+            "callsign": "LEAK THE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Exposes scheme"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -3,
+                "summary": "Betrayal"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Political storm"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-3",
+        "title": "Superpower ultimatum",
+        "briefing": "A great-power partner demands ceasefire and ties it to your currency support.",
+        "stakes": "Empire ends at the discount window.",
+        "choices": [
+          {
+            "id": "hist-1956-3a",
+            "label": "Ceasefire to save the currency",
+            "detail": "Finance first.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "STERLING",
+            "callsign": "CEASEFIRE TO",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Currency held"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Climb-down"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Fight stops"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-3b",
+            "label": "Defy and seek alternative financing",
+            "detail": "Hold the course.",
+            "kind": "political",
+            "markerId": "port",
+            "short": "DEFY",
+            "callsign": "DEFY AND",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Resolve"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Sterling crisis"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Isolation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-3c",
+            "label": "Trade phased withdrawal for face-saving UN force",
+            "detail": "Exit with cover.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "UNFORCE",
+            "callsign": "TRADE PHASED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Institutional exit"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Partial loss"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "UN role"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-4",
+        "title": "Aftermath doctrine",
+        "briefing": "After withdrawal, cabinets ask what Suez means for future interventions.",
+        "stakes": "Doctrine is how you lose the next time\u2014or don\u2019t.",
+        "choices": [
+          {
+            "id": "hist-1956-4a",
+            "label": "Adopt a strict multilateral-only rule",
+            "detail": "No more solo imperial wars.",
+            "kind": "legal",
+            "markerId": "canal",
+            "short": "MULTI",
+            "callsign": "ADOPT A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rules turn"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less freedom"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "UN-aligned"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-4b",
+            "label": "Rebuild independent expeditionary capacity",
+            "detail": "Never again dependent.",
+            "kind": "kinetic",
+            "markerId": "escort",
+            "short": "REBUILD",
+            "callsign": "REBUILD INDEPENDENT",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Autonomy"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Distancing"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Costly"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-4c",
+            "label": "Pivot to economic statecraft in the region",
+            "detail": "Aid and markets.",
+            "kind": "economic",
+            "markerId": "port",
+            "short": "PIVOT",
+            "callsign": "PIVOT TO",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Soft reset"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Commerce"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "New brand"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-5",
+        "title": "Sterling crisis shock",
+        "briefing": "Reserve drains accelerate as markets price a long fight. Washington\u2019s quiet pressure arrives with a financing ultimatum.",
+        "stakes": "Currency can end a war faster than armies.",
+        "choices": [
+          {
+            "id": "hist-1956-5a",
+            "label": "Seek emergency support conditioned on a ceasefire clock",
+            "detail": "Money for peace.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "STERLING",
+            "callsign": "SEEK EMERGENCY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Reserve relief"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Ceasefire leverage"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Forced climbdown"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-5b",
+            "label": "Double down militarily before finances collapse",
+            "detail": "Win fast or break.",
+            "kind": "kinetic",
+            "markerId": "chokepoint",
+            "short": "FASTWIN",
+            "callsign": "DOUBLE DOWN",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Harder fight"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Run worsens"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Force show"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-5c",
+            "label": "Float a temporary capital control package at home",
+            "detail": "Buy hours.",
+            "kind": "economic",
+            "markerId": "canal",
+            "short": "CAPCTRL",
+            "callsign": "FLOAT A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Temporary brake"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Orthodoxy rage"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Hours bought"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-6",
+        "title": "Domestic imperial hangover",
+        "briefing": "Crowds cheer \u201cteaching a lesson\u201d; others call it anachronism. Your majority depends on which story you feed.",
+        "stakes": "Post-imperial identity is a war aim.",
+        "choices": [
+          {
+            "id": "hist-1956-6a",
+            "label": "Frame withdrawal as rule-of-law victory if UN steps in",
+            "detail": "Multilateral cover.",
+            "kind": "political",
+            "markerId": "port",
+            "short": "UNCOVER",
+            "callsign": "FRAME WITHDRAWAL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rules frame"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Empire faction mad"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "UN path"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-6b",
+            "label": "Feed imperial pride rhetoric to hold the coalition",
+            "detail": "Glory politics.",
+            "kind": "civic",
+            "markerId": "proxy",
+            "short": "GLORY",
+            "callsign": "FEED IMPERIAL",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Rally"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Harder exit"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "US fury"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-6c",
+            "label": "Stay technocratic: shipping continuity only",
+            "detail": "Narrow mission.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "SHIPONLY",
+            "callsign": "STAY TECHNOCRATIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Lane focus"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Limited aims"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Uninspiring"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-7",
+        "title": "Superpower ultimatum management",
+        "briefing": "A superpower demands withdrawal timelines. Defiance risks financial war; compliance risks alliance humiliation.",
+        "stakes": "Hierarchy inside the West becomes visible.",
+        "choices": [
+          {
+            "id": "hist-1956-7a",
+            "label": "Accept a timed withdrawal with salvage of salvageable aims",
+            "detail": "Climb down with schedule.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "TIMED",
+            "callsign": "ACCEPT A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Senior partner eased"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Crisis cools"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Humiliation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-7b",
+            "label": "Play for more days while consolidating positions",
+            "detail": "Delay compliance.",
+            "kind": "kinetic",
+            "markerId": "chokepoint",
+            "short": "DELAY3",
+            "callsign": "PLAY FOR",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Days"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Friction"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Pressure continues"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-7c",
+            "label": "Threaten independent European financial arrangements",
+            "detail": "Defiance via money.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "EURO$",
+            "callsign": "THREATEN INDEPENDENT",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": -3,
+                "summary": "Transatlantic split"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Autonomy show"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Uncertainty"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-8",
+        "title": "Collusion document fog",
+        "briefing": "Allegations of prearranged scenarios leak. Denials collide with timelines. Your legal and political exposure rises together.",
+        "stakes": "Secrecy debts come due mid-crisis.",
+        "choices": [
+          {
+            "id": "hist-1956-8a",
+            "label": "Authorize a narrow internal inquiry with classified findings",
+            "detail": "Containment of truth.",
+            "kind": "legal",
+            "markerId": "port",
+            "short": "INQ2",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Some process"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Inquiry exists"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slows bleed"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-8b",
+            "label": "Issue categorical public denials",
+            "detail": "Hold the line.",
+            "kind": "political",
+            "markerId": "proxy",
+            "short": "DENY",
+            "callsign": "ISSUE CATEGORICAL",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "If believed"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "If proven false"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Trust fracture"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-8c",
+            "label": "Quietly prepare a partial admission with ally coordination",
+            "detail": "Controlled disclosure.",
+            "kind": "diplomatic",
+            "markerId": "escort",
+            "short": "ADMIT",
+            "callsign": "QUIETLY PREPARE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Honesty bet"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner exposure"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Reset chance"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-9",
+        "title": "UN force off-ramp",
+        "briefing": "A peacekeeping concept could cover withdrawal without total narrative defeat\u2014if you accept constraints on future unilateralism.",
+        "stakes": "Blue helmets as face-saving architecture.",
+        "choices": [
+          {
+            "id": "hist-1956-9a",
+            "label": "Champion a UN emergency force and exit under it",
+            "detail": "Institutional ladder down.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "UNEF",
+            "callsign": "CHAMPION A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Multilateral exit"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "War winds down"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rules turn"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-9b",
+            "label": "Accept UN observers only; keep national enclaves",
+            "detail": "Half measure.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "OBS3",
+            "callsign": "ACCEPT UN",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Footprint remains"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Suspicion"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Partial"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-9c",
+            "label": "Reject UN cover as infringement on sovereign action",
+            "detail": "Go it alone.",
+            "kind": "political",
+            "markerId": "chokepoint",
+            "short": "REJECT",
+            "callsign": "REJECT UN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Isolation"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Continues"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "West split"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1956-10",
+        "title": "Doctrine endgame",
+        "briefing": "Cabinet wants a post-Suez rule: when force may seize strategic infrastructure, and when finance vetoes strategy.",
+        "stakes": "The lesson memo becomes grand strategy.",
+        "choices": [
+          {
+            "id": "hist-1956-10a",
+            "label": "Codify no major op without reserve-currency clearance",
+            "detail": "Finance as brake.",
+            "kind": "economic",
+            "markerId": "insurer",
+            "short": "FINBRAKE",
+            "callsign": "CODIFY NO",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Money realism"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Learned limit"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less free hand"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-10b",
+            "label": "Reaffirm unilateral rights over vital lanes",
+            "detail": "Suez as doctrine, not error.",
+            "kind": "naval",
+            "markerId": "escort",
+            "short": "LANERIT",
+            "callsign": "REAFFIRM UNILATERAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Hard claim"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Partners alarmed"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Future fights"
+              }
+            ]
+          },
+          {
+            "id": "hist-1956-10c",
+            "label": "Pivot to alliance consultation mandates before force",
+            "detail": "Never alone again.",
+            "kind": "diplomatic",
+            "markerId": "canal",
+            "short": "CONSULT2",
+            "callsign": "PIVOT TO",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Process glue"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Multilateral habit"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Slower wars"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "suez",
+    "scenarioId": "hist-1956-suez",
+    "title": "RED SEA LANE",
+    "subtitle": "Red Sea \u00b7 Bab el-Mandeb",
+    "water": "#0A1E2C",
+    "land": "#2A2818",
+    "accent": "#C45C3A",
+    "markers": [
+      {
+        "id": "chokepoint",
+        "label": "Chokepoint",
+        "x": 50.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "port",
+        "label": "Port",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "escort",
+        "label": "Escort",
+        "x": 58.0,
+        "y": 64.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "proxy",
+        "label": "Proxy",
+        "x": 56.0,
+        "y": 42.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "insurer",
+        "label": "Insurer",
+        "x": 28.0,
+        "y": 36.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "canal",
+        "label": "Canal link",
+        "x": 48.0,
+        "y": 28.0,
+        "kind": "corridor"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "canal",
+        "to": "chokepoint"
+      },
+      {
+        "from": "escort",
+        "to": "port"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SHIPPING LANE",
+        "x": 40.0,
+        "y": 44.0,
+        "w": 28.0,
+        "h": 28.0,
+        "tension": 0.85
+      },
+      {
+        "id": "shore",
+        "label": "SHORE NODES",
+        "x": 48.0,
+        "y": 34.0,
+        "w": 22.0,
+        "h": 16.0,
+        "tension": 0.6
+      }
+    ],
+    "terrainKey": "redsea",
+    "geo": {
+      "label": "Suez \u00b7 Levant (Natural Earth)",
+      "water": "#0A1E2C",
+      "land": "#2A2818",
+      "landHi": "#3A3824",
+      "accent": "#C45C3A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "redsea",
+      "reliefKey": "redsea",
+      "lands": [
+        [
+          [
+            63.33,
+            99.5
+          ],
+          [
+            35.0,
+            99.5
+          ],
+          [
+            7.29,
+            99.5
+          ],
+          [
+            0.5,
+            33.42
+          ],
+          [
+            3.22,
+            35.53
+          ],
+          [
+            6.53,
+            36.64
+          ],
+          [
+            12.02,
+            34.38
+          ],
+          [
+            14.96,
+            32.33
+          ],
+          [
+            21.26,
+            31.74
+          ],
+          [
+            26.34,
+            32.65
+          ],
+          [
+            28.29,
+            36.19
+          ],
+          [
+            29.95,
+            33.85
+          ],
+          [
+            35.67,
+            35.54
+          ],
+          [
+            41.24,
+            35.95
+          ],
+          [
+            44.75,
+            34.15
+          ],
+          [
+            44.75,
+            34.15
+          ],
+          [
+            48.74,
+            44.56
+          ],
+          [
+            49.45,
+            46.42
+          ],
+          [
+            47.44,
+            49.29
+          ],
+          [
+            45.9,
+            54.69
+          ],
+          [
+            43.96,
+            58.41
+          ],
+          [
+            42.3,
+            59.65
+          ],
+          [
+            39.92,
+            57.35
+          ],
+          [
+            36.69,
+            54.16
+          ],
+          [
+            31.59,
+            43.92
+          ],
+          [
+            30.86,
+            44.57
+          ],
+          [
+            33.82,
+            52.11
+          ],
+          [
+            38.21,
+            59.29
+          ],
+          [
+            43.6,
+            70.41
+          ],
+          [
+            46.24,
+            74.3
+          ],
+          [
+            48.54,
+            78.33
+          ],
+          [
+            54.95,
+            86.24
+          ],
+          [
+            53.53,
+            87.48
+          ],
+          [
+            53.76,
+            92.13
+          ],
+          [
+            62.08,
+            98.54
+          ],
+          [
+            63.33,
+            99.5
+          ]
+        ],
+        [
+          [
+            49.69,
+            47.45
+          ],
+          [
+            57.64,
+            48.59
+          ],
+          [
+            60.72,
+            46.39
+          ],
+          [
+            62.43,
+            43.82
+          ],
+          [
+            67.88,
+            42.83
+          ],
+          [
+            69.06,
+            40.44
+          ],
+          [
+            71.42,
+            39.22
+          ],
+          [
+            64.3,
+            32.08
+          ],
+          [
+            78.61,
+            28.5
+          ],
+          [
+            79.97,
+            27.42
+          ],
+          [
+            88.57,
+            29.36
+          ],
+          [
+            99.21,
+            34.36
+          ],
+          [
+            78.74,
+            99.5
+          ],
+          [
+            79.05,
+            95.86
+          ],
+          [
+            74.95,
+            87.94
+          ],
+          [
+            71.6,
+            85.15
+          ],
+          [
+            67.74,
+            83.68
+          ],
+          [
+            65.39,
+            79.58
+          ],
+          [
+            65.78,
+            77.97
+          ],
+          [
+            63.8,
+            74.26
+          ],
+          [
+            61.71,
+            72.67
+          ],
+          [
+            58.92,
+            67.36
+          ],
+          [
+            54.57,
+            61.6
+          ],
+          [
+            50.93,
+            56.69
+          ],
+          [
+            47.37,
+            56.72
+          ],
+          [
+            48.48,
+            52.8
+          ],
+          [
+            48.8,
+            50.3
+          ],
+          [
+            49.69,
+            47.45
+          ]
+        ],
+        [
+          [
+            53.9,
+            25.76
+          ],
+          [
+            55.14,
+            23.51
+          ],
+          [
+            63.1,
+            26.34
+          ],
+          [
+            77.09,
+            18.72
+          ],
+          [
+            79.97,
+            27.42
+          ],
+          [
+            78.61,
+            28.5
+          ],
+          [
+            64.3,
+            32.08
+          ],
+          [
+            71.42,
+            39.22
+          ],
+          [
+            69.06,
+            40.44
+          ],
+          [
+            67.88,
+            42.83
+          ],
+          [
+            62.43,
+            43.82
+          ],
+          [
+            60.72,
+            46.39
+          ],
+          [
+            57.64,
+            48.59
+          ],
+          [
+            49.69,
+            47.45
+          ],
+          [
+            49.45,
+            46.42
+          ],
+          [
+            53.01,
+            35.0
+          ],
+          [
+            52.84,
+            32.22
+          ],
+          [
+            53.89,
+            30.12
+          ],
+          [
+            53.9,
+            25.76
+          ]
+        ],
+        [
+          [
+            55.14,
+            23.51
+          ],
+          [
+            53.9,
+            25.76
+          ],
+          [
+            51.31,
+            24.77
+          ],
+          [
+            49.82,
+            29.52
+          ],
+          [
+            51.61,
+            30.33
+          ],
+          [
+            49.79,
+            31.31
+          ],
+          [
+            49.48,
+            33.19
+          ],
+          [
+            52.84,
+            32.22
+          ],
+          [
+            53.01,
+            35.0
+          ],
+          [
+            49.45,
+            46.42
+          ],
+          [
+            48.74,
+            44.56
+          ],
+          [
+            44.75,
+            34.15
+          ],
+          [
+            44.75,
+            34.15
+          ],
+          [
+            44.75,
+            34.15
+          ],
+          [
+            46.83,
+            31.79
+          ],
+          [
+            46.34,
+            31.39
+          ],
+          [
+            48.23,
+            28.05
+          ],
+          [
+            49.68,
+            22.66
+          ],
+          [
+            50.7,
+            20.85
+          ],
+          [
+            50.9,
+            20.78
+          ],
+          [
+            53.29,
+            20.79
+          ],
+          [
+            53.95,
+            19.54
+          ],
+          [
+            55.87,
+            19.45
+          ],
+          [
+            55.97,
+            22.37
+          ],
+          [
+            55.01,
+            23.46
+          ],
+          [
+            55.14,
+            23.51
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            46.0,
+            34.0
+          ],
+          [
+            48.0,
+            46.0
+          ],
+          [
+            46.0,
+            56.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Suez",
+          "x": 48.0,
+          "y": 50.0
+        },
+        {
+          "name": "Cairo",
+          "x": 34.0,
+          "y": 52.0
+        },
+        {
+          "name": "Port Said",
+          "x": 44.0,
+          "y": 34.0
+        },
+        {
+          "name": "Tel Aviv",
+          "x": 60.0,
+          "y": 28.0
+        }
+      ]
+    }
+  }
+}

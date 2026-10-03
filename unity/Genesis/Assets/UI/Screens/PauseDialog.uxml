@@ -1,0 +1,29 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/PauseDialog.uss" />
+
+    <!-- Full-screen dim overlay (hidden by default via C# controller) -->
+    <ui:VisualElement name="pauseOverlay" class="pause-overlay">
+
+        <!-- Glass dialog card -->
+        <ui:VisualElement name="pauseCard" class="glass pause-card">
+
+            <ui:Label name="pauseTitle" text="PAUSED" class="pause-title" picking-mode="Ignore" />
+
+            <!-- Resume -->
+            <ui:Button name="resumeBtn" class="btn btn--primary pause-btn">
+                <ui:Label text="▶  RESUME" picking-mode="Ignore" />
+            </ui:Button>
+
+            <!-- Save &amp; exit -->
+            <ui:Button name="exitBtn" class="btn btn--secondary pause-btn">
+                <ui:Label text="Save &amp; Exit to Atlas" picking-mode="Ignore" />
+            </ui:Button>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

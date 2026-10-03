@@ -1,0 +1,1878 @@
+{
+  "scenario": {
+    "id": "hist-1905-port-arthur",
+    "year": 1905,
+    "era": "1900\u20131914",
+    "title": "Port Arthur Echo",
+    "region": "Manchuria \u00b7 Sea of Japan",
+    "meterFamily": "conflict",
+    "theaterArchetype": "pacific",
+    "premise": "After Japanese victories at sea and a grinding siege, European cabinets ask whether to mediate before a wider scramble for China accelerates.",
+    "role": "Foreign ministry counselor to a European great power",
+    "tension": "Preserve the East Asian balance without owning either empire\u2019s defeat.",
+    "beats": [
+      {
+        "id": "hist-1905-1",
+        "title": "Mediation invite",
+        "briefing": "A neutral capital offers to host talks. Your admiralty wants naval observation continued; finance wants the war ended before silver drains.",
+        "stakes": "Early mediation can freeze gains or look like favoring the winner.",
+        "choices": [
+          {
+            "id": "hist-1905-1a",
+            "label": "Accept mediation chair quietly",
+            "detail": "Offer good offices without public pressure on either side.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "CHAIR",
+            "callsign": "ACCEPT MEDIATION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Opens a negotiated table"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners can join quietly"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Looks responsible abroad"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-1b",
+            "label": "Delay; expand fleet observation",
+            "detail": "Keep ships watching while \u201cstudying conditions.\u201d",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "WATCH",
+            "callsign": "DELAY EXPAND",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Presence at sea"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Risk of incident"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys weeks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-1c",
+            "label": "Push a public peace appeal",
+            "detail": "Name broad terms in the open to force pace.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "APPEAL",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Visible standard"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "May harden fronts"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Raises rhetoric"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-2",
+        "title": "Loan pressure",
+        "briefing": "Bankers ask whether to keep floating war loans. Cutting credit could end the fighting\u2014or collapse a client.",
+        "stakes": "Finance is strategy by another name.",
+        "choices": [
+          {
+            "id": "hist-1905-2a",
+            "label": "Condition new loans on talks",
+            "detail": "No fresh paper without a mediation calendar.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "COND",
+            "callsign": "CONDITION NEW",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeezes war finance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Links money to the table"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Credit nerves"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-2b",
+            "label": "Keep loans flowing quietly",
+            "detail": "Stabilize your preferred party\u2019s solvency.",
+            "kind": "economic",
+            "markerId": "island",
+            "short": "FUND",
+            "callsign": "KEEP LOANS",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Client reassured"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "War can continue"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks partial"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-2c",
+            "label": "Freeze all war lending",
+            "detail": "Force both sides toward scarcity.",
+            "kind": "economic",
+            "markerId": "strait",
+            "short": "FREEZE",
+            "callsign": "FREEZE ALL",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Hard stop on credit"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Anger on both sides"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Social strain rises"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-3",
+        "title": "Treaty draft leak",
+        "briefing": "A draft territorial clause leaks. Domestic papers demand you \u201cnot abandon Asia.\u201d",
+        "stakes": "Public opinion versus a workable map.",
+        "choices": [
+          {
+            "id": "hist-1905-3a",
+            "label": "Defend a status-quo corridor clause",
+            "detail": "Prioritize open trade lanes over prestige lines.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "LANE",
+            "callsign": "DEFEND A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Trade frame"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Narrow bargain"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Hawks unhappy"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-3b",
+            "label": "Echo nationalist map language",
+            "detail": "Match the press; harden your brief.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "MAP",
+            "callsign": "ECHO NATIONALIST",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Press satisfied"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Less room to deal"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Partners wary"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-3c",
+            "label": "Stay silent until signature",
+            "detail": "Starve the leak of official oxygen.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "QUIET",
+            "callsign": "STAY SILENT",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Space for negotiators"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Vacuum of rumor"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Keeps flexibility"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-4",
+        "title": "Aftermath alignment",
+        "briefing": "With a settlement near, allies ask if you will join a new East Asian consultative group.",
+        "stakes": "Institutionalizing influence\u2014or entanglement.",
+        "choices": [
+          {
+            "id": "hist-1905-4a",
+            "label": "Join a limited consultative pact",
+            "detail": "Information sharing only; no automatic force.",
+            "kind": "diplomatic",
+            "markerId": "fleet",
+            "short": "PACT",
+            "callsign": "JOIN A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared frame"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Signal of interest"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less improvisation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-4b",
+            "label": "Remain bilateral only",
+            "detail": "Refuse new standing machinery.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "BILAT",
+            "callsign": "REMAIN BILATERAL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear limit"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners disappointed"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Fewer forums"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-4c",
+            "label": "Propose open-door commercial rules",
+            "detail": "Lead with trade norms, not security.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "DOOR",
+            "callsign": "PROPOSE OPEN",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Commercial order"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Inclusive pitch"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Security gap"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-5",
+        "title": "Naval incident fog",
+        "briefing": "A collier and a destroyer exchange warning shots near a disputed roadstead. Admiralties demand ROE clarity before dawn cables harden into ultimata.",
+        "stakes": "An unclear incident can outrun your mediation track.",
+        "choices": [
+          {
+            "id": "hist-1905-5a",
+            "label": "Issue restrictive ROE and notify both fleets",
+            "detail": "Bound observation with no pursuit; copy both capitals.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "ROE",
+            "callsign": "ISSUE RESTRICTIVE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Lowers kinetic odds"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Transparent restraint"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Presence looks softer"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-5b",
+            "label": "Escalate observation to armed escort of neutrals",
+            "detail": "Protect commercial flags; accept higher contact risk.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "ESCORT",
+            "callsign": "ESCALATE OBSERVATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Shows teeth at sea"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident ladder rises"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Trade reassured"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-5c",
+            "label": "Demand joint inquiry before any further sorties",
+            "detail": "Freeze narrative with a shared fact-finding clock.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "INQUIRE",
+            "callsign": "DEMAND JOINT",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Buys investigative days"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Process looks fair"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Hawks call delay"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-6",
+        "title": "Domestic loan revolt",
+        "briefing": "Parliamentarians and papers attack \u201cAsian adventures\u201d financed by your banks. Finance ministry warns of a confidence wobble if you stay silent.",
+        "stakes": "Home politics can yank the lending lever from your hand.",
+        "choices": [
+          {
+            "id": "hist-1905-6a",
+            "label": "Brief a closed-session economic case for mediation",
+            "detail": "Trade continuity as the public frame.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "BRIEF",
+            "callsign": "BRIEF A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Some oxygen"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Links home to table"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Looks deliberate"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-6b",
+            "label": "Announce a temporary war-loan moratorium at home",
+            "detail": "Force markets and cabinets to feel scarcity.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "MORAT",
+            "callsign": "ANNOUNCE A",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeezes belligerents"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Domestic nerves"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Savings scare"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-6c",
+            "label": "Let the press run while you hold the line privately",
+            "detail": "Absorb heat; change nothing publicly.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "ABSORB",
+            "callsign": "LET THE",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Avoids hasty pivot"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Anger builds"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks evasive"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-7",
+        "title": "Ally asks for a fleet signal",
+        "briefing": "A partner capital wants a joint naval demonstration \u201cto keep the settlement honest.\u201d Your admiralty is split between solidarity and entanglement.",
+        "stakes": "Visible solidarity can lock you into enforcement.",
+        "choices": [
+          {
+            "id": "hist-1905-7a",
+            "label": "Offer a time-limited joint observation patrol",
+            "detail": "Shared presence, no boarding mandate.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "JOINT",
+            "callsign": "OFFER A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner reassured"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Combined signal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "More hulls in theater"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-7b",
+            "label": "Refuse demonstration; propose a commercial open-door note",
+            "detail": "Lead with trade norms instead of guns.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "NOTE",
+            "callsign": "REFUSE DEMONSTRATION",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Commercial frame"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner feels alone"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Wider table"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-7c",
+            "label": "Commit only to intelligence sharing from cable stations",
+            "detail": "Help without hulls.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "INTEL",
+            "callsign": "COMMIT ONLY",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Useful but limited"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Keeps options"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "No force signal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-8",
+        "title": "Conflicting casualty cables",
+        "briefing": "Two rival wires disagree on whether a coastal town was shelled. Your press and partners demand a sided narrative before talks resume.",
+        "stakes": "Information fog is a weapon; owning a false map costs more later.",
+        "choices": [
+          {
+            "id": "hist-1905-8a",
+            "label": "Publish only verified, timestamped facts",
+            "detail": "Starve rumor; accept looking slow.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "FACTS",
+            "callsign": "PUBLISH ONLY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Truth discipline"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slower spin cycle"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Press impatient"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-8b",
+            "label": "Amplify the version that favors your mediation brief",
+            "detail": "Shape the room even if evidence is thin.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "SHAPE",
+            "callsign": "AMPLIFY THE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Narrative leverage"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Risk of exposure"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Hardens blame"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-8c",
+            "label": "Convene a three-power telegraph board",
+            "detail": "Force shared sourcing rules mid-crisis.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "BOARD",
+            "callsign": "CONVENE A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Process shared"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Rebuilds table"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Coordination tax"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-9",
+        "title": "Treaty off-ramp window",
+        "briefing": "A 72-hour pause appears: both sides hint they can accept a corridor-plus-indemnity formula if you guarantee quiet implementation.",
+        "stakes": "Windows close when prestige speeches begin.",
+        "choices": [
+          {
+            "id": "hist-1905-9a",
+            "label": "Guarantee quiet implementation with observers only",
+            "detail": "No flags, no occupation rhetoric.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "OBSERV",
+            "callsign": "GUARANTEE QUIET",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Locks a bargain"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lowers heat"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Honest broker"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-9b",
+            "label": "Demand a public apology clause before signing",
+            "detail": "Satisfy domestic honor politics.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "APOLOGY",
+            "callsign": "DEMAND A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Honor framed"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "May kill the window"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Deadline risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-9c",
+            "label": "Tie the formula to a short-term credit bridge",
+            "detail": "Money makes the map stick.",
+            "kind": "economic",
+            "markerId": "cable",
+            "short": "BRIDGE",
+            "callsign": "TIE THE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Settlement finance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Practical glue"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Conditional cash"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1905-10",
+        "title": "Settlement enforcement endgame",
+        "briefing": "Signature is near. You must choose how hard to police the new map\u2014and whether your navy becomes its guarantor.",
+        "stakes": "Enforcement defines whether peace is architecture or paper.",
+        "choices": [
+          {
+            "id": "hist-1905-10a",
+            "label": "Accept a limited naval guarantee for the corridor",
+            "detail": "Time-bounded patrol authority.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "GUARANT",
+            "callsign": "ACCEPT A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Map has teeth"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared duty"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Longer entanglement"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-10b",
+            "label": "Refuse force guarantees; push commercial arbitration",
+            "detail": "Courts and tariffs, not hulls.",
+            "kind": "legal",
+            "markerId": "island",
+            "short": "ARB",
+            "callsign": "REFUSE FORCE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Rule-based trade"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Weak enforcement"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Legal path"
+              }
+            ]
+          },
+          {
+            "id": "hist-1905-10c",
+            "label": "Declare mission complete and withdraw influence",
+            "detail": "Exit before the next quarrel.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "EXIT",
+            "callsign": "DECLARE MISSION",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Clears bandwidth"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks fickle"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Partners stranded"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "manchuria",
+    "scenarioId": "hist-1905-port-arthur",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#0A2430",
+    "land": "#1A3A2E",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "Manchuria \u00b7 Sea of Japan (Natural Earth)",
+      "water": "#0A2430",
+      "land": "#1A3A2E",
+      "landHi": "#2A5040",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            0.5,
+            23.3
+          ],
+          [
+            3.94,
+            21.36
+          ],
+          [
+            6.87,
+            18.06
+          ],
+          [
+            9.69,
+            16.64
+          ],
+          [
+            15.5,
+            15.97
+          ],
+          [
+            18.65,
+            16.54
+          ],
+          [
+            19.09,
+            14.76
+          ],
+          [
+            15.47,
+            11.26
+          ],
+          [
+            12.26,
+            9.67
+          ],
+          [
+            9.18,
+            11.51
+          ],
+          [
+            5.24,
+            10.73
+          ],
+          [
+            2.97,
+            11.37
+          ],
+          [
+            1.94,
+            9.32
+          ],
+          [
+            4.77,
+            4.33
+          ],
+          [
+            6.72,
+            0.56
+          ],
+          [
+            11.52,
+            2.45
+          ],
+          [
+            17.15,
+            0.5
+          ],
+          [
+            17.12,
+            0.5
+          ],
+          [
+            49.15,
+            0.5
+          ],
+          [
+            50.63,
+            1.2
+          ],
+          [
+            57.59,
+            2.8
+          ],
+          [
+            62.33,
+            6.35
+          ],
+          [
+            63.95,
+            11.05
+          ],
+          [
+            70.03,
+            11.06
+          ],
+          [
+            73.49,
+            9.08
+          ],
+          [
+            80.11,
+            7.61
+          ],
+          [
+            78.0,
+            12.11
+          ],
+          [
+            76.45,
+            13.94
+          ],
+          [
+            75.08,
+            19.42
+          ],
+          [
+            72.39,
+            24.28
+          ],
+          [
+            67.53,
+            23.39
+          ],
+          [
+            64.1,
+            25.16
+          ],
+          [
+            65.15,
+            29.44
+          ],
+          [
+            64.58,
+            35.35
+          ],
+          [
+            62.54,
+            35.48
+          ],
+          [
+            62.56,
+            38.02
+          ],
+          [
+            59.98,
+            35.07
+          ],
+          [
+            58.39,
+            37.88
+          ],
+          [
+            52.21,
+            40.03
+          ],
+          [
+            52.83,
+            42.67
+          ],
+          [
+            49.38,
+            42.48
+          ],
+          [
+            47.48,
+            40.92
+          ],
+          [
+            44.73,
+            44.46
+          ],
+          [
+            40.32,
+            47.15
+          ],
+          [
+            37.06,
+            50.36
+          ],
+          [
+            31.47,
+            51.81
+          ],
+          [
+            28.53,
+            54.15
+          ],
+          [
+            24.22,
+            55.51
+          ],
+          [
+            26.34,
+            53.2
+          ],
+          [
+            25.51,
+            51.25
+          ],
+          [
+            28.67,
+            47.89
+          ],
+          [
+            26.56,
+            45.27
+          ],
+          [
+            23.07,
+            47.03
+          ],
+          [
+            18.56,
+            50.51
+          ],
+          [
+            16.09,
+            53.74
+          ],
+          [
+            12.17,
+            53.98
+          ],
+          [
+            10.13,
+            56.31
+          ],
+          [
+            12.24,
+            59.69
+          ],
+          [
+            15.51,
+            60.51
+          ],
+          [
+            15.65,
+            62.76
+          ],
+          [
+            18.81,
+            64.22
+          ],
+          [
+            23.29,
+            60.65
+          ],
+          [
+            26.85,
+            62.59
+          ],
+          [
+            29.43,
+            62.73
+          ],
+          [
+            30.08,
+            65.35
+          ],
+          [
+            24.42,
+            66.74
+          ],
+          [
+            22.55,
+            69.44
+          ],
+          [
+            18.66,
+            71.95
+          ],
+          [
+            16.6,
+            75.45
+          ],
+          [
+            20.91,
+            78.2
+          ],
+          [
+            22.48,
+            83.12
+          ],
+          [
+            24.92,
+            87.7
+          ],
+          [
+            27.63,
+            91.54
+          ],
+          [
+            27.57,
+            95.25
+          ],
+          [
+            25.06,
+            96.62
+          ],
+          [
+            26.01,
+            99.29
+          ],
+          [
+            28.37,
+            99.5
+          ],
+          [
+            27.75,
+            99.5
+          ],
+          [
+            0.5,
+            23.3
+          ]
+        ],
+        [
+          [
+            99.5,
+            0.5
+          ],
+          [
+            99.5,
+            7.77
+          ],
+          [
+            94.22,
+            15.0
+          ],
+          [
+            92.88,
+            18.46
+          ],
+          [
+            87.45,
+            24.28
+          ],
+          [
+            82.06,
+            30.06
+          ],
+          [
+            79.48,
+            33.01
+          ],
+          [
+            74.15,
+            35.94
+          ],
+          [
+            71.63,
+            36.01
+          ],
+          [
+            69.11,
+            33.58
+          ],
+          [
+            63.74,
+            37.24
+          ],
+          [
+            63.12,
+            38.9
+          ],
+          [
+            63.12,
+            38.9
+          ],
+          [
+            63.12,
+            38.9
+          ],
+          [
+            63.12,
+            38.9
+          ],
+          [
+            62.56,
+            38.02
+          ],
+          [
+            62.56,
+            38.02
+          ],
+          [
+            62.54,
+            35.48
+          ],
+          [
+            64.58,
+            35.35
+          ],
+          [
+            65.15,
+            29.44
+          ],
+          [
+            64.1,
+            25.16
+          ],
+          [
+            67.53,
+            23.39
+          ],
+          [
+            72.39,
+            24.28
+          ],
+          [
+            75.08,
+            19.42
+          ],
+          [
+            76.45,
+            13.94
+          ],
+          [
+            78.0,
+            12.11
+          ],
+          [
+            80.11,
+            7.61
+          ],
+          [
+            73.49,
+            9.08
+          ],
+          [
+            70.03,
+            11.06
+          ],
+          [
+            63.95,
+            11.05
+          ],
+          [
+            62.33,
+            6.35
+          ],
+          [
+            57.59,
+            2.8
+          ],
+          [
+            50.63,
+            1.2
+          ],
+          [
+            49.15,
+            0.5
+          ],
+          [
+            17.12,
+            0.5
+          ],
+          [
+            17.15,
+            0.5
+          ],
+          [
+            11.52,
+            2.45
+          ],
+          [
+            6.72,
+            0.56
+          ],
+          [
+            1.94,
+            0.97
+          ],
+          [
+            0.5,
+            0.5
+          ],
+          [
+            0.5,
+            0.5
+          ],
+          [
+            99.5,
+            0.5
+          ]
+        ],
+        [
+          [
+            99.5,
+            59.13
+          ],
+          [
+            99.5,
+            64.29
+          ],
+          [
+            99.5,
+            68.28
+          ],
+          [
+            99.5,
+            70.79
+          ],
+          [
+            99.5,
+            74.31
+          ],
+          [
+            95.9,
+            76.66
+          ],
+          [
+            88.87,
+            76.97
+          ],
+          [
+            83.17,
+            82.68
+          ],
+          [
+            80.48,
+            80.75
+          ],
+          [
+            80.32,
+            77.02
+          ],
+          [
+            73.36,
+            78.12
+          ],
+          [
+            68.63,
+            80.48
+          ],
+          [
+            63.94,
+            80.57
+          ],
+          [
+            68.0,
+            84.25
+          ],
+          [
+            65.33,
+            92.75
+          ],
+          [
+            62.75,
+            94.85
+          ],
+          [
+            60.81,
+            92.91
+          ],
+          [
+            61.79,
+            88.4
+          ],
+          [
+            59.26,
+            86.95
+          ],
+          [
+            57.63,
+            83.52
+          ],
+          [
+            61.42,
+            81.98
+          ],
+          [
+            63.51,
+            78.84
+          ],
+          [
+            67.54,
+            76.25
+          ],
+          [
+            70.47,
+            72.83
+          ],
+          [
+            78.43,
+            71.34
+          ],
+          [
+            82.71,
+            72.36
+          ],
+          [
+            86.9,
+            63.48
+          ],
+          [
+            89.56,
+            65.86
+          ],
+          [
+            95.43,
+            60.86
+          ],
+          [
+            97.71,
+            58.92
+          ],
+          [
+            99.5,
+            52.81
+          ],
+          [
+            99.5,
+            47.18
+          ],
+          [
+            99.5,
+            44.02
+          ],
+          [
+            99.5,
+            59.13
+          ]
+        ],
+        [
+          [
+            62.56,
+            38.02
+          ],
+          [
+            62.56,
+            38.02
+          ],
+          [
+            63.12,
+            38.9
+          ],
+          [
+            61.6,
+            38.6
+          ],
+          [
+            59.86,
+            40.29
+          ],
+          [
+            58.67,
+            41.99
+          ],
+          [
+            58.82,
+            45.59
+          ],
+          [
+            56.75,
+            46.69
+          ],
+          [
+            56.04,
+            47.57
+          ],
+          [
+            54.53,
+            49.05
+          ],
+          [
+            51.87,
+            49.87
+          ],
+          [
+            50.13,
+            51.22
+          ],
+          [
+            50.01,
+            53.38
+          ],
+          [
+            49.54,
+            53.93
+          ],
+          [
+            51.13,
+            54.75
+          ],
+          [
+            53.4,
+            56.94
+          ],
+          [
+            52.82,
+            58.15
+          ],
+          [
+            51.12,
+            58.48
+          ],
+          [
+            48.29,
+            58.72
+          ],
+          [
+            46.73,
+            60.98
+          ],
+          [
+            44.95,
+            60.8
+          ],
+          [
+            44.7,
+            61.25
+          ],
+          [
+            42.76,
+            60.3
+          ],
+          [
+            42.27,
+            61.24
+          ],
+          [
+            41.1,
+            61.65
+          ],
+          [
+            40.96,
+            60.71
+          ],
+          [
+            39.92,
+            60.26
+          ],
+          [
+            38.85,
+            59.46
+          ],
+          [
+            39.94,
+            57.26
+          ],
+          [
+            40.89,
+            56.67
+          ],
+          [
+            40.53,
+            55.76
+          ],
+          [
+            41.55,
+            53.06
+          ],
+          [
+            41.28,
+            52.24
+          ],
+          [
+            38.95,
+            51.7
+          ],
+          [
+            37.06,
+            50.36
+          ],
+          [
+            40.32,
+            47.15
+          ],
+          [
+            44.73,
+            44.46
+          ],
+          [
+            47.48,
+            40.92
+          ],
+          [
+            49.38,
+            42.48
+          ],
+          [
+            52.83,
+            42.67
+          ],
+          [
+            52.21,
+            40.03
+          ],
+          [
+            58.39,
+            37.88
+          ],
+          [
+            59.98,
+            35.07
+          ],
+          [
+            62.56,
+            38.02
+          ]
+        ],
+        [
+          [
+            44.7,
+            61.25
+          ],
+          [
+            44.95,
+            60.8
+          ],
+          [
+            46.73,
+            60.98
+          ],
+          [
+            48.29,
+            58.72
+          ],
+          [
+            51.12,
+            58.48
+          ],
+          [
+            52.82,
+            58.15
+          ],
+          [
+            53.4,
+            56.94
+          ],
+          [
+            56.85,
+            62.84
+          ],
+          [
+            57.84,
+            66.08
+          ],
+          [
+            57.87,
+            71.84
+          ],
+          [
+            56.37,
+            74.59
+          ],
+          [
+            52.74,
+            75.55
+          ],
+          [
+            49.55,
+            77.62
+          ],
+          [
+            45.94,
+            78.05
+          ],
+          [
+            45.5,
+            75.33
+          ],
+          [
+            46.24,
+            71.58
+          ],
+          [
+            44.47,
+            66.37
+          ],
+          [
+            47.44,
+            65.53
+          ],
+          [
+            44.7,
+            61.25
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Port Arthur",
+          "x": 42.0,
+          "y": 62.0
+        },
+        {
+          "name": "Mukden",
+          "x": 38.0,
+          "y": 36.0
+        },
+        {
+          "name": "Tokyo",
+          "x": 82.0,
+          "y": 34.0
+        },
+        {
+          "name": "Vladivostok",
+          "x": 62.0,
+          "y": 26.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,256 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* OrderSheet.uss — Glass bottom sheet with drag handle, order cards, hold-to-confirm button.
+   Companion to OrderSheet.uxml. Uses component classes from Genesis.tss. */
+
+/* ---- Layout -------------------------------------------------- */
+
+.screen-fill {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---- Order sheet container ----------------------------------- */
+
+.order-sheet {
+    flex-direction: column;
+    background-color: rgba(11, 18, 32, 0.95);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-bottom-width: 0;
+    transition-duration: 0.22s;
+    overflow: hidden;
+    max-height: 95%;
+    min-height: 520px;
+}
+
+/* ---- Drag handle --------------------------------------------- */
+
+.drag-handle {
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.drag-pill {
+    width: 64px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+}
+
+/* ---- Sheet header -------------------------------------------- */
+
+.sheet-header {
+    flex-direction: row;
+    align-items: center;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.place-name-label {
+    font-size: 32px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    flex-grow: 1;
+    overflow: hidden;
+    -unity-text-overflow-position: end;
+}
+
+.beat-title-label {
+    font-size: 24px;
+    color: #A9B3C4;
+    flex-shrink: 0;
+    margin-left: 12px;
+    opacity: 0.85;
+    max-width: 240px;
+    -unity-text-align: middle-right;
+}
+
+/* ---- Card scroll region -------------------------------------- */
+
+.card-scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 12px;
+    min-height: 220px;
+}
+
+.card-scroll > .unity-scroll-view__content-container {
+    flex-direction: row;
+    align-items: stretch;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 8px;
+}
+
+/* ---- Order card ---------------------------------------------- */
+
+.order-card {
+    width: 340px;
+    max-height: 400px;
+    flex-shrink: 0;
+    margin-right: 16px;
+    flex-direction: column;
+    padding: 20px;
+    cursor: link;
+    background-color: rgba(23, 35, 58, 0.7);
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+    transition-duration: 0.15s;
+}
+
+.order-card:active {
+    scale: 0.98 0.98;
+}
+
+.order-card--selected {
+    background-color: rgba(245, 165, 36, 0.14);
+    border-color: #F5A524;
+    border-width: 2px;
+}
+
+.order-card__header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.order-card__kind {
+    font-size: 20px;
+    color: #F5A524;
+    letter-spacing: 1px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.order-card__place {
+    font-size: 18px;
+    color: #A9B3C4;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.order-card__title {
+    font-size: 28px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 8px;
+    white-space: normal;
+}
+
+.order-card__desc {
+    font-size: 22px;
+    color: #A9B3C4;
+    white-space: normal;
+    flex-grow: 1;
+    margin-bottom: 12px;
+}
+
+.order-card__chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ---- Hold-to-confirm button ---------------------------------- */
+
+.hold-button-container {
+    flex-shrink: 0;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    height: 72px;
+}
+
+.gesture-spacer {
+    flex-shrink: 0;
+    height: 16px;
+}
+
+/* ---- Hold-to-confirm button ---------------------------------- */
+
+.hold-btn {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(245, 165, 36, 0.08);
+    transition-duration: 0.15s;
+    overflow: hidden;
+}
+
+.hold-btn--armed {
+    background-color: rgba(245, 165, 36, 0.16);
+    border-color: #F5A524;
+    border-width: 2px;
+}
+
+.hold-btn--idle {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.hold-btn--locked {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.06);
+    opacity: 0.5;
+}
+
+.hold-btn__ring-canvas {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    margin-left: 16px;
+    margin-right: 8px;
+}
+
+.hold-btn__label {
+    flex-grow: 1;
+    font-size: 28px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: middle-left;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 16px;
+}
+
+.hold-btn--idle .hold-btn__label {
+    color: #6E7A8F;
+}
+
+.hold-btn--locked .hold-btn__label {
+    color: #6E7A8F;
+}
+
+.hold-btn--full {
+    width: 100%;
+}

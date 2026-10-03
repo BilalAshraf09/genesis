@@ -1,0 +1,36 @@
+{
+    "name": "Genesis.Runtime",
+    "rootNamespace": "Genesis",
+    "references": [
+        "Unity.InputSystem",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.Cinemachine",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "GENESIS_URP"
+        },
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3.0.0",
+            "define": "GENESIS_CINEMACHINE"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "",
+            "define": "GENESIS_INPUT_SYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

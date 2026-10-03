@@ -1,0 +1,71 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+# generated native folders
+/ios
+/android
+
+# Store credentials (never commit keys / service accounts)
+secrets/*
+!secrets/README.md
+.env
+.env*.local
+# Keep the committed template; ignore other .env.* variants
+.env.*
+!.env.example
+agent-tools/
+
+# Unity
+unity/Genesis/[Ll]ibrary/
+unity/Genesis/[Tt]emp/
+unity/Genesis/[Oo]bj/
+unity/Genesis/[Bb]uild/
+unity/Genesis/[Bb]uilds/
+unity/Genesis/[Ll]ogs/
+unity/Genesis/[Uu]ser[Ss]ettings/
+unity/Genesis/*.csproj
+unity/Genesis/*.sln
+# Accidental Unity root scratch (Editor opened at repo root)
+/Library/
+/Temp/
+/UserSettings/
+/ProjectSettings/
+/Logs/
+/*.csproj
+/*.sln

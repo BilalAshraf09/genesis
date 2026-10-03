@@ -1,0 +1,2087 @@
+{
+  "scenario": {
+    "id": "hist-2025-coalition-aftershock",
+    "year": 2025,
+    "era": "2008\u20132026",
+    "title": "Coalition Aftershock",
+    "region": "European Union \u00b7 national capitals",
+    "meterFamily": "politics",
+    "theaterArchetype": "europe",
+    "premise": "After national elections, a far-right bloc becomes kingmaker in a major member state. Markets, minority communities, and Brussels all watch your first week of coalition management.",
+    "role": "Chief of staff to a centrist prime minister\u2013designate",
+    "tension": "Governability versus democratic norms; EU cohesion versus domestic mandate claims.",
+    "beats": [
+      {
+        "id": "hist-2025-1",
+        "title": "Coalition arithmetic",
+        "briefing": "Without the far-right party, you lack a majority. They demand the interior ministry and a freeze on new asylum reception capacity. Smaller liberal partners threaten to walk if you concede either.",
+        "stakes": "Office without norms risks hollow legitimacy; purity without numbers risks snap elections.",
+        "choices": [
+          {
+            "id": "hist-2025-1a",
+            "label": "Grand bargain with red-line ministries",
+            "detail": "Offer junior portfolios but keep interior, justice, and foreign affairs out of their hands.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "CABINET",
+            "callsign": "GRAND BARGAIN",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Secures a working majority"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Normalizes the bloc inside cabinet politics"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": -1,
+                "summary": "Strains partners who wanted a cordon"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-1b",
+            "label": "Minority government with issue-by-issue votes",
+            "detail": "Refuse a formal deal; negotiate budgets and security votes ad hoc.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "MINORITY",
+            "callsign": "MINORITY GOVERNMENT",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Avoids formal cohabitation with the far right"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "Every bill becomes a crisis"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Investors price political fragility"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-1c",
+            "label": "Force a second election",
+            "detail": "Tell the president no stable democratic majority exists and seek a fresh mandate.",
+            "kind": "civic",
+            "markerId": "ballot",
+            "short": "REELECT",
+            "callsign": "FORCE A",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 1,
+                "summary": "Returns the question to voters"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Campaigns harden identities further"
+              },
+              {
+                "tag": "far_right_momentum",
+                "weight": 1,
+                "summary": "Gives them months as opposition tribune"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-2",
+        "title": "Street and speech",
+        "briefing": "After a far-right rally, clashes injure protesters and two officers. Civil society demands a ban on the party\u2019s youth wing. The party calls it a political persecution test.",
+        "stakes": "Rule-of-law tools used unevenly can feed the narrative they campaign on.",
+        "choices": [
+          {
+            "id": "hist-2025-2a",
+            "label": "Independent inquiry + targeted bans on violent cadres",
+            "detail": "Separate criminal accountability from collective political bans.",
+            "kind": "legal",
+            "markerId": "streets",
+            "short": "INQUIRE",
+            "callsign": "INDEPENDENT INQUIRY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Centers evidence over spectacle"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Offers both camps a procedural path"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slows politics while facts are gathered"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-2b",
+            "label": "Broad organizational ban push",
+            "detail": "Ask courts to dissolve the youth wing for pattern of intimidation.",
+            "kind": "legal",
+            "markerId": "streets",
+            "short": "BAN",
+            "callsign": "BROAD ORGANIZATIONAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Draws a hard line against street coercion"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Fuels martyr narratives"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": 1,
+                "summary": "Reassures threatened communities short-term"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-2c",
+            "label": "De-escalate rhetoric; expand local mediation",
+            "detail": "Quiet policing posture and funded local dialogue teams in hot districts.",
+            "kind": "civic",
+            "markerId": "districts",
+            "short": "MEDIATE",
+            "callsign": "DE ESCALATE",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Reduces immediate confrontation cycles"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Critics call it soft on intimidation"
+              },
+              {
+                "tag": "far_right_momentum",
+                "weight": 1,
+                "summary": "They claim the state blinked"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-3",
+        "title": "Brussels pressure",
+        "briefing": "The Commission warns that proposed asylum freezes may breach common rules. Farmers and logistics firms want you to protect EU funds. Your far-right interlocutors want a sovereignty confrontation.",
+        "stakes": "EU funds and legal standing are leverage \u2014 and a domestic campaign prop.",
+        "choices": [
+          {
+            "id": "hist-2025-3a",
+            "label": "Negotiate a compliance timeline",
+            "detail": "Trade phased reception capacity for technical assistance and fund certainty.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "COMPLY",
+            "callsign": "NEGOTIATE A",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Keeps you inside the legal community"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Avoids an immediate funds crisis"
+              },
+              {
+                "tag": "far_right_momentum",
+                "weight": -1,
+                "summary": "Undercuts their confrontation script"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-3b",
+            "label": "Public clash over \u201cnational competence\u201d",
+            "detail": "Frame Brussels as overriding the election; dare infringement.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "CLASH",
+            "callsign": "PUBLIC CLASH",
+            "effects": [
+              {
+                "tag": "far_right_momentum",
+                "weight": 2,
+                "summary": "Aligns executive branding with their voters"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": -3,
+                "summary": "Opens a lasting rule-of-law fight"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Risks funding and investment nerves"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-3c",
+            "label": "Quiet legal tweak; loud domestic theater",
+            "detail": "Meet minimum legal thresholds while messaging toughness at home.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "THEATER",
+            "callsign": "QUIET LEGAL",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 1,
+                "summary": "Technically stays compliant"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Both camps may call it cynical"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Theater still heats the information space"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-4",
+        "title": "Budget night",
+        "briefing": "The finance bill needs votes. The far-right offers support if you cut civic-education grants and raise police overtime budgets. Liberals demand the opposite trade.",
+        "stakes": "One night can redefine who owns the state\u2019s coercive and civic tools.",
+        "choices": [
+          {
+            "id": "hist-2025-4a",
+            "label": "Pass a narrow confidence budget",
+            "detail": "Strip culture-war riders; fund core services and a review commission.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "NARROW",
+            "callsign": "PASS A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Keeps the lights on without an identity bargain"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": 1,
+                "summary": "Avoids gutting civic programs"
+              },
+              {
+                "tag": "far_right_momentum",
+                "weight": -1,
+                "summary": "Denies them a trophy in the bill"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-4b",
+            "label": "Take the far-right security package",
+            "detail": "Accept overtime surge and civic-grant cuts to lock votes.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "SECURITY",
+            "callsign": "TAKE THE",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Gets the bill through"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Trades civic capacity for order optics"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -1,
+                "summary": "Minority organizations feel abandoned"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-4c",
+            "label": "Risk defeat; mobilize street legitimacy",
+            "detail": "Refuse both extremes and dare a failed vote while calling supporters to peaceful vigils.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "VIGIL",
+            "callsign": "RISK DEFEAT",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 1,
+                "summary": "Frames integrity over dealmaking"
+              },
+              {
+                "tag": "governability",
+                "weight": -3,
+                "summary": "May collapse the government project"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Moves conflict from parliament to streets"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-5",
+        "title": "No-confidence shock",
+        "briefing": "A procedural ambush appears within days of formation. Your majority is arithmetic, not affection.",
+        "stakes": "Governing starts as survival.",
+        "choices": [
+          {
+            "id": "hist-2025-5a",
+            "label": "Cut a narrow confidence deal on procedure only",
+            "detail": "Survive the week.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "CONF",
+            "callsign": "CUT A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Cabinet lives"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Horse-trade"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Oxygen"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-5b",
+            "label": "Call the bluff and dare early elections",
+            "detail": "Mandate reset.",
+            "kind": "civic",
+            "markerId": "ballot",
+            "short": "ELECT2",
+            "callsign": "CALL THE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Voters decide"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "Chaos risk"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Campaign mode"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-5c",
+            "label": "Invite a technocratic confidence-and-supply arrangement",
+            "detail": "Shrink politics.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "TECH2",
+            "callsign": "INVITE A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Admin path"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Unloved"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": 1,
+                "summary": "Predictable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-6",
+        "title": "Street and platform pressure",
+        "briefing": "Coordinated protests and online campaigns demand you break a firewall\u2014or strengthen it. Institutions become content.",
+        "stakes": "Platforms are a second parliament.",
+        "choices": [
+          {
+            "id": "hist-2025-6a",
+            "label": "Reaffirm democratic firewalls with legal clarity",
+            "detail": "Norms speech.",
+            "kind": "legal",
+            "markerId": "streets",
+            "short": "FIREWALL",
+            "callsign": "REAFFIRM DEMOCRATIC",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 3,
+                "summary": "Distance held"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Hardliners rage"
+              },
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear line"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-6b",
+            "label": "Open exploratory talks with soft-edge factions only",
+            "detail": "Grey zone.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "SOFTEDGE",
+            "callsign": "OPEN EXPLORATORY",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Votes"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Window shifts"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": -2,
+                "summary": "Partners flee"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-6c",
+            "label": "Counter-mobilize civic coalitions without state coercion",
+            "detail": "Society answers society.",
+            "kind": "civic",
+            "markerId": "districts",
+            "short": "CIVIC2",
+            "callsign": "COUNTER MOBILIZE",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Counterweight"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Camp politics"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Pluralism"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-7",
+        "title": "Brussels conditionality ask",
+        "briefing": "EU partners hint that funds and tone depend on rule-of-law markers. Defiance plays well at home; compliance funds the state.",
+        "stakes": "External anchors versus domestic brand.",
+        "choices": [
+          {
+            "id": "hist-2025-7a",
+            "label": "Comply on core rule-of-law benchmarks",
+            "detail": "Money and club.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "COMPLY2",
+            "callsign": "COMPLY ON",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 3,
+                "summary": "Club held"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Funds"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Sovereignty charge"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-7b",
+            "label": "Stage a controlled clash for domestic branding",
+            "detail": "Theater.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "CLASH",
+            "callsign": "STAGE A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Brand"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": -3,
+                "summary": "Fight"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Costly"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-7c",
+            "label": "Negotiate phased benchmarks with visible wins both ways",
+            "detail": "Two-level deal.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "PHASE2",
+            "callsign": "NEGOTIATE PHASED",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Bargain"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": 1,
+                "summary": "Path"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Staging"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-8",
+        "title": "Disinformation fog around the cabinet",
+        "briefing": "Forged chats allege secret pacts. Corrections lag. Your communications doctrine is now security policy.",
+        "stakes": "Legitimacy is an information service.",
+        "choices": [
+          {
+            "id": "hist-2025-8a",
+            "label": "Publish authenticated timelines and invite press scrutiny",
+            "detail": "Radical transparency.",
+            "kind": "civic",
+            "markerId": "ballot",
+            "short": "TRANSP",
+            "callsign": "PUBLISH AUTHENTICATED",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 3,
+                "summary": "Sunlight"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Ops cost"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-8b",
+            "label": "Pursue rapid legal takedowns of forged material",
+            "detail": "Lawfare.",
+            "kind": "legal",
+            "markerId": "streets",
+            "short": "TAKEDOWN",
+            "callsign": "PURSUE RAPID",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Less spread"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Speech fights"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Censor charge"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-8c",
+            "label": "Ignore forgeries; flood governing delivery stories",
+            "detail": "Change the subject.",
+            "kind": "political",
+            "markerId": "districts",
+            "short": "DELIVER",
+            "callsign": "IGNORE FORGERIES",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Output focus"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Unanswered lies"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Bandwidth"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-9",
+        "title": "Budget off-ramp",
+        "briefing": "A skinny budget can pass without normative collapse\u2014or starve the state. A fat bargain may require the very partners you excluded.",
+        "stakes": "Arithmetic returns as destiny.",
+        "choices": [
+          {
+            "id": "hist-2025-9a",
+            "label": "Pass a narrow confidence budget with firewall intact",
+            "detail": "Govern small.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "SKINNY",
+            "callsign": "PASS A",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Something passes"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Firewall held"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": 1,
+                "summary": "Predictable"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-9b",
+            "label": "Expand the majority with costly normative concessions",
+            "detail": "Buy votes.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "EXPAND",
+            "callsign": "EXPAND THE",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 3,
+                "summary": "Wider majority"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 3,
+                "summary": "Price paid"
+              },
+              {
+                "tag": "liberal_trust",
+                "weight": -3,
+                "summary": "Break"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-9c",
+            "label": "Run a caretaker spend-as-before and renegotiate in 90 days",
+            "detail": "Kick the can carefully.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "CARETAKE",
+            "callsign": "RUN A",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Delay fight"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Weak"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Uncertainty"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2025-10",
+        "title": "Democratic endurance endgame",
+        "briefing": "You write the week\u2019s doctrine: how centrist cabinets survive without becoming what they exclude\u2014or dying of purity.",
+        "stakes": "Efficiency here is governability with norms intact.",
+        "choices": [
+          {
+            "id": "hist-2025-10a",
+            "label": "Institutionalize cross-party procedural pacts for crises",
+            "detail": "Process democracy.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "PACTS",
+            "callsign": "INSTITUTIONALIZE CROSS",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rules"
+              },
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Stability"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Some buy-in"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-10b",
+            "label": "Accept permanent campaign mode as the real constitution",
+            "detail": "Mobilize forever.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "CAMPAIGN",
+            "callsign": "ACCEPT PERMANENT",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Base energy"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "No bandwidth"
+              },
+              {
+                "tag": "polarization",
+                "weight": 3,
+                "summary": "Total politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-2025-10c",
+            "label": "Anchor legitimacy in EU and court rules when majorities fail",
+            "detail": "External scaffolding.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "ANCHOR",
+            "callsign": "ANCHOR LEGITIMACY",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Anchor"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rules"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Elite charge"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "europe-east",
+    "scenarioId": "hist-2025-coalition-aftershock",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0C2230",
+    "land": "#243028",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Eastern Europe (Natural Earth)",
+      "water": "#0C2230",
+      "land": "#243028",
+      "landHi": "#344038",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            72.62,
+            43.88
+          ],
+          [
+            73.86,
+            44.1
+          ],
+          [
+            74.71,
+            42.84
+          ],
+          [
+            75.72,
+            43.12
+          ],
+          [
+            79.18,
+            42.58
+          ],
+          [
+            81.31,
+            45.73
+          ],
+          [
+            80.47,
+            46.85
+          ],
+          [
+            80.75,
+            48.58
+          ],
+          [
+            83.41,
+            48.85
+          ],
+          [
+            84.59,
+            51.26
+          ],
+          [
+            84.52,
+            52.35
+          ],
+          [
+            88.75,
+            54.3
+          ],
+          [
+            91.31,
+            53.42
+          ],
+          [
+            93.37,
+            56.02
+          ],
+          [
+            95.32,
+            55.96
+          ],
+          [
+            99.5,
+            57.77
+          ],
+          [
+            99.5,
+            59.4
+          ],
+          [
+            98.92,
+            62.31
+          ],
+          [
+            99.5,
+            65.38
+          ],
+          [
+            99.13,
+            67.23
+          ],
+          [
+            95.9,
+            67.64
+          ],
+          [
+            94.18,
+            69.19
+          ],
+          [
+            94.08,
+            71.65
+          ],
+          [
+            91.42,
+            72.1
+          ],
+          [
+            89.2,
+            73.9
+          ],
+          [
+            86.08,
+            74.19
+          ],
+          [
+            83.21,
+            76.26
+          ],
+          [
+            83.38,
+            79.23
+          ],
+          [
+            82.87,
+            79.07
+          ],
+          [
+            82.44,
+            77.97
+          ],
+          [
+            81.37,
+            77.75
+          ],
+          [
+            79.0,
+            76.56
+          ],
+          [
+            78.12,
+            77.93
+          ],
+          [
+            77.66,
+            77.33
+          ],
+          [
+            72.48,
+            75.93
+          ],
+          [
+            72.25,
+            73.85
+          ],
+          [
+            69.16,
+            74.54
+          ],
+          [
+            67.93,
+            77.6
+          ],
+          [
+            65.34,
+            81.7
+          ],
+          [
+            63.83,
+            80.75
+          ],
+          [
+            62.27,
+            81.64
+          ],
+          [
+            60.78,
+            80.62
+          ],
+          [
+            61.62,
+            80.02
+          ],
+          [
+            62.2,
+            78.11
+          ],
+          [
+            63.11,
+            76.34
+          ],
+          [
+            62.88,
+            75.35
+          ],
+          [
+            63.57,
+            74.9
+          ],
+          [
+            63.9,
+            75.67
+          ],
+          [
+            65.87,
+            75.83
+          ],
+          [
+            66.75,
+            75.42
+          ],
+          [
+            66.13,
+            74.86
+          ],
+          [
+            66.36,
+            74.03
+          ],
+          [
+            65.2,
+            72.62
+          ],
+          [
+            64.72,
+            70.3
+          ],
+          [
+            63.5,
+            69.39
+          ],
+          [
+            63.74,
+            67.51
+          ],
+          [
+            62.24,
+            66.01
+          ],
+          [
+            60.87,
+            65.8
+          ],
+          [
+            58.41,
+            64.07
+          ],
+          [
+            56.19,
+            64.62
+          ],
+          [
+            55.4,
+            65.44
+          ],
+          [
+            53.99,
+            65.44
+          ],
+          [
+            53.15,
+            66.74
+          ],
+          [
+            50.69,
+            67.27
+          ],
+          [
+            49.55,
+            68.12
+          ],
+          [
+            48.01,
+            66.77
+          ],
+          [
+            45.87,
+            66.75
+          ],
+          [
+            43.81,
+            66.13
+          ],
+          [
+            42.37,
+            67.32
+          ],
+          [
+            42.14,
+            65.83
+          ],
+          [
+            40.29,
+            64.32
+          ],
+          [
+            40.94,
+            62.08
+          ],
+          [
+            41.86,
+            60.63
+          ],
+          [
+            42.59,
+            60.96
+          ],
+          [
+            41.73,
+            58.46
+          ],
+          [
+            44.76,
+            53.84
+          ],
+          [
+            46.41,
+            53.2
+          ],
+          [
+            46.77,
+            51.64
+          ],
+          [
+            45.09,
+            46.79
+          ],
+          [
+            46.68,
+            46.57
+          ],
+          [
+            48.51,
+            45.06
+          ],
+          [
+            51.09,
+            44.94
+          ],
+          [
+            54.46,
+            45.38
+          ],
+          [
+            58.18,
+            46.71
+          ],
+          [
+            60.81,
+            46.82
+          ],
+          [
+            62.06,
+            47.62
+          ],
+          [
+            63.31,
+            46.66
+          ],
+          [
+            64.18,
+            47.95
+          ],
+          [
+            67.19,
+            47.69
+          ],
+          [
+            68.52,
+            48.22
+          ],
+          [
+            68.73,
+            45.43
+          ],
+          [
+            69.76,
+            44.21
+          ],
+          [
+            72.62,
+            43.88
+          ]
+        ],
+        [
+          [
+            44.95,
+            33.82
+          ],
+          [
+            45.09,
+            36.28
+          ],
+          [
+            46.02,
+            38.39
+          ],
+          [
+            46.0,
+            40.61
+          ],
+          [
+            44.0,
+            41.74
+          ],
+          [
+            45.03,
+            44.31
+          ],
+          [
+            45.09,
+            46.79
+          ],
+          [
+            46.77,
+            51.64
+          ],
+          [
+            46.41,
+            53.2
+          ],
+          [
+            44.76,
+            53.84
+          ],
+          [
+            41.73,
+            58.46
+          ],
+          [
+            42.59,
+            60.96
+          ],
+          [
+            41.86,
+            60.63
+          ],
+          [
+            38.69,
+            58.5
+          ],
+          [
+            36.29,
+            59.28
+          ],
+          [
+            34.72,
+            58.71
+          ],
+          [
+            32.75,
+            59.9
+          ],
+          [
+            31.07,
+            57.94
+          ],
+          [
+            29.7,
+            58.69
+          ],
+          [
+            29.51,
+            58.35
+          ],
+          [
+            27.98,
+            55.62
+          ],
+          [
+            25.5,
+            55.28
+          ],
+          [
+            25.18,
+            53.54
+          ],
+          [
+            22.9,
+            52.92
+          ],
+          [
+            22.4,
+            54.36
+          ],
+          [
+            20.59,
+            53.21
+          ],
+          [
+            20.8,
+            51.68
+          ],
+          [
+            18.3,
+            51.2
+          ],
+          [
+            16.72,
+            49.41
+          ],
+          [
+            15.36,
+            45.86
+          ],
+          [
+            15.62,
+            43.94
+          ],
+          [
+            14.79,
+            40.97
+          ],
+          [
+            13.58,
+            38.99
+          ],
+          [
+            14.51,
+            37.51
+          ],
+          [
+            13.73,
+            34.68
+          ],
+          [
+            16.01,
+            33.05
+          ],
+          [
+            21.21,
+            30.48
+          ],
+          [
+            25.41,
+            28.6
+          ],
+          [
+            28.74,
+            29.54
+          ],
+          [
+            28.99,
+            30.9
+          ],
+          [
+            32.2,
+            30.97
+          ],
+          [
+            36.31,
+            31.6
+          ],
+          [
+            42.44,
+            31.51
+          ],
+          [
+            44.15,
+            32.11
+          ],
+          [
+            44.95,
+            33.82
+          ]
+        ],
+        [
+          [
+            60.59,
+            21.28
+          ],
+          [
+            64.1,
+            22.68
+          ],
+          [
+            64.57,
+            24.06
+          ],
+          [
+            66.32,
+            23.39
+          ],
+          [
+            69.58,
+            24.72
+          ],
+          [
+            69.91,
+            27.32
+          ],
+          [
+            69.19,
+            28.82
+          ],
+          [
+            71.28,
+            32.46
+          ],
+          [
+            72.64,
+            33.47
+          ],
+          [
+            72.44,
+            34.48
+          ],
+          [
+            74.69,
+            35.46
+          ],
+          [
+            75.65,
+            36.94
+          ],
+          [
+            74.35,
+            38.15
+          ],
+          [
+            71.66,
+            37.96
+          ],
+          [
+            71.02,
+            38.48
+          ],
+          [
+            71.8,
+            40.32
+          ],
+          [
+            72.62,
+            43.88
+          ],
+          [
+            72.62,
+            43.88
+          ],
+          [
+            69.76,
+            44.21
+          ],
+          [
+            68.73,
+            45.43
+          ],
+          [
+            68.52,
+            48.22
+          ],
+          [
+            67.19,
+            47.69
+          ],
+          [
+            64.18,
+            47.95
+          ],
+          [
+            63.31,
+            46.66
+          ],
+          [
+            62.06,
+            47.62
+          ],
+          [
+            60.81,
+            46.82
+          ],
+          [
+            58.18,
+            46.71
+          ],
+          [
+            54.46,
+            45.38
+          ],
+          [
+            51.09,
+            44.94
+          ],
+          [
+            48.51,
+            45.06
+          ],
+          [
+            46.68,
+            46.57
+          ],
+          [
+            45.09,
+            46.79
+          ],
+          [
+            45.03,
+            44.31
+          ],
+          [
+            44.0,
+            41.74
+          ],
+          [
+            46.0,
+            40.61
+          ],
+          [
+            46.02,
+            38.39
+          ],
+          [
+            45.09,
+            36.28
+          ],
+          [
+            44.95,
+            33.82
+          ],
+          [
+            48.17,
+            33.86
+          ],
+          [
+            51.79,
+            31.76
+          ],
+          [
+            52.56,
+            28.63
+          ],
+          [
+            55.29,
+            26.85
+          ],
+          [
+            54.98,
+            24.36
+          ],
+          [
+            57.01,
+            23.43
+          ],
+          [
+            60.59,
+            21.28
+          ]
+        ],
+        [
+          [
+            60.78,
+            80.62
+          ],
+          [
+            62.27,
+            81.64
+          ],
+          [
+            63.83,
+            80.75
+          ],
+          [
+            65.34,
+            81.7
+          ],
+          [
+            65.42,
+            83.14
+          ],
+          [
+            63.81,
+            84.33
+          ],
+          [
+            62.79,
+            83.81
+          ],
+          [
+            61.86,
+            90.51
+          ],
+          [
+            59.9,
+            89.93
+          ],
+          [
+            57.47,
+            87.91
+          ],
+          [
+            53.55,
+            89.2
+          ],
+          [
+            51.9,
+            90.62
+          ],
+          [
+            47.0,
+            90.33
+          ],
+          [
+            44.44,
+            89.46
+          ],
+          [
+            43.15,
+            89.87
+          ],
+          [
+            42.19,
+            87.58
+          ],
+          [
+            41.58,
+            86.62
+          ],
+          [
+            42.35,
+            85.68
+          ],
+          [
+            41.53,
+            84.99
+          ],
+          [
+            40.48,
+            86.23
+          ],
+          [
+            38.54,
+            84.62
+          ],
+          [
+            38.28,
+            82.33
+          ],
+          [
+            36.25,
+            81.02
+          ],
+          [
+            35.87,
+            79.25
+          ],
+          [
+            34.07,
+            77.07
+          ],
+          [
+            36.74,
+            76.02
+          ],
+          [
+            38.76,
+            72.25
+          ],
+          [
+            40.33,
+            68.49
+          ],
+          [
+            42.37,
+            67.32
+          ],
+          [
+            43.81,
+            66.13
+          ],
+          [
+            45.87,
+            66.75
+          ],
+          [
+            48.01,
+            66.77
+          ],
+          [
+            49.55,
+            68.12
+          ],
+          [
+            50.69,
+            67.27
+          ],
+          [
+            53.15,
+            66.74
+          ],
+          [
+            53.99,
+            65.44
+          ],
+          [
+            55.4,
+            65.44
+          ],
+          [
+            56.41,
+            65.98
+          ],
+          [
+            57.45,
+            67.63
+          ],
+          [
+            58.5,
+            69.97
+          ],
+          [
+            60.43,
+            73.28
+          ],
+          [
+            60.53,
+            75.71
+          ],
+          [
+            60.18,
+            78.09
+          ],
+          [
+            60.78,
+            80.62
+          ]
+        ],
+        [
+          [
+            13.73,
+            34.68
+          ],
+          [
+            14.51,
+            37.51
+          ],
+          [
+            13.58,
+            38.99
+          ],
+          [
+            14.79,
+            40.97
+          ],
+          [
+            15.62,
+            43.94
+          ],
+          [
+            15.36,
+            45.86
+          ],
+          [
+            16.72,
+            49.41
+          ],
+          [
+            15.24,
+            49.99
+          ],
+          [
+            14.36,
+            49.35
+          ],
+          [
+            13.52,
+            50.41
+          ],
+          [
+            11.13,
+            51.48
+          ],
+          [
+            9.89,
+            52.87
+          ],
+          [
+            7.47,
+            54.08
+          ],
+          [
+            8.05,
+            55.73
+          ],
+          [
+            8.4,
+            58.07
+          ],
+          [
+            10.1,
+            59.41
+          ],
+          [
+            11.99,
+            61.79
+          ],
+          [
+            10.81,
+            64.35
+          ],
+          [
+            9.61,
+            65.06
+          ],
+          [
+            10.09,
+            68.68
+          ],
+          [
+            9.78,
+            69.62
+          ],
+          [
+            8.74,
+            68.49
+          ],
+          [
+            7.14,
+            68.32
+          ],
+          [
+            4.75,
+            69.31
+          ],
+          [
+            1.82,
+            69.08
+          ],
+          [
+            1.34,
+            70.54
+          ],
+          [
+            0.5,
+            69.0
+          ],
+          [
+            0.5,
+            69.31
+          ],
+          [
+            0.5,
+            67.61
+          ],
+          [
+            0.5,
+            33.22
+          ],
+          [
+            0.5,
+            31.14
+          ],
+          [
+            0.5,
+            27.98
+          ],
+          [
+            0.5,
+            28.72
+          ],
+          [
+            0.5,
+            27.87
+          ],
+          [
+            0.5,
+            30.02
+          ],
+          [
+            3.17,
+            31.31
+          ],
+          [
+            3.13,
+            33.29
+          ],
+          [
+            6.52,
+            32.24
+          ],
+          [
+            8.39,
+            30.72
+          ],
+          [
+            12.16,
+            32.91
+          ],
+          [
+            13.73,
+            34.68
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Warsaw",
+          "x": 48.0,
+          "y": 40.0
+        },
+        {
+          "name": "Kyiv",
+          "x": 64.0,
+          "y": 44.0
+        },
+        {
+          "name": "Bucharest",
+          "x": 60.0,
+          "y": 62.0
+        },
+        {
+          "name": "Baltic",
+          "x": 46.0,
+          "y": 20.0
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,182 @@
+/*
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* ============================================================
+   Genesis — component classes
+   Depends on tokens.uss being loaded first (via Genesis.tss)
+   ============================================================ */
+
+/* ---- Layout helpers --------------------------------------- */
+
+.screen {
+    flex-grow: 1;
+}
+
+/* ---- Glass surface ---------------------------------------- */
+
+.glass {
+    background-color: #111A2BDB;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-radius: 20px;
+}
+
+/* ---- Card ------------------------------------------------- */
+
+.card {
+    background-color: #17233A;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-radius: 16px;
+    padding: 16px;
+    flex-shrink: 0;
+}
+
+.card--selected {
+    border-width: 3px;
+    border-color: #F5A524;
+}
+
+/* ---- Chip ------------------------------------------------- */
+
+.chip {
+    background-color: #17233A;
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+    align-self: flex-start;
+    font-size: 22px;
+    color: #A9B3C4;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.chip--gain {
+    background-color: rgba(63, 185, 122, 0.16);
+    color: #3FB97A;
+    border-color: rgba(63, 185, 122, 0.35);
+}
+
+.chip--cost {
+    background-color: rgba(229, 83, 75, 0.16);
+    color: #E5534B;
+    border-color: rgba(229, 83, 75, 0.35);
+}
+
+.chip--warn {
+    background-color: rgba(245, 165, 36, 0.16);
+    color: #F5A524;
+    border-color: rgba(245, 165, 36, 0.35);
+}
+
+/* ---- Buttons ---------------------------------------------- */
+
+.btn {
+    border-width: 0;
+    border-radius: 16px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition-duration: 0.12s;
+}
+
+.btn--primary {
+    background-color: #F5A524;
+    height: 112px;
+    border-radius: 16px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.btn--primary > Label {
+    color: #1A1206;
+    font-size: 32px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.btn--secondary {
+    background-color: #17233A;
+    height: 88px;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+}
+
+.btn--secondary > Label {
+    color: #F2EFE6;
+    font-size: 30px;
+}
+
+.btn:active {
+    scale: 0.97 0.97;
+}
+
+/* ---- Typography labels ------------------------------------ */
+
+.label-title {
+    font-size: 36px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.label-body {
+    font-size: 30px;
+    color: #F2EFE6;
+    white-space: normal;
+}
+
+.label-caption {
+    font-size: 26px;
+    color: #A9B3C4;
+}
+
+.label-muted {
+    font-size: 26px;
+    color: #6E7A8F;
+}
+
+/* ---- Meter bar -------------------------------------------- */
+
+.meter {
+    height: 8px;
+    background-color: #17233A;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter__fill {
+    flex-grow: 0;
+    height: 8px;
+    background-color: #F5A524;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+}
+
+/* ---- Bottom sheet ----------------------------------------- */
+
+.sheet {
+    background-color: #111A2BDB;
+    border-width: 1px;
+    border-color: #FFFFFF14;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 24px;
+}
+
+/* ---- Divider ---------------------------------------------- */
+
+.divider {
+    height: 1px;
+    background-color: #FFFFFF14;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}

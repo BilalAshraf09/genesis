@@ -1,0 +1,77 @@
+{
+  "theaters": [
+    {
+      "theaterId": "hist-1947-radcliffe",
+      "places": [
+        { "markerId": "loc",       "label": "Punjab (Lahore\u2013Amritsar)", "lat": 31.60, "lon": 74.60, "kind": "flashpoint" },
+        { "markerId": "capital_a", "label": "Delhi",                         "lat": 28.61, "lon": 77.21, "kind": "capital"    },
+        { "markerId": "capital_b", "label": "Karachi",                       "lat": 24.86, "lon": 67.01, "kind": "capital"    },
+        { "markerId": "valley",    "label": "Kashmir (Srinagar)",             "lat": 34.08, "lon": 74.80, "kind": "hotspot"    },
+        { "markerId": "media",     "label": "Bengal (Calcutta)",              "lat": 22.57, "lon": 88.36, "kind": "city"       },
+        { "markerId": "third",     "label": "Hyderabad (princely state)",     "lat": 17.39, "lon": 78.49, "kind": "region"     }
+      ],
+      "countries": [
+        { "name": "INDIA",        "lat": 22.50, "lon": 79.00 },
+        { "name": "PAKISTAN",     "lat": 29.50, "lon": 69.50 },
+        { "name": "EAST PAKISTAN","lat": 24.00, "lon": 90.30 },
+        { "name": "TIBET",        "lat": 31.50, "lon": 88.00 },
+        { "name": "AFGHANISTAN",  "lat": 33.00, "lon": 65.00 }
+      ],
+      "extraCities": [
+        { "label": "Lahore",           "lat": 31.55, "lon": 74.34 },
+        { "label": "Amritsar",         "lat": 31.63, "lon": 74.87 },
+        { "label": "Bombay (Mumbai)",  "lat": 18.96, "lon": 72.82 },
+        { "label": "Madras (Chennai)", "lat": 13.08, "lon": 80.27 },
+        { "label": "Dacca (Dhaka)",    "lat": 23.72, "lon": 90.41 }
+      ]
+    },
+    {
+      "theaterId": "hist-1962-cuba",
+      "places": [
+        { "markerId": "capital", "label": "Havana",                      "lat": 23.11, "lon": -82.37, "kind": "capital"   },
+        { "markerId": "port",    "label": "Mariel (Soviet ships)",        "lat": 23.02, "lon": -82.75, "kind": "city"      },
+        { "markerId": "plaza",   "label": "San Crist\u00f3bal missile sites", "lat": 22.72, "lon": -83.05, "kind": "flashpoint" },
+        { "markerId": "imf",     "label": "Key West (US)",                "lat": 24.55, "lon": -81.78, "kind": "city"      },
+        { "markerId": "farm",    "label": "Quarantine line",              "lat": 24.00, "lon": -74.50, "kind": "flashpoint" },
+        { "markerId": "court",   "label": "Guant\u00e1namo Bay",          "lat": 19.91, "lon": -75.15, "kind": "hotspot"   }
+      ],
+      "countries": [
+        { "name": "CUBA",          "lat": 21.80, "lon": -79.50 },
+        { "name": "UNITED STATES", "lat": 30.50, "lon": -88.00 },
+        { "name": "MEXICO",        "lat": 21.00, "lon": -98.00 },
+        { "name": "BAHAMAS",       "lat": 24.50, "lon": -77.50 },
+        { "name": "HAITI",         "lat": 19.00, "lon": -72.50 }
+      ],
+      "extraCities": [
+        { "label": "Miami",            "lat": 25.77, "lon": -80.19 },
+        { "label": "Santiago de Cuba", "lat": 20.02, "lon": -75.82 },
+        { "label": "Nassau",           "lat": 25.08, "lon": -77.34 }
+      ]
+    },
+    {
+      "theaterId": "hist-1989-wall",
+      "places": [
+        { "markerId": "capital",    "label": "East Berlin",                    "lat": 52.52, "lon": 13.40, "kind": "capital"   },
+        { "markerId": "brussels",   "label": "Bonn (West German capital)",     "lat": 50.73, "lon":  7.10, "kind": "city"      },
+        { "markerId": "parliament", "label": "Leipzig (Monday demonstrations)", "lat": 51.34, "lon": 12.37, "kind": "city"      },
+        { "markerId": "streets",    "label": "Checkpoint Charlie (Berlin)",    "lat": 52.51, "lon": 13.39, "kind": "flashpoint" },
+        { "markerId": "districts",  "label": "Inner German border (Helmstedt)","lat": 52.23, "lon": 11.01, "kind": "hotspot"   },
+        { "markerId": "ballot",     "label": "Dresden",                        "lat": 51.05, "lon": 13.74, "kind": "city"      }
+      ],
+      "countries": [
+        { "name": "WEST GERMANY",   "lat": 50.50, "lon":  8.80 },
+        { "name": "EAST GERMANY",   "lat": 52.00, "lon": 12.50 },
+        { "name": "POLAND",         "lat": 52.00, "lon": 18.00 },
+        { "name": "CZECHOSLOVAKIA", "lat": 49.50, "lon": 15.00 },
+        { "name": "DENMARK",        "lat": 55.60, "lon":  9.50 },
+        { "name": "NETHERLANDS",    "lat": 52.30, "lon":  5.30 }
+      ],
+      "extraCities": [
+        { "label": "Hamburg",   "lat": 53.55, "lon":  9.99 },
+        { "label": "Munich",    "lat": 48.14, "lon": 11.58 },
+        { "label": "Prague",    "lat": 50.08, "lon": 14.43 },
+        { "label": "Frankfurt", "lat": 50.11, "lon":  8.68 }
+      ]
+    }
+  ]
+}

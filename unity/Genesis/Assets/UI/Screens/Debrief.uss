@@ -1,0 +1,181 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* Debrief.uss — Night Atlas phase debrief card.
+   Slides up from the bottom over the live map. Map stays visible above the card.
+   Max card height ~62 % of panel; long content scrolls inside.
+   Typography: body ≥ 28 px, titles ≥ 36 px, button ≥ 32 px (1080×1920 ref).
+*/
+
+/* ── Layout helpers ──────────────────────────────────────────────────────── */
+
+.screen-fill {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ── Overlay (full-screen, non-interactive container) ─────────────────────── */
+
+.debrief-overlay {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.debrief-map-spacer {
+    flex-grow: 1;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+
+.debrief-card {
+    flex-direction: column;
+    flex-shrink: 0;
+    max-height: 62%;
+    background-color: rgba(17, 26, 43, 0.96);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0;
+    border-color: rgba(255, 255, 255, 0.08);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 20px;
+    padding-bottom: 24px;
+    /* Slide-up animation: start off-screen, card-visible moves it to 0 */
+    translate: 0 2000px;
+    transition-duration: 0.35s;
+}
+
+.debrief-card.card-visible {
+    translate: 0 0;
+}
+
+/* ── Phase kicker ────────────────────────────────────────────────────────── */
+
+.debrief-phase-title {
+    font-size: 26px;
+    color: rgba(169, 179, 196, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+/* ── Scroll view ─────────────────────────────────────────────────────────── */
+
+.debrief-scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin-bottom: 16px;
+}
+
+/* ── Section labels ("WHAT YOU DID", "IN HISTORY") ──────────────────────── */
+
+.debrief-section-label {
+    font-size: 22px;
+    color: rgba(110, 122, 143, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    flex-shrink: 0;
+}
+
+/* ── What you did ─────────────────────────────────────────────────────────── */
+
+.debrief-order-title {
+    font-size: 36px;
+    color: rgba(245, 165, 36, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 8px;
+    white-space: normal;
+    flex-shrink: 0;
+}
+
+.debrief-order-detail {
+    font-size: 28px;
+    color: rgba(242, 239, 230, 1);
+    white-space: normal;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+/* ── Effect chips row ─────────────────────────────────────────────────────── */
+
+.debrief-chips {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.debrief-chip {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/* ── History section ──────────────────────────────────────────────────────── */
+
+.debrief-history-title {
+    color: rgba(245, 165, 36, 1);
+    margin-top: 4px;
+}
+
+.debrief-history-text {
+    font-size: 28px;
+    color: rgba(169, 179, 196, 1);
+    white-space: normal;
+    margin-bottom: 12px;
+    flex-shrink: 0;
+}
+
+/* ── Atlas discovery chip ─────────────────────────────────────────────────── */
+
+.debrief-atlas-chip {
+    font-size: 26px;
+    color: rgba(63, 185, 122, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    background-color: rgba(63, 185, 122, 0.14);
+    border-radius: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 8px;
+    align-self: flex-start;
+    flex-shrink: 0;
+}
+
+/* ── Next / After Action button ───────────────────────────────────────────── */
+
+.debrief-next-btn {
+    flex-shrink: 0;
+    height: 96px;
+    background-color: rgba(245, 165, 36, 1);
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.12s;
+}
+
+.debrief-next-btn > Label {
+    font-size: 32px;
+    color: rgba(26, 18, 6, 1);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.debrief-next-btn:active {
+    scale: 0.97 0.97;
+}

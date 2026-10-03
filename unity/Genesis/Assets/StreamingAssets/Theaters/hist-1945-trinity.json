@@ -1,0 +1,1518 @@
+{
+  "scenario": {
+    "id": "hist-1945-trinity",
+    "year": 1945,
+    "era": "1939\u20131945",
+    "title": "Trinity Choice",
+    "region": "Pacific endgame \u00b7 Allied high command",
+    "meterFamily": "conflict",
+    "theaterArchetype": "pacific",
+    "premise": "With Germany defeated and Japan still fighting, you advise on invasion plans, blockade, Soviet entry timing, and whether to use a new weapon that will redefine warfare.",
+    "role": "Senior civilian counselor to the war cabinet",
+    "tension": "End the war quickly without normalizing annihilation as ordinary policy.",
+    "beats": [
+      {
+        "id": "hist-1945-1",
+        "title": "Invasion versus strangulation",
+        "briefing": "Staffs present Olympic-scale invasion casualties versus a prolonged blockade and bombardment.",
+        "stakes": "Speed and body counts trade against each other.",
+        "choices": [
+          {
+            "id": "hist-1945-1a",
+            "label": "Authorize invasion planning as primary path",
+            "detail": "Prepare the landing.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "INVADE",
+            "callsign": "AUTHORIZE INVASION",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Massive campaign"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "High toll likely"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Shows will"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-1b",
+            "label": "Prioritize blockade and precision bombardment",
+            "detail": "Starve the war machine.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "BLOCK",
+            "callsign": "PRIORITIZE BLOCKADE",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeezes supply"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Longer war"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Hunger spreads"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-1c",
+            "label": "Delay choice; maximize diplomatic surrender track",
+            "detail": "Clarify emperor status terms.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "TERMS",
+            "callsign": "DELAY CHOICE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Off-ramp language"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Talks window"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks soft to hawks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-2",
+        "title": "Soviet timetable",
+        "briefing": "Allies ask whether to encourage early Soviet entry into the Pacific war.",
+        "stakes": "Another front ends fighting faster\u2014and redraws the postwar map.",
+        "choices": [
+          {
+            "id": "hist-1945-2a",
+            "label": "Urge early Soviet entry",
+            "detail": "Pressure from north.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "SOVIET",
+            "callsign": "URGE EARLY",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "New front"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Coalition utility"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Postwar leverage lost"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-2b",
+            "label": "Keep Soviet entry limited and late",
+            "detail": "Minimize postwar claims.",
+            "kind": "political",
+            "markerId": "cable",
+            "short": "LIMITSV",
+            "callsign": "KEEP SOVIET",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Map control"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Slower end"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Friction"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-2c",
+            "label": "Trade European concessions for Pacific restraint",
+            "detail": "Grand bargain.",
+            "kind": "diplomatic",
+            "markerId": "fleet",
+            "short": "TRADE",
+            "callsign": "TRADE EUROPEAN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Package deal"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Spheres logic"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If accepted"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-3",
+        "title": "Weapon decision",
+        "briefing": "Scientists confirm a usable device. Options: demonstration on empty terrain, use on a military-industrial city, or withhold while invasion prep continues.",
+        "stakes": "A demonstration may fail; use may succeed and haunt.",
+        "choices": [
+          {
+            "id": "hist-1945-3a",
+            "label": "Authorize use against a military-industrial target",
+            "detail": "Shock to compel surrender.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "USE",
+            "callsign": "AUTHORIZE USE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "New warfare tier"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 3,
+                "summary": "Mass harm"
+              },
+              {
+                "tag": "time",
+                "weight": -2,
+                "summary": "May end war fast"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-3b",
+            "label": "Order an observed demonstration first",
+            "detail": "Prove capability without a city.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "DEMO",
+            "callsign": "ORDER AN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Shows power"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Surrender space"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "If ignored, delay"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-3c",
+            "label": "Withhold; continue conventional pressure",
+            "detail": "Keep the taboo intact.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "WITHHOLD",
+            "callsign": "WITHHOLD CONTINUE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 3,
+                "summary": "Taboo held"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Conventional toll"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "War continues"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-4",
+        "title": "Surrender terms",
+        "briefing": "Tokyo probes about the throne and occupation. Maximal terms may prolong fighting; soft terms may look like wasted sacrifice.",
+        "stakes": "The end must also begin the occupation.",
+        "choices": [
+          {
+            "id": "hist-1945-4a",
+            "label": "Allow conditional throne retention under occupation",
+            "detail": "Institutional continuity.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "THRONE",
+            "callsign": "ALLOW CONDITIONAL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Faster end"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Hawks angry"
+              },
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Occupation smoother"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-4b",
+            "label": "Insist on unconditional terms only",
+            "detail": "No bargains.",
+            "kind": "political",
+            "markerId": "fleet",
+            "short": "UNCOND",
+            "callsign": "INSIST ON",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Hard victory"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "May prolong"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "More fighting"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-4c",
+            "label": "Internationalize occupation authority",
+            "detail": "Share control with allies.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "SHARE",
+            "callsign": "INTERNATIONALIZE OCCUPATION",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared burden"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Coordination friction"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Multilateral face"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-5",
+        "title": "Casualty estimate shock",
+        "briefing": "Invasion planners produce numbers that stun the cabinet. Alternatives\u2014blockade, bombardment, demonstration\u2014carry their own moral and strategic costs.",
+        "stakes": "Arithmetic forces doctrine.",
+        "choices": [
+          {
+            "id": "hist-1945-5a",
+            "label": "Order a comparative options paper with civilian effects",
+            "detail": "Force a full ledger.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "LEDGER2",
+            "callsign": "ORDER A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Serious process"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Deliberation"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Room for counsel"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-5b",
+            "label": "Accept invasion as baseline and accelerate preparations",
+            "detail": "Commit to the costly path.",
+            "kind": "kinetic",
+            "markerId": "fleet",
+            "short": "INVBASE",
+            "callsign": "ACCEPT INVASION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Conventional pressure"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Projected toll"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Operation locks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-5c",
+            "label": "Elevate strangulation blockade as primary",
+            "detail": "Time and hunger as weapons.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "STRANGLE",
+            "callsign": "ELEVATE STRANGULATION",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Siege logic"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 3,
+                "summary": "Famine risk"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slow end"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-6",
+        "title": "Scientist petition politics",
+        "briefing": "Petitions urge demonstration or delay. Military secrecy boards want silence. Leaks could panic allies\u2014or force a better debate.",
+        "stakes": "Expertise enters the war room as politics.",
+        "choices": [
+          {
+            "id": "hist-1945-6a",
+            "label": "Convene a closed advisory panel including dissenters",
+            "detail": "Institutionalize argument.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "PANEL",
+            "callsign": "CONVENE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Due diligence"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Deliberation"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Civilian input"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-6b",
+            "label": "Suppress petitions under wartime secrecy rules",
+            "detail": "Ops security first.",
+            "kind": "legal",
+            "markerId": "cable",
+            "short": "SUPPRESS",
+            "callsign": "SUPPRESS PETITIONS",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Surprise preserved"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Speech chill"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Later backlash"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-6c",
+            "label": "Leak a framed \u201cdemonstration option\u201d to test reaction",
+            "detail": "Trial balloon.",
+            "kind": "civic",
+            "markerId": "island",
+            "short": "BALLOON",
+            "callsign": "LEAK A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Signals restraint option"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Manipulation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Allies surprised"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-7",
+        "title": "Soviet timetable ask",
+        "briefing": "Allies want clarity on entry timing and occupation zones. Sharing the weapon secret could shape Yalta follow-through\u2014or accelerate a race.",
+        "stakes": "Secrecy versus coalition management.",
+        "choices": [
+          {
+            "id": "hist-1945-7a",
+            "label": "Brief the ally at leadership level only",
+            "detail": "Minimal necessary share.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "BRIEF2",
+            "callsign": "BRIEF THE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Trust gesture"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Coordination"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Race risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-7b",
+            "label": "Keep the weapon secret; coordinate conventional only",
+            "detail": "Compartments hold.",
+            "kind": "political",
+            "markerId": "cable",
+            "short": "SECRET",
+            "callsign": "KEEP THE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Surprise kept"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Later resentment"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Independent clock"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-7c",
+            "label": "Trade zone understandings for earlier Soviet entry",
+            "detail": "Bargaining chip.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "ZONES",
+            "callsign": "TRADE ZONE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Map deal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Faster northern war"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "More fronts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-8",
+        "title": "Targeting information fog",
+        "briefing": "Target folders mix military value, psychological shock, and civilian density. Weather and intelligence gaps remain.",
+        "stakes": "Choosing a city is choosing a doctrine.",
+        "choices": [
+          {
+            "id": "hist-1945-8a",
+            "label": "Prioritize purely military-industrial nodes if feasible",
+            "detail": "Narrow the moral blast.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "MILNODE",
+            "callsign": "PRIORITIZE PURELY",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Relative restraint"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Still devastating"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Discrimination claim"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-8b",
+            "label": "Accept psychological-shock targeting criteria",
+            "detail": "End the war faster by terror calculus.",
+            "kind": "kinetic",
+            "markerId": "capital_a",
+            "short": "SHOCK",
+            "callsign": "ACCEPT PSYCHOLOGICAL",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Annihilation norm"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 3,
+                "summary": "Mass harm"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Postwar stain"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-8c",
+            "label": "Require a weather-and-verify abort authority",
+            "detail": "Give aircrews a brake.",
+            "kind": "naval",
+            "markerId": "fleet",
+            "short": "ABORT",
+            "callsign": "REQUIRE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Control retained"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "May delay"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less certainty"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-9",
+        "title": "Surrender-terms window",
+        "briefing": "A clarification on emperor status might unlock capitulation\u2014or prolong fighting if read as weakness. Your note is the off-ramp.",
+        "stakes": "Words can spare cities or lose them.",
+        "choices": [
+          {
+            "id": "hist-1945-9a",
+            "label": "Clarify that the imperial institution can survive under reform",
+            "detail": "Narrow dignity path.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "EMPEROR",
+            "callsign": "CLARIFY THAT",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Surrender likelier"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Hardliners mad"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "War may end"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-9b",
+            "label": "Refuse any clarification; keep unconditional absolute",
+            "detail": "No ambiguity.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "ABSOLUTE",
+            "callsign": "REFUSE ANY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard clarity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Harder exit"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Fight continues"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-9c",
+            "label": "Offer clarification only after a demonstration shot",
+            "detail": "Shock then bargain.",
+            "kind": "kinetic",
+            "markerId": "island",
+            "short": "DEMO",
+            "callsign": "OFFER CLARIFICATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Proof of power"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Still a nuclear use"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Follow-on talk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1945-10",
+        "title": "Post-use doctrine endgame",
+        "briefing": "Cabinet asks how to describe the weapon afterward: exclusive deterrent, international control push, or normalized tool.",
+        "stakes": "Narrative after Trinity shapes the nuclear age.",
+        "choices": [
+          {
+            "id": "hist-1945-10a",
+            "label": "Propose international scientific control talks",
+            "detail": "Share the burden of the genie.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "INTLCTL",
+            "callsign": "PROPOSE INTERNATIONAL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Control agenda"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Anti-prolif seed"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Exclusive edge softens"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-10b",
+            "label": "Keep exclusive national deterrent doctrine",
+            "detail": "Monopoly as peace.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "MONOPOLY",
+            "callsign": "KEEP EXCLUSIVE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 3,
+                "summary": "Unique threat"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Allies uneasy"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Arms race seed"
+              }
+            ]
+          },
+          {
+            "id": "hist-1945-10c",
+            "label": "Classify nearly everything; defer doctrine a year",
+            "detail": "Silence first.",
+            "kind": "political",
+            "markerId": "capital_b",
+            "short": "DEFER",
+            "callsign": "CLASSIFY NEARLY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Delay debate"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Policy fog"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "No public rules"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "pacific-japan",
+    "scenarioId": "hist-1945-trinity",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#061E2C",
+    "land": "#1A3834",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "Japan \u00b7 Pacific (Natural Earth)",
+      "water": "#061E2C",
+      "land": "#1A3834",
+      "landHi": "#2A4844",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            67.54,
+            44.1
+          ],
+          [
+            63.84,
+            49.13
+          ],
+          [
+            63.91,
+            54.29
+          ],
+          [
+            62.4,
+            58.28
+          ],
+          [
+            63.1,
+            60.79
+          ],
+          [
+            61.01,
+            64.31
+          ],
+          [
+            55.9,
+            66.66
+          ],
+          [
+            48.87,
+            66.97
+          ],
+          [
+            43.17,
+            72.68
+          ],
+          [
+            40.48,
+            70.75
+          ],
+          [
+            40.32,
+            67.02
+          ],
+          [
+            33.36,
+            68.12
+          ],
+          [
+            28.63,
+            70.48
+          ],
+          [
+            23.94,
+            70.57
+          ],
+          [
+            28.0,
+            74.25
+          ],
+          [
+            25.33,
+            82.75
+          ],
+          [
+            22.75,
+            84.85
+          ],
+          [
+            20.81,
+            82.91
+          ],
+          [
+            21.79,
+            78.4
+          ],
+          [
+            19.26,
+            76.95
+          ],
+          [
+            17.63,
+            73.52
+          ],
+          [
+            21.42,
+            71.98
+          ],
+          [
+            23.51,
+            68.84
+          ],
+          [
+            27.54,
+            66.25
+          ],
+          [
+            30.47,
+            62.83
+          ],
+          [
+            38.43,
+            61.34
+          ],
+          [
+            42.71,
+            62.36
+          ],
+          [
+            46.9,
+            53.48
+          ],
+          [
+            49.56,
+            55.86
+          ],
+          [
+            55.43,
+            50.86
+          ],
+          [
+            57.71,
+            48.92
+          ],
+          [
+            60.22,
+            42.81
+          ],
+          [
+            59.53,
+            37.18
+          ],
+          [
+            61.22,
+            34.02
+          ],
+          [
+            65.48,
+            33.11
+          ],
+          [
+            67.66,
+            40.04
+          ],
+          [
+            67.54,
+            44.1
+          ]
+        ],
+        [
+          [
+            22.56,
+            28.02
+          ],
+          [
+            22.56,
+            28.02
+          ],
+          [
+            23.12,
+            28.9
+          ],
+          [
+            21.6,
+            28.6
+          ],
+          [
+            19.86,
+            30.29
+          ],
+          [
+            18.67,
+            31.99
+          ],
+          [
+            18.82,
+            35.59
+          ],
+          [
+            16.75,
+            36.69
+          ],
+          [
+            16.04,
+            37.57
+          ],
+          [
+            14.53,
+            39.05
+          ],
+          [
+            11.87,
+            39.87
+          ],
+          [
+            10.13,
+            41.22
+          ],
+          [
+            10.01,
+            43.38
+          ],
+          [
+            9.54,
+            43.93
+          ],
+          [
+            11.13,
+            44.75
+          ],
+          [
+            13.4,
+            46.94
+          ],
+          [
+            12.82,
+            48.15
+          ],
+          [
+            11.12,
+            48.48
+          ],
+          [
+            8.29,
+            48.72
+          ],
+          [
+            6.73,
+            50.98
+          ],
+          [
+            4.95,
+            50.8
+          ],
+          [
+            4.7,
+            51.25
+          ],
+          [
+            2.76,
+            50.3
+          ],
+          [
+            2.27,
+            51.24
+          ],
+          [
+            1.1,
+            51.65
+          ],
+          [
+            0.96,
+            50.71
+          ],
+          [
+            0.5,
+            50.26
+          ],
+          [
+            0.5,
+            49.46
+          ],
+          [
+            0.5,
+            47.26
+          ],
+          [
+            0.89,
+            46.67
+          ],
+          [
+            0.53,
+            45.76
+          ],
+          [
+            1.55,
+            43.06
+          ],
+          [
+            1.28,
+            42.24
+          ],
+          [
+            0.5,
+            41.7
+          ],
+          [
+            0.5,
+            40.36
+          ],
+          [
+            0.5,
+            37.15
+          ],
+          [
+            4.73,
+            34.46
+          ],
+          [
+            7.48,
+            30.92
+          ],
+          [
+            9.38,
+            32.48
+          ],
+          [
+            12.83,
+            32.67
+          ],
+          [
+            12.21,
+            30.03
+          ],
+          [
+            18.39,
+            27.88
+          ],
+          [
+            19.98,
+            25.07
+          ],
+          [
+            22.56,
+            28.02
+          ]
+        ],
+        [
+          [
+            78.45,
+            20.2
+          ],
+          [
+            81.28,
+            18.08
+          ],
+          [
+            82.17,
+            23.69
+          ],
+          [
+            76.24,
+            25.06
+          ],
+          [
+            72.74,
+            30.02
+          ],
+          [
+            66.45,
+            26.61
+          ],
+          [
+            64.27,
+            32.08
+          ],
+          [
+            59.82,
+            32.15
+          ],
+          [
+            59.27,
+            27.18
+          ],
+          [
+            61.25,
+            23.33
+          ],
+          [
+            65.52,
+            23.06
+          ],
+          [
+            66.69,
+            16.14
+          ],
+          [
+            67.87,
+            12.24
+          ],
+          [
+            72.57,
+            17.45
+          ],
+          [
+            75.64,
+            19.13
+          ],
+          [
+            78.45,
+            20.2
+          ]
+        ],
+        [
+          [
+            4.7,
+            51.25
+          ],
+          [
+            4.95,
+            50.8
+          ],
+          [
+            6.73,
+            50.98
+          ],
+          [
+            8.29,
+            48.72
+          ],
+          [
+            11.12,
+            48.48
+          ],
+          [
+            12.82,
+            48.15
+          ],
+          [
+            13.4,
+            46.94
+          ],
+          [
+            16.85,
+            52.84
+          ],
+          [
+            17.84,
+            56.08
+          ],
+          [
+            17.87,
+            61.84
+          ],
+          [
+            16.37,
+            64.59
+          ],
+          [
+            12.74,
+            65.55
+          ],
+          [
+            9.55,
+            67.62
+          ],
+          [
+            5.94,
+            68.05
+          ],
+          [
+            5.5,
+            65.33
+          ],
+          [
+            6.24,
+            61.58
+          ],
+          [
+            4.47,
+            56.37
+          ],
+          [
+            7.44,
+            55.53
+          ],
+          [
+            4.7,
+            51.25
+          ]
+        ],
+        [
+          [
+            29.48,
+            72.68
+          ],
+          [
+            31.7,
+            69.7
+          ],
+          [
+            33.97,
+            70.28
+          ],
+          [
+            35.62,
+            68.18
+          ],
+          [
+            38.55,
+            69.25
+          ],
+          [
+            39.07,
+            70.97
+          ],
+          [
+            36.81,
+            73.99
+          ],
+          [
+            35.17,
+            72.39
+          ],
+          [
+            33.12,
+            73.55
+          ],
+          [
+            32.06,
+            76.48
+          ],
+          [
+            29.45,
+            75.05
+          ],
+          [
+            29.48,
+            72.68
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Tokyo",
+          "x": 68.0,
+          "y": 34.0
+        },
+        {
+          "name": "Hiroshima",
+          "x": 52.0,
+          "y": 54.0
+        },
+        {
+          "name": "Nagasaki",
+          "x": 48.0,
+          "y": 68.0
+        },
+        {
+          "name": "Okinawa",
+          "x": 44.0,
+          "y": 86.0
+        }
+      ]
+    }
+  }
+}

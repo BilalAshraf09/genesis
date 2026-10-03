@@ -1,0 +1,166 @@
+{
+  "theaterId": "hist-1962-cuba",
+  "regionName": "Caribbean \u2014 Cuban Missile Crisis, 1962",
+  "placeFacts": [
+    {
+      "markerId": "capital",
+      "fact": "Havana is Cuba\u2019s capital. In October 1962 it coordinated Soviet-Cuban military strategy during the world\u2019s closest nuclear confrontation, lasting 13 days."
+    },
+    {
+      "markerId": "port",
+      "fact": "Mariel, 45 km west of Havana, received Soviet cargo ships in 1962. Vessels delivered missiles and military equipment under the guise of civilian trade."
+    },
+    {
+      "markerId": "plaza",
+      "fact": "San Crist\u00f3bal in western Cuba hosted SS-4 medium-range missile sites, photographed by a U-2 spy plane on 14 October 1962\u2014triggering the crisis."
+    },
+    {
+      "markerId": "imf",
+      "fact": "Key West, 150 km north of Cuba, is the closest US territory to the missile sites. US forces staged here as Kennedy weighed air strikes and invasion."
+    },
+    {
+      "markerId": "farm",
+      "fact": "The US quarantine line, ~500 nautical miles from Cuba, intercepted Soviet ships on 24 Oct 1962. Kennedy chose \u2018quarantine\u2019 over \u2018blockade\u2019 to avoid a formal act of war."
+    },
+    {
+      "markerId": "court",
+      "fact": "Guant\u00e1namo Bay has hosted a US naval base since 1903. During the crisis, Kennedy reinforced it and evacuated 2,800 dependants, fearing attack."
+    }
+  ],
+  "beatHistory": [
+    {
+      "beatId": "hist-1962-1",
+      "history": "Soviet Premier Khrushchev secretly authorised Operation Anadyr in 1962 to deploy nuclear missiles to Cuba. The plan aimed to deter a US invasion of Cuba and to offset US Jupiter missiles in Turkey. By October, 42 missiles were either installed or en route."
+    },
+    {
+      "beatId": "hist-1962-2",
+      "history": "Cuba\u2019s Fidel Castro welcomed Soviet missiles as protection against a feared US invasion, particularly after the CIA-backed Bay of Pigs failure in April 1961. Soviet troops and technicians arrived secretly on the island. The alliance was both ideological and strategic."
+    },
+    {
+      "beatId": "hist-1962-3",
+      "history": "On 24 October 1962, Soviet ships steamed toward the US quarantine line. Several stopped dead in the water or reversed course. One vessel, the Bucharest, was allowed through after the US Navy determined it carried no weapons\u2014a tense de-escalation moment."
+    },
+    {
+      "beatId": "hist-1962-4",
+      "history": "Kennedy and Khrushchev exchanged proposals across 13 days of crisis. The final deal required the USSR to remove its missiles from Cuba; in return the US pledged not to invade Cuba and secretly agreed to remove Jupiter missiles from Turkey within months."
+    },
+    {
+      "beatId": "hist-1962-5",
+      "history": "On 27 October 1962\u2014\u2018Black Saturday\u2019\u2014a Soviet SA-2 missile shot down a U-2 reconnaissance aircraft over Cuba, killing Major Rudolf Anderson, the sole US combat fatality. Soviet commanders fired without explicit authorisation from Moscow, bringing the standoff to its most dangerous point."
+    },
+    {
+      "beatId": "hist-1962-6",
+      "history": "Kennedy faced intense pressure from the Joint Chiefs of Staff to launch air strikes or invade Cuba. Kennedy and his brother Robert resisted, fearing that military action would provoke Soviet nuclear retaliation. The ExComm debates, secretly recorded, became a key historical source."
+    },
+    {
+      "beatId": "hist-1962-7",
+      "history": "NATO allies were notified of the crisis only shortly before Kennedy\u2019s public address on 22 October, leaving them no time to consult. Britain, France, and West Germany expressed support. Allies in Turkey and Italy, hosting Jupiter missiles, feared becoming primary Soviet targets."
+    },
+    {
+      "beatId": "hist-1962-8",
+      "history": "Khrushchev sent two conflicting letters on 26\u201327 October\u2014one conciliatory, one harder. Kennedy\u2019s team decided to reply only to the conciliatory first letter and ignore the second, a tactic suggested by Robert Kennedy. This selective response helped break the deadlock."
+    },
+    {
+      "beatId": "hist-1962-9",
+      "history": "The crisis resolution required verifiable Soviet missile withdrawal. Cuba refused UN on-site inspections, so the US relied on aerial and naval surveillance. Soviet ships carried dismantled missiles on open decks, allowing US cameras to confirm removal."
+    },
+    {
+      "beatId": "hist-1962-10",
+      "history": "On 28 October 1962, Khrushchev publicly announced the missiles would be withdrawn. The crisis demonstrated the need for direct superpower communication; the Moscow\u2013Washington hotline was established in June 1963. The secret Jupiter deal with Turkey remained classified for decades."
+    }
+  ],
+  "fieldBriefs": [
+    {
+      "beatId": "hist-1962-1",
+      "markerId": "plaza",
+      "headline": "SS-4s: 1,900 km range from Cuba",
+      "fact": "Soviet SS-4 missiles at San Crist\u00f3bal could reach Washington in ~13 minutes. No US base was as close to Soviet territory as these sites were to the US."
+    },
+    {
+      "beatId": "hist-1962-2",
+      "markerId": "court",
+      "headline": "Bay of Pigs: why Cuba wanted missiles",
+      "fact": "Cuba accepted missiles after the 1961 Bay of Pigs failure. Guant\u00e1namo, a US base on Cuban soil since 1903, symbolised continued foreign military presence."
+    },
+    {
+      "beatId": "hist-1962-3",
+      "markerId": "farm",
+      "headline": "500 miles at sea: the quarantine arc",
+      "fact": "The 500-nm quarantine (~926 km radius) formed a naval cordon east and north of Cuba. Soviet ships halted or reversed when they reached it on 24 Oct 1962."
+    },
+    {
+      "beatId": "hist-1962-4",
+      "markerId": "capital",
+      "headline": "The secret Jupiter deal",
+      "fact": "Kennedy secretly agreed to remove US Jupiter missiles from Turkey. The concession helped Khrushchev justify withdrawal to Soviet hardliners; it stayed secret for 25 years."
+    },
+    {
+      "beatId": "hist-1962-5",
+      "markerId": "plaza",
+      "headline": "Maj. Anderson: U-2 down 27 Oct 1962",
+      "fact": "U-2 flights over Cuba began August 1962. On 27 Oct, Maj. Rudolf Anderson\u2019s plane was hit by a Soviet SA-2\u2014the only US combat fatality of the 13-day crisis."
+    },
+    {
+      "beatId": "hist-1962-6",
+      "markerId": "imf",
+      "headline": "ExComm hawks: \u2018air-strike the sites\u2019",
+      "fact": "Joint Chiefs urged Kennedy to destroy Cuba\u2019s missile sites; Key West staged invasion forces. Kennedy rejected strikes, fearing Soviet nuclear retaliation."
+    },
+    {
+      "beatId": "hist-1962-7",
+      "markerId": "imf",
+      "headline": "NATO allies: informed, not consulted",
+      "fact": "Dean Acheson flew to Paris to brief de Gaulle on 22 Oct. Turkey and Italy\u2014hosting US Jupiter missiles\u2014feared becoming primary Soviet targets if war began."
+    },
+    {
+      "beatId": "hist-1962-8",
+      "markerId": "farm",
+      "headline": "Two letters, one reply: a key tactic",
+      "fact": "Khrushchev sent contradictory letters on 26\u201327 Oct. Kennedy replied only to the conciliatory first, ignoring the harder second\u2014breaking the deadlock."
+    },
+    {
+      "beatId": "hist-1962-9",
+      "markerId": "port",
+      "headline": "Missiles on open decks: verified out",
+      "fact": "Cuba rejected UN inspections; the USSR accepted aerial surveillance. Soviets removed missiles on open decks so US cameras could confirm withdrawal."
+    },
+    {
+      "beatId": "hist-1962-10",
+      "markerId": "capital",
+      "headline": "Hotline born from the 13-day crisis",
+      "fact": "Khrushchev confirmed withdrawal on 28 Oct 1962. The crisis led to the Moscow\u2013Washington hotline, established June 1963 to prevent future nuclear near-misses."
+    }
+  ],
+  "storyLines": [
+    {
+      "id": "quarantine",
+      "label": "US Naval Quarantine Line",
+      "beatIds": ["hist-1962-3", "hist-1962-8"],
+      "color": "#E5534B",
+      "points": [
+        { "lat": 28.50, "lon": -83.00 },
+        { "lat": 30.00, "lon": -80.50 },
+        { "lat": 30.00, "lon": -77.00 },
+        { "lat": 29.00, "lon": -73.50 },
+        { "lat": 26.50, "lon": -71.50 },
+        { "lat": 23.50, "lon": -71.00 },
+        { "lat": 20.50, "lon": -73.00 },
+        { "lat": 18.50, "lon": -77.00 },
+        { "lat": 17.00, "lon": -79.50 }
+      ]
+    },
+    {
+      "id": "u2-route",
+      "label": "U-2 Reconnaissance Flight",
+      "beatIds": ["hist-1962-5"],
+      "color": "#5AA9E6",
+      "points": [
+        { "lat": 24.55, "lon": -81.78 },
+        { "lat": 24.00, "lon": -82.20 },
+        { "lat": 23.50, "lon": -82.50 },
+        { "lat": 23.00, "lon": -82.80 },
+        { "lat": 22.72, "lon": -83.05 }
+      ]
+    }
+  ]
+}

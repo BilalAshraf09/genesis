@@ -1,0 +1,1878 @@
+{
+  "scenario": {
+    "id": "hist-1968-prague",
+    "year": 1968,
+    "era": "1962\u20131979",
+    "title": "Prague Spring Desk",
+    "region": "Czechoslovakia \u00b7 Warsaw Pact \u00b7 Western capitals",
+    "meterFamily": "politics",
+    "theaterArchetype": "europe",
+    "premise": "Reform in Prague triggers alliance intervention threats. You advise a Western cabinet on signaling, refugees, and whether any help crosses the line into direct confrontation.",
+    "role": "European security director",
+    "tension": "Moral support without a NATO\u2013Warsaw war.",
+    "beats": [
+      {
+        "id": "hist-1968-1",
+        "title": "Public posture",
+        "briefing": "Reformers want loud solidarity. Your military warns that loudness without force is cruelty.",
+        "stakes": "Words create expectations you may not meet.",
+        "choices": [
+          {
+            "id": "hist-1968-1a",
+            "label": "Loud political solidarity; no military hints",
+            "detail": "Voice without tripwire.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "VOICE",
+            "callsign": "LOUD POLITICAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Names reform"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "No teeth"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "West speaks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-1b",
+            "label": "Quiet channel urging restraint to Moscow",
+            "detail": "Private diplomacy.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "QUIET",
+            "callsign": "QUIET CHANNEL",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Channel"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Public silence"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lower heat"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-1c",
+            "label": "Hint at economic costs for intervention",
+            "detail": "Sanctions shadow.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "COST",
+            "callsign": "HINT AT",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Warning"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "May harden"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Some price"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-2",
+        "title": "Intervention night",
+        "briefing": "Tanks cross. Refugees head west. Allies ask for an emergency meeting.",
+        "stakes": "The map just changed; your doctrine must answer.",
+        "choices": [
+          {
+            "id": "hist-1968-2a",
+            "label": "Emergency NATO consult; raise alert carefully",
+            "detail": "Alliance theater.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "NATO",
+            "callsign": "EMERGENCY NATO",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Unity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Alert risk"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Signal"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-2b",
+            "label": "Open borders and refugee corridors",
+            "detail": "Humanitarian first.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "REFUGE",
+            "callsign": "OPEN BORDERS",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Shelter"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Orderly aid"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Domestic politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-2c",
+            "label": "Covert aid to reformers",
+            "detail": "Radios, funds, exfil.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "COVERT",
+            "callsign": "COVERT AID",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Proxy risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Not passive"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "If exposed"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-3",
+        "title": "Normalization pressure",
+        "briefing": "Occupiers demand Western acceptance of a restored hard line as the price of \u201cstability.\u201d",
+        "stakes": "Recognition can become complicity.",
+        "choices": [
+          {
+            "id": "hist-1968-3a",
+            "label": "Refuse business-as-usual summits",
+            "detail": "Diplomatic chill.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "CHILL",
+            "callsign": "REFUSE BUSINESS",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Non-acceptance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Channels thin"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Principled"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-3b",
+            "label": "Continue arms-control tracks anyway",
+            "detail": "Separate issues.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "ARMS",
+            "callsign": "CONTINUE ARMS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Big stakes saved"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Looks cynical"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Moral camp splits"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-3c",
+            "label": "Targeted cultural and academic boycotts",
+            "detail": "Soft isolation.",
+            "kind": "civic",
+            "markerId": "districts",
+            "short": "BOYCOTT",
+            "callsign": "TARGETED CULTURAL",
+            "effects": [
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Symbolic fight"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Visible stand"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Irritant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-4",
+        "title": "Doctrine memo",
+        "briefing": "You must write what this means for future Eastern reform movements.",
+        "stakes": "Doctrine teaches the next Prague\u2014or Hungary.",
+        "choices": [
+          {
+            "id": "hist-1968-4a",
+            "label": "Codify non-intervention beyond rhetoric aid",
+            "detail": "Clear limits.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "LIMITS",
+            "callsign": "CODIFY NON",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Honest bounds"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less fear"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared realism"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-4b",
+            "label": "Promise future linkage to Helsinki-style rights baskets",
+            "detail": "Long game.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "RIGHTS",
+            "callsign": "PROMISE FUTURE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rights track"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slow tool"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Agenda set"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-4c",
+            "label": "Accelerate conventional forces on the central front",
+            "detail": "Hard answer.",
+            "kind": "kinetic",
+            "markerId": "streets",
+            "short": "FORCE",
+            "callsign": "ACCELERATE CONVENTIONAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Teeth"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Arms race"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Spend"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-5",
+        "title": "Intervention night shock",
+        "briefing": "Tanks cross. Your options are condemnation, sanctions, covert aid, or pragmatic silence. Each teaches Moscow and your public a different lesson.",
+        "stakes": "Moral clarity and alliance security collide.",
+        "choices": [
+          {
+            "id": "hist-1968-5a",
+            "label": "Lead a sharp public condemnation with targeted sanctions",
+            "detail": "Voice and costs.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "CONDEMN",
+            "callsign": "LEAD A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Moral signal"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Costs"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "East-West chill"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-5b",
+            "label": "Keep official silence; expand quiet refugee and radio support",
+            "detail": "Help without war.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "RADIO2",
+            "callsign": "KEEP OFFICIAL",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "People helped"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Deniable"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks passive"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-5c",
+            "label": "Raise military alerts to deter spillover",
+            "detail": "Posture response.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "ALERT2",
+            "callsign": "RAISE MILITARY",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "NATO ready"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Dangerous optics"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Alliance woke"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-6",
+        "title": "Street solidarity politics",
+        "briefing": "Your cities fill with protests demanding action you cannot deliver without risking war. Managing hope becomes policy.",
+        "stakes": "Public conscience without private means.",
+        "choices": [
+          {
+            "id": "hist-1968-6a",
+            "label": "Host visible solidarity without promising intervention",
+            "detail": "Speech not tanks.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "SOLID",
+            "callsign": "HOST VISIBLE",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Moral alignment"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Honest limits"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "No force promise"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-6b",
+            "label": "Crack down on protests that block bases and ministries",
+            "detail": "Order over emotion.",
+            "kind": "legal",
+            "markerId": "districts",
+            "short": "CRACK",
+            "callsign": "CRACK DOWN",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Short quiet"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Anger"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Speech chill"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-6c",
+            "label": "Channel energy into refugee resettlement programs",
+            "detail": "Practical mercy.",
+            "kind": "civic",
+            "markerId": "ballot",
+            "short": "RESETTLE",
+            "callsign": "CHANNEL ENERGY",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Refugees aided"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Concrete help"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared burden"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-7",
+        "title": "Ally divergences",
+        "briefing": "Some allies want trade as usual; others want a freeze. A split response weakens the signal.",
+        "stakes": "D\u00e9tente and deterrence argue in the same room.",
+        "choices": [
+          {
+            "id": "hist-1968-7a",
+            "label": "Forge a common Allied communiqu\u00e9 with graduated measures",
+            "detail": "Unity text.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "COMMUNI",
+            "callsign": "FORGE A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "One voice"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Coordinated"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Drafting tax"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-7b",
+            "label": "Allow national measures \u00e0 la carte",
+            "detail": "Flexibility.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "ALACARTE",
+            "callsign": "ALLOW NATIONAL",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Faster nationals"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Fragmented"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Muddy signal"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-7c",
+            "label": "Link any d\u00e9tente talks to a Prague human-rights annex",
+            "detail": "Conditionality.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "ANNEX",
+            "callsign": "LINK ANY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rights linked"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder d\u00e9tente"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Principled"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-8",
+        "title": "Normalization fog",
+        "briefing": "Collaborator governments claim consent. Your intelligence and exiles disagree. Recognition choices follow the fog.",
+        "stakes": "Recognizing a puppet is a policy, not a fact.",
+        "choices": [
+          {
+            "id": "hist-1968-8a",
+            "label": "Delay recognition; keep ties at charg\u00e9 level",
+            "detail": "Ambiguous status.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "CHARGE",
+            "callsign": "DELAY RECOGNITION",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Option kept"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel thin"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Non-blessing"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-8b",
+            "label": "Recognize quickly to preserve embassy access",
+            "detail": "Presence over purity.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "RECOG",
+            "callsign": "RECOGNIZE QUICKLY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Access"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Consent fiction"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Cynical"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-8c",
+            "label": "Publish a legal memo rejecting consent claims",
+            "detail": "Lawfare.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "MEMO",
+            "callsign": "PUBLISH A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Legal line"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Diplomatic fight"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Some join"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-9",
+        "title": "Quiet off-ramp",
+        "briefing": "Back channels hint at prisoner releases and softer occupation optics if public campaigns quiet. Buying people with silence is a trade.",
+        "stakes": "Human lives versus public witness.",
+        "choices": [
+          {
+            "id": "hist-1968-9a",
+            "label": "Trade campaign volume for verified releases",
+            "detail": "Quiet diplomacy.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "QUIETDIP",
+            "callsign": "TRADE CAMPAIGN",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Prisoners out"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Muted voice"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Deal"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-9b",
+            "label": "Refuse; keep maximal public pressure",
+            "detail": "Witness first.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "WITNESS",
+            "callsign": "REFUSE KEEP",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Moral clarity"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Hostages linger"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Chill deepens"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-9c",
+            "label": "Split: quiet track for people, loud track for norms",
+            "detail": "Dual approach.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "DUAL3",
+            "callsign": "SPLIT QUIET",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Both tracks"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Complex"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "If coordinated"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1968-10",
+        "title": "Brezhnev doctrine endgame",
+        "briefing": "You must write Western doctrine: spheres are real, illegitimate, or contestable only politically.",
+        "stakes": "How you name the intervention shapes the 1970s.",
+        "choices": [
+          {
+            "id": "hist-1968-10a",
+            "label": "Reject spheres publicly; invest in long political contestation",
+            "detail": "Ideas war.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "IDEAS",
+            "callsign": "REJECT SPHERES",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Anti-sphere"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Long game"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Non-military"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-10b",
+            "label": "Accept a tacit sphere while hardening NATO core",
+            "detail": "Realism.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "SPHERE",
+            "callsign": "ACCEPT A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Core strong"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Eastern Europe written off"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "NATO focus"
+              }
+            ]
+          },
+          {
+            "id": "hist-1968-10c",
+            "label": "Tie future economic deals to free movement and press rules",
+            "detail": "Helsinki seed.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "HELSINKI",
+            "callsign": "TIE FUTURE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Basket linkage"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Process"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Deal friction"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "europe-central",
+    "scenarioId": "hist-1968-prague",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0C2230",
+    "land": "#243428",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Central Europe (Natural Earth)",
+      "water": "#0C2230",
+      "land": "#243428",
+      "landHi": "#344838",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            20.62,
+            53.35
+          ],
+          [
+            22.19,
+            54.99
+          ],
+          [
+            27.0,
+            56.14
+          ],
+          [
+            25.31,
+            60.42
+          ],
+          [
+            24.89,
+            64.87
+          ],
+          [
+            23.97,
+            65.94
+          ],
+          [
+            22.46,
+            65.36
+          ],
+          [
+            22.56,
+            66.95
+          ],
+          [
+            20.12,
+            70.46
+          ],
+          [
+            20.08,
+            73.29
+          ],
+          [
+            21.67,
+            72.31
+          ],
+          [
+            22.81,
+            75.06
+          ],
+          [
+            22.67,
+            76.82
+          ],
+          [
+            23.66,
+            79.17
+          ],
+          [
+            22.5,
+            81.07
+          ],
+          [
+            23.36,
+            85.91
+          ],
+          [
+            25.17,
+            86.7
+          ],
+          [
+            24.78,
+            89.41
+          ],
+          [
+            21.76,
+            92.94
+          ],
+          [
+            15.19,
+            91.25
+          ],
+          [
+            10.33,
+            93.28
+          ],
+          [
+            9.95,
+            97.04
+          ],
+          [
+            6.09,
+            97.85
+          ],
+          [
+            2.34,
+            95.03
+          ],
+          [
+            1.13,
+            96.38
+          ],
+          [
+            0.5,
+            87.36
+          ],
+          [
+            0.5,
+            74.91
+          ],
+          [
+            0.5,
+            54.08
+          ],
+          [
+            4.46,
+            49.21
+          ],
+          [
+            5.46,
+            44.08
+          ],
+          [
+            8.38,
+            42.82
+          ],
+          [
+            8.86,
+            45.02
+          ],
+          [
+            10.41,
+            45.12
+          ],
+          [
+            11.96,
+            47.63
+          ],
+          [
+            14.29,
+            50.58
+          ],
+          [
+            16.0,
+            50.09
+          ],
+          [
+            18.91,
+            52.94
+          ],
+          [
+            19.66,
+            53.48
+          ],
+          [
+            20.62,
+            53.35
+          ]
+        ],
+        [
+          [
+            47.07,
+            26.52
+          ],
+          [
+            47.84,
+            29.7
+          ],
+          [
+            46.92,
+            31.37
+          ],
+          [
+            48.13,
+            33.59
+          ],
+          [
+            48.95,
+            36.94
+          ],
+          [
+            48.69,
+            39.09
+          ],
+          [
+            50.06,
+            43.08
+          ],
+          [
+            48.57,
+            43.74
+          ],
+          [
+            47.69,
+            43.02
+          ],
+          [
+            46.85,
+            44.21
+          ],
+          [
+            44.46,
+            45.42
+          ],
+          [
+            43.22,
+            46.97
+          ],
+          [
+            40.8,
+            48.34
+          ],
+          [
+            41.38,
+            50.19
+          ],
+          [
+            41.74,
+            52.83
+          ],
+          [
+            43.44,
+            54.33
+          ],
+          [
+            45.32,
+            57.02
+          ],
+          [
+            44.14,
+            59.9
+          ],
+          [
+            42.95,
+            60.69
+          ],
+          [
+            43.42,
+            64.77
+          ],
+          [
+            43.11,
+            65.83
+          ],
+          [
+            42.07,
+            64.55
+          ],
+          [
+            40.47,
+            64.36
+          ],
+          [
+            38.09,
+            65.48
+          ],
+          [
+            35.15,
+            65.21
+          ],
+          [
+            34.67,
+            66.86
+          ],
+          [
+            32.99,
+            65.12
+          ],
+          [
+            31.98,
+            65.47
+          ],
+          [
+            28.41,
+            63.56
+          ],
+          [
+            27.72,
+            64.92
+          ],
+          [
+            24.89,
+            64.87
+          ],
+          [
+            25.31,
+            60.42
+          ],
+          [
+            27.0,
+            56.14
+          ],
+          [
+            22.19,
+            54.99
+          ],
+          [
+            20.62,
+            53.35
+          ],
+          [
+            20.81,
+            50.61
+          ],
+          [
+            20.14,
+            49.2
+          ],
+          [
+            20.52,
+            44.98
+          ],
+          [
+            19.96,
+            38.43
+          ],
+          [
+            21.96,
+            38.42
+          ],
+          [
+            22.81,
+            36.07
+          ],
+          [
+            23.64,
+            30.35
+          ],
+          [
+            23.02,
+            28.24
+          ],
+          [
+            23.67,
+            26.91
+          ],
+          [
+            26.45,
+            26.57
+          ],
+          [
+            27.07,
+            27.95
+          ],
+          [
+            29.34,
+            24.87
+          ],
+          [
+            28.57,
+            22.53
+          ],
+          [
+            28.42,
+            18.98
+          ],
+          [
+            30.94,
+            19.81
+          ],
+          [
+            33.07,
+            18.86
+          ],
+          [
+            33.13,
+            21.27
+          ],
+          [
+            36.5,
+            22.73
+          ],
+          [
+            36.46,
+            24.95
+          ],
+          [
+            39.85,
+            23.77
+          ],
+          [
+            41.73,
+            22.06
+          ],
+          [
+            45.49,
+            24.53
+          ],
+          [
+            47.07,
+            26.52
+          ]
+        ],
+        [
+          [
+            78.28,
+            25.55
+          ],
+          [
+            78.43,
+            28.31
+          ],
+          [
+            79.35,
+            30.69
+          ],
+          [
+            79.33,
+            33.18
+          ],
+          [
+            77.33,
+            34.46
+          ],
+          [
+            78.36,
+            37.35
+          ],
+          [
+            78.42,
+            40.13
+          ],
+          [
+            80.1,
+            45.59
+          ],
+          [
+            79.74,
+            47.34
+          ],
+          [
+            78.09,
+            48.07
+          ],
+          [
+            75.06,
+            53.27
+          ],
+          [
+            75.92,
+            56.08
+          ],
+          [
+            75.19,
+            55.71
+          ],
+          [
+            72.03,
+            53.31
+          ],
+          [
+            69.63,
+            54.2
+          ],
+          [
+            68.05,
+            53.55
+          ],
+          [
+            66.08,
+            54.89
+          ],
+          [
+            64.4,
+            52.68
+          ],
+          [
+            63.03,
+            53.53
+          ],
+          [
+            62.84,
+            53.15
+          ],
+          [
+            61.31,
+            50.07
+          ],
+          [
+            58.83,
+            49.69
+          ],
+          [
+            58.52,
+            47.74
+          ],
+          [
+            56.23,
+            47.04
+          ],
+          [
+            55.73,
+            48.65
+          ],
+          [
+            53.92,
+            47.36
+          ],
+          [
+            54.13,
+            45.64
+          ],
+          [
+            51.64,
+            45.1
+          ],
+          [
+            50.06,
+            43.08
+          ],
+          [
+            48.69,
+            39.09
+          ],
+          [
+            48.95,
+            36.94
+          ],
+          [
+            48.13,
+            33.59
+          ],
+          [
+            46.92,
+            31.37
+          ],
+          [
+            47.84,
+            29.7
+          ],
+          [
+            47.07,
+            26.52
+          ],
+          [
+            49.34,
+            24.68
+          ],
+          [
+            54.54,
+            21.79
+          ],
+          [
+            58.74,
+            19.68
+          ],
+          [
+            62.07,
+            20.73
+          ],
+          [
+            62.32,
+            22.26
+          ],
+          [
+            65.54,
+            22.34
+          ],
+          [
+            69.64,
+            23.05
+          ],
+          [
+            75.77,
+            22.95
+          ],
+          [
+            77.48,
+            23.62
+          ],
+          [
+            78.28,
+            25.55
+          ]
+        ],
+        [
+          [
+            73.62,
+            59.86
+          ],
+          [
+            75.47,
+            61.56
+          ],
+          [
+            75.7,
+            63.24
+          ],
+          [
+            73.67,
+            64.55
+          ],
+          [
+            72.09,
+            68.79
+          ],
+          [
+            70.07,
+            73.02
+          ],
+          [
+            67.4,
+            74.2
+          ],
+          [
+            65.32,
+            73.93
+          ],
+          [
+            62.77,
+            75.57
+          ],
+          [
+            62.77,
+            75.57
+          ],
+          [
+            61.52,
+            76.5
+          ],
+          [
+            58.77,
+            75.3
+          ],
+          [
+            56.28,
+            72.62
+          ],
+          [
+            55.22,
+            71.85
+          ],
+          [
+            54.57,
+            69.74
+          ],
+          [
+            54.01,
+            69.67
+          ],
+          [
+            55.11,
+            65.65
+          ],
+          [
+            54.47,
+            64.29
+          ],
+          [
+            56.35,
+            64.28
+          ],
+          [
+            56.6,
+            61.73
+          ],
+          [
+            58.29,
+            63.33
+          ],
+          [
+            59.52,
+            64.01
+          ],
+          [
+            62.32,
+            63.24
+          ],
+          [
+            62.59,
+            61.99
+          ],
+          [
+            63.91,
+            61.8
+          ],
+          [
+            65.54,
+            60.83
+          ],
+          [
+            65.9,
+            61.23
+          ],
+          [
+            67.46,
+            60.45
+          ],
+          [
+            68.25,
+            58.98
+          ],
+          [
+            69.34,
+            58.6
+          ],
+          [
+            72.91,
+            60.5
+          ],
+          [
+            73.62,
+            59.86
+          ]
+        ],
+        [
+          [
+            56.6,
+            61.73
+          ],
+          [
+            56.35,
+            64.28
+          ],
+          [
+            54.47,
+            64.29
+          ],
+          [
+            55.11,
+            65.65
+          ],
+          [
+            54.01,
+            69.67
+          ],
+          [
+            53.37,
+            70.73
+          ],
+          [
+            50.46,
+            70.88
+          ],
+          [
+            48.77,
+            72.3
+          ],
+          [
+            46.02,
+            71.82
+          ],
+          [
+            41.25,
+            70.2
+          ],
+          [
+            40.51,
+            68.03
+          ],
+          [
+            37.22,
+            69.12
+          ],
+          [
+            36.83,
+            70.3
+          ],
+          [
+            34.81,
+            69.42
+          ],
+          [
+            33.11,
+            69.25
+          ],
+          [
+            31.6,
+            68.11
+          ],
+          [
+            32.11,
+            66.58
+          ],
+          [
+            31.98,
+            65.47
+          ],
+          [
+            32.99,
+            65.12
+          ],
+          [
+            34.67,
+            66.86
+          ],
+          [
+            35.15,
+            65.21
+          ],
+          [
+            38.09,
+            65.48
+          ],
+          [
+            40.47,
+            64.36
+          ],
+          [
+            42.07,
+            64.55
+          ],
+          [
+            43.11,
+            65.83
+          ],
+          [
+            43.42,
+            64.77
+          ],
+          [
+            42.95,
+            60.69
+          ],
+          [
+            44.14,
+            59.9
+          ],
+          [
+            45.32,
+            57.02
+          ],
+          [
+            47.8,
+            59.03
+          ],
+          [
+            49.67,
+            56.47
+          ],
+          [
+            50.84,
+            56.01
+          ],
+          [
+            53.43,
+            57.91
+          ],
+          [
+            55.0,
+            57.59
+          ],
+          [
+            56.53,
+            58.77
+          ],
+          [
+            56.27,
+            59.56
+          ],
+          [
+            56.6,
+            61.73
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            42.0,
+            16.0
+          ],
+          [
+            44.0,
+            34.0
+          ],
+          [
+            50.0,
+            50.0
+          ],
+          [
+            54.0,
+            68.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Munich",
+          "x": 44.0,
+          "y": 52.0
+        },
+        {
+          "name": "Prague",
+          "x": 52.0,
+          "y": 40.0
+        },
+        {
+          "name": "Berlin",
+          "x": 50.0,
+          "y": 28.0
+        },
+        {
+          "name": "Vienna",
+          "x": 58.0,
+          "y": 56.0
+        }
+      ]
+    }
+  }
+}

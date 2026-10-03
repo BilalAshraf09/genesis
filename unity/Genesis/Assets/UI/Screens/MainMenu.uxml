@@ -1,0 +1,79 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+    <ui:Style src="project://database/Assets/UI/Screens/MainMenu.uss" />
+
+    <!-- Full-screen root, safe-area applied to safeRoot via C# SafeAreaRoot.Apply -->
+    <ui:VisualElement name="mainMenuRoot" class="main-menu">
+
+        <!-- Real map relief background — texture set in C#, animated via schedule -->
+        <ui:VisualElement name="mapBg" class="main-menu__map-bg" />
+
+        <!-- Dark atmospheric scrims -->
+        <ui:VisualElement class="main-menu__scrim" />
+        <ui:VisualElement class="main-menu__scrim-bottom" />
+
+        <!-- Safe-area content root: padding applied by C# SafeAreaRoot.Apply -->
+        <ui:VisualElement name="safeRoot" class="main-menu__safe-root">
+
+            <!-- ── HERO ── -->
+            <ui:VisualElement class="main-menu__hero">
+                <ui:Label text="GENESIS" class="main-menu__title" />
+                <ui:Label text="Living Atlas of Crisis" class="main-menu__subtitle" />
+            </ui:VisualElement>
+
+            <!-- Flexible gap -->
+            <ui:VisualElement class="main-menu__spacer" />
+
+            <!-- ── RESUME CARD (shown when active run exists) ── -->
+            <ui:VisualElement name="resumeCard" class="main-menu__resume-card">
+                <ui:VisualElement class="main-menu__resume-info">
+                    <ui:Label name="resumeTitle" text="Active theater"
+                              class="main-menu__resume-title" />
+                    <ui:Label name="resumeMeta"  text="Phase 1/3"
+                              class="main-menu__resume-meta" />
+                </ui:VisualElement>
+                <ui:VisualElement class="main-menu__resume-actions">
+                    <ui:Button name="resumeBtn" class="main-menu__resume-btn">
+                        <ui:Label text="Resume ▶" />
+                    </ui:Button>
+                    <ui:Button name="abandonBtn" class="main-menu__abandon-btn">
+                        <ui:Label text="Abandon" />
+                    </ui:Button>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- ── MAIN ACTION BUTTONS ── -->
+            <ui:VisualElement class="main-menu__btn-stack">
+
+                <!-- Primary: play featured theater (label set in C#) -->
+                <ui:Button name="playBtn" class="main-menu__play-btn">
+                    <ui:Label name="playBtnLabel" text="Play ▶" />
+                </ui:Button>
+
+                <!-- Navigation row: Atlas | Codex | Settings
+                     Codex and Settings get the gap class for left margin -->
+                <ui:VisualElement class="main-menu__nav-row">
+                    <ui:Button name="atlasBtn" class="main-menu__nav-btn">
+                        <ui:Label text="Atlas" />
+                    </ui:Button>
+                    <ui:Button name="codexBtn"
+                               class="main-menu__nav-btn main-menu__nav-btn-gap">
+                        <ui:Label text="Codex" />
+                    </ui:Button>
+                    <ui:Button name="settingsBtn"
+                               class="main-menu__nav-btn main-menu__nav-btn-gap">
+                        <ui:Label text="Settings" />
+                    </ui:Button>
+                </ui:VisualElement>
+
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

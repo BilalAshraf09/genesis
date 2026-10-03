@@ -1,0 +1,1692 @@
+{
+  "scenario": {
+    "id": "hist-2024-hormuz-relapse",
+    "year": 2024,
+    "era": "2008\u20132026",
+    "title": "Hormuz Relapse",
+    "region": "Iran \u00b7 Gulf \u00b7 maritime corridors",
+    "meterFamily": "conflict",
+    "theaterArchetype": "gulf",
+    "premise": "After a strike cycle and reciprocal seizures at sea, tanker insurance rates spike and regional capitals demand clarity. You advise a coalition cabinet on the next 72 hours.",
+    "role": "National security advisor to a coalition government",
+    "tension": "Deterrence without open war; energy markets without appearing to abandon partners.",
+    "beats": [
+      {
+        "id": "hist-2024-1",
+        "title": "First move after the seizure",
+        "briefing": "A commercial tanker linked to a partner flag is held near the Strait. Your military can interdict the escort, your diplomats can open a quiet channel, or you can freeze related assets and wait for market pressure to speak.",
+        "stakes": "Speed signals resolve; restraint preserves off-ramps; economic pressure is slower but harder to reverse.",
+        "choices": [
+          {
+            "id": "hist-2024-1a",
+            "label": "Authorize a limited interdiction escort",
+            "detail": "Naval assets shadow and challenge the holding force. Rules of engagement stay defensive.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "ESCORT",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Shows willingness to contest the maritime commons"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Raises risk of a kinetic incident at sea"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Reassures partners who feared paralysis"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-1b",
+            "label": "Open a quiet back channel",
+            "detail": "Use a third-party capital to propose release in exchange for de-escalatory guarantees.",
+            "kind": "diplomatic",
+            "markerId": "tehran",
+            "short": "CHANNEL",
+            "callsign": "OPEN A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Keeps a negotiated off-ramp alive"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Some partners read delay as weakness"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Lowers near-term kinetic risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-1c",
+            "label": "Freeze linked financial conduits",
+            "detail": "Target insurers, ship managers, and payment rails without new kinetic posture.",
+            "kind": "economic",
+            "markerId": "dubai",
+            "short": "FREEZE",
+            "callsign": "FREEZE LINKED",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Squeezes the seizure\u2019s logistics chain"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Raises friction for regional trade more broadly"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys days while markets reprice risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-2",
+        "title": "Energy corridor panic",
+        "briefing": "Benchmark crude jumps. Domestic industry lobbies for emergency releases from strategic reserves. Partners ask whether you will join a coordinated naval traffic corridor.",
+        "stakes": "Market calm can reduce crisis leverage for spoilers \u2014 or signal that you will always absorb the shock.",
+        "choices": [
+          {
+            "id": "hist-2024-2a",
+            "label": "Join a multinational traffic corridor",
+            "detail": "Share escorts and routing intel with willing partners under a temporary charter.",
+            "kind": "naval",
+            "markerId": "hormuz",
+            "short": "CORRIDOR",
+            "callsign": "JOIN A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Locks partners into a shared operational frame"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Raises the cost of further seizures"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Puts more ships in a contested lane"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-2b",
+            "label": "Release strategic petroleum quietly",
+            "detail": "Calm prices without a public military announcement.",
+            "kind": "economic",
+            "markerId": "oil",
+            "short": "SPR",
+            "callsign": "RELEASE STRATEGIC",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Blunts panic premiums"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Adversaries may treat you as shock absorber"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Eases pressure from industry and consumers"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-2c",
+            "label": "Hold reserves; demand partner burden-sharing",
+            "detail": "Condition any release on matching contributions and a joint statement of red lines.",
+            "kind": "diplomatic",
+            "markerId": "riyadh",
+            "short": "SHARE",
+            "callsign": "HOLD RESERVES",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Frays goodwill among energy-importing partners"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Signals you will not underwrite alone"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Leaves volatility unresolved longer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-3",
+        "title": "Proxy strike attribution",
+        "briefing": "A drone attack hits a logistics node used by your contractors. Intelligence leans toward a proxy network with Iranian material support, but the chain of command is contested.",
+        "stakes": "Public attribution shapes domestic politics; private signaling shapes adversary calculations.",
+        "choices": [
+          {
+            "id": "hist-2024-3a",
+            "label": "Attribute publicly and threaten calibrated response",
+            "detail": "Name the supporting network and set a 48-hour window for de-escalation.",
+            "kind": "diplomatic",
+            "markerId": "base",
+            "short": "ATTRIB",
+            "callsign": "ATTRIBUTE PUBLICLY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Creates a clear public standard"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Narrows room to climb down quietly"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Satisfies calls for visibility"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-3b",
+            "label": "Share evidence privately; demand proxy restraint",
+            "detail": "Use intelligence channels and a mediator to warn without locking into a public test.",
+            "kind": "diplomatic",
+            "markerId": "tehran",
+            "short": "PRIVATE",
+            "callsign": "SHARE EVIDENCE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Preserves deniable off-ramps"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Signals knowledge without spectacle"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Looks opaque to a rattled public"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-3c",
+            "label": "Strike a related proxy depot",
+            "detail": "Limited-duration action against a warehouse assessed as low-civilian-risk.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "STRIKE",
+            "callsign": "STRIKE A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Imposes immediate cost on the network"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Invites reciprocal targeting cycles"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Even \u201climited\u201d strikes risk spillover"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-4",
+        "title": "Off-ramp window",
+        "briefing": "A regional intermediary offers a package: tanker release, temporary pause on proxy launches, and technical talks on maritime notifications \u2014 if you pause new sanctions designations for 30 days.",
+        "stakes": "Accepting looks like bargaining with coercion; refusing may close the only near-term exit.",
+        "choices": [
+          {
+            "id": "hist-2024-4a",
+            "label": "Accept with verification milestones",
+            "detail": "Pause designations only after staged releases and third-party monitoring.",
+            "kind": "diplomatic",
+            "markerId": "oman",
+            "short": "DEAL",
+            "callsign": "ACCEPT WITH",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Converts crisis into sequenced bargaining"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Hardliners at home call it concession"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Lowers odds of immediate wider war"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-4b",
+            "label": "Reject; keep sanctions tempo",
+            "detail": "Treat the offer as an attempt to buy time while consolidating gains at sea.",
+            "kind": "economic",
+            "markerId": "dubai",
+            "short": "HOLD",
+            "callsign": "REJECT KEEP",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Maintains coercive continuity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Leaves kinetic pathways open"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Burns the intermediary\u2019s political capital"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-4c",
+            "label": "Counter with a narrower swap",
+            "detail": "Tanker release now for a shorter sanctions pause and a maritime hotline only.",
+            "kind": "diplomatic",
+            "markerId": "oman",
+            "short": "SWAP",
+            "callsign": "COUNTER WITH",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Keeps talks alive without full buy-in"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Creates another negotiation cycle"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners can endorse a limited deal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-5",
+        "title": "Second seizure shock",
+        "briefing": "Another hull is hit or held. Markets treat it as pattern, not incident. Your response must break the pattern without owning a war.",
+        "stakes": "Repetition is the strategy.",
+        "choices": [
+          {
+            "id": "hist-2024-5a",
+            "label": "Expand multinational escort rotations immediately",
+            "detail": "Presence answer.",
+            "kind": "naval",
+            "markerId": "hormuz",
+            "short": "ROTATE",
+            "callsign": "EXPAND MULTINATIONAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Lane covered"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shared risk"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Contact risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-5b",
+            "label": "Strike a related proxy depot after attribution",
+            "detail": "Cost imposition.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "DEPOT",
+            "callsign": "STRIKE A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Pain"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Ladder"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Talks freeze"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-5c",
+            "label": "Open a crisis cell with a cease-seizure proposal",
+            "detail": "Talk under fire.",
+            "kind": "diplomatic",
+            "markerId": "oman",
+            "short": "CELL",
+            "callsign": "OPEN A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Channel"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Window"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Soft charge"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-6",
+        "title": "Insurance and pump politics",
+        "briefing": "Premiums and pump prices leap. Legislators demand magic. Strategic reserves are finite politics.",
+        "stakes": "Households are a Gulf theater.",
+        "choices": [
+          {
+            "id": "hist-2024-6a",
+            "label": "Authorize a measured SPR release with ally coordination",
+            "detail": "Calm the tape.",
+            "kind": "economic",
+            "markerId": "oil",
+            "short": "SPR2",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Price relief"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Coordinated"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Bought weeks"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-6b",
+            "label": "Hold SPR; let prices discipline demand",
+            "detail": "Orthodoxy.",
+            "kind": "economic",
+            "markerId": "dubai",
+            "short": "HOLDSPR",
+            "callsign": "HOLD SPR",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Discipline"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Pump pain"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-6c",
+            "label": "Cap domestic prices temporarily and pay refiners",
+            "detail": "Political prices.",
+            "kind": "political",
+            "markerId": "riyadh",
+            "short": "CAP",
+            "callsign": "CAP DOMESTIC",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Relief optics"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Distortion"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Fiscal cost"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-7",
+        "title": "Partner tripwire ask",
+        "briefing": "A Gulf partner wants a public security declaration. Ambiguity reassures you; clarity reassures them.",
+        "stakes": "Words create war obligations.",
+        "choices": [
+          {
+            "id": "hist-2024-7a",
+            "label": "Issue consultative defense language short of automatic war",
+            "detail": "Near-tripwire.",
+            "kind": "diplomatic",
+            "markerId": "riyadh",
+            "short": "CONSDEF",
+            "callsign": "ISSUE CONSULTATIVE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Partner steadied"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Signal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Commitment"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-7b",
+            "label": "Offer more capability transfers, refuse new declarations",
+            "detail": "Tools not vows.",
+            "kind": "diplomatic",
+            "markerId": "base",
+            "short": "CAPXFER",
+            "callsign": "OFFER MORE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Partner teeth"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Wanted words"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-7c",
+            "label": "Propose a multilateral maritime charter instead",
+            "detail": "Institutionalize.",
+            "kind": "naval",
+            "markerId": "oman",
+            "short": "CHARTER",
+            "callsign": "PROPOSE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Rules"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Broad"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Order frame"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-8",
+        "title": "Attribution fog",
+        "briefing": "A deniable attack hits a commercial node. Your intel is good enough for action, not courtroom certainty.",
+        "stakes": "Acting on 70% is the job\u2014and the risk.",
+        "choices": [
+          {
+            "id": "hist-2024-8a",
+            "label": "Release a high-confidence attribution package",
+            "detail": "Public case.",
+            "kind": "diplomatic",
+            "markerId": "base",
+            "short": "PACKAGE3",
+            "callsign": "RELEASE A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Evidence"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Confrontation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shareable"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-8b",
+            "label": "Respond proportionally without full public case",
+            "detail": "Quiet cost.",
+            "kind": "kinetic",
+            "markerId": "proxy",
+            "short": "QUIETHIT",
+            "callsign": "RESPOND PROPORTIONALLY",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Private pain"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Opacity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Ladder risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-8c",
+            "label": "Hold fire; demand a joint investigation mechanism",
+            "detail": "Process first.",
+            "kind": "diplomatic",
+            "markerId": "tehran",
+            "short": "JOINTINV",
+            "callsign": "HOLD FIRE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Table"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Delay"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Looks hesitant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-9",
+        "title": "Off-ramp window",
+        "briefing": "A third capital floats a prisoners-and-sanctions sequencing deal if seizures stop for 14 days. Spoilers on all sides load magazines.",
+        "stakes": "Fourteen days can be a century in the Gulf.",
+        "choices": [
+          {
+            "id": "hist-2024-9a",
+            "label": "Accept the 14-day quiet-for-talks test",
+            "detail": "Prove control.",
+            "kind": "diplomatic",
+            "markerId": "oman",
+            "short": "14DAY",
+            "callsign": "ACCEPT THE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Off-ramp"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Pause"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Clock"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-9b",
+            "label": "Demand irreversible verification before any sanctions relief talk",
+            "detail": "Hard sequence.",
+            "kind": "economic",
+            "markerId": "dubai",
+            "short": "VERIFY2",
+            "callsign": "DEMAND IRREVERSIBLE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Tough"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder deal"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Leverage held"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-9c",
+            "label": "Keep talks but maintain escort pressure throughout",
+            "detail": "Talk and sail.",
+            "kind": "naval",
+            "markerId": "strait",
+            "short": "BOTH",
+            "callsign": "KEEP TALKS",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Pressure"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Channel"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Dual track risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-2024-10",
+        "title": "Lane doctrine endgame",
+        "briefing": "Cabinet wants standing rules: escort thresholds, SPR policy, and when kinetic replies are pre-authorized.",
+        "stakes": "Doctrine reduces 3 a.m. invention.",
+        "choices": [
+          {
+            "id": "hist-2024-10a",
+            "label": "Codify multinational escort triggers and ROE libraries",
+            "detail": "Standing maritime order.",
+            "kind": "naval",
+            "markerId": "hormuz",
+            "short": "ROE3",
+            "callsign": "CODIFY MULTINATIONAL",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Ready rules"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Shareable"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less improv"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-10b",
+            "label": "Keep decisions case-by-case at leader level",
+            "detail": "Flexibility.",
+            "kind": "political",
+            "markerId": "tehran",
+            "short": "CASE",
+            "callsign": "KEEP DECISIONS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Agile"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Unpredictable"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partners guess"
+              }
+            ]
+          },
+          {
+            "id": "hist-2024-10c",
+            "label": "Prioritize energy transition and demand destruction tools",
+            "detail": "Reduce the lane\u2019s leverage.",
+            "kind": "economic",
+            "markerId": "oil",
+            "short": "DEMAND",
+            "callsign": "PRIORITIZE ENERGY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Long resilience"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Structural"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less force focus"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "gulf",
+    "scenarioId": "hist-2024-hormuz-relapse",
+    "title": "GULF LANE",
+    "subtitle": "Gulf theater \u00b7 Hormuz lane",
+    "water": "#0A2434",
+    "land": "#2A2818",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 48.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "hormuz",
+        "label": "Hormuz",
+        "x": 56.0,
+        "y": 52.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "tehran",
+        "label": "Tehran",
+        "x": 58.0,
+        "y": 28.0,
+        "kind": "capital"
+      },
+      {
+        "id": "dubai",
+        "label": "Dubai",
+        "x": 62.0,
+        "y": 62.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "riyadh",
+        "label": "Riyadh",
+        "x": 38.0,
+        "y": 68.0,
+        "kind": "capital"
+      },
+      {
+        "id": "oman",
+        "label": "Muscat",
+        "x": 72.0,
+        "y": 70.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "oil",
+        "label": "SPR node",
+        "x": 22.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "base",
+        "label": "Logistics",
+        "x": 44.0,
+        "y": 48.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "proxy",
+        "label": "Proxy dep.",
+        "x": 52.0,
+        "y": 38.0,
+        "kind": "flashpoint"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "hormuz",
+        "to": "dubai"
+      },
+      {
+        "from": "strait",
+        "to": "oman"
+      },
+      {
+        "from": "oil",
+        "to": "strait"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "TRAFFIC LANE",
+        "x": 42.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 18.0,
+        "tension": 0.8
+      },
+      {
+        "id": "iran",
+        "label": "IRAN",
+        "x": 48.0,
+        "y": 18.0,
+        "w": 30.0,
+        "h": 22.0,
+        "tension": 0.55
+      },
+      {
+        "id": "gulf-arab",
+        "label": "GULF STATES",
+        "x": 28.0,
+        "y": 58.0,
+        "w": 26.0,
+        "h": 22.0,
+        "tension": 0.4
+      }
+    ],
+    "terrainKey": "gulf",
+    "geo": {
+      "label": "Persian Gulf \u00b7 Hormuz (Natural Earth)",
+      "water": "#0A2434",
+      "land": "#2A2818",
+      "landHi": "#3A3824",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "gulf",
+      "reliefKey": "gulf",
+      "lands": [
+        [
+          [
+            20.76,
+            44.85
+          ],
+          [
+            18.25,
+            41.93
+          ],
+          [
+            18.2,
+            38.97
+          ],
+          [
+            16.75,
+            38.97
+          ],
+          [
+            17.5,
+            34.95
+          ],
+          [
+            15.16,
+            30.73
+          ],
+          [
+            9.59,
+            27.68
+          ],
+          [
+            6.44,
+            22.4
+          ],
+          [
+            7.49,
+            18.07
+          ],
+          [
+            9.78,
+            16.15
+          ],
+          [
+            9.44,
+            12.9
+          ],
+          [
+            6.46,
+            11.24
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            1.03,
+            0.5
+          ],
+          [
+            1.92,
+            0.5
+          ],
+          [
+            6.63,
+            0.5
+          ],
+          [
+            9.74,
+            0.5
+          ],
+          [
+            11.39,
+            0.5
+          ],
+          [
+            18.23,
+            0.5
+          ],
+          [
+            21.07,
+            0.5
+          ],
+          [
+            22.2,
+            0.5
+          ],
+          [
+            23.63,
+            2.32
+          ],
+          [
+            27.94,
+            3.47
+          ],
+          [
+            31.1,
+            6.26
+          ],
+          [
+            37.56,
+            7.22
+          ],
+          [
+            44.66,
+            5.75
+          ],
+          [
+            45.1,
+            4.45
+          ],
+          [
+            49.09,
+            3.38
+          ],
+          [
+            52.33,
+            0.5
+          ],
+          [
+            55.37,
+            0.5
+          ],
+          [
+            57.36,
+            0.5
+          ],
+          [
+            60.59,
+            0.5
+          ],
+          [
+            65.62,
+            2.65
+          ],
+          [
+            69.25,
+            3.26
+          ],
+          [
+            74.44,
+            8.18
+          ],
+          [
+            77.83,
+            8.38
+          ],
+          [
+            78.23,
+            13.06
+          ],
+          [
+            76.38,
+            19.98
+          ],
+          [
+            75.13,
+            24.02
+          ],
+          [
+            77.11,
+            24.84
+          ],
+          [
+            75.16,
+            27.88
+          ],
+          [
+            76.65,
+            32.32
+          ],
+          [
+            77.01,
+            35.84
+          ],
+          [
+            80.45,
+            36.78
+          ],
+          [
+            80.82,
+            40.36
+          ],
+          [
+            76.7,
+            45.39
+          ],
+          [
+            78.95,
+            48.32
+          ],
+          [
+            80.78,
+            51.67
+          ],
+          [
+            85.13,
+            54.11
+          ],
+          [
+            85.25,
+            59.01
+          ],
+          [
+            87.43,
+            59.91
+          ],
+          [
+            87.8,
+            62.46
+          ],
+          [
+            81.25,
+            65.33
+          ],
+          [
+            79.53,
+            71.79
+          ],
+          [
+            70.98,
+            70.11
+          ],
+          [
+            66.03,
+            68.83
+          ],
+          [
+            60.9,
+            68.11
+          ],
+          [
+            58.96,
+            61.3
+          ],
+          [
+            56.78,
+            60.31
+          ],
+          [
+            53.29,
+            61.31
+          ],
+          [
+            48.7,
+            64.0
+          ],
+          [
+            43.15,
+            62.15
+          ],
+          [
+            38.56,
+            57.88
+          ],
+          [
+            34.19,
+            56.3
+          ],
+          [
+            31.15,
+            51.03
+          ],
+          [
+            27.8,
+            43.62
+          ],
+          [
+            25.35,
+            44.52
+          ],
+          [
+            22.46,
+            42.68
+          ],
+          [
+            20.76,
+            44.85
+          ]
+        ],
+        [
+          [
+            0.5,
+            4.13
+          ],
+          [
+            1.33,
+            5.55
+          ],
+          [
+            3.51,
+            4.61
+          ],
+          [
+            6.46,
+            11.24
+          ],
+          [
+            9.44,
+            12.9
+          ],
+          [
+            9.78,
+            16.15
+          ],
+          [
+            7.49,
+            18.07
+          ],
+          [
+            6.44,
+            22.4
+          ],
+          [
+            9.59,
+            27.68
+          ],
+          [
+            15.16,
+            30.73
+          ],
+          [
+            17.5,
+            34.95
+          ],
+          [
+            16.75,
+            38.97
+          ],
+          [
+            18.2,
+            38.97
+          ],
+          [
+            18.25,
+            41.93
+          ],
+          [
+            20.76,
+            44.85
+          ],
+          [
+            18.07,
+            44.58
+          ],
+          [
+            15.01,
+            44.12
+          ],
+          [
+            11.68,
+            49.45
+          ],
+          [
+            3.22,
+            49.01
+          ],
+          [
+            0.5,
+            4.13
+          ]
+        ],
+        [
+          [
+            3.22,
+            49.01
+          ],
+          [
+            11.68,
+            49.45
+          ],
+          [
+            15.73,
+            49.99
+          ],
+          [
+            16.86,
+            52.63
+          ],
+          [
+            20.07,
+            52.49
+          ],
+          [
+            21.85,
+            57.28
+          ],
+          [
+            24.09,
+            58.55
+          ],
+          [
+            24.87,
+            60.5
+          ],
+          [
+            27.97,
+            62.84
+          ],
+          [
+            28.24,
+            65.13
+          ],
+          [
+            27.79,
+            66.98
+          ],
+          [
+            28.36,
+            68.84
+          ],
+          [
+            29.67,
+            70.4
+          ],
+          [
+            30.28,
+            72.22
+          ],
+          [
+            30.96,
+            73.58
+          ],
+          [
+            32.33,
+            74.69
+          ],
+          [
+            33.59,
+            74.29
+          ],
+          [
+            34.45,
+            76.41
+          ],
+          [
+            34.63,
+            77.7
+          ],
+          [
+            36.37,
+            83.33
+          ],
+          [
+            50.03,
+            86.13
+          ],
+          [
+            50.95,
+            84.95
+          ],
+          [
+            53.03,
+            88.89
+          ],
+          [
+            50.0,
+            99.5
+          ],
+          [
+            3.22,
+            49.01
+          ]
+        ],
+        [
+          [
+            50.95,
+            84.95
+          ],
+          [
+            51.07,
+            82.72
+          ],
+          [
+            52.39,
+            80.42
+          ],
+          [
+            52.4,
+            78.15
+          ],
+          [
+            54.46,
+            77.05
+          ],
+          [
+            53.66,
+            76.28
+          ],
+          [
+            54.03,
+            72.66
+          ],
+          [
+            56.35,
+            72.64
+          ],
+          [
+            58.39,
+            76.44
+          ],
+          [
+            60.92,
+            78.45
+          ],
+          [
+            64.26,
+            79.18
+          ],
+          [
+            66.95,
+            80.19
+          ],
+          [
+            69.0,
+            83.38
+          ],
+          [
+            70.23,
+            85.22
+          ],
+          [
+            71.85,
+            85.92
+          ],
+          [
+            71.85,
+            87.16
+          ],
+          [
+            70.19,
+            90.47
+          ],
+          [
+            69.47,
+            92.03
+          ],
+          [
+            67.55,
+            93.81
+          ],
+          [
+            65.85,
+            97.62
+          ],
+          [
+            63.79,
+            97.33
+          ],
+          [
+            62.85,
+            98.65
+          ],
+          [
+            62.12,
+            99.5
+          ],
+          [
+            50.0,
+            99.5
+          ],
+          [
+            53.03,
+            88.89
+          ],
+          [
+            50.95,
+            84.95
+          ]
+        ],
+        [
+          [
+            34.45,
+            76.41
+          ],
+          [
+            35.26,
+            76.14
+          ],
+          [
+            35.43,
+            77.67
+          ],
+          [
+            38.99,
+            76.79
+          ],
+          [
+            42.75,
+            76.94
+          ],
+          [
+            45.49,
+            77.1
+          ],
+          [
+            48.6,
+            73.35
+          ],
+          [
+            52.0,
+            69.78
+          ],
+          [
+            54.87,
+            66.36
+          ],
+          [
+            55.73,
+            68.25
+          ],
+          [
+            56.35,
+            72.64
+          ],
+          [
+            54.03,
+            72.66
+          ],
+          [
+            53.66,
+            76.28
+          ],
+          [
+            54.46,
+            77.05
+          ],
+          [
+            52.4,
+            78.15
+          ],
+          [
+            52.39,
+            80.42
+          ],
+          [
+            51.07,
+            82.72
+          ],
+          [
+            50.95,
+            84.95
+          ],
+          [
+            50.03,
+            86.13
+          ],
+          [
+            36.37,
+            83.33
+          ],
+          [
+            34.63,
+            77.7
+          ],
+          [
+            34.45,
+            76.41
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Hormuz",
+          "x": 60.0,
+          "y": 50.0
+        },
+        {
+          "name": "Tehran",
+          "x": 68.0,
+          "y": 24.0
+        },
+        {
+          "name": "Riyadh",
+          "x": 32.0,
+          "y": 70.0
+        },
+        {
+          "name": "Dubai",
+          "x": 54.0,
+          "y": 56.0
+        }
+      ]
+    }
+  }
+}

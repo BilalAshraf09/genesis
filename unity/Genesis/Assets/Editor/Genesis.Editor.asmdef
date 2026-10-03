@@ -1,0 +1,31 @@
+{
+    "name": "Genesis.Editor",
+    "rootNamespace": "Genesis.EditorTools",
+    "references": [
+        "Genesis.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "",
+            "define": "GENESIS_URP"
+        },
+        {
+            "name": "com.unity.cinemachine",
+            "expression": "3.0.0",
+            "define": "GENESIS_CINEMACHINE"
+        }
+    ],
+    "noEngineReferences": false
+}

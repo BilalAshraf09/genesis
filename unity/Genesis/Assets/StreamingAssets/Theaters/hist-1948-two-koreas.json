@@ -1,0 +1,1673 @@
+{
+  "scenario": {
+    "id": "hist-1948-two-koreas",
+    "year": 1948,
+    "era": "1945\u20131962",
+    "title": "Two Koreas",
+    "region": "Korean Peninsula \u00b7 38th Parallel \u00b7 occupation zones \u00b7 state founding",
+    "meterFamily": "politics",
+    "theaterArchetype": "pacific",
+    "premise": "This is the peninsula partition theater\u2014not the 1950 war. US and Soviet occupation zones harden into rival governments around the 38th parallel. Trusteeship talks have failed; separate elections and recognition fights will create two states. You advise on whether to freeze division, force a peninsula-wide process, or accept two Koreas as the least-bad map.",
+    "role": "Occupation political counselor",
+    "tension": "Unity rhetoric versus the reality that two armies, two parties, and two patrons already face each other across a line.",
+    "beats": [
+      {
+        "id": "hist-1948-two-koreas-1",
+        "title": "Trusteeship autopsy",
+        "briefing": "Joint trusteeship is dead in practice. Moscow and Washington blame each other. Seoul and Pyongyang factions already behave like capitals.",
+        "stakes": "Admit partition\u2014or keep performing unity while building two states.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-1a",
+            "label": "Declare trusteeship failed; prepare separate elections south",
+            "detail": "Own the split.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "SPLIT",
+            "callsign": "DECLARE TRUSTEESHIP",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear south path"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Unity camp broken"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "North hardens"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-1b",
+            "label": "One more joint commission round with a hard deadline",
+            "detail": "Last unity try.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "JOINT",
+            "callsign": "ONE MORE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talks revived"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Calendar burns"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Seen as stall"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-1c",
+            "label": "Propose UN temporary administration for the whole peninsula",
+            "detail": "Internationalize.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "UN-TEMP",
+            "callsign": "PROPOSE UN",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "UN frame"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Soviets resist"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Authority vacuum"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-2",
+        "title": "Election geometry",
+        "briefing": "UN commissioners can observe the south. The north will not admit them. Holding a \u201cnational\u201d election only in one zone invents a state.",
+        "stakes": "Ballots can create a republic\u2014or a permanent half-nation.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-2a",
+            "label": "Hold UN-observed elections in the south only",
+            "detail": "Build ROK now.",
+            "kind": "civic",
+            "markerId": "island",
+            "short": "S-VOTE",
+            "callsign": "HOLD UN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Government born"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "North excluded"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Rival state answer"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-2b",
+            "label": "Refuse elections until north access is guaranteed",
+            "detail": "No half-mandate.",
+            "kind": "legal",
+            "markerId": "cable",
+            "short": "WAIT",
+            "callsign": "REFUSE ELECTIONS",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Whole-peninsula rule"
+              },
+              {
+                "tag": "time",
+                "weight": -2,
+                "summary": "Drift"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "No civilian gov"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-2c",
+            "label": "Local councils first; national vote later",
+            "detail": "Bottom-up delay.",
+            "kind": "political",
+            "markerId": "fleet",
+            "short": "LOCAL",
+            "callsign": "LOCAL COUNCILS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Admin capacity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Flexible path"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Weak center"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-3",
+        "title": "Police and youth leagues",
+        "briefing": "Rightist youth groups and leftist cells both arm. Occupation police cannot be everywhere. A crackdown looks like choosing a faction.",
+        "stakes": "Street force becomes the real constitution.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-3a",
+            "label": "Disarm irregulars; build a single national police",
+            "detail": "Monopoly of force.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "DISARM",
+            "callsign": "DISARM IRREGULARS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Order attempt"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Clash during disarm"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Faction anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-3b",
+            "label": "Tolerate aligned youth leagues as anti-communist auxiliaries",
+            "detail": "Outsource muscle.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "AUX",
+            "callsign": "TOLERATE ALIGNED",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Militias rise"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Rule of law hit"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Left intimidated"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-3c",
+            "label": "Amnesty and integrate defectors into civil admin",
+            "detail": "Co-opt.",
+            "kind": "civic",
+            "markerId": "island",
+            "short": "AMNESTY",
+            "callsign": "AMNESTY AND",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Some cooling"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Talent in"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Purists scream"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-4",
+        "title": "Recognition race",
+        "briefing": "A southern republic and a northern people\u2019s republic both seek recognition. First movers set the diplomatic map.",
+        "stakes": "Who is \u201cKorea\u201d in foreign ministries?",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-4a",
+            "label": "Recognize the southern republic as Korea\u2019s sole government",
+            "detail": "Exclusive claim.",
+            "kind": "diplomatic",
+            "markerId": "capital_a",
+            "short": "SOLE",
+            "callsign": "RECOGNIZE THE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear recognition"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Zero-sum Korea"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Bloc clarity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-4b",
+            "label": "Recognize both as provisional authorities in their zones",
+            "detail": "Dual realism.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "DUAL",
+            "callsign": "RECOGNIZE BOTH",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Two-state fact"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Unity abandoned"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less all-or-nothing"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-4c",
+            "label": "Withhold recognition; keep occupation legal cover",
+            "detail": "No seals yet.",
+            "kind": "legal",
+            "markerId": "cable",
+            "short": "WITHHOLD",
+            "callsign": "WITHHOLD RECOGNITION",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexibility"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "Legitimacy gap"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Partners confused"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-5",
+        "title": "Parallel fortification",
+        "briefing": "Both zones dig in along the 38th. Advisors want heavier weapons \u201cfor defense.\u201d Each shipment teaches the other to race.",
+        "stakes": "The line becomes a front before anyone declares war.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-5a",
+            "label": "Limit southern forces to light constabulary arms",
+            "detail": "Deny invasion kit.",
+            "kind": "political",
+            "markerId": "fleet",
+            "short": "LIGHT",
+            "callsign": "LIMIT SOUTHERN",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Less offensive kit"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -2,
+                "summary": "South feels naked"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Seoul anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-5b",
+            "label": "Match northern armor with defensive heavy weapons",
+            "detail": "Balance the parallel.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "MATCH",
+            "callsign": "MATCH NORTHERN",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Harder to overrun"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Arms race"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Militarized line"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-5c",
+            "label": "Propose a demilitarized buffer monitored by neutrals",
+            "detail": "Thin the fuse.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "BUFFER",
+            "callsign": "PROPOSE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "DMZ concept"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If accepted"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Likely rejected"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-6",
+        "title": "Refugees across the parallel",
+        "briefing": "Families flee both ways. Border commanders want shoot-to-stop orders; humanitarians want open gates.",
+        "stakes": "Population movement redraws politics faster than treaties.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-6a",
+            "label": "Open supervised refugee corridors with screening",
+            "detail": "Managed haven.",
+            "kind": "civic",
+            "markerId": "cable",
+            "short": "CORRIDOR",
+            "callsign": "OPEN SUPERVISED",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Lives saved"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -1,
+                "summary": "Absorption stress"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Humane posture"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-6b",
+            "label": "Seal the parallel; treat crossings as infiltration",
+            "detail": "Hard border.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "SEAL",
+            "callsign": "SEAL THE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Shots on line"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Trapped civilians"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Infiltration down"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-6c",
+            "label": "Family-reunion windows under Red Cross mediation",
+            "detail": "Thin human bridge.",
+            "kind": "diplomatic",
+            "markerId": "capital_b",
+            "short": "FAMILY",
+            "callsign": "FAMILY REUNION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Contact channel"
+              },
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Hope valve"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slow confidence"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-7",
+        "title": "Japanese residual assets",
+        "briefing": "Colonial-era plants, rails, and titles sit in both zones. Who inherits them shapes each state\u2019s economy\u2014and grievance.",
+        "stakes": "Property maps become sovereignty maps.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-7a",
+            "label": "Nationalize key industry under southern civilian board",
+            "detail": "State core.",
+            "kind": "economic",
+            "markerId": "capital_a",
+            "short": "NATL",
+            "callsign": "NATIONALIZE KEY",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Economic spine"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Investor scare"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Owners vs state"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-7b",
+            "label": "Sell assets fast to fund police and elections",
+            "detail": "Cash now.",
+            "kind": "economic",
+            "markerId": "fleet",
+            "short": "SELL",
+            "callsign": "SELL ASSETS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Liquidity"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Fire sale optics"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Funded admin"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-7c",
+            "label": "Escrow contested assets pending a unity settlement",
+            "detail": "Freeze wealth.",
+            "kind": "legal",
+            "markerId": "cable",
+            "short": "ESCROW",
+            "callsign": "ESCROW CONTESTED",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Legal hold"
+              },
+              {
+                "tag": "governability",
+                "weight": -2,
+                "summary": "Idle capacity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Bargain chip"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-8",
+        "title": "Patron directives",
+        "briefing": "Washington wants a reliable anti-communist state; Moscow wants a reliable northern counterpart. Both urge \u201cno compromise that looks like defeat.\u201d",
+        "stakes": "Patron impatience can erase local off-ramps.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-8a",
+            "label": "Accept two-state reality; negotiate non-aggression notes",
+            "detail": "Partition with brakes.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "TWOSTATE",
+            "callsign": "ACCEPT TWO",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Formal coexistence try"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Unity shelved"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Channel opens"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-8b",
+            "label": "Double down on sole legitimacy; reject northern sovereignty",
+            "detail": "Zero-sum Korea.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "ZERO-SUM",
+            "callsign": "DOUBLE DOWN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard line"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War more likely"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Patron pleased"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-8c",
+            "label": "Quietly explore confederation language without recognition",
+            "detail": "Foggy middle.",
+            "kind": "diplomatic",
+            "markerId": "island",
+            "short": "CONFED",
+            "callsign": "QUIETLY EXPLORE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Ambiguous bridge"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Talks without seals"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Hardliners attack"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-9",
+        "title": "Border incidents",
+        "briefing": "Patrol clashes kill soldiers on both sides. Each capital calls it proof of the other\u2019s intent to invade.",
+        "stakes": "Incidents can become casus belli before 1950 arrives.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-9a",
+            "label": "Joint investigation with third-party observers",
+            "detail": "Facts before guns.",
+            "kind": "diplomatic",
+            "markerId": "cable",
+            "short": "INVEST",
+            "callsign": "JOINT INVESTIGATION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Incident channel"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Cooling try"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Process over rumor"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-9b",
+            "label": "Retaliatory raid to restore deterrence",
+            "detail": "Answer in kind.",
+            "kind": "kinetic",
+            "markerId": "strait",
+            "short": "RAID",
+            "callsign": "RETALIATORY RAID",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Shows teeth"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Cycle starts"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Border toll"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-9c",
+            "label": "Pull forward posts back; thicken observation only",
+            "detail": "Create space.",
+            "kind": "political",
+            "markerId": "fleet",
+            "short": "PULLBACK",
+            "callsign": "PULL FORWARD",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Less contact"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Looks weak"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Local command fumes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1948-two-koreas-10",
+        "title": "Doctrine of the divide",
+        "briefing": "You must write the standing guidance before the next crisis: is the 38th parallel a temporary scar, a legal border, or a fuse?",
+        "stakes": "How you name the line shapes whether 1950 becomes inevitable.",
+        "choices": [
+          {
+            "id": "hist-1948-two-koreas-10a",
+            "label": "Treat the parallel as an interim armistice line only",
+            "detail": "Unity remains the aim.",
+            "kind": "political",
+            "markerId": "capital_a",
+            "short": "INTERIM",
+            "callsign": "TREAT THE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Unity doctrine"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Revisionist pressure"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "No settlement"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-10b",
+            "label": "Accept two states; build deterrence and hotlines",
+            "detail": "Partition with brakes.",
+            "kind": "diplomatic",
+            "markerId": "strait",
+            "short": "ACCEPT",
+            "callsign": "ACCEPT TWO",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Stabilizing honesty"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Managed rivalry"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Dream of unity ends"
+              }
+            ]
+          },
+          {
+            "id": "hist-1948-two-koreas-10c",
+            "label": "Internationalize the parallel under standing UN watch",
+            "detail": "Line as institution.",
+            "kind": "legal",
+            "markerId": "island",
+            "short": "UNLINE",
+            "callsign": "INTERNATIONALIZE THE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Institutional line"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "UN role"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Sovereignty blur"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "korea",
+    "scenarioId": "hist-1948-two-koreas",
+    "title": "PACIFIC LANE",
+    "subtitle": "Indo-Pacific \u00b7 strait watch",
+    "water": "#0A2030",
+    "land": "#1A342E",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "strait",
+        "label": "Strait",
+        "x": 52.0,
+        "y": 55.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "capital_a",
+        "label": "Capital A",
+        "x": 40.0,
+        "y": 42.0,
+        "kind": "capital"
+      },
+      {
+        "id": "capital_b",
+        "label": "Capital B",
+        "x": 68.0,
+        "y": 38.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fleet",
+        "label": "Fleet",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "cable",
+        "label": "Cable",
+        "x": 46.0,
+        "y": 68.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "island",
+        "label": "Island",
+        "x": 62.0,
+        "y": 50.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fleet",
+        "to": "strait"
+      },
+      {
+        "from": "strait",
+        "to": "island"
+      }
+    ],
+    "zones": [
+      {
+        "id": "lane",
+        "label": "SEA LANE",
+        "x": 44.0,
+        "y": 48.0,
+        "w": 28.0,
+        "h": 20.0,
+        "tension": 0.75
+      },
+      {
+        "id": "island-chain",
+        "label": "ISLAND CHAIN",
+        "x": 56.0,
+        "y": 36.0,
+        "w": 22.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "pacific",
+    "geo": {
+      "label": "Korean Peninsula (Natural Earth)",
+      "water": "#0A2030",
+      "land": "#1A342E",
+      "landHi": "#2A443E",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "pacific",
+      "reliefKey": "pacific",
+      "lands": [
+        [
+          [
+            0.5,
+            0.5
+          ],
+          [
+            55.08,
+            0.5
+          ],
+          [
+            52.39,
+            5.35
+          ],
+          [
+            47.53,
+            4.24
+          ],
+          [
+            44.1,
+            6.45
+          ],
+          [
+            45.15,
+            11.8
+          ],
+          [
+            44.58,
+            19.19
+          ],
+          [
+            42.54,
+            19.36
+          ],
+          [
+            42.56,
+            22.53
+          ],
+          [
+            39.98,
+            18.84
+          ],
+          [
+            38.39,
+            22.34
+          ],
+          [
+            32.21,
+            25.04
+          ],
+          [
+            32.83,
+            28.33
+          ],
+          [
+            29.38,
+            28.11
+          ],
+          [
+            27.48,
+            26.15
+          ],
+          [
+            24.73,
+            30.58
+          ],
+          [
+            20.32,
+            33.94
+          ],
+          [
+            17.06,
+            37.95
+          ],
+          [
+            11.47,
+            39.76
+          ],
+          [
+            8.53,
+            42.68
+          ],
+          [
+            4.22,
+            44.39
+          ],
+          [
+            6.34,
+            41.49
+          ],
+          [
+            5.51,
+            39.06
+          ],
+          [
+            8.67,
+            34.86
+          ],
+          [
+            6.56,
+            31.59
+          ],
+          [
+            3.07,
+            33.79
+          ],
+          [
+            0.5,
+            38.14
+          ],
+          [
+            0.5,
+            42.17
+          ],
+          [
+            0.5,
+            50.64
+          ],
+          [
+            0.5,
+            53.45
+          ],
+          [
+            0.5,
+            55.27
+          ],
+          [
+            3.29,
+            50.81
+          ],
+          [
+            6.85,
+            53.24
+          ],
+          [
+            9.43,
+            53.41
+          ],
+          [
+            10.08,
+            56.68
+          ],
+          [
+            4.42,
+            58.43
+          ],
+          [
+            2.55,
+            61.8
+          ],
+          [
+            0.5,
+            64.94
+          ],
+          [
+            0.5,
+            69.31
+          ],
+          [
+            0.91,
+            72.75
+          ],
+          [
+            2.48,
+            78.9
+          ],
+          [
+            4.92,
+            84.62
+          ],
+          [
+            7.63,
+            89.42
+          ],
+          [
+            7.57,
+            94.07
+          ],
+          [
+            5.06,
+            95.77
+          ],
+          [
+            6.01,
+            99.11
+          ],
+          [
+            8.37,
+            99.5
+          ],
+          [
+            0.5,
+            0.5
+          ]
+        ],
+        [
+          [
+            87.54,
+            42.62
+          ],
+          [
+            83.84,
+            48.91
+          ],
+          [
+            83.91,
+            55.36
+          ],
+          [
+            82.4,
+            60.35
+          ],
+          [
+            83.1,
+            63.48
+          ],
+          [
+            81.01,
+            67.89
+          ],
+          [
+            75.9,
+            70.83
+          ],
+          [
+            68.87,
+            71.21
+          ],
+          [
+            63.17,
+            78.34
+          ],
+          [
+            60.48,
+            75.94
+          ],
+          [
+            60.32,
+            71.27
+          ],
+          [
+            53.36,
+            72.65
+          ],
+          [
+            48.63,
+            75.59
+          ],
+          [
+            43.94,
+            75.71
+          ],
+          [
+            48.0,
+            80.31
+          ],
+          [
+            45.33,
+            90.94
+          ],
+          [
+            42.75,
+            93.57
+          ],
+          [
+            40.81,
+            91.14
+          ],
+          [
+            41.79,
+            85.5
+          ],
+          [
+            39.26,
+            83.69
+          ],
+          [
+            37.63,
+            79.4
+          ],
+          [
+            41.42,
+            77.47
+          ],
+          [
+            43.51,
+            73.55
+          ],
+          [
+            47.54,
+            70.31
+          ],
+          [
+            50.47,
+            66.04
+          ],
+          [
+            58.43,
+            64.18
+          ],
+          [
+            62.71,
+            65.46
+          ],
+          [
+            66.9,
+            54.34
+          ],
+          [
+            69.56,
+            57.33
+          ],
+          [
+            75.43,
+            51.08
+          ],
+          [
+            77.71,
+            48.65
+          ],
+          [
+            80.22,
+            41.01
+          ],
+          [
+            79.53,
+            33.98
+          ],
+          [
+            81.22,
+            30.03
+          ],
+          [
+            85.48,
+            28.88
+          ],
+          [
+            87.66,
+            37.55
+          ],
+          [
+            87.54,
+            42.62
+          ]
+        ],
+        [
+          [
+            42.56,
+            22.53
+          ],
+          [
+            42.56,
+            22.53
+          ],
+          [
+            43.12,
+            23.62
+          ],
+          [
+            41.6,
+            23.25
+          ],
+          [
+            39.86,
+            25.37
+          ],
+          [
+            38.67,
+            27.49
+          ],
+          [
+            38.82,
+            31.98
+          ],
+          [
+            36.75,
+            33.36
+          ],
+          [
+            36.04,
+            34.47
+          ],
+          [
+            34.53,
+            36.31
+          ],
+          [
+            31.87,
+            37.34
+          ],
+          [
+            30.13,
+            39.02
+          ],
+          [
+            30.01,
+            41.73
+          ],
+          [
+            29.54,
+            42.42
+          ],
+          [
+            31.13,
+            43.43
+          ],
+          [
+            33.4,
+            46.17
+          ],
+          [
+            32.82,
+            47.69
+          ],
+          [
+            31.12,
+            48.1
+          ],
+          [
+            28.29,
+            48.4
+          ],
+          [
+            26.73,
+            51.22
+          ],
+          [
+            24.95,
+            51.0
+          ],
+          [
+            24.7,
+            51.56
+          ],
+          [
+            22.76,
+            50.37
+          ],
+          [
+            22.27,
+            51.55
+          ],
+          [
+            21.1,
+            52.07
+          ],
+          [
+            20.96,
+            50.89
+          ],
+          [
+            19.92,
+            50.32
+          ],
+          [
+            18.85,
+            49.32
+          ],
+          [
+            19.94,
+            46.57
+          ],
+          [
+            20.89,
+            45.84
+          ],
+          [
+            20.53,
+            44.7
+          ],
+          [
+            21.55,
+            41.33
+          ],
+          [
+            21.28,
+            40.3
+          ],
+          [
+            18.95,
+            39.62
+          ],
+          [
+            17.06,
+            37.95
+          ],
+          [
+            20.32,
+            33.94
+          ],
+          [
+            24.73,
+            30.58
+          ],
+          [
+            27.48,
+            26.15
+          ],
+          [
+            29.38,
+            28.11
+          ],
+          [
+            32.83,
+            28.33
+          ],
+          [
+            32.21,
+            25.04
+          ],
+          [
+            38.39,
+            22.34
+          ],
+          [
+            39.98,
+            18.84
+          ],
+          [
+            42.56,
+            22.53
+          ]
+        ],
+        [
+          [
+            24.7,
+            51.56
+          ],
+          [
+            24.95,
+            51.0
+          ],
+          [
+            26.73,
+            51.22
+          ],
+          [
+            28.29,
+            48.4
+          ],
+          [
+            31.12,
+            48.1
+          ],
+          [
+            32.82,
+            47.69
+          ],
+          [
+            33.4,
+            46.17
+          ],
+          [
+            36.85,
+            53.55
+          ],
+          [
+            37.84,
+            57.6
+          ],
+          [
+            37.87,
+            64.8
+          ],
+          [
+            36.37,
+            68.23
+          ],
+          [
+            32.74,
+            69.44
+          ],
+          [
+            29.55,
+            72.03
+          ],
+          [
+            25.94,
+            72.56
+          ],
+          [
+            25.5,
+            69.16
+          ],
+          [
+            26.24,
+            64.47
+          ],
+          [
+            24.47,
+            57.97
+          ],
+          [
+            27.44,
+            56.91
+          ],
+          [
+            24.7,
+            51.56
+          ]
+        ],
+        [
+          [
+            98.45,
+            12.74
+          ],
+          [
+            99.5,
+            10.1
+          ],
+          [
+            99.5,
+            17.11
+          ],
+          [
+            96.24,
+            18.82
+          ],
+          [
+            92.74,
+            25.03
+          ],
+          [
+            86.45,
+            20.76
+          ],
+          [
+            84.27,
+            27.6
+          ],
+          [
+            79.82,
+            27.69
+          ],
+          [
+            79.27,
+            21.48
+          ],
+          [
+            81.25,
+            16.67
+          ],
+          [
+            85.52,
+            16.32
+          ],
+          [
+            86.69,
+            7.67
+          ],
+          [
+            87.87,
+            2.8
+          ],
+          [
+            92.57,
+            9.31
+          ],
+          [
+            95.64,
+            11.41
+          ],
+          [
+            98.45,
+            12.74
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            42.0,
+            50.0
+          ],
+          [
+            62.0,
+            50.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Seoul",
+          "x": 50.0,
+          "y": 56.0
+        },
+        {
+          "name": "Pyongyang",
+          "x": 48.0,
+          "y": 40.0
+        },
+        {
+          "name": "Busan",
+          "x": 56.0,
+          "y": 80.0
+        },
+        {
+          "name": "Incheon",
+          "x": 44.0,
+          "y": 54.0
+        }
+      ]
+    }
+  }
+}

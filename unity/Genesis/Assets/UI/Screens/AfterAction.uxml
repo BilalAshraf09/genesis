@@ -1,0 +1,128 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements"
+         xmlns:genesis="Genesis.UI.Toolkit">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+    <ui:Style src="project://database/Assets/UI/Screens/AfterAction.uss" />
+
+    <!-- Ocean background root, safe-area applied by SafeAreaRootBehaviour -->
+    <ui:VisualElement name="safeRoot" class="after-action">
+
+        <ui:ScrollView name="scrollView" mode="Vertical" class="after-action__scroll">
+            <ui:VisualElement name="contentStack" class="after-action__stack">
+
+                <!-- ── HEADER ── -->
+                <ui:VisualElement name="header" class="after-action__header">
+                    <ui:Label name="theaterTitle" text="Theater Title" class="after-action__theater-title" />
+                    <ui:Label name="theaterMeta"  text="1947  ·  3/3 phases" class="after-action__theater-meta" />
+                </ui:VisualElement>
+
+                <!-- ── SCORE RING + RANK (glass card) ── -->
+                <ui:VisualElement name="scoreSection" class="glass after-action__score-section">
+                    <genesis:ScoreRing name="scoreRing" target-score="94" rank-text="A" />
+                    <ui:Label name="rankTitleLabel"  text="Steady Hand"   class="after-action__rank-title" />
+                    <ui:Label name="headlineLabel"   text="Crisis resolved on a diplomatic line."
+                              class="after-action__headline" />
+                </ui:VisualElement>
+
+                <!-- ── OUTCOME PILLARS (card) ── -->
+                <ui:VisualElement name="pillarsSection" class="card after-action__pillars">
+                    <ui:Label text="OUTCOME" class="after-action__section-label" />
+
+                    <!-- Stability -->
+                    <ui:VisualElement class="pillar-row">
+                        <ui:Label text="Stability"   class="pillar-name" />
+                        <ui:VisualElement class="meter pillar-track">
+                            <ui:VisualElement name="stabilityFill" class="meter__fill meter__fill--stability" />
+                        </ui:VisualElement>
+                        <ui:Label name="stabilityPct" text="–" class="pillar-pct" />
+                    </ui:VisualElement>
+
+                    <!-- Credibility -->
+                    <ui:VisualElement class="pillar-row">
+                        <ui:Label text="Credibility" class="pillar-name" />
+                        <ui:VisualElement class="meter pillar-track">
+                            <ui:VisualElement name="credibilityFill" class="meter__fill meter__fill--credibility" />
+                        </ui:VisualElement>
+                        <ui:Label name="credibilityPct" text="–" class="pillar-pct" />
+                    </ui:VisualElement>
+
+                    <!-- Civilian toll -->
+                    <ui:VisualElement class="pillar-row">
+                        <ui:Label text="Civilian toll" class="pillar-name" />
+                        <ui:VisualElement class="meter pillar-track">
+                            <ui:VisualElement name="civilianFill" class="meter__fill meter__fill--civilian" />
+                        </ui:VisualElement>
+                        <ui:Label name="civilianPct" text="–" class="pillar-pct" />
+                    </ui:VisualElement>
+
+                    <!-- Escalation -->
+                    <ui:VisualElement class="pillar-row">
+                        <ui:Label text="Escalation"  class="pillar-name" />
+                        <ui:VisualElement class="meter pillar-track">
+                            <ui:VisualElement name="escalationFill" class="meter__fill meter__fill--escalation" />
+                        </ui:VisualElement>
+                        <ui:Label name="escalationPct" text="–" class="pillar-pct" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <!-- ── YOUR PATH VS HISTORY (card) ── -->
+                <ui:VisualElement name="pathSection" class="card after-action__path">
+                    <ui:Label text="YOUR PATH VS HISTORY" class="after-action__section-label" />
+                    <ui:Label name="closingLine"  text="Crisis resolved." class="after-action__closing" />
+                    <ui:VisualElement name="pathChips" class="after-action__path-chips">
+                        <ui:Label name="topGainChip" text="▲ Gain"   class="chip chip--gain" />
+                        <ui:Label name="topCostChip" text="▼ Cost"   class="chip chip--cost" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <!-- ── DECISIONS (card) ── -->
+                <ui:VisualElement name="decisionsSection" class="card after-action__decisions">
+                    <ui:Label text="DECISIONS" class="after-action__section-label" />
+                    <ui:VisualElement name="decisionsContainer" />
+                </ui:VisualElement>
+
+                <!-- ── PLACES LEARNED (card) ── -->
+                <ui:VisualElement name="placesSection" class="card after-action__places">
+                    <ui:Label text="PLACES LEARNED" class="after-action__section-label" />
+                    <ui:VisualElement name="placesContainer" class="after-action__chips-row" />
+                </ui:VisualElement>
+
+                <!-- ── MAP THUMBNAIL ── -->
+                <ui:VisualElement name="mapSection" class="after-action__map-section">
+                    <ui:VisualElement name="mapThumbnail" class="after-action__map-thumb" />
+                    <ui:Label name="mapLabel" text="Theater region" class="after-action__map-label" />
+                </ui:VisualElement>
+
+                <!-- ── ACTIONS ── -->
+                <ui:VisualElement name="actionsSection" class="after-action__actions">
+
+                    <ui:Button name="shareBtn" class="btn btn--primary after-action__share-btn">
+                        <ui:Label text="Share result" />
+                    </ui:Button>
+
+                    <ui:VisualElement class="after-action__action-row">
+                        <ui:Button name="redeployBtn" class="btn btn--secondary btn--redeploy">
+                            <ui:Label text="Redeploy" />
+                        </ui:Button>
+                        <ui:Button name="nextCrisisBtn" class="btn btn--secondary">
+                            <ui:Label text="Next crisis" />
+                        </ui:Button>
+                    </ui:VisualElement>
+
+                    <ui:Button name="codexBtn" class="btn btn--secondary after-action__codex-btn">
+                        <ui:Label text="Atlas Codex" />
+                    </ui:Button>
+
+                    <ui:Label name="shareStatus" text="" class="after-action__share-status" />
+
+                </ui:VisualElement>
+
+            </ui:VisualElement>
+        </ui:ScrollView>
+
+    </ui:VisualElement>
+</ui:UXML>

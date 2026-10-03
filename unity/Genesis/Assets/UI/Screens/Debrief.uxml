@@ -1,0 +1,60 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+    <ui:Style src="project://database/Assets/UI/Screens/Debrief.uss" />
+
+    <!-- Full-screen root; picking-mode Ignore lets map taps pass through -->
+    <ui:VisualElement name="safeRoot" picking-mode="Ignore" class="screen-fill">
+
+        <!-- Debrief overlay: hidden until Show() makes it visible -->
+        <ui:VisualElement name="debriefOverlay" class="debrief-overlay hidden">
+
+            <!-- Map stays visible above the card -->
+            <ui:VisualElement name="debriefMapSpacer" class="debrief-map-spacer" picking-mode="Ignore" />
+
+            <!-- Card slides up from bottom (translate 2000px → 0 via card-visible class) -->
+            <ui:VisualElement name="debriefCard" class="debrief-card">
+
+                <!-- "PHASE N · DEBRIEF" kicker -->
+                <ui:Label name="phaseTitleLabel" text="PHASE 1 · DEBRIEF" class="debrief-phase-title" />
+
+                <!-- Scrollable body (all content except the button) -->
+                <ui:ScrollView name="debriefScroll" class="debrief-scroll"
+                               vertical-scroller-visibility="Hidden"
+                               horizontal-scroller-visibility="Hidden">
+
+                    <!-- ── WHAT YOU DID ── -->
+                    <ui:Label text="WHAT YOU DID" class="debrief-section-label" picking-mode="Ignore" />
+                    <ui:Label name="orderTitleLabel" text="ORDER" class="debrief-order-title" picking-mode="Ignore" />
+                    <ui:Label name="orderDetailLabel" text="Directive committed." class="debrief-order-detail" picking-mode="Ignore" />
+
+                    <!-- Effect chips (▲ gain, ▼ cost, ⚠ warn) — built by C# -->
+                    <ui:VisualElement name="effectChipsRow" class="debrief-chips" picking-mode="Ignore" />
+
+                    <!-- Divider -->
+                    <ui:VisualElement class="divider" picking-mode="Ignore" />
+
+                    <!-- ── IN HISTORY ── -->
+                    <ui:Label text="IN HISTORY" class="debrief-section-label debrief-history-title" picking-mode="Ignore" />
+                    <ui:Label name="historyText" text="Historical record." class="debrief-history-text" picking-mode="Ignore" />
+
+                    <!-- Atlas discovery chip (shown when a new place is discovered) -->
+                    <ui:Label name="atlasChip" text="" class="debrief-atlas-chip hidden" picking-mode="Ignore" />
+
+                </ui:ScrollView>
+
+                <!-- "Next phase →" / "See After Action →" button -->
+                <ui:Button name="nextButton" class="debrief-next-btn btn">
+                    <ui:Label text="Next phase →" />
+                </ui:Button>
+
+            </ui:VisualElement>
+
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

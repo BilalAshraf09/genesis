@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c5d06dda5d942508d306e3c5884c01, type: 3}
+  m_Name: GenesisUiRegistry
+  m_EditorClassIdentifier: Genesis.Runtime::Genesis.UI.Toolkit.UiRegistry
+  panelSettings: {fileID: 11400000, guid: b1e8f94bbdc704df9ad3af556a6a16a3, type: 2}
+  screens:
+  - {fileID: 9197481963319205126, guid: d6fd8b8af28ed4fc2a68594b43a96b37, type: 3}
+  - {fileID: 9197481963319205126, guid: 2ae44844371224afdb2e9b3d8b15c851, type: 3}
+  - {fileID: 9197481963319205126, guid: 32bd8823a094c4230861d8e03e876952, type: 3}
+  - {fileID: 9197481963319205126, guid: 45cb490004b044123ac4c91f00cbfac3, type: 3}
+  - {fileID: 9197481963319205126, guid: d2e0e9019bb364870aa26137acfbc160, type: 3}
+  - {fileID: 9197481963319205126, guid: 5aa379bae7a314c959448d603dab7cc7, type: 3}
+  - {fileID: 9197481963319205126, guid: cfd1fef3b7c3a4f6cac0e113a3db7830, type: 3}
+  - {fileID: 9197481963319205126, guid: 5fc0ef7562ffb4d3aa979eb00b6991ad, type: 3}
+  - {fileID: 9197481963319205126, guid: 196ae67759bd341a3addce31a9d9bb3a, type: 3}
+  - {fileID: 9197481963319205126, guid: 841560a984c124a19b1f71935e03413c, type: 3}
+  styleSheets:
+  - {fileID: 7433441132597879392, guid: c0cd9a6b877c24d4dbe34921b5b42ccf, type: 3}
+  - {fileID: 7433441132597879392, guid: b5efdef90ccea4bd2bedc355ed55398a, type: 3}
+  - {fileID: 7433441132597879392, guid: 728c3226a4c4b42eca2d8470698dbc40, type: 3}
+  - {fileID: 7433441132597879392, guid: 3e210e44c6b464bec8a2c53e4996cb20, type: 3}
+  - {fileID: 7433441132597879392, guid: 79b0123df418f454191a9619479412c6, type: 3}
+  - {fileID: 7433441132597879392, guid: 039db7fd176ae4b088257df710cd71cf, type: 3}
+  - {fileID: 7433441132597879392, guid: 27c83c5d2928e45f5ad72fc605f98607, type: 3}
+  - {fileID: 7433441132597879392, guid: bfd1337ec11ef46e8af986f4ca038cc2, type: 3}
+  - {fileID: 7433441132597879392, guid: 6647e17f5be95441e98488b0742e34f0, type: 3}
+  - {fileID: 7433441132597879392, guid: 5321e01d5b74d42f7adb296cb1e0e616, type: 3}
+  - {fileID: 7433441132597879392, guid: 04dea228c1fe2449299ce888512ac354, type: 3}
+  - {fileID: 7433441132597879392, guid: 4438849d3a36943e4a6288bcf9ab2f37, type: 3}

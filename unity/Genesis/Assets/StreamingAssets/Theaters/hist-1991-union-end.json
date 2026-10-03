@@ -1,0 +1,2159 @@
+{
+  "scenario": {
+    "id": "hist-1991-union-end",
+    "year": 1991,
+    "era": "1991\u20132008",
+    "title": "Union Dissolution",
+    "region": "Moscow \u00b7 republics \u00b7 nuclear command",
+    "meterFamily": "politics",
+    "theaterArchetype": "europe",
+    "premise": "A failed putsch, republic declarations, and nuclear custody questions end a superpower. You advise on recognition sequencing, weapons control, and economic shock therapy timing.",
+    "role": "Post-Soviet transition director",
+    "tension": "Midwife a peaceful breakup without loose nukes or famine politics.",
+    "beats": [
+      {
+        "id": "hist-1991-1",
+        "title": "Putsch hours",
+        "briefing": "Tanks in the capital. Do you back the elected center, stay silent, or prepare exile contacts?",
+        "stakes": "Early bets become lasting alignments.",
+        "choices": [
+          {
+            "id": "hist-1991-1a",
+            "label": "Publicly back elected authorities",
+            "detail": "Clear side.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "BACK",
+            "callsign": "PUBLICLY BACK",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 2,
+                "summary": "Elected line"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "If putsch wins"
+              },
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "On record"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-1b",
+            "label": "Silent watch; protect embassy and citizens",
+            "detail": "Minimal.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "WATCH",
+            "callsign": "SILENT WATCH",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Low profile"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Ambiguous"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Staff focus"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-1c",
+            "label": "Quietly contact multiple factions",
+            "detail": "Hedge.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "HEDGE",
+            "callsign": "QUIETLY CONTACT",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Options"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "If exposed"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Waits"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-2",
+        "title": "Nuclear custody",
+        "briefing": "Republics host warheads. You need inventory, dismantlement aid, and command clarity.",
+        "stakes": "The most important map is the weapons map.",
+        "choices": [
+          {
+            "id": "hist-1991-2a",
+            "label": "Fund Nunn-Lugar style secure-and-dismantle aid",
+            "detail": "Pay for safety.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "NUNN",
+            "callsign": "FUND NUNN",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Secure stockpiles"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Cooperative threat reduction"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Spend"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-2b",
+            "label": "Demand central monopoly as recognition price",
+            "detail": "One finger on the button.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "MONOPOLY",
+            "callsign": "DEMAND CENTRAL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear standard"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Republic anger"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If it works"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-2c",
+            "label": "Offer security guarantees for denuclearizing republics",
+            "detail": "Budapest-style bargains.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "GUARANT",
+            "callsign": "OFFER SECURITY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Nonproliferation"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Deal shape"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Guarantees\u2019 future test"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-3",
+        "title": "Economic shock",
+        "briefing": "Price liberalization proposals meet empty shelves. Aid can cushion\u2014or be stolen.",
+        "stakes": "Reform without food is a coup risk.",
+        "choices": [
+          {
+            "id": "hist-1991-3a",
+            "label": "Support shock therapy with a large stabilization fund",
+            "detail": "Fast markets.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "SHOCK",
+            "callsign": "SUPPORT SHOCK",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Painful transition"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Backlash politics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-3b",
+            "label": "Gradual reforms with food aid corridors",
+            "detail": "Soft landing try.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "FOOD",
+            "callsign": "GRADUAL REFORMS",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Cushion"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slower markets"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Humane"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-3c",
+            "label": "Condition aid on anti-corruption monitors",
+            "detail": "Governance first.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "MONITOR",
+            "callsign": "CONDITION AID",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Accountability"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Sovereignty friction"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Less theft"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-4",
+        "title": "Recognition of independence",
+        "briefing": "Republics ask for seats and borders. Russia asks you not to \u201cencourage disintegration.\u201d",
+        "stakes": "You are choosing the successor map.",
+        "choices": [
+          {
+            "id": "hist-1991-4a",
+            "label": "Recognize independence on uti possidetis borders",
+            "detail": "Admin lines become international.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "UTI",
+            "callsign": "RECOGNIZE INDEPENDENCE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Border stability idea"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Clear rule"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Local disputes remain"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-4b",
+            "label": "Delay recognition pending union treaty salvage",
+            "detail": "One more try.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "SALVAGE",
+            "callsign": "DELAY RECOGNITION",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Delay"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Denies facts"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If it calms"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-4c",
+            "label": "Case-by-case recognition with minority treaties",
+            "detail": "Rights for recognition.",
+            "kind": "legal",
+            "markerId": "ballot",
+            "short": "MINORITY",
+            "callsign": "CASE BY",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rights link"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Complex"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Each case a fight"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-5",
+        "title": "Nuclear custody shock",
+        "briefing": "Command authority fragments across republics. A single loose warhead is a civilization-scale failure mode.",
+        "stakes": "Nukes make every other issue secondary.",
+        "choices": [
+          {
+            "id": "hist-1991-5a",
+            "label": "Prioritize centralized custody deals with technical aid",
+            "detail": "Secure the arsenal.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "CUSTODY",
+            "callsign": "PRIORITIZE CENTRALIZED",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Control restored"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Technical path"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "West helps"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-5b",
+            "label": "Accept temporary multi-republic custody with monitors",
+            "detail": "Political reality.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "MULTI",
+            "callsign": "ACCEPT TEMPORARY",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Fits politics"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Control risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Messy"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-5c",
+            "label": "Threaten recognition freezes until custody is singular",
+            "detail": "Hard leverage.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "FREEZE3",
+            "callsign": "THREATEN RECOGNITION",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Leverage"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Resentment"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If it works, safer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-6",
+        "title": "Bread and voucher politics",
+        "briefing": "Price liberalization without safety nets can topple reformers. Gradualism can empty shops slower\u2014or forever.",
+        "stakes": "Shock therapy is a security issue.",
+        "choices": [
+          {
+            "id": "hist-1991-6a",
+            "label": "Fund targeted safety nets alongside price reform",
+            "detail": "Cushion the shock.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "NETS",
+            "callsign": "FUND TARGETED",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Less revolt"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Reform continues"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Hardship cut"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-6b",
+            "label": "Push rapid liberalization to break shortages fast",
+            "detail": "Rip the bandage.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "SHOCK",
+            "callsign": "PUSH RAPID",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 3,
+                "summary": "Pain"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Backlash"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-6c",
+            "label": "Delay liberalization; flood food aid first",
+            "detail": "Calories before prices.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "FOOD",
+            "callsign": "DELAY LIBERALIZATION",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Hunger eased"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Reform delayed"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Shortages linger"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-7",
+        "title": "Republic recognition ask",
+        "briefing": "New flags want recognition now. Too fast risks nuclear and minority crises; too slow invites violence for facts on the ground.",
+        "stakes": "Recognition timing is conflict management.",
+        "choices": [
+          {
+            "id": "hist-1991-7a",
+            "label": "Use criteria: custody, minorities, borders before recognition",
+            "detail": "Standards.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "CRITERIA",
+            "callsign": "USE CRITERIA",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Rule-based"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Incentives"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Sequenced"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-7b",
+            "label": "Recognize quickly to lock peaceful dissolution",
+            "detail": "Speed.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "FASTREC",
+            "callsign": "RECOGNIZE QUICKLY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Facts blessed"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less fighting for recognition"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Thin criteria"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-7c",
+            "label": "Coordinate a single Western recognition wave",
+            "detail": "Unity.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "WAVE",
+            "callsign": "COORDINATE A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "One calendar"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Clear signal"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Coordination tax"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-8",
+        "title": "Putsch information fog",
+        "briefing": "During and after coup hours, who holds which ministry is unclear. Betting wrong can legitimize putschists\u2014or strand reformers.",
+        "stakes": "Fog is the coup\u2019s friend.",
+        "choices": [
+          {
+            "id": "hist-1991-8a",
+            "label": "Refuse recognition of putsch authorities; keep reformer channel",
+            "detail": "Pick early.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "REFORMER",
+            "callsign": "REFUSE RECOGNITION",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Democratic signal"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "West aligned"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "If putsch wins, exposure"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-8b",
+            "label": "Wait for force facts before any statement",
+            "detail": "Caution.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "WAIT",
+            "callsign": "WAIT FOR",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Less premature"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Vacillate charge"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Flexibility"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-8c",
+            "label": "Issue humanitarian-only statements avoiding legitimacy",
+            "detail": "Narrow voice.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "HUM3",
+            "callsign": "ISSUE HUMANITARIAN",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Aid frame"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Thin"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Low commitment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-9",
+        "title": "Debt and aid off-ramp",
+        "briefing": "A grand bargain: aid and debt relief for reforms and arms control. Conditionality can save or sink reformers.",
+        "stakes": "Money as midwife of a new order.",
+        "choices": [
+          {
+            "id": "hist-1991-9a",
+            "label": "Assemble a conditional grand bargain package",
+            "detail": "Big bang support.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "GRAND",
+            "callsign": "ASSEMBLE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Finance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Linked deal"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Western concert"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-9b",
+            "label": "Offer humanitarian aid only; avoid ownership of reforms",
+            "detail": "Distance.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "HUMONLY",
+            "callsign": "OFFER HUMANITARIAN",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some relief"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Limits clear"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Weak macro help"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-9c",
+            "label": "Prioritize Nunn-Lugar-like security spending over macro aid",
+            "detail": "Nukes first.",
+            "kind": "diplomatic",
+            "markerId": "districts",
+            "short": "NUNN",
+            "callsign": "PRIORITIZE NUNN",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Secure arms"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Security deal"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -1,
+                "summary": "Economy waits"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1991-10",
+        "title": "Dissolution endgame",
+        "briefing": "The union ends on paper. Your doctrine note chooses whether Russia is successor, first among equals, or just another republic.",
+        "stakes": "Legal succession shapes decades.",
+        "choices": [
+          {
+            "id": "hist-1991-10a",
+            "label": "Treat Russia as primary successor for seats and weapons",
+            "detail": "Continuity bet.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "SUCCESS",
+            "callsign": "TREAT RUSSIA",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Clear desk"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Workable"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Other republics resent"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-10b",
+            "label": "Push equitable succession formulas across key republics",
+            "detail": "Fairness.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "EQUITY",
+            "callsign": "PUSH EQUITABLE",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 2,
+                "summary": "Equal dignity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder seats"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Complex"
+              }
+            ]
+          },
+          {
+            "id": "hist-1991-10c",
+            "label": "Leave succession messy; prioritize bilateral deals",
+            "detail": "Pragmatism.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "MESSY",
+            "callsign": "LEAVE SUCCESSION",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Flexible"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Fog"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Uneven"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "russia-west",
+    "scenarioId": "hist-1991-union-end",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0A2030",
+    "land": "#1C2830",
+    "accent": "#8EB4C8",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Western Russia (Natural Earth)",
+      "water": "#0A2030",
+      "land": "#1C2830",
+      "landHi": "#2C3840",
+      "accent": "#8EB4C8",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            83.15,
+            93.0
+          ],
+          [
+            81.84,
+            95.97
+          ],
+          [
+            79.07,
+            96.79
+          ],
+          [
+            76.23,
+            99.5
+          ],
+          [
+            53.37,
+            99.5
+          ],
+          [
+            50.11,
+            99.5
+          ],
+          [
+            47.64,
+            98.78
+          ],
+          [
+            49.72,
+            97.98
+          ],
+          [
+            52.09,
+            93.8
+          ],
+          [
+            50.5,
+            91.82
+          ],
+          [
+            54.71,
+            89.78
+          ],
+          [
+            54.63,
+            88.68
+          ],
+          [
+            52.07,
+            89.49
+          ],
+          [
+            52.16,
+            87.27
+          ],
+          [
+            53.63,
+            85.87
+          ],
+          [
+            56.4,
+            85.51
+          ],
+          [
+            56.84,
+            83.84
+          ],
+          [
+            56.21,
+            81.08
+          ],
+          [
+            57.37,
+            78.46
+          ],
+          [
+            57.34,
+            76.99
+          ],
+          [
+            53.13,
+            75.37
+          ],
+          [
+            51.46,
+            75.42
+          ],
+          [
+            49.7,
+            73.08
+          ],
+          [
+            47.5,
+            73.87
+          ],
+          [
+            43.87,
+            72.11
+          ],
+          [
+            43.94,
+            71.13
+          ],
+          [
+            42.92,
+            68.96
+          ],
+          [
+            40.64,
+            68.72
+          ],
+          [
+            40.41,
+            67.17
+          ],
+          [
+            41.12,
+            66.16
+          ],
+          [
+            39.29,
+            63.32
+          ],
+          [
+            36.33,
+            63.81
+          ],
+          [
+            35.46,
+            63.56
+          ],
+          [
+            34.74,
+            64.69
+          ],
+          [
+            33.67,
+            64.49
+          ],
+          [
+            33.67,
+            64.49
+          ],
+          [
+            32.97,
+            61.29
+          ],
+          [
+            32.3,
+            59.63
+          ],
+          [
+            32.85,
+            59.16
+          ],
+          [
+            35.16,
+            59.34
+          ],
+          [
+            36.27,
+            58.24
+          ],
+          [
+            35.44,
+            56.91
+          ],
+          [
+            33.52,
+            56.03
+          ],
+          [
+            33.69,
+            55.13
+          ],
+          [
+            32.53,
+            54.21
+          ],
+          [
+            30.74,
+            50.94
+          ],
+          [
+            31.35,
+            49.59
+          ],
+          [
+            31.07,
+            47.25
+          ],
+          [
+            28.28,
+            46.05
+          ],
+          [
+            26.78,
+            46.65
+          ],
+          [
+            26.37,
+            45.41
+          ],
+          [
+            23.36,
+            44.15
+          ],
+          [
+            22.44,
+            41.2
+          ],
+          [
+            22.2,
+            38.78
+          ],
+          [
+            20.82,
+            37.63
+          ],
+          [
+            22.05,
+            36.04
+          ],
+          [
+            21.2,
+            31.38
+          ],
+          [
+            23.23,
+            28.5
+          ],
+          [
+            22.8,
+            27.62
+          ],
+          [
+            22.8,
+            27.62
+          ],
+          [
+            26.05,
+            24.86
+          ],
+          [
+            23.06,
+            22.48
+          ],
+          [
+            23.06,
+            22.48
+          ],
+          [
+            29.17,
+            16.1
+          ],
+          [
+            31.83,
+            13.21
+          ],
+          [
+            32.9,
+            10.66
+          ],
+          [
+            28.67,
+            7.24
+          ],
+          [
+            29.84,
+            3.98
+          ],
+          [
+            27.27,
+            0.5
+          ],
+          [
+            29.19,
+            0.5
+          ],
+          [
+            52.52,
+            0.5
+          ],
+          [
+            42.33,
+            0.5
+          ],
+          [
+            42.51,
+            0.5
+          ],
+          [
+            42.7,
+            2.93
+          ],
+          [
+            46.38,
+            4.45
+          ],
+          [
+            48.61,
+            5.75
+          ],
+          [
+            48.98,
+            3.33
+          ],
+          [
+            47.26,
+            1.18
+          ],
+          [
+            49.07,
+            0.5
+          ],
+          [
+            55.98,
+            2.4
+          ],
+          [
+            58.39,
+            1.18
+          ],
+          [
+            56.46,
+            0.5
+          ],
+          [
+            99.5,
+            71.89
+          ],
+          [
+            98.67,
+            69.87
+          ],
+          [
+            92.37,
+            66.41
+          ],
+          [
+            87.9,
+            66.54
+          ],
+          [
+            82.01,
+            71.97
+          ],
+          [
+            81.65,
+            75.63
+          ],
+          [
+            78.71,
+            72.73
+          ],
+          [
+            76.43,
+            78.22
+          ],
+          [
+            77.27,
+            79.24
+          ],
+          [
+            75.62,
+            83.03
+          ],
+          [
+            78.04,
+            86.42
+          ],
+          [
+            80.16,
+            86.28
+          ],
+          [
+            81.98,
+            89.62
+          ],
+          [
+            81.69,
+            92.19
+          ],
+          [
+            83.15,
+            93.0
+          ]
+        ],
+        [
+          [
+            33.67,
+            64.49
+          ],
+          [
+            34.74,
+            64.69
+          ],
+          [
+            35.46,
+            63.56
+          ],
+          [
+            36.33,
+            63.81
+          ],
+          [
+            39.29,
+            63.32
+          ],
+          [
+            41.12,
+            66.16
+          ],
+          [
+            40.41,
+            67.17
+          ],
+          [
+            40.64,
+            68.72
+          ],
+          [
+            42.92,
+            68.96
+          ],
+          [
+            43.94,
+            71.13
+          ],
+          [
+            43.87,
+            72.11
+          ],
+          [
+            47.5,
+            73.87
+          ],
+          [
+            49.7,
+            73.08
+          ],
+          [
+            51.46,
+            75.42
+          ],
+          [
+            53.13,
+            75.37
+          ],
+          [
+            57.34,
+            76.99
+          ],
+          [
+            57.37,
+            78.46
+          ],
+          [
+            56.21,
+            81.08
+          ],
+          [
+            56.84,
+            83.84
+          ],
+          [
+            56.4,
+            85.51
+          ],
+          [
+            53.63,
+            85.87
+          ],
+          [
+            52.16,
+            87.27
+          ],
+          [
+            52.07,
+            89.49
+          ],
+          [
+            49.79,
+            89.89
+          ],
+          [
+            47.89,
+            91.51
+          ],
+          [
+            45.21,
+            91.77
+          ],
+          [
+            42.75,
+            93.63
+          ],
+          [
+            42.89,
+            96.31
+          ],
+          [
+            42.46,
+            96.16
+          ],
+          [
+            42.09,
+            95.17
+          ],
+          [
+            41.17,
+            94.97
+          ],
+          [
+            39.14,
+            93.9
+          ],
+          [
+            38.39,
+            95.14
+          ],
+          [
+            38.0,
+            94.6
+          ],
+          [
+            33.55,
+            93.33
+          ],
+          [
+            33.36,
+            91.47
+          ],
+          [
+            30.71,
+            92.08
+          ],
+          [
+            29.65,
+            94.84
+          ],
+          [
+            27.44,
+            98.53
+          ],
+          [
+            26.14,
+            97.68
+          ],
+          [
+            24.8,
+            98.48
+          ],
+          [
+            23.52,
+            97.56
+          ],
+          [
+            24.24,
+            97.02
+          ],
+          [
+            24.74,
+            95.3
+          ],
+          [
+            25.52,
+            93.71
+          ],
+          [
+            25.32,
+            92.81
+          ],
+          [
+            25.92,
+            92.41
+          ],
+          [
+            26.2,
+            93.1
+          ],
+          [
+            27.89,
+            93.25
+          ],
+          [
+            28.64,
+            92.88
+          ],
+          [
+            28.11,
+            92.37
+          ],
+          [
+            28.31,
+            91.63
+          ],
+          [
+            27.31,
+            90.36
+          ],
+          [
+            26.9,
+            88.27
+          ],
+          [
+            25.86,
+            87.45
+          ],
+          [
+            26.06,
+            85.75
+          ],
+          [
+            24.77,
+            84.41
+          ],
+          [
+            23.6,
+            84.22
+          ],
+          [
+            21.49,
+            82.66
+          ],
+          [
+            19.59,
+            83.16
+          ],
+          [
+            18.91,
+            83.9
+          ],
+          [
+            17.71,
+            83.9
+          ],
+          [
+            16.99,
+            85.06
+          ],
+          [
+            14.88,
+            85.54
+          ],
+          [
+            13.9,
+            86.31
+          ],
+          [
+            12.58,
+            85.09
+          ],
+          [
+            10.75,
+            85.07
+          ],
+          [
+            8.98,
+            84.52
+          ],
+          [
+            7.74,
+            85.59
+          ],
+          [
+            7.55,
+            84.25
+          ],
+          [
+            5.96,
+            82.89
+          ],
+          [
+            6.52,
+            80.87
+          ],
+          [
+            7.31,
+            79.57
+          ],
+          [
+            7.93,
+            79.86
+          ],
+          [
+            7.2,
+            77.62
+          ],
+          [
+            9.79,
+            73.46
+          ],
+          [
+            11.21,
+            72.88
+          ],
+          [
+            11.51,
+            71.47
+          ],
+          [
+            10.08,
+            67.11
+          ],
+          [
+            11.44,
+            66.91
+          ],
+          [
+            13.01,
+            65.56
+          ],
+          [
+            15.22,
+            65.45
+          ],
+          [
+            18.11,
+            65.84
+          ],
+          [
+            21.3,
+            67.04
+          ],
+          [
+            23.55,
+            67.14
+          ],
+          [
+            24.62,
+            67.86
+          ],
+          [
+            25.69,
+            66.99
+          ],
+          [
+            26.44,
+            68.16
+          ],
+          [
+            29.02,
+            67.92
+          ],
+          [
+            30.16,
+            68.4
+          ],
+          [
+            30.34,
+            65.89
+          ],
+          [
+            31.22,
+            64.79
+          ],
+          [
+            33.67,
+            64.49
+          ]
+        ],
+        [
+          [
+            29.19,
+            0.5
+          ],
+          [
+            27.27,
+            0.5
+          ],
+          [
+            29.84,
+            3.98
+          ],
+          [
+            28.67,
+            7.24
+          ],
+          [
+            32.9,
+            10.66
+          ],
+          [
+            31.83,
+            13.21
+          ],
+          [
+            29.17,
+            16.1
+          ],
+          [
+            23.06,
+            22.48
+          ],
+          [
+            23.06,
+            22.48
+          ],
+          [
+            23.06,
+            22.48
+          ],
+          [
+            17.87,
+            22.88
+          ],
+          [
+            12.85,
+            24.71
+          ],
+          [
+            8.2,
+            25.77
+          ],
+          [
+            6.55,
+            23.04
+          ],
+          [
+            3.78,
+            21.4
+          ],
+          [
+            4.41,
+            16.47
+          ],
+          [
+            3.03,
+            11.96
+          ],
+          [
+            4.39,
+            9.05
+          ],
+          [
+            6.98,
+            5.91
+          ],
+          [
+            13.52,
+            0.5
+          ],
+          [
+            15.42,
+            0.5
+          ],
+          [
+            15.13,
+            0.5
+          ],
+          [
+            29.19,
+            0.5
+          ]
+        ],
+        [
+          [
+            23.36,
+            44.15
+          ],
+          [
+            26.37,
+            45.41
+          ],
+          [
+            26.78,
+            46.65
+          ],
+          [
+            28.28,
+            46.05
+          ],
+          [
+            31.07,
+            47.25
+          ],
+          [
+            31.35,
+            49.59
+          ],
+          [
+            30.74,
+            50.94
+          ],
+          [
+            32.53,
+            54.21
+          ],
+          [
+            33.69,
+            55.13
+          ],
+          [
+            33.52,
+            56.03
+          ],
+          [
+            35.44,
+            56.91
+          ],
+          [
+            36.27,
+            58.24
+          ],
+          [
+            35.16,
+            59.34
+          ],
+          [
+            32.85,
+            59.16
+          ],
+          [
+            32.3,
+            59.63
+          ],
+          [
+            32.97,
+            61.29
+          ],
+          [
+            33.67,
+            64.49
+          ],
+          [
+            33.67,
+            64.49
+          ],
+          [
+            31.22,
+            64.79
+          ],
+          [
+            30.34,
+            65.89
+          ],
+          [
+            30.16,
+            68.4
+          ],
+          [
+            29.02,
+            67.92
+          ],
+          [
+            26.44,
+            68.16
+          ],
+          [
+            25.69,
+            66.99
+          ],
+          [
+            24.62,
+            67.86
+          ],
+          [
+            23.55,
+            67.14
+          ],
+          [
+            21.3,
+            67.04
+          ],
+          [
+            18.11,
+            65.84
+          ],
+          [
+            15.22,
+            65.45
+          ],
+          [
+            13.01,
+            65.56
+          ],
+          [
+            11.44,
+            66.91
+          ],
+          [
+            10.08,
+            67.11
+          ],
+          [
+            10.02,
+            64.88
+          ],
+          [
+            9.14,
+            62.57
+          ],
+          [
+            10.85,
+            61.54
+          ],
+          [
+            10.87,
+            59.55
+          ],
+          [
+            10.08,
+            57.65
+          ],
+          [
+            9.95,
+            55.44
+          ],
+          [
+            12.72,
+            55.47
+          ],
+          [
+            15.82,
+            53.59
+          ],
+          [
+            16.48,
+            50.77
+          ],
+          [
+            18.82,
+            49.16
+          ],
+          [
+            18.56,
+            46.92
+          ],
+          [
+            20.29,
+            46.08
+          ],
+          [
+            23.36,
+            44.15
+          ]
+        ],
+        [
+          [
+            9.95,
+            55.44
+          ],
+          [
+            10.08,
+            57.65
+          ],
+          [
+            10.87,
+            59.55
+          ],
+          [
+            10.85,
+            61.54
+          ],
+          [
+            9.14,
+            62.57
+          ],
+          [
+            10.02,
+            64.88
+          ],
+          [
+            10.08,
+            67.11
+          ],
+          [
+            11.51,
+            71.47
+          ],
+          [
+            11.21,
+            72.88
+          ],
+          [
+            9.79,
+            73.46
+          ],
+          [
+            7.2,
+            77.62
+          ],
+          [
+            7.93,
+            79.86
+          ],
+          [
+            7.31,
+            79.57
+          ],
+          [
+            4.59,
+            77.65
+          ],
+          [
+            2.54,
+            78.36
+          ],
+          [
+            1.19,
+            77.84
+          ],
+          [
+            0.5,
+            78.91
+          ],
+          [
+            0.5,
+            77.14
+          ],
+          [
+            0.5,
+            77.82
+          ],
+          [
+            0.5,
+            77.52
+          ],
+          [
+            0.5,
+            75.06
+          ],
+          [
+            0.5,
+            51.59
+          ],
+          [
+            0.5,
+            52.81
+          ],
+          [
+            0.5,
+            52.87
+          ],
+          [
+            2.55,
+            53.44
+          ],
+          [
+            7.8,
+            53.36
+          ],
+          [
+            9.27,
+            53.9
+          ],
+          [
+            9.95,
+            55.44
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Petrograd",
+          "x": 36.0,
+          "y": 24.0
+        },
+        {
+          "name": "Moscow",
+          "x": 58.0,
+          "y": 40.0
+        },
+        {
+          "name": "Kiev",
+          "x": 40.0,
+          "y": 58.0
+        },
+        {
+          "name": "Riga",
+          "x": 30.0,
+          "y": 32.0
+        }
+      ]
+    }
+  }
+}

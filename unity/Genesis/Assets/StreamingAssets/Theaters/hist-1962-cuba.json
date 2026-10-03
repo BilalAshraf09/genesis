@@ -1,0 +1,1824 @@
+{
+  "scenario": {
+    "id": "hist-1962-cuba",
+    "year": 1962,
+    "era": "1962\u20131979",
+    "title": "Thirteen Days",
+    "region": "Caribbean \u00b7 Atlantic \u00b7 nuclear command",
+    "meterFamily": "conflict",
+    "theaterArchetype": "americas",
+    "premise": "Nuclear missiles appear offshore. You advise an executive on blockade, strike, bargain, and how to keep allies and adversaries from misreading a single move as general war.",
+    "role": "Executive committee counselor",
+    "tension": "Remove the missiles without a nuclear exchange.",
+    "beats": [
+      {
+        "id": "hist-1962-1",
+        "title": "Opening move",
+        "briefing": "Options: surgical air strike, naval quarantine, or secret diplomacy first.",
+        "stakes": "The first public act sets the escalation ladder.",
+        "choices": [
+          {
+            "id": "hist-1962-1a",
+            "label": "Announce a naval quarantine",
+            "detail": "Interdict military shipments.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "QUARANT",
+            "callsign": "ANNOUNCE A",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Draws a line"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Sea confrontation"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Allies can join"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-1b",
+            "label": "Authorize a surprise strike on sites",
+            "detail": "Facts before talks.",
+            "kind": "kinetic",
+            "markerId": "plaza",
+            "short": "STRIKE",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War risk"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Removes hardware"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -3,
+                "summary": "Talks poisoned"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-1c",
+            "label": "Open a secret channel before any public act",
+            "detail": "Probe a trade.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "SECRET",
+            "callsign": "OPEN A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Off-ramp"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Missiles mature"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "If leaks as weakness"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-2",
+        "title": "Alliance management",
+        "briefing": "Partners demand consultation; some want toughness, others dread cities as hostages.",
+        "stakes": "NATO solidarity is a second theater.",
+        "choices": [
+          {
+            "id": "hist-1962-2a",
+            "label": "Full briefing and shared quarantine rules",
+            "detail": "Coalition ownership.",
+            "kind": "diplomatic",
+            "markerId": "imf",
+            "short": "BRIEF",
+            "callsign": "FULL BRIEFING",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Shared ops"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Transparent"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Coordination cost"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-2b",
+            "label": "Inform after decisions are set",
+            "detail": "Speed over process.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "AFTER",
+            "callsign": "INFORM AFTER",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Faster"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Resentment"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Unity of command"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-2c",
+            "label": "Offer a European missile trade discussion privately",
+            "detail": "Link theaters.",
+            "kind": "diplomatic",
+            "markerId": "court",
+            "short": "LINK",
+            "callsign": "OFFER A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Bargain space"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Host nations uneasy"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Trade possible"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-3",
+        "title": "Ship challenge",
+        "briefing": "A freighter approaches the line. Boarding may spark war; waving it through may unravel the quarantine.",
+        "stakes": "A single hull is now strategic.",
+        "choices": [
+          {
+            "id": "hist-1962-3a",
+            "label": "Board and inspect",
+            "detail": "Enforce the line.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "BOARD",
+            "callsign": "BOARD AND",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Line real"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident risk"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Shown"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-3b",
+            "label": "Shadow but do not board yet",
+            "detail": "Buy hours for cables.",
+            "kind": "naval",
+            "markerId": "farm",
+            "short": "SHADOW",
+            "callsign": "SHADOW BUT",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Space"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks soft"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Room for deal"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-3c",
+            "label": "Publicly divert via warning shots doctrine",
+            "detail": "Signal without seizure.",
+            "kind": "kinetic",
+            "markerId": "plaza",
+            "short": "WARN",
+            "callsign": "PUBLICLY DIVERT",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Signal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Dangerous"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Visible resolve"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-4",
+        "title": "Trade package",
+        "briefing": "A deal shape appears: withdraw missiles for a no-invasion pledge\u2014and maybe a quiet reciprocal removal elsewhere.",
+        "stakes": "Public victory versus private symmetry.",
+        "choices": [
+          {
+            "id": "hist-1962-4a",
+            "label": "Accept public pledge; keep reciprocal removal secret",
+            "detail": "Dual track.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "DUAL",
+            "callsign": "ACCEPT PUBLIC",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Crisis ends"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Public win"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "If secret later leaks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-4b",
+            "label": "Demand public symmetry on all removals",
+            "detail": "No secret trades.",
+            "kind": "political",
+            "markerId": "court",
+            "short": "PUBLIC",
+            "callsign": "DEMAND PUBLIC",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Transparency"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder yes"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Deal may fail"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-4c",
+            "label": "Reject; prepare strike while quarantine holds",
+            "detail": "Force the removal.",
+            "kind": "kinetic",
+            "markerId": "plaza",
+            "short": "REJECT",
+            "callsign": "REJECT PREPARE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War nearer"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Pressure"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Channel burns"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-5",
+        "title": "U-2 shootdown shock",
+        "briefing": "A reconnaissance aircraft is lost. Military demands retaliation; diplomats fear the escalation ladder has only one rung left.",
+        "stakes": "A single loss can force the irrevocable.",
+        "choices": [
+          {
+            "id": "hist-1962-5a",
+            "label": "Absorb the loss; tighten rules, do not retaliate yet",
+            "detail": "Hold the ladder.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "ABSORB2",
+            "callsign": "ABSORB THE",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Brake"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talks survive"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Looks weak"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-5b",
+            "label": "Authorize a limited strike on the responsible site",
+            "detail": "Punish and risk.",
+            "kind": "kinetic",
+            "markerId": "plaza",
+            "short": "PUNISH",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "Ladder climbs"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Cost imposed"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -2,
+                "summary": "Talks may die"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-5c",
+            "label": "Pause flights; rely on other intelligence for 48 hours",
+            "detail": "Blind briefly to live.",
+            "kind": "political",
+            "markerId": "court",
+            "short": "PAUSE3",
+            "callsign": "PAUSE FLIGHTS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Cooling"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Less awareness"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Controlled risk"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-6",
+        "title": "Domestic hawk pressure",
+        "briefing": "Senators demand invasion. Leaks portray quarantine as weakness. Your ExComm cohesion frays in public.",
+        "stakes": "Democracy\u2019s noise is part of the nuclear crisis.",
+        "choices": [
+          {
+            "id": "hist-1962-6a",
+            "label": "Brief select leaders under secrecy to hold the line",
+            "detail": "Bipartisan quiet.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "BRIEF3",
+            "callsign": "BRIEF SELECT",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 2,
+                "summary": "Elite buy-in"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Managed"
+              },
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-6b",
+            "label": "Harden public rhetoric while keeping private diplomacy",
+            "detail": "Two-level game.",
+            "kind": "civic",
+            "markerId": "plaza",
+            "short": "RHETOR",
+            "callsign": "HARDEN PUBLIC",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Resolve optics"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Heat"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Private track"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-6c",
+            "label": "Threaten resignations to force cabinet unity",
+            "detail": "Personal leverage.",
+            "kind": "political",
+            "markerId": "court",
+            "short": "RESIGN",
+            "callsign": "THREATEN RESIGNATIONS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "If it works"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Drama"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Instability show"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-7",
+        "title": "Ally consultation gap",
+        "briefing": "NATO capitals want voice before any air strike. Speed argues against it; legitimacy argues for it.",
+        "stakes": "Alliance process versus nuclear minutes.",
+        "choices": [
+          {
+            "id": "hist-1962-7a",
+            "label": "Hold an emergency council brief before new kinetic steps",
+            "detail": "Legitimacy first.",
+            "kind": "diplomatic",
+            "markerId": "imf",
+            "short": "NATO",
+            "callsign": "HOLD AN",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Partners included"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Hours spent"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Shared ownership"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-7b",
+            "label": "Inform after decisions; protect operational surprise",
+            "detail": "Speed first.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "AFTER",
+            "callsign": "INFORM AFTER",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Surprise"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Anger"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Faster"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-7c",
+            "label": "Offer allies a veto only on invasion, not quarantine",
+            "detail": "Split authorities.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "SPLITV",
+            "callsign": "OFFER ALLIES",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partial voice"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Invasion braked"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clear lanes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-8",
+        "title": "Message channel fog",
+        "briefing": "Formal notes and informal back channels disagree on withdrawal sequencing and Jupiter trade language. Misreading either could end cities.",
+        "stakes": "Ambiguity is both tool and trap.",
+        "choices": [
+          {
+            "id": "hist-1962-8a",
+            "label": "Require identical text across public and private tracks",
+            "detail": "One message.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "ONETEXT",
+            "callsign": "REQUIRE IDENTICAL",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clarity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Less confusion"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Harder drafting"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-8b",
+            "label": "Keep a secret Jupiter trade while denying it publicly",
+            "detail": "Classic bargain.",
+            "kind": "diplomatic",
+            "markerId": "imf",
+            "short": "JUPITER",
+            "callsign": "KEEP A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Deal space"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Dual track"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Host ally unbriefed"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-8c",
+            "label": "Slow all replies until a single ExComm draft is locked",
+            "detail": "No freelance cables.",
+            "kind": "political",
+            "markerId": "court",
+            "short": "LOCKMSG",
+            "callsign": "SLOW ALL",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Control"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Lag"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Fewer accidents"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-9",
+        "title": "Inspection off-ramp",
+        "briefing": "A withdrawal-for-assurance package needs verification without humiliation. UN or Red Cross roles are on the table.",
+        "stakes": "Verification is the peace.",
+        "choices": [
+          {
+            "id": "hist-1962-9a",
+            "label": "Accept UN-led verification with no occupation optics",
+            "detail": "Multilateral eyes.",
+            "kind": "diplomatic",
+            "markerId": "port",
+            "short": "UNEYES",
+            "callsign": "ACCEPT UN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Deal workable"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "Ladder down"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Process"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-9b",
+            "label": "Demand US aerial verification rights explicitly",
+            "detail": "National eyes.",
+            "kind": "naval",
+            "markerId": "farm",
+            "short": "USAIR",
+            "callsign": "DEMAND US",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Assurance"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Harder accept"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Some cheer"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-9c",
+            "label": "Trade a public non-invasion pledge for verified removal",
+            "detail": "Grand bargain.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "PLEDGE",
+            "callsign": "TRADE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Core swap"
+              },
+              {
+                "tag": "escalation",
+                "weight": -2,
+                "summary": "De-escalates"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Pledge politics"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1962-10",
+        "title": "Nuclear crisis endgame",
+        "briefing": "Missiles move\u2014or don\u2019t. You must set standing rules for quarantine, hotlines, and alliance notices for the next crisis.",
+        "stakes": "Institutions after the brink.",
+        "choices": [
+          {
+            "id": "hist-1962-10a",
+            "label": "Institutionalize a direct leader hotline and notice rules",
+            "detail": "Plumbing for peace.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "HOTLINE",
+            "callsign": "INSTITUTIONALIZE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Crisis pipes"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Fewer accidents"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Predictability"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-10b",
+            "label": "Keep ad hoc ExComm as the model; avoid new bureaucracy",
+            "detail": "Flexibility doctrine.",
+            "kind": "political",
+            "markerId": "court",
+            "short": "ADHOC",
+            "callsign": "KEEP AD",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Agile"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "No standing rules"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Leader-centric"
+              }
+            ]
+          },
+          {
+            "id": "hist-1962-10c",
+            "label": "Publicly frame quarantine as a precedent for future blockades",
+            "detail": "Doctrine expansion.",
+            "kind": "naval",
+            "markerId": "port",
+            "short": "PRECED2",
+            "callsign": "PUBLICLY FRAME",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Tool normalized"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Future uses"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Legal fights"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "caribbean",
+    "scenarioId": "hist-1962-cuba",
+    "title": "THIRTEEN DAYS",
+    "subtitle": "Americas \u00b7 capital & commodity",
+    "water": "#061E2C",
+    "land": "#1A3A32",
+    "accent": "#5BC4B5",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 44.0,
+        "y": 46.0,
+        "kind": "capital"
+      },
+      {
+        "id": "port",
+        "label": "Export port",
+        "x": 58.0,
+        "y": 62.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "plaza",
+        "label": "Plaza",
+        "x": 40.0,
+        "y": 54.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "imf",
+        "label": "Creditor",
+        "x": 22.0,
+        "y": 30.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "farm",
+        "label": "Farm belt",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "court",
+        "label": "Court",
+        "x": 46.0,
+        "y": 40.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "farm",
+        "to": "port"
+      },
+      {
+        "from": "capital",
+        "to": "imf"
+      }
+    ],
+    "zones": [
+      {
+        "id": "urban",
+        "label": "URBAN CORE",
+        "x": 36.0,
+        "y": 40.0,
+        "w": 22.0,
+        "h": 22.0,
+        "tension": 0.55
+      },
+      {
+        "id": "export",
+        "label": "EXPORT AXIS",
+        "x": 46.0,
+        "y": 52.0,
+        "w": 26.0,
+        "h": 18.0,
+        "tension": 0.5
+      }
+    ],
+    "terrainKey": "americas",
+    "geo": {
+      "label": "Caribbean \u00b7 Cuba (Natural Earth)",
+      "water": "#061E2C",
+      "land": "#1A3A32",
+      "landHi": "#2A4A42",
+      "accent": "#5BC4B5",
+      "source": "natural-earth+atlas",
+      "terrainKey": "americas",
+      "reliefKey": "americas",
+      "lands": [
+        [
+          [
+            69.35,
+            0.5
+          ],
+          [
+            67.53,
+            0.77
+          ],
+          [
+            64.58,
+            1.95
+          ],
+          [
+            62.7,
+            4.3
+          ],
+          [
+            61.27,
+            4.55
+          ],
+          [
+            59.83,
+            6.02
+          ],
+          [
+            59.42,
+            7.37
+          ],
+          [
+            56.28,
+            9.96
+          ],
+          [
+            54.67,
+            11.87
+          ],
+          [
+            53.32,
+            14.24
+          ],
+          [
+            52.88,
+            17.08
+          ],
+          [
+            53.39,
+            19.86
+          ],
+          [
+            54.34,
+            23.28
+          ],
+          [
+            55.61,
+            26.11
+          ],
+          [
+            55.63,
+            27.84
+          ],
+          [
+            56.98,
+            32.48
+          ],
+          [
+            56.89,
+            35.18
+          ],
+          [
+            56.77,
+            36.73
+          ],
+          [
+            56.05,
+            39.18
+          ],
+          [
+            55.2,
+            39.68
+          ],
+          [
+            53.79,
+            39.19
+          ],
+          [
+            53.34,
+            37.44
+          ],
+          [
+            52.26,
+            36.52
+          ],
+          [
+            50.74,
+            33.08
+          ],
+          [
+            49.41,
+            30.02
+          ],
+          [
+            48.98,
+            28.46
+          ],
+          [
+            49.57,
+            25.8
+          ],
+          [
+            48.77,
+            23.6
+          ],
+          [
+            46.54,
+            20.25
+          ],
+          [
+            45.43,
+            19.64
+          ],
+          [
+            42.55,
+            21.46
+          ],
+          [
+            42.03,
+            21.26
+          ],
+          [
+            40.65,
+            19.39
+          ],
+          [
+            38.86,
+            18.4
+          ],
+          [
+            35.63,
+            18.9
+          ],
+          [
+            33.09,
+            18.46
+          ],
+          [
+            30.91,
+            18.74
+          ],
+          [
+            29.73,
+            19.36
+          ],
+          [
+            30.25,
+            20.42
+          ],
+          [
+            30.2,
+            22.05
+          ],
+          [
+            30.81,
+            22.84
+          ],
+          [
+            30.26,
+            23.36
+          ],
+          [
+            29.2,
+            22.77
+          ],
+          [
+            28.13,
+            23.53
+          ],
+          [
+            26.06,
+            23.41
+          ],
+          [
+            23.92,
+            21.29
+          ],
+          [
+            21.43,
+            21.79
+          ],
+          [
+            19.35,
+            20.86
+          ],
+          [
+            17.58,
+            21.15
+          ],
+          [
+            15.17,
+            22.08
+          ],
+          [
+            12.57,
+            25.05
+          ],
+          [
+            9.73,
+            26.77
+          ],
+          [
+            8.17,
+            28.68
+          ],
+          [
+            7.51,
+            30.48
+          ],
+          [
+            7.49,
+            33.24
+          ],
+          [
+            7.63,
+            35.16
+          ],
+          [
+            8.17,
+            36.52
+          ],
+          [
+            7.06,
+            36.64
+          ],
+          [
+            5.03,
+            35.76
+          ],
+          [
+            2.8,
+            34.52
+          ],
+          [
+            2.0,
+            32.64
+          ],
+          [
+            1.37,
+            29.84
+          ],
+          [
+            0.5,
+            27.56
+          ],
+          [
+            0.5,
+            25.22
+          ],
+          [
+            0.5,
+            22.48
+          ],
+          [
+            0.5,
+            20.88
+          ],
+          [
+            69.35,
+            0.5
+          ]
+        ],
+        [
+          [
+            0.5,
+            20.88
+          ],
+          [
+            0.5,
+            22.48
+          ],
+          [
+            0.5,
+            25.22
+          ],
+          [
+            0.5,
+            27.56
+          ],
+          [
+            1.37,
+            29.84
+          ],
+          [
+            2.0,
+            32.64
+          ],
+          [
+            2.8,
+            34.52
+          ],
+          [
+            5.03,
+            35.76
+          ],
+          [
+            7.06,
+            36.64
+          ],
+          [
+            8.17,
+            36.52
+          ],
+          [
+            7.06,
+            40.03
+          ],
+          [
+            6.56,
+            42.91
+          ],
+          [
+            6.35,
+            48.27
+          ],
+          [
+            6.08,
+            50.22
+          ],
+          [
+            6.57,
+            52.41
+          ],
+          [
+            7.46,
+            54.36
+          ],
+          [
+            8.03,
+            57.46
+          ],
+          [
+            9.93,
+            60.44
+          ],
+          [
+            10.59,
+            62.72
+          ],
+          [
+            11.71,
+            64.69
+          ],
+          [
+            14.75,
+            65.75
+          ],
+          [
+            15.93,
+            67.42
+          ],
+          [
+            18.43,
+            66.3
+          ],
+          [
+            20.61,
+            65.9
+          ],
+          [
+            22.75,
+            65.18
+          ],
+          [
+            24.55,
+            64.5
+          ],
+          [
+            26.37,
+            62.86
+          ],
+          [
+            27.05,
+            60.53
+          ],
+          [
+            27.28,
+            57.17
+          ],
+          [
+            27.78,
+            56.0
+          ],
+          [
+            29.71,
+            54.95
+          ],
+          [
+            32.73,
+            54.03
+          ],
+          [
+            35.26,
+            54.16
+          ],
+          [
+            36.99,
+            53.83
+          ],
+          [
+            37.68,
+            54.67
+          ],
+          [
+            37.58,
+            56.6
+          ],
+          [
+            36.05,
+            58.98
+          ],
+          [
+            35.37,
+            61.41
+          ],
+          [
+            35.89,
+            62.11
+          ],
+          [
+            35.47,
+            63.84
+          ],
+          [
+            34.75,
+            66.96
+          ],
+          [
+            34.03,
+            65.93
+          ],
+          [
+            33.43,
+            66.0
+          ],
+          [
+            32.89,
+            66.05
+          ],
+          [
+            31.86,
+            68.47
+          ],
+          [
+            31.34,
+            67.99
+          ],
+          [
+            31.0,
+            68.18
+          ],
+          [
+            31.02,
+            68.77
+          ],
+          [
+            28.38,
+            68.72
+          ],
+          [
+            25.71,
+            68.73
+          ],
+          [
+            25.71,
+            70.98
+          ],
+          [
+            24.42,
+            70.99
+          ],
+          [
+            25.48,
+            72.33
+          ],
+          [
+            26.54,
+            73.25
+          ],
+          [
+            26.85,
+            74.12
+          ],
+          [
+            27.32,
+            74.36
+          ],
+          [
+            27.24,
+            75.72
+          ],
+          [
+            23.58,
+            75.73
+          ],
+          [
+            22.2,
+            78.99
+          ],
+          [
+            22.61,
+            79.74
+          ],
+          [
+            22.28,
+            80.68
+          ],
+          [
+            22.21,
+            81.84
+          ],
+          [
+            18.97,
+            77.54
+          ],
+          [
+            17.5,
+            76.24
+          ],
+          [
+            15.17,
+            75.2
+          ],
+          [
+            13.57,
+            75.49
+          ],
+          [
+            11.28,
+            76.99
+          ],
+          [
+            9.84,
+            77.39
+          ],
+          [
+            7.82,
+            76.33
+          ],
+          [
+            5.68,
+            75.57
+          ],
+          [
+            3.01,
+            73.74
+          ],
+          [
+            0.86,
+            73.18
+          ],
+          [
+            0.5,
+            71.32
+          ],
+          [
+            0.5,
+            69.4
+          ],
+          [
+            0.5,
+            20.88
+          ]
+        ],
+        [
+          [
+            50.66,
+            47.25
+          ],
+          [
+            53.13,
+            47.53
+          ],
+          [
+            55.37,
+            47.58
+          ],
+          [
+            58.06,
+            48.94
+          ],
+          [
+            59.2,
+            50.4
+          ],
+          [
+            61.86,
+            49.95
+          ],
+          [
+            62.88,
+            50.89
+          ],
+          [
+            65.3,
+            53.37
+          ],
+          [
+            67.07,
+            55.17
+          ],
+          [
+            68.02,
+            55.12
+          ],
+          [
+            69.72,
+            55.93
+          ],
+          [
+            69.51,
+            57.06
+          ],
+          [
+            71.62,
+            57.22
+          ],
+          [
+            73.78,
+            58.86
+          ],
+          [
+            73.44,
+            59.8
+          ],
+          [
+            71.54,
+            60.31
+          ],
+          [
+            69.62,
+            60.5
+          ],
+          [
+            67.65,
+            60.19
+          ],
+          [
+            63.56,
+            60.58
+          ],
+          [
+            65.47,
+            58.35
+          ],
+          [
+            64.31,
+            57.31
+          ],
+          [
+            62.46,
+            57.04
+          ],
+          [
+            61.48,
+            55.89
+          ],
+          [
+            60.8,
+            53.61
+          ],
+          [
+            59.19,
+            53.76
+          ],
+          [
+            56.52,
+            52.69
+          ],
+          [
+            55.66,
+            51.85
+          ],
+          [
+            51.94,
+            51.23
+          ],
+          [
+            50.94,
+            50.45
+          ],
+          [
+            52.01,
+            49.45
+          ],
+          [
+            49.21,
+            49.25
+          ],
+          [
+            47.16,
+            51.33
+          ],
+          [
+            45.97,
+            51.38
+          ],
+          [
+            45.57,
+            52.36
+          ],
+          [
+            44.15,
+            52.8
+          ],
+          [
+            42.93,
+            52.42
+          ],
+          [
+            44.44,
+            51.18
+          ],
+          [
+            45.06,
+            49.74
+          ],
+          [
+            46.35,
+            48.85
+          ],
+          [
+            47.81,
+            48.07
+          ],
+          [
+            49.97,
+            47.69
+          ],
+          [
+            50.66,
+            47.25
+          ]
+        ],
+        [
+          [
+            80.82,
+            61.14
+          ],
+          [
+            81.07,
+            63.32
+          ],
+          [
+            80.85,
+            64.86
+          ],
+          [
+            80.16,
+            65.53
+          ],
+          [
+            80.89,
+            66.73
+          ],
+          [
+            80.83,
+            67.82
+          ],
+          [
+            78.94,
+            67.14
+          ],
+          [
+            77.59,
+            67.42
+          ],
+          [
+            75.84,
+            67.13
+          ],
+          [
+            74.51,
+            67.88
+          ],
+          [
+            72.98,
+            66.63
+          ],
+          [
+            73.23,
+            65.34
+          ],
+          [
+            75.86,
+            65.9
+          ],
+          [
+            78.01,
+            66.22
+          ],
+          [
+            79.04,
+            65.33
+          ],
+          [
+            77.74,
+            63.59
+          ],
+          [
+            77.76,
+            62.07
+          ],
+          [
+            75.96,
+            61.44
+          ],
+          [
+            76.6,
+            60.34
+          ],
+          [
+            78.34,
+            60.51
+          ],
+          [
+            80.82,
+            61.14
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Havana",
+          "x": 28.0,
+          "y": 44.0
+        },
+        {
+          "name": "Miami",
+          "x": 58.0,
+          "y": 24.0
+        },
+        {
+          "name": "Guant\u00e1namo",
+          "x": 72.0,
+          "y": 50.0
+        },
+        {
+          "name": "Key West",
+          "x": 52.0,
+          "y": 32.0
+        }
+      ]
+    }
+  }
+}

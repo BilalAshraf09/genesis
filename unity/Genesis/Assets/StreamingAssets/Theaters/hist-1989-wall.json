@@ -1,0 +1,1478 @@
+{
+  "scenario": {
+    "id": "hist-1989-wall",
+    "year": 1989,
+    "era": "1979\u20131991",
+    "title": "Wall Night",
+    "region": "Berlin \u00b7 Central Europe \u00b7 alliance desks",
+    "meterFamily": "politics",
+    "theaterArchetype": "europe",
+    "premise": "Crowds and confused border guards open a sealed city. You advise on recognition, monetary union speed, and how fast a divided continent should reunify without triggering a security spiral.",
+    "role": "German and European affairs counselor",
+    "tension": "Seize a peaceful opening without frightening a nuclear-armed neighbor into backlash.",
+    "beats": [
+      {
+        "id": "hist-1989-1",
+        "title": "Opening night",
+        "briefing": "Borders are porous. Do you surge police for order, celebrate publicly, or coordinate quietly with Moscow?",
+        "stakes": "Images will outrun policy memos.",
+        "choices": [
+          {
+            "id": "hist-1989-1a",
+            "label": "Public celebration with calm policing guidance",
+            "detail": "Joy plus order.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "OPEN",
+            "callsign": "PUBLIC CELEBRATION",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Orderly joy"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Historic moment"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less panic"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-1b",
+            "label": "Quiet coordination call to Moscow first",
+            "detail": "Manage great-power nerves.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "CALL",
+            "callsign": "QUIET COORDINATION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Reassurance"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks hesitant"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Alliance consulted"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-1c",
+            "label": "Freeze crossings until a legal protocol",
+            "detail": "Control first.",
+            "kind": "legal",
+            "markerId": "parliament",
+            "short": "FREEZE",
+            "callsign": "FREEZE CROSSINGS",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Procedure"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -2,
+                "summary": "Crowd anger"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Missed moment"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-2",
+        "title": "Recognition cascade",
+        "briefing": "Eastern cabinets fall like dominoes. Partners ask whether to recognize new governments before elections.",
+        "stakes": "Speed legitimizes; delay creates vacuums.",
+        "choices": [
+          {
+            "id": "hist-1989-2a",
+            "label": "Recognize after election calendars are set",
+            "detail": "Process condition.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "ELECT",
+            "callsign": "RECOGNIZE AFTER",
+            "effects": [
+              {
+                "tag": "democratic_mandate",
+                "weight": 2,
+                "summary": "Elections first"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Wait"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Standards"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-2b",
+            "label": "Immediate recognition to lock peaceful transitions",
+            "detail": "Facts forward.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "NOW",
+            "callsign": "IMMEDIATE RECOGNITION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Steadies transitions"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Decisive"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Pre-election stamp"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-2c",
+            "label": "Tie recognition to alliance non-expansion assurances",
+            "detail": "Security bargain.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "ASSURE",
+            "callsign": "TIE RECOGNITION",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Reassures East"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Future fight seeded"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Grand bargain try"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-3",
+        "title": "Monetary rush",
+        "briefing": "Currency union talk accelerates. Economists warn of shock; politics wants unity symbols.",
+        "stakes": "A currency can unify\u2014or impoverish.",
+        "choices": [
+          {
+            "id": "hist-1989-3a",
+            "label": "Fast currency union with conversion generosity",
+            "detail": "Political price.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "DMFAST",
+            "callsign": "FAST CURRENCY",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Unity symbol"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Shock risk"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "East cheered"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-3b",
+            "label": "Staged convertibility with reform benchmarks",
+            "detail": "Economists\u2019 path.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "STAGED",
+            "callsign": "STAGED CONVERTIBILITY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Less shock"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slower unity"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Impatience"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-3c",
+            "label": "Keep separate currencies; deepen trade only",
+            "detail": "Minimal.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "TRADE",
+            "callsign": "KEEP SEPARATE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Buffers"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": -2,
+                "summary": "Thin unity"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Missed historic"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-4",
+        "title": "Alliance map",
+        "briefing": "Will a reunified center stay in the Western alliance? Neutrality proposals appear.",
+        "stakes": "The security architecture is the real treaty.",
+        "choices": [
+          {
+            "id": "hist-1989-4a",
+            "label": "Reunified state remains in the alliance",
+            "detail": "No special status.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "NATOIN",
+            "callsign": "REUNIFIED STATE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Clear"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Neighbor nervous"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Continuity"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-4b",
+            "label": "Temporary non-nuclear special status in the East",
+            "detail": "Compromise geography.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "SPECIAL",
+            "callsign": "TEMPORARY NON",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Face-saver"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Complexity"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "If accepted"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-4c",
+            "label": "Push a new pan-European security treaty first",
+            "detail": "Architecture before membership.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "CSCE",
+            "callsign": "PUSH A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Inclusive order"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slow"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Visionary"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-5",
+        "title": "Opening-night crowd shock",
+        "briefing": "Borders become permeable faster than plans. Force against crowds could restart the Cold War; total passivity could create chaos and hardline backlash.",
+        "stakes": "Crowd dynamics are strategy.",
+        "choices": [
+          {
+            "id": "hist-1989-5a",
+            "label": "Urge nonviolent crowd management and open crossing procedures",
+            "detail": "Channel the flood.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "OPEN",
+            "callsign": "URGE NONVIOLENT",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Safer flow"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Peaceful change"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less force"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-5b",
+            "label": "Advise temporary controlled closures to regain admin control",
+            "detail": "Order first.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "CLOSE",
+            "callsign": "ADVISE TEMPORARY",
+            "effects": [
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Admin breath"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Rage risk"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "If forced"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-5c",
+            "label": "Flood humanitarian and transport support without political claims",
+            "detail": "Logistics as policy.",
+            "kind": "civic",
+            "markerId": "districts",
+            "short": "LOGIST",
+            "callsign": "FLOOD HUMANITARIAN",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Aid"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Helpful"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Stabilizes"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-6",
+        "title": "Domestic reunification politics",
+        "briefing": "Your public tastes reunification now; partners fear a giant. Speed versus reassurance is the fight.",
+        "stakes": "National longing versus European architecture.",
+        "choices": [
+          {
+            "id": "hist-1989-6a",
+            "label": "Embrace reunification as goal with staged European embedding",
+            "detail": "Unity inside Europe.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "EMBED",
+            "callsign": "EMBRACE REUNIFICATION",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "National goal"
+              },
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Embedded"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Partner frame"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-6b",
+            "label": "Slow-walk legal unity; prioritize confederation language",
+            "detail": "Calm neighbors.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "CONFED",
+            "callsign": "SLOW WALK",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Neighbors eased"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -2,
+                "summary": "Nationalists mad"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Slower"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-6c",
+            "label": "Let street politics set the pace; follow with law later",
+            "detail": "Democracy of the square.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "SQUARE",
+            "callsign": "LET STREET",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Popular will"
+              },
+              {
+                "tag": "governability",
+                "weight": -1,
+                "summary": "Reactive state"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Improvised"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-7",
+        "title": "Ally security map ask",
+        "briefing": "Washington, Paris, and Moscow want incompatible alliance maps. Your answer shapes NATO\u2019s future edge.",
+        "stakes": "Architecture is the peace dividend\u2014or its opposite.",
+        "choices": [
+          {
+            "id": "hist-1989-7a",
+            "label": "Propose unified Germany in NATO with special military limits",
+            "detail": "Classic bargain.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "NATOGER",
+            "callsign": "PROPOSE UNIFIED",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Western unity"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Negotiable limits"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Alliance intact"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-7b",
+            "label": "Offer neutrality as a bridge concept",
+            "detail": "Finlandization risk.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "NEUTRAL",
+            "callsign": "OFFER NEUTRALITY",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Moscow easier"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "NATO hole"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -1,
+                "summary": "Ambiguous"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-7c",
+            "label": "Delay alliance talk until monetary union settles",
+            "detail": "Economics first.",
+            "kind": "economic",
+            "markerId": "parliament",
+            "short": "ECONF1",
+            "callsign": "DELAY ALLIANCE",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Money focus"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Security deferred"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Uncertainty"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-8",
+        "title": "Intelligence fog on hardliner coups",
+        "briefing": "Reports of possible crackdowns conflict. Overreacting can provoke; underreacting can miss a massacre window.",
+        "stakes": "Warning without panic.",
+        "choices": [
+          {
+            "id": "hist-1989-8a",
+            "label": "Quietly raise readiness and open crisis hotlines",
+            "detail": "Prepared restraint.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "HOTLINE2",
+            "callsign": "QUIETLY RAISE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Ready"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Talk pipes"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Channel cools"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-8b",
+            "label": "Publicly warn of consequences for any crackdown",
+            "detail": "Deterrent speech.",
+            "kind": "political",
+            "markerId": "brussels",
+            "short": "WARN2",
+            "callsign": "PUBLICLY WARN",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Clear cost"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Rhetoric heat"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Shared line"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-8c",
+            "label": "Treat warnings as noise until multiply confirmed",
+            "detail": "Avoid cry-wolf.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "NOISE",
+            "callsign": "TREAT WARNINGS",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Less false alarm"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "If real, late"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "May look asleep"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-9",
+        "title": "Monetary off-ramp",
+        "briefing": "A rapid currency union could stabilize\u2014or bankrupt. Conversion rates are class politics with foreign-policy stakes.",
+        "stakes": "Exchange rates as statecraft.",
+        "choices": [
+          {
+            "id": "hist-1989-9a",
+            "label": "Choose a generous conversion to buy eastern consent",
+            "detail": "Political money.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "GENEROUS",
+            "callsign": "CHOOSE A",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Eastern buy-in"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Costly"
+              },
+              {
+                "tag": "polarization",
+                "weight": -1,
+                "summary": "Less revolt"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-9b",
+            "label": "Choose a strict conversion to protect monetary credibility",
+            "detail": "Hard money.",
+            "kind": "economic",
+            "markerId": "brussels",
+            "short": "STRICT",
+            "callsign": "CHOOSE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Credibility"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Eastern pain"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Backlash"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-9c",
+            "label": "Stage conversion with EU support facilities",
+            "detail": "Europeanize the bill.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "EUSUP",
+            "callsign": "STAGE CONVERSION",
+            "effects": [
+              {
+                "tag": "eu_cohesion",
+                "weight": 2,
+                "summary": "Shared project"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Buffered"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Partnered"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1989-10",
+        "title": "Post-Wall endgame",
+        "briefing": "You draft the \u201c2+4\u201d spirit note: borders final, rights secured, armies constrained. Spoilers still exist.",
+        "stakes": "Settlements that last are boring on purpose.",
+        "choices": [
+          {
+            "id": "hist-1989-10a",
+            "label": "Lock final borders and minority rights in treaty language",
+            "detail": "Legal peace.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "BORDERS",
+            "callsign": "LOCK FINAL",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 3,
+                "summary": "Rights and maps"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Settlement"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Less revisionism"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-10b",
+            "label": "Keep some border questions politically open",
+            "detail": "Flexibility trap.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "OPENQ",
+            "callsign": "KEEP SOME",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Ambiguity"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Future fights"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Unsettled"
+              }
+            ]
+          },
+          {
+            "id": "hist-1989-10c",
+            "label": "Prioritize rapid Western economic absorption over legal niceties",
+            "detail": "Facts then law.",
+            "kind": "economic",
+            "markerId": "districts",
+            "short": "ABSORB3",
+            "callsign": "PRIORITIZE RAPID",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Speed"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Process thin"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "West integrates"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "berlin",
+    "scenarioId": "hist-1989-wall",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0C2030",
+    "land": "#222830",
+    "accent": "#8EB4C8",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Berlin theater (Natural Earth)",
+      "water": "#0C2030",
+      "land": "#222830",
+      "landHi": "#323840",
+      "accent": "#8EB4C8",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            60.8,
+            28.04
+          ],
+          [
+            62.36,
+            34.4
+          ],
+          [
+            60.5,
+            37.73
+          ],
+          [
+            62.92,
+            42.19
+          ],
+          [
+            64.57,
+            48.88
+          ],
+          [
+            64.05,
+            53.19
+          ],
+          [
+            66.78,
+            61.17
+          ],
+          [
+            63.8,
+            62.47
+          ],
+          [
+            62.05,
+            61.03
+          ],
+          [
+            60.37,
+            63.41
+          ],
+          [
+            55.59,
+            65.83
+          ],
+          [
+            53.11,
+            68.95
+          ],
+          [
+            48.27,
+            71.67
+          ],
+          [
+            49.43,
+            75.39
+          ],
+          [
+            50.14,
+            80.66
+          ],
+          [
+            53.54,
+            83.66
+          ],
+          [
+            57.31,
+            89.04
+          ],
+          [
+            54.96,
+            94.8
+          ],
+          [
+            52.56,
+            96.39
+          ],
+          [
+            53.51,
+            99.5
+          ],
+          [
+            50.81,
+            99.5
+          ],
+          [
+            47.61,
+            99.5
+          ],
+          [
+            23.48,
+            99.5
+          ],
+          [
+            22.12,
+            99.5
+          ],
+          [
+            16.45,
+            99.5
+          ],
+          [
+            17.29,
+            95.84
+          ],
+          [
+            20.66,
+            87.28
+          ],
+          [
+            11.05,
+            84.98
+          ],
+          [
+            7.91,
+            81.7
+          ],
+          [
+            8.29,
+            76.22
+          ],
+          [
+            6.95,
+            73.4
+          ],
+          [
+            7.71,
+            64.95
+          ],
+          [
+            6.59,
+            51.85
+          ],
+          [
+            10.6,
+            51.85
+          ],
+          [
+            12.29,
+            47.14
+          ],
+          [
+            13.95,
+            35.7
+          ],
+          [
+            12.7,
+            31.47
+          ],
+          [
+            14.0,
+            28.83
+          ],
+          [
+            19.57,
+            28.15
+          ],
+          [
+            20.81,
+            30.9
+          ],
+          [
+            25.34,
+            24.74
+          ],
+          [
+            23.81,
+            20.05
+          ],
+          [
+            23.51,
+            12.97
+          ],
+          [
+            28.55,
+            14.61
+          ],
+          [
+            32.81,
+            12.71
+          ],
+          [
+            32.93,
+            17.54
+          ],
+          [
+            39.67,
+            20.45
+          ],
+          [
+            39.6,
+            24.89
+          ],
+          [
+            46.38,
+            22.54
+          ],
+          [
+            50.12,
+            19.12
+          ],
+          [
+            57.65,
+            24.06
+          ],
+          [
+            60.8,
+            28.04
+          ]
+        ],
+        [
+          [
+            99.5,
+            82.11
+          ],
+          [
+            98.83,
+            84.79
+          ],
+          [
+            95.47,
+            80.36
+          ],
+          [
+            92.73,
+            82.05
+          ],
+          [
+            92.35,
+            81.3
+          ],
+          [
+            89.29,
+            75.14
+          ],
+          [
+            84.33,
+            74.39
+          ],
+          [
+            83.7,
+            70.47
+          ],
+          [
+            79.13,
+            69.08
+          ],
+          [
+            78.13,
+            72.3
+          ],
+          [
+            74.51,
+            69.72
+          ],
+          [
+            74.92,
+            66.28
+          ],
+          [
+            69.94,
+            65.19
+          ],
+          [
+            66.78,
+            61.17
+          ],
+          [
+            64.05,
+            53.19
+          ],
+          [
+            64.57,
+            48.88
+          ],
+          [
+            62.92,
+            42.19
+          ],
+          [
+            60.5,
+            37.73
+          ],
+          [
+            62.36,
+            34.4
+          ],
+          [
+            60.8,
+            28.04
+          ],
+          [
+            65.35,
+            24.37
+          ],
+          [
+            75.76,
+            18.59
+          ],
+          [
+            84.15,
+            14.36
+          ],
+          [
+            90.81,
+            16.47
+          ],
+          [
+            91.31,
+            19.52
+          ],
+          [
+            97.74,
+            19.67
+          ],
+          [
+            99.5,
+            82.11
+          ]
+        ],
+        [
+          [
+            66.78,
+            61.17
+          ],
+          [
+            69.94,
+            65.19
+          ],
+          [
+            74.92,
+            66.28
+          ],
+          [
+            74.51,
+            69.72
+          ],
+          [
+            78.13,
+            72.3
+          ],
+          [
+            79.13,
+            69.08
+          ],
+          [
+            83.7,
+            70.47
+          ],
+          [
+            84.33,
+            74.39
+          ],
+          [
+            89.29,
+            75.14
+          ],
+          [
+            92.35,
+            81.3
+          ],
+          [
+            90.37,
+            81.31
+          ],
+          [
+            89.33,
+            83.56
+          ],
+          [
+            87.8,
+            84.11
+          ],
+          [
+            87.37,
+            86.95
+          ],
+          [
+            86.09,
+            87.54
+          ],
+          [
+            85.91,
+            88.71
+          ],
+          [
+            83.63,
+            90.0
+          ],
+          [
+            80.68,
+            89.79
+          ],
+          [
+            79.74,
+            92.54
+          ],
+          [
+            76.66,
+            90.18
+          ],
+          [
+            73.53,
+            90.83
+          ],
+          [
+            68.36,
+            87.01
+          ],
+          [
+            66.01,
+            87.94
+          ],
+          [
+            62.26,
+            93.06
+          ],
+          [
+            57.31,
+            89.04
+          ],
+          [
+            53.54,
+            83.66
+          ],
+          [
+            50.14,
+            80.66
+          ],
+          [
+            49.43,
+            75.39
+          ],
+          [
+            48.27,
+            71.67
+          ],
+          [
+            53.11,
+            68.95
+          ],
+          [
+            55.59,
+            65.83
+          ],
+          [
+            60.37,
+            63.41
+          ],
+          [
+            62.05,
+            61.03
+          ],
+          [
+            63.8,
+            62.47
+          ],
+          [
+            66.78,
+            61.17
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            50.0,
+            14.0
+          ],
+          [
+            50.0,
+            82.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Berlin",
+          "x": 50.0,
+          "y": 46.0
+        },
+        {
+          "name": "Potsdam",
+          "x": 44.0,
+          "y": 56.0
+        },
+        {
+          "name": "Warsaw",
+          "x": 72.0,
+          "y": 42.0
+        },
+        {
+          "name": "Prague",
+          "x": 54.0,
+          "y": 68.0
+        }
+      ]
+    }
+  }
+}

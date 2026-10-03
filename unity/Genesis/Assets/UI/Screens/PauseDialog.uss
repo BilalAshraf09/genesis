@@ -1,0 +1,61 @@
+/*
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
+ PauseDialog.uss — Genesis Night Atlas pause overlay.
+ Loaded by UiRegistry at sortingOrder 40. Requires Genesis.tss for .glass, .btn* classes.
+*/
+
+/* ---- Full-screen dim overlay ----------------------------------- */
+
+.pause-overlay {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.62);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* ---- Glass dialog card ------------------------------------------ */
+
+.pause-card {
+    width: 680px;
+    max-width: 90%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* ---- Title ------------------------------------------------------ */
+
+.pause-title {
+    font-size: 36px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: upper-center;
+    margin-bottom: 32px;
+    letter-spacing: 4px;
+}
+
+/* ---- Buttons ---------------------------------------------------- */
+
+.pause-btn {
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+/* ---- Hidden utility --------------------------------------------- */
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,45 @@
+<!--
+2026-10-02 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
+    <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
+    <ui:Style src="project://database/Assets/UI/Screens/Codex.uss" />
+
+    <!-- Full-screen glass overlay; safe-area applied by C# via SafeAreaRoot.Apply -->
+    <ui:VisualElement name="codexRoot" class="codex-root">
+
+        <!-- Glass panel -->
+        <ui:VisualElement name="codexPanel" class="codex-panel">
+
+            <!-- ── HEADER ── -->
+            <ui:VisualElement name="codexHeader" class="codex-header">
+                <ui:VisualElement class="codex-header-titles">
+                    <ui:Label name="codexTitle" text="ATLAS CODEX" class="codex-title" />
+                    <ui:Label name="codexSubtitle" text="Your discovered places" class="codex-subtitle" />
+                </ui:VisualElement>
+                <ui:Button name="closeButton" class="codex-close-btn">
+                    <ui:Label text="✕" />
+                </ui:Button>
+            </ui:VisualElement>
+
+            <!-- Overall progress bar -->
+            <ui:VisualElement name="overallProgress" class="codex-overall-progress">
+                <ui:Label name="overallLabel" text="0 places discovered" class="codex-overall-label" />
+                <ui:VisualElement class="meter codex-meter">
+                    <ui:VisualElement name="overallFill" class="meter__fill codex-overall-fill" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- Theater sections — built dynamically by C# -->
+            <ui:ScrollView name="codexScroll" class="codex-scroll"
+                           vertical-scroller-visibility="Auto"
+                           horizontal-scroller-visibility="Hidden">
+                <ui:VisualElement name="theaterSections" class="codex-theater-sections" />
+            </ui:ScrollView>
+
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,1564 @@
+{
+  "scenario": {
+    "id": "hist-1939-corridor",
+    "year": 1939,
+    "era": "1939\u20131945",
+    "title": "Corridor Ultimatum",
+    "region": "Poland \u00b7 Germany \u00b7 Allied capitals",
+    "meterFamily": "conflict",
+    "theaterArchetype": "europe",
+    "premise": "Demands over Danzig and the Polish corridor collide with new alliance pledges. You advise whether to deter with clarity, buy days with talks, or accept that war has already been chosen.",
+    "role": "War cabinet coordinator",
+    "tension": "Honor a guarantee without sleepwalking into a fight you still might shape.",
+    "beats": [
+      {
+        "id": "hist-1939-1",
+        "title": "Pledge language",
+        "briefing": "Allies ask how automatic your response is. Ambiguity may invite probing; clarity may remove brakes.",
+        "stakes": "Deterrence lives in the verbs.",
+        "choices": [
+          {
+            "id": "hist-1939-1a",
+            "label": "Issue an automatic assistance pledge",
+            "detail": "Attack on Poland means war.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "AUTO",
+            "callsign": "ISSUE AN",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 3,
+                "summary": "Hard signal"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Less flexibility"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Warsaw steadied"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-1b",
+            "label": "Keep \u201cgrave consequences\u201d wording",
+            "detail": "Room to interpret.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "GRAVE",
+            "callsign": "KEEP GRAVE",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Wiggle room"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Maybe bluff"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Talks possible"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-1c",
+            "label": "Condition aid on Polish negotiating flexibility",
+            "detail": "Pressure your partner too.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "COND",
+            "callsign": "CONDITION AID",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Bargain path"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Partner feels alone"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "May delay"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-2",
+        "title": "Mobilization clocks",
+        "briefing": "Staffs want full mobilization. Markets crash on rumor alone.",
+        "stakes": "Timetables outrun speeches.",
+        "choices": [
+          {
+            "id": "hist-1939-2a",
+            "label": "Full mobilization with public defensive frame",
+            "detail": "Match the machine.",
+            "kind": "kinetic",
+            "markerId": "streets",
+            "short": "FULLMOB",
+            "callsign": "FULL MOBILIZATION",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Ready force"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War logic"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Panic"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-2b",
+            "label": "Covert readiness; public calm",
+            "detail": "Prepare quietly.",
+            "kind": "political",
+            "markerId": "districts",
+            "short": "COVERT",
+            "callsign": "COVERT READINESS",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Some readiness"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Mixed signals"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Less panic"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-2c",
+            "label": "Freeze mobilization; last mediation sprint",
+            "detail": "All chips on talks.",
+            "kind": "diplomatic",
+            "markerId": "ballot",
+            "short": "SPRINT",
+            "callsign": "FREEZE MOBILIZATION",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 3,
+                "summary": "Final push"
+              },
+              {
+                "tag": "deterrence",
+                "weight": -2,
+                "summary": "Looks exposed"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "If others pause"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-3",
+        "title": "Neutral commerce",
+        "briefing": "Neutrals ask if you will respect trade even after fighting starts. Blockade planners want early lists.",
+        "stakes": "Economic war begins before the first shot.",
+        "choices": [
+          {
+            "id": "hist-1939-3a",
+            "label": "Publish a narrow contraband list",
+            "detail": "Predictable rules.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "LIST",
+            "callsign": "PUBLISH A",
+            "effects": [
+              {
+                "tag": "norm_protection",
+                "weight": 1,
+                "summary": "Rules framing"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": 1,
+                "summary": "Some squeeze"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Partners can align"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-3b",
+            "label": "Prepare total blockade authority",
+            "detail": "Maximum pressure.",
+            "kind": "economic",
+            "markerId": "capital",
+            "short": "BLOCK",
+            "callsign": "PREPARE TOTAL",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Hard squeeze"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Neutral pain"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Widens war"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-3c",
+            "label": "Delay economic measures to keep neutrals sweet",
+            "detail": "Diplomacy first.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "DELAY$",
+            "callsign": "DELAY ECONOMIC",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Neutral goodwill"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -2,
+                "summary": "Weak lever"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Slow coercion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-4",
+        "title": "Invasion reports",
+        "briefing": "Frontier posts go dark. You must choose the first public act of war\u2014or a last query.",
+        "stakes": "Hesitation and resolve will both be judged.",
+        "choices": [
+          {
+            "id": "hist-1939-4a",
+            "label": "Declare war on confirmed invasion",
+            "detail": "Honor the pledge.",
+            "kind": "political",
+            "markerId": "capital",
+            "short": "DECLARE",
+            "callsign": "DECLARE WAR",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 3,
+                "summary": "Word kept"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "General war"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Coalition born"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-4b",
+            "label": "Ultimatum with a short clock",
+            "detail": "Demand withdrawal first.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "CLOCK",
+            "callsign": "ULTIMATUM WITH",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Last formality"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Process kept"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Hours only"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-4c",
+            "label": "Limited military aid without full declaration",
+            "detail": "Support without formal war.",
+            "kind": "kinetic",
+            "markerId": "streets",
+            "short": "AID",
+            "callsign": "LIMITED MILITARY",
+            "effects": [
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Partial war"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Pledge diluted"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Partner doubts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-5",
+        "title": "False-flag fog at the border",
+        "briefing": "Incidents multiply; attribution is murky. Your guarantee clock starts whether facts are clean or not.",
+        "stakes": "Ambiguous sparks still burn treaties.",
+        "choices": [
+          {
+            "id": "hist-1939-5a",
+            "label": "Require dual confirmation before invoking the guarantee",
+            "detail": "Protect against traps.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "DUALCF",
+            "callsign": "REQUIRE DUAL",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Verification"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Careful ally"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Guaranteed state nervous"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-5b",
+            "label": "Treat armed cross-border fire as casus enough",
+            "detail": "Speed over certainty.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "CASUS",
+            "callsign": "TREAT ARMED",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Tripwire live"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "War nearer"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": -1,
+                "summary": "Talks die"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-5c",
+            "label": "Propose an immediate neutral observer corridor",
+            "detail": "Internationalize the spark.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "OBSCOR",
+            "callsign": "PROPOSE AN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Process"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Cooling"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Hard to deploy"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-6",
+        "title": "Evacuation and morale politics",
+        "briefing": "Cities ask about shelters and children. Panic can empty factories you need for deterrence.",
+        "stakes": "Civil defense is strategic messaging.",
+        "choices": [
+          {
+            "id": "hist-1939-6a",
+            "label": "Order limited priority evacuations and shelter drills",
+            "detail": "Prepare without full flight.",
+            "kind": "civic",
+            "markerId": "streets",
+            "short": "DRILL",
+            "callsign": "ORDER LIMITED",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -1,
+                "summary": "Some protection"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 1,
+                "summary": "Seen as caring"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Disruption"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-6b",
+            "label": "Keep calm messaging; postpone mass movement",
+            "detail": "Avoid looking like war is certain.",
+            "kind": "political",
+            "markerId": "ballot",
+            "short": "CALM",
+            "callsign": "KEEP CALM",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Less panic"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "If bombs fall"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Normalcy bias"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-6c",
+            "label": "Nationalize key transport for military priority",
+            "detail": "Logistics first.",
+            "kind": "political",
+            "markerId": "districts",
+            "short": "NATL",
+            "callsign": "NATIONALIZE KEY",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Mobilization aid"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Civil friction"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Commerce hit"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-7",
+        "title": "Neutral commerce squeeze",
+        "briefing": "Neutrals want trade assurances; your navy wants contraband lists. Too soft funds the adversary; too hard makes new enemies.",
+        "stakes": "Blockade law is coalition politics.",
+        "choices": [
+          {
+            "id": "hist-1939-7a",
+            "label": "Publish a narrow contraband list with prize courts",
+            "detail": "Lawful pressure.",
+            "kind": "legal",
+            "markerId": "brussels",
+            "short": "PRIZE",
+            "callsign": "PUBLISH A",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 2,
+                "summary": "Legal squeeze"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Rule-bound"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Neutrals less angry"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-7b",
+            "label": "Impose a broad embargo and dare challenges",
+            "detail": "Maximal denial.",
+            "kind": "naval",
+            "markerId": "capital",
+            "short": "EMBARGO",
+            "callsign": "IMPOSE A",
+            "effects": [
+              {
+                "tag": "economic_pressure",
+                "weight": 3,
+                "summary": "Hard denial"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "Incident risk"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -1,
+                "summary": "Neutral fury"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-7c",
+            "label": "Exempt food and medicine explicitly",
+            "detail": "Humanitarian carve-out.",
+            "kind": "diplomatic",
+            "markerId": "parliament",
+            "short": "HUM",
+            "callsign": "EXEMPT FOOD",
+            "effects": [
+              {
+                "tag": "civilian_cost",
+                "weight": -2,
+                "summary": "Less hunger weapon"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Weaker squeeze"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Moral signal"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-8",
+        "title": "Intelligence contradiction",
+        "briefing": "One service says invasion is days away; another says coercion theater. Your force generation depends on the call.",
+        "stakes": "Wrong clocks waste armies or lose countries.",
+        "choices": [
+          {
+            "id": "hist-1939-8a",
+            "label": "Split the difference: elevate alert, hold declaration",
+            "detail": "Ready without irrevocable words.",
+            "kind": "kinetic",
+            "markerId": "capital",
+            "short": "ALERT",
+            "callsign": "SPLIT THE",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Ready posture"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Declaration delayed"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Higher readiness"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-8b",
+            "label": "Side with the early-invasion estimate",
+            "detail": "Assume worst.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "WORST2",
+            "callsign": "SIDE WITH",
+            "effects": [
+              {
+                "tag": "deterrence",
+                "weight": 2,
+                "summary": "Max prep"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "War footing"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Panic"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-8c",
+            "label": "Demand a joint intelligence estimate before action",
+            "detail": "Force a single brief.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "JIE",
+            "callsign": "DEMAND A",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Unified picture"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Coordination tax"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Shared facts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-9",
+        "title": "Last bargaining window",
+        "briefing": "A last proposal trades corridor access regimes for demobilization and talks. Hardliners call it a second Munich.",
+        "stakes": "Naming the lesson of Munich can close the window that lesson was meant to buy.",
+        "choices": [
+          {
+            "id": "hist-1939-9a",
+            "label": "Explore access regimes under international board",
+            "detail": "Technocratic off-ramp.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "ACCESS",
+            "callsign": "EXPLORE ACCESS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Last talk"
+              },
+              {
+                "tag": "escalation",
+                "weight": -1,
+                "summary": "Cooling chance"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Appease fear"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-9b",
+            "label": "Refuse any territorial discussion under threat",
+            "detail": "No negotiation at gunpoint.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "NOGUN",
+            "callsign": "REFUSE ANY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Anti-ultimatum norm"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Less deal space"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": 1,
+                "summary": "Guaranteed state steadied"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-9c",
+            "label": "Accept talks only after partial demobilization verified",
+            "detail": "Sequence safety.",
+            "kind": "diplomatic",
+            "markerId": "capital",
+            "short": "VERIF",
+            "callsign": "ACCEPT TALKS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Conditional table"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Verification"
+              },
+              {
+                "tag": "deterrence",
+                "weight": 1,
+                "summary": "Safety first"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1939-10",
+        "title": "Guarantee endgame",
+        "briefing": "Invasion reports arrive. You must recommend war declaration timing, limited aid, or a pause for one more note.",
+        "stakes": "The guarantee\u2019s value is proven or spent tonight.",
+        "choices": [
+          {
+            "id": "hist-1939-10a",
+            "label": "Recommend immediate war declaration with allies",
+            "detail": "Honor the tripwire.",
+            "kind": "political",
+            "markerId": "parliament",
+            "short": "DECLARE",
+            "callsign": "RECOMMEND IMMEDIATE",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 3,
+                "summary": "Guarantee kept"
+              },
+              {
+                "tag": "escalation",
+                "weight": 3,
+                "summary": "General war"
+              },
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Word is bond"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-10b",
+            "label": "Send an ultimatum with a short clock before declaring",
+            "detail": "One last note.",
+            "kind": "diplomatic",
+            "markerId": "brussels",
+            "short": "ULTIM",
+            "callsign": "SEND AN",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Formal last step"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Hours only"
+              },
+              {
+                "tag": "escalation",
+                "weight": 2,
+                "summary": "War likely"
+              }
+            ]
+          },
+          {
+            "id": "hist-1939-10c",
+            "label": "Lead with material aid and delay declaration",
+            "detail": "Help without full war yet.",
+            "kind": "kinetic",
+            "markerId": "districts",
+            "short": "AIDONLY",
+            "callsign": "LEAD WITH",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Ally feels alone"
+              },
+              {
+                "tag": "escalation",
+                "weight": 1,
+                "summary": "Limited war risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": -2,
+                "summary": "Guarantee doubted"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "poland-corridor",
+    "scenarioId": "hist-1939-corridor",
+    "title": "EUROPE DESK",
+    "subtitle": "EU theater \u00b7 capital axis",
+    "water": "#0A2230",
+    "land": "#243428",
+    "accent": "#D4A04A",
+    "markers": [
+      {
+        "id": "capital",
+        "label": "Capital",
+        "x": 42.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "brussels",
+        "label": "Brussels",
+        "x": 38.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "parliament",
+        "label": "Parliament",
+        "x": 44.0,
+        "y": 52.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "streets",
+        "label": "Streets",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "districts",
+        "label": "Districts",
+        "x": 52.0,
+        "y": 58.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "ballot",
+        "label": "Ballot",
+        "x": 48.0,
+        "y": 44.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "capital",
+        "to": "brussels"
+      },
+      {
+        "from": "parliament",
+        "to": "streets"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "GOVERNANCE CORE",
+        "x": 34.0,
+        "y": 38.0,
+        "w": 24.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "civic",
+        "label": "CIVIC BELT",
+        "x": 36.0,
+        "y": 54.0,
+        "w": 28.0,
+        "h": 16.0,
+        "tension": 0.6
+      },
+      {
+        "id": "eu-ring",
+        "label": "EU RING",
+        "x": 22.0,
+        "y": 28.0,
+        "w": 40.0,
+        "h": 18.0,
+        "tension": 0.45
+      }
+    ],
+    "terrainKey": "europe",
+    "geo": {
+      "label": "Polish Corridor (Natural Earth)",
+      "water": "#0A2230",
+      "land": "#243428",
+      "landHi": "#344838",
+      "accent": "#D4A04A",
+      "source": "natural-earth+atlas",
+      "terrainKey": "europe",
+      "reliefKey": "europe",
+      "lands": [
+        [
+          [
+            74.91,
+            40.88
+          ],
+          [
+            75.15,
+            45.3
+          ],
+          [
+            76.69,
+            49.1
+          ],
+          [
+            76.66,
+            53.09
+          ],
+          [
+            73.33,
+            55.13
+          ],
+          [
+            75.04,
+            59.76
+          ],
+          [
+            75.15,
+            64.22
+          ],
+          [
+            77.94,
+            72.95
+          ],
+          [
+            77.35,
+            75.75
+          ],
+          [
+            74.59,
+            76.91
+          ],
+          [
+            69.55,
+            85.23
+          ],
+          [
+            70.98,
+            89.73
+          ],
+          [
+            69.77,
+            89.14
+          ],
+          [
+            64.49,
+            85.3
+          ],
+          [
+            60.49,
+            86.71
+          ],
+          [
+            57.87,
+            85.69
+          ],
+          [
+            54.58,
+            87.83
+          ],
+          [
+            51.78,
+            84.28
+          ],
+          [
+            49.5,
+            85.64
+          ],
+          [
+            49.18,
+            85.04
+          ],
+          [
+            46.63,
+            80.11
+          ],
+          [
+            42.5,
+            79.51
+          ],
+          [
+            41.97,
+            76.38
+          ],
+          [
+            38.16,
+            75.26
+          ],
+          [
+            37.33,
+            77.84
+          ],
+          [
+            34.31,
+            75.77
+          ],
+          [
+            34.66,
+            73.02
+          ],
+          [
+            30.51,
+            72.15
+          ],
+          [
+            27.87,
+            68.93
+          ],
+          [
+            25.59,
+            62.55
+          ],
+          [
+            26.03,
+            59.1
+          ],
+          [
+            24.65,
+            53.75
+          ],
+          [
+            22.64,
+            50.19
+          ],
+          [
+            24.19,
+            47.52
+          ],
+          [
+            22.89,
+            42.43
+          ],
+          [
+            26.68,
+            39.49
+          ],
+          [
+            35.35,
+            34.87
+          ],
+          [
+            42.35,
+            31.48
+          ],
+          [
+            47.89,
+            33.17
+          ],
+          [
+            48.31,
+            35.61
+          ],
+          [
+            53.67,
+            35.74
+          ],
+          [
+            60.51,
+            36.87
+          ],
+          [
+            70.73,
+            36.72
+          ],
+          [
+            73.58,
+            37.79
+          ],
+          [
+            74.91,
+            40.88
+          ]
+        ],
+        [
+          [
+            22.89,
+            42.43
+          ],
+          [
+            24.19,
+            47.52
+          ],
+          [
+            22.64,
+            50.19
+          ],
+          [
+            24.65,
+            53.75
+          ],
+          [
+            26.03,
+            59.1
+          ],
+          [
+            25.59,
+            62.55
+          ],
+          [
+            27.87,
+            68.93
+          ],
+          [
+            25.39,
+            69.98
+          ],
+          [
+            23.93,
+            68.83
+          ],
+          [
+            22.53,
+            70.73
+          ],
+          [
+            18.55,
+            72.67
+          ],
+          [
+            16.48,
+            75.16
+          ],
+          [
+            12.45,
+            77.34
+          ],
+          [
+            13.42,
+            80.31
+          ],
+          [
+            14.01,
+            84.53
+          ],
+          [
+            16.84,
+            86.93
+          ],
+          [
+            19.98,
+            91.23
+          ],
+          [
+            18.02,
+            95.84
+          ],
+          [
+            16.02,
+            97.11
+          ],
+          [
+            16.81,
+            99.5
+          ],
+          [
+            14.56,
+            99.5
+          ],
+          [
+            11.9,
+            99.5
+          ],
+          [
+            7.92,
+            99.5
+          ],
+          [
+            3.03,
+            99.5
+          ],
+          [
+            0.5,
+            99.5
+          ],
+          [
+            0.5,
+            99.5
+          ],
+          [
+            0.5,
+            31.69
+          ],
+          [
+            0.5,
+            30.17
+          ],
+          [
+            0.5,
+            34.03
+          ],
+          [
+            5.28,
+            36.36
+          ],
+          [
+            5.22,
+            39.91
+          ],
+          [
+            10.87,
+            38.04
+          ],
+          [
+            13.99,
+            35.3
+          ],
+          [
+            20.26,
+            39.24
+          ],
+          [
+            22.89,
+            42.43
+          ]
+        ],
+        [
+          [
+            27.87,
+            68.93
+          ],
+          [
+            30.51,
+            72.15
+          ],
+          [
+            34.66,
+            73.02
+          ],
+          [
+            34.31,
+            75.77
+          ],
+          [
+            37.33,
+            77.84
+          ],
+          [
+            38.16,
+            75.26
+          ],
+          [
+            41.97,
+            76.38
+          ],
+          [
+            42.5,
+            79.51
+          ],
+          [
+            46.63,
+            80.11
+          ],
+          [
+            49.18,
+            85.04
+          ],
+          [
+            47.53,
+            85.05
+          ],
+          [
+            46.67,
+            86.85
+          ],
+          [
+            45.39,
+            87.28
+          ],
+          [
+            45.03,
+            89.56
+          ],
+          [
+            43.96,
+            90.04
+          ],
+          [
+            43.81,
+            90.97
+          ],
+          [
+            41.92,
+            92.0
+          ],
+          [
+            39.46,
+            91.83
+          ],
+          [
+            38.67,
+            94.03
+          ],
+          [
+            36.11,
+            92.14
+          ],
+          [
+            33.5,
+            92.66
+          ],
+          [
+            29.19,
+            89.61
+          ],
+          [
+            27.23,
+            90.36
+          ],
+          [
+            24.1,
+            94.45
+          ],
+          [
+            19.98,
+            91.23
+          ],
+          [
+            16.84,
+            86.93
+          ],
+          [
+            14.01,
+            84.53
+          ],
+          [
+            13.42,
+            80.31
+          ],
+          [
+            12.45,
+            77.34
+          ],
+          [
+            16.48,
+            75.16
+          ],
+          [
+            18.55,
+            72.67
+          ],
+          [
+            22.53,
+            70.73
+          ],
+          [
+            23.93,
+            68.83
+          ],
+          [
+            25.39,
+            69.98
+          ],
+          [
+            27.87,
+            68.93
+          ]
+        ],
+        [
+          [
+            91.64,
+            23.85
+          ],
+          [
+            92.16,
+            28.33
+          ],
+          [
+            87.6,
+            31.53
+          ],
+          [
+            86.31,
+            37.18
+          ],
+          [
+            80.28,
+            40.94
+          ],
+          [
+            74.91,
+            40.88
+          ],
+          [
+            73.58,
+            37.79
+          ],
+          [
+            70.73,
+            36.72
+          ],
+          [
+            70.28,
+            34.17
+          ],
+          [
+            70.88,
+            31.43
+          ],
+          [
+            68.42,
+            29.85
+          ],
+          [
+            62.6,
+            28.1
+          ],
+          [
+            61.42,
+            19.69
+          ],
+          [
+            67.78,
+            16.62
+          ],
+          [
+            77.1,
+            17.26
+          ],
+          [
+            82.56,
+            16.27
+          ],
+          [
+            83.34,
+            18.35
+          ],
+          [
+            86.29,
+            19.0
+          ],
+          [
+            91.64,
+            23.85
+          ]
+        ]
+      ],
+      "borders": [
+        [
+          [
+            48.0,
+            18.0
+          ],
+          [
+            50.0,
+            40.0
+          ],
+          [
+            48.0,
+            62.0
+          ]
+        ]
+      ],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "Danzig",
+          "x": 48.0,
+          "y": 22.0
+        },
+        {
+          "name": "Warsaw",
+          "x": 54.0,
+          "y": 48.0
+        },
+        {
+          "name": "Berlin",
+          "x": 36.0,
+          "y": 38.0
+        },
+        {
+          "name": "K\u00f6nigsberg",
+          "x": 62.0,
+          "y": 24.0
+        }
+      ]
+    }
+  }
+}

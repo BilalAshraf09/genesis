@@ -1,0 +1,2178 @@
+{
+  "scenario": {
+    "id": "hist-1929-black-thursday",
+    "year": 1929,
+    "era": "1919\u20131939",
+    "title": "Black Thursday Desk",
+    "region": "New York \u00b7 London \u00b7 global credit",
+    "meterFamily": "economy",
+    "theaterArchetype": "markets",
+    "premise": "Equity panic spreads into bank runs and trade collapse. You advise a finance ministry on whether to stabilize banks, protect gold parity, or cushion labor\u2014knowing each choice starves the others.",
+    "role": "Treasury crisis counselor",
+    "tension": "Liquidity versus confidence versus the gold orthodoxy that still defines credibility.",
+    "beats": [
+      {
+        "id": "hist-1929-1",
+        "title": "Exchange floor panic",
+        "briefing": "Brokers beg for a trading halt. Central bankers fear a halt signals insolvency.",
+        "stakes": "Stopping the tape can calm\u2014or advertise fear.",
+        "choices": [
+          {
+            "id": "hist-1929-1a",
+            "label": "Authorize a short trading halt",
+            "detail": "Clear orders; reopen with rules.",
+            "kind": "legal",
+            "markerId": "exchange",
+            "short": "HALT",
+            "callsign": "AUTHORIZE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Pause for clearing"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Looks like panic"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Hours to plan"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-1b",
+            "label": "Keep markets open; inject liquidity",
+            "detail": "Discount window wide.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "LIQUID",
+            "callsign": "KEEP MARKETS",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Supports prices"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Orthodox courage"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Spends reserves"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-1c",
+            "label": "Let prices find bottom without support",
+            "detail": "Purge speculation.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "PURGE",
+            "callsign": "LET PRICES",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Freefall"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard money story"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Wealth shock"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-2",
+        "title": "Bank run map",
+        "briefing": "Regional banks fail overnight. Depositors queue. Correspondents ask if you will backstop or ring-fence.",
+        "stakes": "Saving all banks may save none; saving none may save the system\u2019s story.",
+        "choices": [
+          {
+            "id": "hist-1929-2a",
+            "label": "Selective recapitalization of solvent banks",
+            "detail": "Triage by books, not politics.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "TRIAGE",
+            "callsign": "SELECTIVE RECAPITALIZATION",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Stops cascade"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Technocratic"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Losers cry favoritism"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-2b",
+            "label": "Blanket holiday and deposit guarantee sketch",
+            "detail": "Freeze withdrawals; promise a backstop.",
+            "kind": "political",
+            "markerId": "exchange",
+            "short": "HOLIDAY",
+            "callsign": "BLANKET HOLIDAY",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Queues ease"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Breathing room"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Radical for the era"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-2c",
+            "label": "Let weak banks fail; protect clearing houses only",
+            "detail": "Core payments first.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "CORE",
+            "callsign": "LET WEAK",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Regional pain"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Clearing preserved"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Local ruin"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-3",
+        "title": "Gold and tariffs",
+        "briefing": "Partners flirt with tariffs and gold drains. Orthodoxy says defend parity; industry says abandon it.",
+        "stakes": "The international monetary order is the crisis.",
+        "choices": [
+          {
+            "id": "hist-1929-3a",
+            "label": "Defend gold with rate hikes",
+            "detail": "Attract capital; crush domestic demand.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "GOLD",
+            "callsign": "DEFEND GOLD",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Parity held"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Credit tighter"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Unemployment rises"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-3b",
+            "label": "Coordinate a temporary gold suspension",
+            "detail": "Seek partner mirroring.",
+            "kind": "diplomatic",
+            "markerId": "em",
+            "short": "SUSPEND",
+            "callsign": "COORDINATE A",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Shared float idea"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Policy space"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Orthodoxy broken"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-3c",
+            "label": "Raise tariffs to \u201cprotect employment\u201d",
+            "detail": "Beggar-thy-neighbor politics.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "TARIFF",
+            "callsign": "RAISE TARIFFS",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Industry cheers"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Trade shrinks"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Retaliation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-4",
+        "title": "Relief versus austerity",
+        "briefing": "Mayors report soup lines. Bond markets punish any deficit talk.",
+        "stakes": "Humanitarian relief and creditor confidence point opposite ways.",
+        "choices": [
+          {
+            "id": "hist-1929-4a",
+            "label": "Fund emergency public works",
+            "detail": "Wages for roads and rails.",
+            "kind": "civic",
+            "markerId": "energy",
+            "short": "WORKS",
+            "callsign": "FUND EMERGENCY",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Visible relief"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Government acts"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Deficit fears"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-4b",
+            "label": "Balanced-budget signal with targeted relief only",
+            "detail": "Tiny safety net; loud fiscal virtue.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "BALANCE",
+            "callsign": "BALANCED BUDGET",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 2,
+                "summary": "Bond calm"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 1,
+                "summary": "Thin cushion"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Left outraged"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-4c",
+            "label": "Push private charity coordination",
+            "detail": "State as convener, not payer.",
+            "kind": "civic",
+            "markerId": "desk",
+            "short": "CHARITY",
+            "callsign": "PUSH PRIVATE",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Limited state"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Gaps remain"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -1,
+                "summary": "Uneven coverage"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-5",
+        "title": "Correspondent bank freeze",
+        "briefing": "Interior banks lose New York lines. A regional collapse could cascade into payroll failures by Friday.",
+        "stakes": "Plumbing failure becomes social crisis.",
+        "choices": [
+          {
+            "id": "hist-1929-5a",
+            "label": "Authorize targeted liquidity via clearing houses",
+            "detail": "Backstop the pipes.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "LIQ",
+            "callsign": "AUTHORIZE TARGETED",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 3,
+                "summary": "Pipes reopen"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Adult supervision"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Moral hazard murmur"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-5b",
+            "label": "Force mergers of weak banks overnight",
+            "detail": "Concentrate to survive.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "MERGE",
+            "callsign": "FORCE MERGERS",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Fewer failures"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Anti-trust anger"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Crony optics"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-5c",
+            "label": "Let market discipline cull insolvent names",
+            "detail": "Purge the rot.",
+            "kind": "economic",
+            "markerId": "exchange",
+            "short": "CULL",
+            "callsign": "LET MARKET",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard money orthodoxy"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -3,
+                "summary": "Cascade risk"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Deposit panic"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-6",
+        "title": "Street bread politics",
+        "briefing": "Unemployed marches hit downtown. Governors ask whether relief is federal, local, or \u201cprivate charity.\u201d",
+        "stakes": "Legitimacy follows the soup line.",
+        "choices": [
+          {
+            "id": "hist-1929-6a",
+            "label": "Stand up emergency federal work relief pilots",
+            "detail": "Buy social calm with payrolls.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "WORK",
+            "callsign": "STAND UP",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 2,
+                "summary": "Visible relief"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Demand floor"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Orthodoxy shocked"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-6b",
+            "label": "Push charity coordination and local bonds only",
+            "detail": "Keep federal hands clean.",
+            "kind": "civic",
+            "markerId": "em",
+            "short": "CHARITY",
+            "callsign": "PUSH CHARITY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Orthodox virtue"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Gaps widen"
+              },
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Class anger"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-6c",
+            "label": "Criminalize disruptive assembly near exchanges",
+            "detail": "Order first.",
+            "kind": "legal",
+            "markerId": "exchange",
+            "short": "ORDER",
+            "callsign": "CRIMINALIZE DISRUPTIVE",
+            "effects": [
+              {
+                "tag": "social_calm",
+                "weight": 1,
+                "summary": "Short-term quiet"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 2,
+                "summary": "Protest chill"
+              },
+              {
+                "tag": "polarization",
+                "weight": 2,
+                "summary": "Martyrs made"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-7",
+        "title": "London coordination ask",
+        "briefing": "Sterling desks want a joint rate defense. Going alone may save gold parity\u2014or burn reserves uselessly.",
+        "stakes": "Cross-Atlantic coordination is scarce and precious.",
+        "choices": [
+          {
+            "id": "hist-1929-7a",
+            "label": "Join a coordinated rate-defense pool",
+            "detail": "Share gold and messaging.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "POOL",
+            "callsign": "JOIN A",
+            "effects": [
+              {
+                "tag": "alliance_cohesion",
+                "weight": 2,
+                "summary": "Transatlantic glue"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Parity defense"
+              },
+              {
+                "tag": "time",
+                "weight": 1,
+                "summary": "Buys weeks"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-7b",
+            "label": "Defend your parity alone; refuse gold swaps",
+            "detail": "Sovereignty of the reserve.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "ALONE",
+            "callsign": "DEFEND YOUR",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Independent stance"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Heavier burden"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "London cold"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-7c",
+            "label": "Signal willingness to reconsider gold orthodoxy",
+            "detail": "Prepare mental off-ramp.",
+            "kind": "political",
+            "markerId": "desk",
+            "short": "REGOLD",
+            "callsign": "SIGNAL WILLINGNESS",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "New conversation"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Parity scare"
+              },
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Option opened"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-8",
+        "title": "Rumor of treasury insolvency",
+        "briefing": "A forged memo claims the treasury cannot meet coupon payments. Desks price a sovereign scare in minutes.",
+        "stakes": "False insolvency can become real if unanswered.",
+        "choices": [
+          {
+            "id": "hist-1929-8a",
+            "label": "Publish audited cash and coupon schedules immediately",
+            "detail": "Kill the forge with math.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "AUDIT",
+            "callsign": "PUBLISH AUDITED",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 3,
+                "summary": "Numbers public"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Scare fades"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Ops scramble"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-8b",
+            "label": "Quietly buy the dip via intermediaries",
+            "detail": "Stabilize without admitting fear.",
+            "kind": "economic",
+            "markerId": "desk",
+            "short": "DIP",
+            "callsign": "QUIETLY BUY",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Tape supported"
+              },
+              {
+                "tag": "credibility",
+                "weight": -1,
+                "summary": "Opacity"
+              },
+              {
+                "tag": "norm_erosion",
+                "weight": 1,
+                "summary": "Hidden intervention"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-8c",
+            "label": "Launch a leak investigation and punish desks",
+            "detail": "Politics of blame.",
+            "kind": "legal",
+            "markerId": "exchange",
+            "short": "PROBE",
+            "callsign": "LAUNCH A",
+            "effects": [
+              {
+                "tag": "polarization",
+                "weight": 1,
+                "summary": "Witch-hunt risk"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Accountability show"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Distraction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-9",
+        "title": "Tariff off-ramp debate",
+        "briefing": "A protectionist bill could \u201csave jobs\u201d or strangulate recovery. You have one hearing cycle to shape it.",
+        "stakes": "Trade policy can deepen a financial crisis into a depression.",
+        "choices": [
+          {
+            "id": "hist-1929-9a",
+            "label": "Lobby for narrow, temporary safeguards only",
+            "detail": "Limit the damage.",
+            "kind": "political",
+            "markerId": "treasury",
+            "short": "NARROW",
+            "callsign": "LOBBY FOR",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Less shock"
+              },
+              {
+                "tag": "diplomacy",
+                "weight": 1,
+                "summary": "Partners less angry"
+              },
+              {
+                "tag": "domestic_support",
+                "weight": -1,
+                "summary": "Lobbyists mad"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-9b",
+            "label": "Embrace broad tariffs as demand for home industry",
+            "detail": "Politics over models.",
+            "kind": "political",
+            "markerId": "em",
+            "short": "TARIFF",
+            "callsign": "EMBRACE BROAD",
+            "effects": [
+              {
+                "tag": "domestic_support",
+                "weight": 2,
+                "summary": "Jobs frame"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -2,
+                "summary": "Trade war risk"
+              },
+              {
+                "tag": "alliance_cohesion",
+                "weight": -2,
+                "summary": "Retaliation"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-9c",
+            "label": "Tie tariff restraint to reciprocal purchasing agreements",
+            "detail": "Deals not walls.",
+            "kind": "diplomatic",
+            "markerId": "fed",
+            "short": "RECIP",
+            "callsign": "TIE TARIFF",
+            "effects": [
+              {
+                "tag": "diplomacy",
+                "weight": 2,
+                "summary": "Bargains open"
+              },
+              {
+                "tag": "market_stability",
+                "weight": 1,
+                "summary": "Trade paths"
+              },
+              {
+                "tag": "time",
+                "weight": -1,
+                "summary": "Negotiation lag"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "hist-1929-10",
+        "title": "Doctrine endgame",
+        "briefing": "Cabinet asks whether this was a liquidity spasm or a solvency era requiring a new macro doctrine.",
+        "stakes": "The diagnosis becomes the next decade.",
+        "choices": [
+          {
+            "id": "hist-1929-10a",
+            "label": "Declare a liquidity doctrine with standing facilities",
+            "detail": "Permanent backstops.",
+            "kind": "economic",
+            "markerId": "fed",
+            "short": "DOCTRINE",
+            "callsign": "DECLARE A",
+            "effects": [
+              {
+                "tag": "market_stability",
+                "weight": 2,
+                "summary": "Institutional calm"
+              },
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Learned lesson"
+              },
+              {
+                "tag": "economic_pressure",
+                "weight": -1,
+                "summary": "Moral hazard"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-10b",
+            "label": "Reassert austerity-and-gold as credibility core",
+            "detail": "Orthodoxy restored.",
+            "kind": "economic",
+            "markerId": "treasury",
+            "short": "AUSTER",
+            "callsign": "REASSERT AUSTERITY",
+            "effects": [
+              {
+                "tag": "credibility",
+                "weight": 1,
+                "summary": "Hard line"
+              },
+              {
+                "tag": "civilian_cost",
+                "weight": 2,
+                "summary": "Social pain"
+              },
+              {
+                "tag": "social_calm",
+                "weight": -2,
+                "summary": "Unrest risk"
+              }
+            ]
+          },
+          {
+            "id": "hist-1929-10c",
+            "label": "Launch a bipartisan commission before locking doctrine",
+            "detail": "Study then choose.",
+            "kind": "political",
+            "markerId": "desk",
+            "short": "COMMISH",
+            "callsign": "LAUNCH A",
+            "effects": [
+              {
+                "tag": "time",
+                "weight": 2,
+                "summary": "Deliberation"
+              },
+              {
+                "tag": "governability",
+                "weight": 1,
+                "summary": "Shared ownership"
+              },
+              {
+                "tag": "market_stability",
+                "weight": -1,
+                "summary": "Policy fog"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "board": {
+    "id": "atlantic-finance",
+    "scenarioId": "hist-1929-black-thursday",
+    "title": "MARKET DESK",
+    "subtitle": "Global markets \u00b7 liquidity lane",
+    "water": "#081828",
+    "land": "#1A2830",
+    "accent": "#C4A878",
+    "markers": [
+      {
+        "id": "exchange",
+        "label": "Exchange",
+        "x": 48.0,
+        "y": 48.0,
+        "kind": "capital"
+      },
+      {
+        "id": "fed",
+        "label": "Central bank",
+        "x": 32.0,
+        "y": 40.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "desk",
+        "label": "Trading desk",
+        "x": 58.0,
+        "y": 42.0,
+        "kind": "hotspot"
+      },
+      {
+        "id": "treasury",
+        "label": "Treasury",
+        "x": 40.0,
+        "y": 56.0,
+        "kind": "flashpoint"
+      },
+      {
+        "id": "em",
+        "label": "EM flows",
+        "x": 68.0,
+        "y": 58.0,
+        "kind": "corridor"
+      },
+      {
+        "id": "energy",
+        "label": "Energy",
+        "x": 54.0,
+        "y": 64.0,
+        "kind": "hotspot"
+      }
+    ],
+    "corridors": [
+      {
+        "from": "fed",
+        "to": "exchange"
+      },
+      {
+        "from": "exchange",
+        "to": "em"
+      }
+    ],
+    "zones": [
+      {
+        "id": "core",
+        "label": "LIQUIDITY CORE",
+        "x": 36.0,
+        "y": 38.0,
+        "w": 30.0,
+        "h": 24.0,
+        "tension": 0.7
+      },
+      {
+        "id": "periphery",
+        "label": "EM RING",
+        "x": 56.0,
+        "y": 52.0,
+        "w": 24.0,
+        "h": 18.0,
+        "tension": 0.55
+      }
+    ],
+    "terrainKey": "markets",
+    "geo": {
+      "label": "Atlantic finance desks (Natural Earth)",
+      "water": "#081828",
+      "land": "#1A2830",
+      "landHi": "#2A3840",
+      "accent": "#C4A878",
+      "source": "natural-earth+atlas",
+      "terrainKey": "markets",
+      "reliefKey": "markets",
+      "lands": [
+        [
+          [
+            0.5,
+            9.47
+          ],
+          [
+            0.5,
+            12.64
+          ],
+          [
+            0.95,
+            11.55
+          ],
+          [
+            1.55,
+            8.13
+          ],
+          [
+            0.97,
+            2.86
+          ],
+          [
+            0.5,
+            1.11
+          ],
+          [
+            1.97,
+            0.5
+          ],
+          [
+            3.23,
+            0.5
+          ],
+          [
+            20.22,
+            0.5
+          ],
+          [
+            21.7,
+            0.5
+          ],
+          [
+            22.7,
+            0.5
+          ],
+          [
+            24.47,
+            0.5
+          ],
+          [
+            25.19,
+            1.24
+          ],
+          [
+            25.63,
+            4.07
+          ],
+          [
+            26.49,
+            4.51
+          ],
+          [
+            26.94,
+            5.77
+          ],
+          [
+            27.02,
+            9.51
+          ],
+          [
+            26.21,
+            10.76
+          ],
+          [
+            25.41,
+            11.93
+          ],
+          [
+            23.58,
+            13.12
+          ],
+          [
+            22.19,
+            15.86
+          ],
+          [
+            20.31,
+            16.4
+          ],
+          [
+            17.93,
+            15.7
+          ],
+          [
+            16.26,
+            15.67
+          ],
+          [
+            15.11,
+            15.9
+          ],
+          [
+            14.18,
+            18.29
+          ],
+          [
+            12.77,
+            19.77
+          ],
+          [
+            11.16,
+            24.18
+          ],
+          [
+            9.88,
+            27.26
+          ],
+          [
+            10.83,
+            26.71
+          ],
+          [
+            12.61,
+            22.33
+          ],
+          [
+            14.94,
+            19.56
+          ],
+          [
+            16.6,
+            19.22
+          ],
+          [
+            17.59,
+            20.86
+          ],
+          [
+            16.54,
+            23.1
+          ],
+          [
+            16.89,
+            26.69
+          ],
+          [
+            17.25,
+            29.21
+          ],
+          [
+            18.7,
+            30.87
+          ],
+          [
+            20.53,
+            30.39
+          ],
+          [
+            21.65,
+            26.64
+          ],
+          [
+            21.72,
+            29.06
+          ],
+          [
+            22.44,
+            30.27
+          ],
+          [
+            21.07,
+            32.45
+          ],
+          [
+            18.61,
+            34.43
+          ],
+          [
+            17.5,
+            35.78
+          ],
+          [
+            16.26,
+            38.18
+          ],
+          [
+            15.42,
+            37.94
+          ],
+          [
+            15.38,
+            35.12
+          ],
+          [
+            17.31,
+            32.36
+          ],
+          [
+            15.53,
+            32.47
+          ],
+          [
+            14.29,
+            32.87
+          ],
+          [
+            13.57,
+            30.99
+          ],
+          [
+            13.57,
+            26.45
+          ],
+          [
+            13.07,
+            25.48
+          ],
+          [
+            12.33,
+            26.05
+          ],
+          [
+            11.96,
+            25.17
+          ],
+          [
+            11.11,
+            27.69
+          ],
+          [
+            10.77,
+            30.28
+          ],
+          [
+            10.38,
+            31.8
+          ],
+          [
+            9.91,
+            32.32
+          ],
+          [
+            9.55,
+            32.48
+          ],
+          [
+            9.44,
+            33.31
+          ],
+          [
+            7.39,
+            33.31
+          ],
+          [
+            5.7,
+            33.33
+          ],
+          [
+            5.2,
+            33.95
+          ],
+          [
+            4.03,
+            36.35
+          ],
+          [
+            3.89,
+            36.61
+          ],
+          [
+            3.53,
+            37.9
+          ],
+          [
+            2.51,
+            37.9
+          ],
+          [
+            1.42,
+            37.92
+          ],
+          [
+            0.92,
+            38.45
+          ],
+          [
+            1.1,
+            39.1
+          ],
+          [
+            1.2,
+            40.12
+          ],
+          [
+            1.18,
+            40.45
+          ],
+          [
+            0.5,
+            42.11
+          ],
+          [
+            0.5,
+            42.64
+          ],
+          [
+            0.5,
+            9.47
+          ]
+        ],
+        [
+          [
+            0.5,
+            42.64
+          ],
+          [
+            0.5,
+            42.11
+          ],
+          [
+            1.18,
+            40.45
+          ],
+          [
+            1.2,
+            40.12
+          ],
+          [
+            1.1,
+            39.1
+          ],
+          [
+            0.92,
+            38.45
+          ],
+          [
+            1.42,
+            37.92
+          ],
+          [
+            2.51,
+            37.9
+          ],
+          [
+            3.53,
+            37.9
+          ],
+          [
+            3.89,
+            36.61
+          ],
+          [
+            4.03,
+            36.35
+          ],
+          [
+            5.2,
+            33.95
+          ],
+          [
+            5.7,
+            33.33
+          ],
+          [
+            7.39,
+            33.31
+          ],
+          [
+            9.44,
+            33.31
+          ],
+          [
+            9.55,
+            32.48
+          ],
+          [
+            9.91,
+            32.32
+          ],
+          [
+            10.38,
+            31.8
+          ],
+          [
+            10.77,
+            30.28
+          ],
+          [
+            11.11,
+            27.69
+          ],
+          [
+            11.96,
+            25.17
+          ],
+          [
+            12.33,
+            26.05
+          ],
+          [
+            13.07,
+            25.48
+          ],
+          [
+            13.57,
+            26.45
+          ],
+          [
+            13.57,
+            30.99
+          ],
+          [
+            14.29,
+            32.87
+          ],
+          [
+            14.48,
+            33.97
+          ],
+          [
+            13.3,
+            35.58
+          ],
+          [
+            12.16,
+            36.73
+          ],
+          [
+            10.98,
+            37.72
+          ],
+          [
+            10.39,
+            39.7
+          ],
+          [
+            10.21,
+            40.45
+          ],
+          [
+            10.19,
+            42.22
+          ],
+          [
+            10.56,
+            43.98
+          ],
+          [
+            11.02,
+            44.07
+          ],
+          [
+            10.91,
+            42.85
+          ],
+          [
+            11.24,
+            43.59
+          ],
+          [
+            11.15,
+            44.54
+          ],
+          [
+            10.4,
+            45.08
+          ],
+          [
+            9.87,
+            45.02
+          ],
+          [
+            9.04,
+            45.6
+          ],
+          [
+            8.56,
+            45.77
+          ],
+          [
+            7.92,
+            45.93
+          ],
+          [
+            6.99,
+            46.9
+          ],
+          [
+            8.62,
+            46.27
+          ],
+          [
+            8.95,
+            46.9
+          ],
+          [
+            7.39,
+            47.9
+          ],
+          [
+            6.69,
+            47.91
+          ],
+          [
+            6.72,
+            47.5
+          ],
+          [
+            6.38,
+            48.42
+          ],
+          [
+            6.71,
+            48.57
+          ],
+          [
+            6.47,
+            50.97
+          ],
+          [
+            5.66,
+            53.53
+          ],
+          [
+            5.58,
+            52.68
+          ],
+          [
+            5.33,
+            52.51
+          ],
+          [
+            4.97,
+            51.67
+          ],
+          [
+            5.2,
+            53.47
+          ],
+          [
+            5.48,
+            54.06
+          ],
+          [
+            5.49,
+            55.32
+          ],
+          [
+            5.14,
+            56.61
+          ],
+          [
+            4.51,
+            59.28
+          ],
+          [
+            4.41,
+            59.14
+          ],
+          [
+            4.75,
+            56.88
+          ],
+          [
+            4.19,
+            55.6
+          ],
+          [
+            4.06,
+            52.83
+          ],
+          [
+            3.84,
+            54.27
+          ],
+          [
+            4.08,
+            56.39
+          ],
+          [
+            3.34,
+            55.87
+          ],
+          [
+            4.11,
+            56.94
+          ],
+          [
+            4.16,
+            60.11
+          ],
+          [
+            4.48,
+            60.34
+          ],
+          [
+            4.59,
+            61.5
+          ],
+          [
+            4.75,
+            64.83
+          ],
+          [
+            4.04,
+            67.3
+          ],
+          [
+            2.89,
+            68.29
+          ],
+          [
+            2.16,
+            70.25
+          ],
+          [
+            1.61,
+            70.46
+          ],
+          [
+            1.04,
+            71.69
+          ],
+          [
+            0.88,
+            72.81
+          ],
+          [
+            0.5,
+            74.97
+          ],
+          [
+            0.5,
+            76.56
+          ],
+          [
+            0.5,
+            78.53
+          ],
+          [
+            0.5,
+            80.9
+          ],
+          [
+            0.5,
+            83.21
+          ],
+          [
+            0.5,
+            86.07
+          ],
+          [
+            0.5,
+            88.43
+          ],
+          [
+            0.5,
+            89.87
+          ],
+          [
+            0.5,
+            93.73
+          ],
+          [
+            0.5,
+            95.98
+          ],
+          [
+            0.5,
+            97.28
+          ],
+          [
+            0.5,
+            99.31
+          ],
+          [
+            0.5,
+            99.5
+          ],
+          [
+            0.5,
+            99.33
+          ],
+          [
+            0.5,
+            97.87
+          ],
+          [
+            0.5,
+            97.1
+          ],
+          [
+            0.5,
+            42.64
+          ]
+        ],
+        [
+          [
+            95.76,
+            18.45
+          ],
+          [
+            96.29,
+            19.33
+          ],
+          [
+            97.89,
+            19.94
+          ],
+          [
+            97.33,
+            22.22
+          ],
+          [
+            97.19,
+            24.6
+          ],
+          [
+            96.88,
+            25.17
+          ],
+          [
+            96.37,
+            24.86
+          ],
+          [
+            96.41,
+            25.71
+          ],
+          [
+            95.6,
+            27.58
+          ],
+          [
+            95.58,
+            29.09
+          ],
+          [
+            96.11,
+            28.57
+          ],
+          [
+            96.49,
+            30.03
+          ],
+          [
+            96.45,
+            30.97
+          ],
+          [
+            96.77,
+            32.22
+          ],
+          [
+            96.39,
+            33.24
+          ],
+          [
+            96.68,
+            35.82
+          ],
+          [
+            97.28,
+            36.24
+          ],
+          [
+            97.15,
+            37.69
+          ],
+          [
+            96.14,
+            39.57
+          ],
+          [
+            93.95,
+            38.67
+          ],
+          [
+            92.33,
+            39.75
+          ],
+          [
+            92.21,
+            41.76
+          ],
+          [
+            90.92,
+            42.19
+          ],
+          [
+            89.67,
+            40.68
+          ],
+          [
+            89.26,
+            41.4
+          ],
+          [
+            87.22,
+            39.89
+          ],
+          [
+            86.78,
+            38.59
+          ],
+          [
+            87.35,
+            36.59
+          ],
+          [
+            87.56,
+            29.95
+          ],
+          [
+            86.42,
+            26.45
+          ],
+          [
+            85.6,
+            24.77
+          ],
+          [
+            83.9,
+            23.48
+          ],
+          [
+            83.79,
+            21.05
+          ],
+          [
+            85.23,
+            20.33
+          ],
+          [
+            87.09,
+            21.19
+          ],
+          [
+            86.74,
+            17.41
+          ],
+          [
+            87.79,
+            18.84
+          ],
+          [
+            90.38,
+            16.24
+          ],
+          [
+            90.71,
+            13.51
+          ],
+          [
+            91.68,
+            12.84
+          ],
+          [
+            91.84,
+            14.01
+          ],
+          [
+            92.36,
+            14.07
+          ],
+          [
+            92.88,
+            15.4
+          ],
+          [
+            93.65,
+            16.98
+          ],
+          [
+            94.22,
+            16.72
+          ],
+          [
+            95.19,
+            18.24
+          ],
+          [
+            95.44,
+            18.52
+          ],
+          [
+            95.76,
+            18.45
+          ]
+        ],
+        [
+          [
+            85.45,
+            5.32
+          ],
+          [
+            85.45,
+            5.32
+          ],
+          [
+            85.62,
+            3.38
+          ],
+          [
+            84.87,
+            1.33
+          ],
+          [
+            84.86,
+            1.28
+          ],
+          [
+            83.51,
+            0.7
+          ],
+          [
+            83.24,
+            0.5
+          ],
+          [
+            83.65,
+            0.5
+          ],
+          [
+            83.28,
+            0.5
+          ],
+          [
+            82.68,
+            0.5
+          ],
+          [
+            82.62,
+            0.5
+          ],
+          [
+            85.42,
+            0.5
+          ],
+          [
+            86.57,
+            0.5
+          ],
+          [
+            86.66,
+            0.5
+          ],
+          [
+            87.65,
+            1.25
+          ],
+          [
+            88.41,
+            1.79
+          ],
+          [
+            89.09,
+            5.58
+          ],
+          [
+            89.41,
+            6.9
+          ],
+          [
+            90.76,
+            7.53
+          ],
+          [
+            90.62,
+            9.67
+          ],
+          [
+            90.06,
+            10.64
+          ],
+          [
+            90.5,
+            12.37
+          ],
+          [
+            89.5,
+            14.11
+          ],
+          [
+            88.01,
+            14.08
+          ],
+          [
+            86.12,
+            15.0
+          ],
+          [
+            85.6,
+            14.34
+          ],
+          [
+            84.87,
+            15.91
+          ],
+          [
+            83.84,
+            15.53
+          ],
+          [
+            83.06,
+            16.8
+          ],
+          [
+            82.47,
+            16.13
+          ],
+          [
+            84.1,
+            12.63
+          ],
+          [
+            85.09,
+            11.91
+          ],
+          [
+            85.09,
+            11.91
+          ],
+          [
+            83.35,
+            11.36
+          ],
+          [
+            83.04,
+            10.03
+          ],
+          [
+            84.2,
+            9.0
+          ],
+          [
+            83.59,
+            7.2
+          ],
+          [
+            83.8,
+            5.02
+          ],
+          [
+            85.45,
+            5.32
+          ]
+        ],
+        [
+          [
+            27.11,
+            12.28
+          ],
+          [
+            26.52,
+            14.38
+          ],
+          [
+            25.78,
+            17.29
+          ],
+          [
+            26.51,
+            16.17
+          ],
+          [
+            27.25,
+            16.88
+          ],
+          [
+            26.86,
+            18.04
+          ],
+          [
+            27.85,
+            18.96
+          ],
+          [
+            28.36,
+            18.14
+          ],
+          [
+            29.47,
+            19.17
+          ],
+          [
+            29.13,
+            21.61
+          ],
+          [
+            29.9,
+            21.04
+          ],
+          [
+            30.05,
+            22.81
+          ],
+          [
+            30.39,
+            24.88
+          ],
+          [
+            29.92,
+            27.82
+          ],
+          [
+            29.42,
+            27.94
+          ],
+          [
+            28.69,
+            27.31
+          ],
+          [
+            28.93,
+            24.58
+          ],
+          [
+            28.62,
+            24.16
+          ],
+          [
+            27.33,
+            27.05
+          ],
+          [
+            26.67,
+            26.93
+          ],
+          [
+            27.45,
+            25.37
+          ],
+          [
+            26.39,
+            24.56
+          ],
+          [
+            25.19,
+            24.76
+          ],
+          [
+            23.04,
+            24.66
+          ],
+          [
+            22.87,
+            23.67
+          ],
+          [
+            23.56,
+            22.49
+          ],
+          [
+            23.08,
+            21.59
+          ],
+          [
+            24.01,
+            19.58
+          ],
+          [
+            25.16,
+            14.27
+          ],
+          [
+            25.85,
+            12.38
+          ],
+          [
+            26.81,
+            11.23
+          ],
+          [
+            27.33,
+            11.37
+          ],
+          [
+            27.11,
+            12.28
+          ]
+        ]
+      ],
+      "borders": [],
+      "rivers": [],
+      "cities": [
+        {
+          "name": "New York",
+          "x": 24.0,
+          "y": 36.0
+        },
+        {
+          "name": "London",
+          "x": 66.0,
+          "y": 28.0
+        },
+        {
+          "name": "Paris",
+          "x": 70.0,
+          "y": 48.0
+        },
+        {
+          "name": "Boston",
+          "x": 28.0,
+          "y": 24.0
+        }
+      ]
+    }
+  }
+}

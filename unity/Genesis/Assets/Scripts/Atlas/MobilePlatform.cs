@@ -6,30 +6,48 @@ namespace Genesis.Atlas
 {
     /// <summary>
     /// Shared Android + iOS helpers used by every UI Toolkit screen.
-    ///  - Haptics: light tick / confirm pulse (no-op in Editor and on devices without vibration).
-    ///  - Back routing: screens push a handler when they open (sheet, dialog, overlay) and pop it on close.
-    ///    The Android system Back button (Escape key in Editor) invokes the top-most handler only.
-    ///  - Share: native share sheet on device (via ShareCardRenderer where available), clipboard fallback.
+    ///  - Haptics: short patterned pulses with cooldowns (no continuous buzz).
+    ///  - Back routing: screens push a handler when they open and pop on close.
+    ///  - Share: native share sheet on device, clipboard fallback.
     /// </summary>
     public static class MobilePlatform
     {
         static readonly List<Func<bool>> _backStack = new();
         static MobileBackPump _pump;
 
-        /// <summary>Very light tick (selection / hold progress). Safe to call often.</summary>
+        static float _nextTickAt;
+        static float _nextProgressAt;
+        static float _nextConfirmAt;
+
+        const float TickCooldown = 0.045f;
+        const float ProgressCooldown = 0.09f;
+        const float ConfirmCooldown = 0.28f;
+
+        /// <summary>Very light tick (selection / UI). Safe to call often.</summary>
         public static void HapticTick()
         {
-#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
-            if (GenesisHapticsEnabled) Handheld.Vibrate();
-#endif
+            if (!GenesisHapticsEnabled) return;
+            if (Time.unscaledTime < _nextTickAt) return;
+            _nextTickAt = Time.unscaledTime + TickCooldown;
+            Pulse(HapticKind.Tick);
+        }
+
+        /// <summary>Hold-progress ticks — slightly heavier, throttled.</summary>
+        public static void HapticProgress()
+        {
+            if (!GenesisHapticsEnabled) return;
+            if (Time.unscaledTime < _nextProgressAt) return;
+            _nextProgressAt = Time.unscaledTime + ProgressCooldown;
+            Pulse(HapticKind.Progress);
         }
 
         /// <summary>Confirm pulse (order authorised, rank revealed).</summary>
         public static void HapticConfirm()
         {
-#if (UNITY_ANDROID || UNITY_IOS) && !UNITY_EDITOR
-            if (GenesisHapticsEnabled) Handheld.Vibrate();
-#endif
+            if (!GenesisHapticsEnabled) return;
+            if (Time.unscaledTime < _nextConfirmAt) return;
+            _nextConfirmAt = Time.unscaledTime + ConfirmCooldown;
+            Pulse(HapticKind.Confirm);
         }
 
         public static bool GenesisHapticsEnabled
@@ -92,6 +110,77 @@ namespace Genesis.Atlas
             Debug.Log("[Genesis] Share text copied to clipboard.");
         }
 
+        enum HapticKind { Tick, Progress, Confirm }
+
+        static void Pulse(HapticKind kind)
+        {
+#if UNITY_EDITOR
+            return;
+#elif UNITY_ANDROID
+            if (TryAndroidVibrate(kind)) return;
+            if (kind == HapticKind.Confirm) Handheld.Vibrate();
+#elif UNITY_IOS
+            // No Core Haptics plugin — keep confirms rare; skip micro-ticks to avoid long buzz spam.
+            if (kind == HapticKind.Confirm || kind == HapticKind.Progress)
+                Handheld.Vibrate();
+#endif
+        }
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        static bool TryAndroidVibrate(HapticKind kind)
+        {
+            try
+            {
+                using var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                using var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+                if (activity == null) return false;
+                using var vibrator = activity.Call<AndroidJavaObject>("getSystemService", "vibrator");
+                if (vibrator == null || !vibrator.Call<bool>("hasVibrator")) return false;
+
+                using var version = new AndroidJavaClass("android.os.Build$VERSION");
+                int sdk = version.GetStatic<int>("SDK_INT");
+
+                if (sdk >= 26)
+                {
+                    using var effectClass = new AndroidJavaClass("android.os.VibrationEffect");
+                    if (kind == HapticKind.Confirm)
+                    {
+                        // Double pulse: short-gap-short
+                        long[] timings = { 0L, 18L, 40L, 28L };
+                        int[] amplitudes = { 0, 140, 0, 200 };
+                        using var effect = effectClass.CallStatic<AndroidJavaObject>(
+                            "createWaveform", timings, amplitudes, -1);
+                        vibrator.Call("vibrate", effect);
+                    }
+                    else
+                    {
+                        long ms = kind == HapticKind.Progress ? 14L : 10L;
+                        int amp = kind == HapticKind.Progress ? 90 : 55;
+                        using var effect = effectClass.CallStatic<AndroidJavaObject>(
+                            "createOneShot", ms, amp);
+                        vibrator.Call("vibrate", effect);
+                    }
+                    return true;
+                }
+
+                // Pre-Oreo
+                long duration = kind switch
+                {
+                    HapticKind.Confirm => 40L,
+                    HapticKind.Progress => 20L,
+                    _ => 12L
+                };
+                vibrator.Call("vibrate", duration);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[Genesis] Android haptic failed: " + e.Message);
+                return false;
+            }
+        }
+#endif
+
         static void EnsurePump()
         {
             if (_pump != null) return;
@@ -102,7 +191,14 @@ namespace Genesis.Atlas
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        static void ResetStatics() { _backStack.Clear(); _pump = null; }
+        static void ResetStatics()
+        {
+            _backStack.Clear();
+            _pump = null;
+            _nextTickAt = 0f;
+            _nextProgressAt = 0f;
+            _nextConfirmAt = 0f;
+        }
 
         sealed class MobileBackPump : MonoBehaviour
         {

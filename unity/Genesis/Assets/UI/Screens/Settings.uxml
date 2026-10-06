@@ -41,13 +41,19 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                 </ui:Button>
             </ui:VisualElement>
 
-            <!-- ── HAPTICS ── -->
+            <!-- ── HAPTICS / AUDIO ── -->
             <ui:VisualElement class="settings-section">
-                <ui:Label text="INPUT" class="settings-section__heading" />
+                <ui:Label text="INPUT &amp; AUDIO" class="settings-section__heading" />
                 <ui:VisualElement class="toggle-row">
                     <ui:Label text="Haptic feedback" class="toggle-row__label" />
                     <ui:Button name="hapticsToggle" class="toggle-pill">
                         <ui:Label name="hapticsToggleLabel" text="OFF" />
+                    </ui:Button>
+                </ui:VisualElement>
+                <ui:VisualElement class="toggle-row">
+                    <ui:Label text="Cabinet audio" class="toggle-row__label" />
+                    <ui:Button name="audioToggle" class="toggle-pill">
+                        <ui:Label name="audioToggleLabel" text="OFF" />
                     </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>

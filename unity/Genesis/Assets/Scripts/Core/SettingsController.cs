@@ -18,6 +18,8 @@ namespace Genesis.Core
         Func<bool> _backHandler;
         Button     _hapticsToggle;
         Label      _hapticsLabel;
+        Button     _audioToggle;
+        Label      _audioLabel;
         Button     _highQualBtn;
         Button     _standardQualBtn;
 
@@ -67,6 +69,19 @@ namespace Genesis.Core
                 {
                     MobilePlatform.GenesisHapticsEnabled = !MobilePlatform.GenesisHapticsEnabled;
                     RefreshHapticsToggle();
+                };
+            }
+
+            // ── Audio ──
+            _audioToggle = root.Q<Button>("audioToggle");
+            _audioLabel  = root.Q<Label>("audioToggleLabel");
+            RefreshAudioToggle();
+            if (_audioToggle != null)
+            {
+                _audioToggle.clicked += () =>
+                {
+                    GenesisAudio.GenesisAudioEnabled = !GenesisAudio.GenesisAudioEnabled;
+                    RefreshAudioToggle();
                 };
             }
 
@@ -128,7 +143,7 @@ namespace Genesis.Core
             }
         }
 
-        // ── Haptics toggle ────────────────────────────────────────────────────
+        // ── Haptics / audio toggles ───────────────────────────────────────────
         void RefreshHapticsToggle()
         {
             bool on = MobilePlatform.GenesisHapticsEnabled;
@@ -137,6 +152,17 @@ namespace Genesis.Core
             {
                 if (on) _hapticsToggle.AddToClassList("toggle-pill--on");
                 else    _hapticsToggle.RemoveFromClassList("toggle-pill--on");
+            }
+        }
+
+        void RefreshAudioToggle()
+        {
+            bool on = GenesisAudio.GenesisAudioEnabled;
+            if (_audioLabel  != null) _audioLabel.text = on ? "ON" : "OFF";
+            if (_audioToggle != null)
+            {
+                if (on) _audioToggle.AddToClassList("toggle-pill--on");
+                else    _audioToggle.RemoveFromClassList("toggle-pill--on");
             }
         }
 

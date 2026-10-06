@@ -1,5 +1,6 @@
 using System;
 using Genesis.Atlas;
+using Genesis.Core;
 using Genesis.Data;
 using Genesis.Theater;
 using Genesis.UI.Toolkit;
@@ -48,6 +49,8 @@ namespace Genesis.UI
         bool        _timerRunning;
         string      _theaterId;
         OrderChoice _lastArmedOrder;
+        int         _lastTimerSecond = -1;
+        int         _urgencyLevel; // 0 calm, 1 warn, 2 critical
 
         IVisualElementScheduledItem _briefDismissItem;
         IVisualElementScheduledItem _toastDismissItem;
@@ -145,6 +148,10 @@ namespace Genesis.UI
             _pauseVisible = visible;
             if (_pauseRoot == null) return;
             _pauseRoot.EnableInClassList("hidden", !visible);
+
+            var audio = GenesisAudio.Ensure();
+            if (visible) audio.PauseAmbience();
+            else audio.ResumeAmbience();
         }
 
         // ── Android Back handler ──────────────────────────────────────────────
@@ -187,9 +194,17 @@ namespace Genesis.UI
 
             if (_timerLabel != null) _timerLabel.text = FormatTime(safe);
             if (_timerFill  != null)
-            {
                 _timerFill.style.width = new StyleLength(new Length(pct * 100f, LengthUnit.Percent));
-                _timerFill.EnableInClassList("timer-fill--urgent", pct < 0.25f);
+
+            ApplyTimerUrgency(pct);
+
+            int sec = Mathf.FloorToInt(safe);
+            if (sec != _lastTimerSecond)
+            {
+                _lastTimerSecond = sec;
+                // Soft tick in warn/critical windows only.
+                if (_urgencyLevel >= 1 && sec >= 0)
+                    GenesisAudio.Ensure().PlayTimerTick();
             }
 
             if (_remaining <= 0f)
@@ -197,6 +212,32 @@ namespace Genesis.UI
                 _timerRunning = false;
                 TheaterSession.Instance?.OnTimerExpired();
             }
+        }
+
+        void ApplyTimerUrgency(float pct)
+        {
+            int level = pct < 0.2f ? 2 : pct < 0.4f ? 1 : 0;
+            if (level == _urgencyLevel && _timerFill != null) return;
+            _urgencyLevel = level;
+
+            if (_timerFill != null)
+            {
+                _timerFill.EnableInClassList("timer-fill--warn", level == 1);
+                _timerFill.EnableInClassList("timer-fill--urgent", level >= 2);
+            }
+
+            if (_timerLabel != null)
+            {
+                _timerLabel.EnableInClassList("timer-label--warn", level == 1);
+                _timerLabel.EnableInClassList("timer-label--urgent", level >= 2);
+            }
+        }
+
+        void ResetTimerUrgency()
+        {
+            _urgencyLevel = -1;
+            ApplyTimerUrgency(1f);
+            _urgencyLevel = 0;
         }
 
         // ── Public contract (TheaterSession calls these) ───────────────────────
@@ -214,22 +255,28 @@ namespace Genesis.UI
             if (beat == null) return;
 
             if (_phaseLabel != null)
+            {
                 _phaseLabel.text = $"Phase {index + 1}/{Mathf.Max(1, total)}";
+                PulseEnter(_phaseLabel);
+            }
 
-            _duration       = Mathf.Max(1f, seconds);
-            _remaining      = _duration;
-            _timerRunning   = true;
-            _lastArmedOrder = null;
+            _duration         = Mathf.Max(1f, seconds);
+            _remaining        = _duration;
+            _timerRunning     = true;
+            _lastArmedOrder   = null;
+            _lastTimerSecond  = Mathf.FloorToInt(_duration);
 
             if (_timerFill != null)
                 _timerFill.style.width = new StyleLength(new Length(100f, LengthUnit.Percent));
             if (_timerLabel != null)
                 _timerLabel.text = FormatTime(_duration);
+            ResetTimerUrgency();
 
             ClearIntelChip();
             HideToast(_commitToast);
             HideToast(_missionToast);
 
+            // Brief lands first; order sheet stays at Peek so the map band remains visible.
             ShowFieldBrief(beat);
         }
 
@@ -246,28 +293,42 @@ namespace Genesis.UI
         public void ShowIntelChip(string line)
         {
             bool has = !string.IsNullOrWhiteSpace(line);
-            if (_intelChip != null) _intelChip.EnableInClassList("hidden", !has);
-            if (_intelText  != null) _intelText.text = has ? line.Trim() : "";
+            if (_intelText != null) _intelText.text = has ? line.Trim() : "";
+            if (_intelChip == null) return;
+
+            if (!has)
+            {
+                _intelChip.AddToClassList("hidden");
+                _intelChip.RemoveFromClassList("intel-chip--enter");
+                return;
+            }
+
+            _intelChip.RemoveFromClassList("hidden");
+            PulseEnter(_intelChip, "intel-chip--enter");
         }
 
         public void ClearIntelChip()
         {
-            if (_intelChip != null) _intelChip.AddToClassList("hidden");
-            if (_intelText  != null) _intelText.text = "";
+            if (_intelChip != null)
+            {
+                _intelChip.AddToClassList("hidden");
+                _intelChip.RemoveFromClassList("intel-chip--enter");
+            }
+            if (_intelText != null) _intelText.text = "";
         }
 
         public void ArmExecute(OrderChoice order)
         {
             _lastArmedOrder = order;
-            string callsign = string.IsNullOrEmpty(order?.DisplayCallsign) ? "ORDER" : order.DisplayCallsign;
-            string label    = $"HOLD TO AUTHORISE · {callsign}";
+            // Primary CTA stays fixed; decision summary moves to subtitle (readable, no clip).
+            string subtitle = order?.label?.Trim();
+            if (string.IsNullOrEmpty(subtitle)) subtitle = order?.DisplayCallsign;
 
-            // Arm the hold button in the order sheet (lives in OrderRailController).
             var rail = TheaterSession.Instance?.orderRail;
             if (rail != null)
             {
                 rail.SetHoldButtonLocked(false);
-                rail.SetHoldButtonLabel(label);
+                rail.SetHoldButtonLabels("HOLD TO AUTHORISE", subtitle);
                 rail.SetHoldButtonArmed(true);
             }
         }
@@ -296,10 +357,13 @@ namespace Genesis.UI
                 string safe = string.IsNullOrEmpty(verbLine) ? "ORDER COMMITTED" : verbLine.ToUpperInvariant();
                 _commitToast.text = safe;
                 _commitToast.RemoveFromClassList("hidden");
+                PulseEnter(_commitToast, "commit-toast--enter");
 
                 _toastDismissItem?.Pause();
                 _toastDismissItem = _root.schedule.Execute(() => HideToast(_commitToast)).StartingIn(2500);
             }
+
+            MobilePlatform.HapticConfirm();
         }
 
         public void ShowMissionComplete(string title)
@@ -358,21 +422,36 @@ namespace Genesis.UI
 
             _fieldBrief.RemoveFromClassList("hidden");
             _fieldBrief.pickingMode = PickingMode.Position;
+            _fieldBrief.UnregisterCallback<PointerDownEvent>(OnBriefTap);
             _fieldBrief.RegisterCallback<PointerDownEvent>(OnBriefTap);
+            PulseEnter(_fieldBrief, "field-brief--enter");
 
             _briefDismissItem = _root.schedule.Execute(HideBrief).StartingIn(4000);
         }
 
-        void OnBriefTap(PointerDownEvent evt) { HideBrief(); evt.StopPropagation(); }
+        void OnBriefTap(PointerDownEvent evt)
+        {
+            HideBrief();
+            evt.StopPropagation();
+        }
 
         void HideBrief()
         {
             _briefDismissItem?.Pause();
             _briefDismissItem = null;
             if (_fieldBrief == null) return;
+            _fieldBrief.RemoveFromClassList("field-brief--enter");
             _fieldBrief.AddToClassList("hidden");
             _fieldBrief.pickingMode = PickingMode.Ignore;
             _fieldBrief.UnregisterCallback<PointerDownEvent>(OnBriefTap);
+        }
+
+        void PulseEnter(VisualElement el, string enterClass = "ui-enter")
+        {
+            if (el == null) return;
+            // Start in "from" state, then clear so USS transitions into rest pose.
+            el.AddToClassList(enterClass);
+            el.schedule.Execute(() => el.RemoveFromClassList(enterClass)).StartingIn(32);
         }
 
         // ── Utilities ─────────────────────────────────────────────────────────

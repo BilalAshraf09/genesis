@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "unity-mcp-gateway": {
+      "command": "/Users/bilalashraf/Documents/GitHub/genesis/unity/Genesis/Library/PackageCache/com.unity.ai.assistant@ceb45b7b3ebd/RelayApp~/relay_mac_arm64.app/Contents/MacOS/relay_mac_arm64",
+      "args": [
+        "--mcp",
+        "--log-dir",
+        "/Users/bilalashraf/Documents/GitHub/genesis/unity/Genesis/Logs"
+      ],
+      "env": {
+        "UNITY_ACP_SESSION_TOKEN": "78bbac6830e4bce47eda2d6078c2a6239de22edc6e15d8e392e4dd0c9e67a0ba",
+        "UNITY_INSTANCE_ID": "47467"
+      }
+    }
+  }
+}

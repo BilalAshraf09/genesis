@@ -115,7 +115,7 @@ namespace Genesis.UI
             PopulateUi(payload);
             ShowCard();
 
-            MobilePlatform.HapticTick();
+            MobilePlatform.HapticConfirm();
 
             // Android Back = same as pressing Next
             _backHandler = () => { OnNext(); return true; };

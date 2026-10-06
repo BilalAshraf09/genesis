@@ -63,6 +63,11 @@ namespace Genesis.Theater
             if (pauseStatus)
             {
                 SaveActiveProgress();
+                GenesisAudio.Ensure().PauseAmbience();
+            }
+            else
+            {
+                GenesisAudio.Ensure().ResumeAmbience();
             }
         }
 
@@ -71,12 +76,18 @@ namespace Genesis.Theater
             if (!hasFocus)
             {
                 SaveActiveProgress();
+                GenesisAudio.Ensure().PauseAmbience();
+            }
+            else
+            {
+                GenesisAudio.Ensure().ResumeAmbience();
             }
         }
 
         void OnApplicationQuit()
         {
             SaveActiveProgress();
+            GenesisAudio.Ensure().StopAmbience();
         }
 
         public void SaveActiveProgress()
@@ -93,6 +104,7 @@ namespace Genesis.Theater
         void Start()
         {
             freemium ??= GetComponent<FreemiumStub>() ?? gameObject.AddComponent<FreemiumStub>();
+            GenesisAudio.Ensure().StartAmbience();
             BeginSlice();
         }
 
@@ -162,6 +174,7 @@ namespace Genesis.Theater
             var title = _bundle?.scenario?.title ?? "THEATER";
             var total = _bundle?.scenario?.beats?.Count ?? 0;
             AppFlow.SaveActiveRun(id, title, _beatIndex, total, _executedCallsigns, _executedOrders, _scarLines);
+            GenesisAudio.Ensure().StopAmbience();
             AppFlow.GoTheaterSelect();
         }
 
@@ -206,8 +219,8 @@ namespace Genesis.Theater
             boardBuilder?.SetSelectedMarker(hotspot.Marker.id);
             cameraRig?.FocusWorld(hotspot.transform.position);
             hud?.SetFocusLabel(hotspot.Marker.label ?? "MARKER");
-            var year = _bundle?.scenario?.year ?? 0;
-            var theaterId = _bundle?.scenario?.id ?? "";
+            MobilePlatform.HapticTick();
+            GenesisAudio.Ensure().PlaySelect();
             hud?.ShowIntelChip(hotspot.Marker.label ?? hotspot.Marker.id ?? "");
 
             var match = CurrentBeat.choices?.Find(c => c.markerId == hotspot.Marker.id);
@@ -291,6 +304,7 @@ namespace Genesis.Theater
             var verb = WorldVerbResolver.FromOrder(order);
             var scarLine = ScarLineFor(verb, order);
             if (!string.IsNullOrEmpty(scarLine)) _scarLines.Add(scarLine);
+            GenesisAudio.Ensure().PlayExecuteStinger(verb);
             hud?.ShowCommitBeat(ScarVerbLabel(verb));
 
             if (worldFx != null)
@@ -332,6 +346,8 @@ namespace Genesis.Theater
         {
             AppFlow.ClearActiveRun();
             var title = _bundle?.scenario?.title ?? "THEATER";
+            GenesisAudio.Ensure().StopAmbience();
+            MobilePlatform.HapticConfirm();
             hud?.ShowMissionComplete(title);
             orderRail?.Hide();
 

@@ -93,6 +93,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     font-size: 24px;
     color: var(--color-text-secondary);
     margin-bottom: 6px;
+    transition-property: color;
+    transition-duration: 0.25s;
+}
+
+.timer-label--warn {
+    color: var(--color-accent);
+}
+
+.timer-label--urgent {
+    color: var(--color-cost);
 }
 
 /* ---- Timer bar (amber accent) -------------------------------- */
@@ -111,7 +121,12 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     height: 100%;
     background-color: var(--color-accent);
     border-radius: 3px;
-    transition-duration: 0.5s;
+    transition-property: background-color, width;
+    transition-duration: 0.35s;
+}
+
+.timer-fill--warn {
+    background-color: var(--color-diplomacy);
 }
 
 .timer-fill--urgent {
@@ -181,6 +196,15 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     border-radius: var(--radius-md);
     border-width: 1px;
     border-color: rgba(90, 169, 230, 0.2); /* Info tint border */
+    opacity: 1;
+    translate: 0 0;
+    transition-property: opacity, translate;
+    transition-duration: 0.28s;
+}
+
+.intel-chip--enter {
+    opacity: 0;
+    translate: 0 -12px;
 }
 
 .intel-icon {
@@ -209,6 +233,22 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     border-radius: var(--radius-lg);
     border-width: 1px;
     border-color: rgba(245, 165, 36, 0.25); /* Accent tint border */
+    opacity: 1;
+    translate: 0 0;
+    transition-property: opacity, translate;
+    transition-duration: 0.32s;
+}
+
+.field-brief--enter {
+    opacity: 0;
+    translate: 0 -16px;
+}
+
+.ui-enter {
+    opacity: 0;
+    translate: 0 -8px;
+    transition-property: opacity, translate;
+    transition-duration: 0.28s;
 }
 
 .brief-headline {
@@ -238,6 +278,15 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     border-radius: 40px;
     border-width: 1px;
     border-color: rgba(245,165,36,0.3);
+    opacity: 1;
+    scale: 1 1;
+    transition-property: opacity, scale;
+    transition-duration: 0.22s;
+}
+
+.commit-toast--enter {
+    opacity: 0;
+    scale: 0.94 0.94;
 }
 
 /* ---- Mission toast (absolute, centered) ---------------------- */

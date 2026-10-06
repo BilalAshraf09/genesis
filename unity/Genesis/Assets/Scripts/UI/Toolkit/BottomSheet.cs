@@ -6,9 +6,9 @@ namespace Genesis.UI.Toolkit
 {
     /// <summary>
     /// Controls the bottom sheet element with three snap heights:
-    ///   Peek  = 22 % of panel height  (map ≥ 78 %)
-    ///   Half  = 38 % of panel height  (map ≥ 62 %)
-    ///   Full  = 70 % of panel height  (max order detail)
+    ///   Peek  = OrderSheetLayout.PeekSheetHeight (cards + execute, no gap)
+    ///   Half  ≈ 55 % of panel height
+    ///   Full  ≈ 72 % of panel height (max order detail)
     /// Animates via <c>style.height</c>; the CSS <c>transition-duration: 0.22s</c>
     /// already defined on <c>.order-sheet</c> provides the easing.
     /// Drag on the drag-handle snaps to the nearest height.
@@ -19,10 +19,11 @@ namespace Genesis.UI.Toolkit
         // ── Snap enum ─────────────────────────────────────────────────────────
         public enum SnapState { Hidden, Peek, Half, Full }
 
-        // ── Snap percentages ─────────────────────────────────────────────────
-        const float PeekPct = 0.38f; // Reduced from 0.42 to give more room to map
-        const float HalfPct = 0.55f;
-        const float FullPct = 0.85f;
+        // Peek from OrderSheetLayout; Half/Full remain percentage snaps.
+        const float HalfPct = 0.56f;
+        const float FullPct = 0.72f;
+        const float HalfMinPx = 500f;
+        const float FullMinPx = 580f;
 
         // ── Drag threshold (px) to register a directional swipe ─────────────
         const float DragThreshold = 28f;
@@ -185,9 +186,9 @@ namespace Genesis.UI.Toolkit
         // ── Helpers ───────────────────────────────────────────────────────────
         float StateToHeight(SnapState state) => state switch
         {
-            SnapState.Peek => Mathf.Max(520f, _panelHeight * 0.36f),
-            SnapState.Half => Mathf.Max(660f, _panelHeight * 0.55f),
-            SnapState.Full => Mathf.Max(800f, _panelHeight * 0.88f),
+            SnapState.Peek => OrderSheetLayout.PeekSheetHeight(_panelHeight),
+            SnapState.Half => Mathf.Clamp(_panelHeight * HalfPct, HalfMinPx, _panelHeight * 0.62f),
+            SnapState.Full => Mathf.Clamp(_panelHeight * FullPct, FullMinPx, _panelHeight * 0.82f),
             _              => 0f
         };
     }

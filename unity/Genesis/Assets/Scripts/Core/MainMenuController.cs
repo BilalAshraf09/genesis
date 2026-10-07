@@ -126,11 +126,11 @@ namespace Genesis.Core
         {
             try
             {
-                var relief = MapTextureLibrary.LoadRelief(
-                    MapTextureLibrary.ResolveRegionKey("hist-1947-radcliffe", "southasia"),
-                    "hist-1947-radcliffe");
-                if (relief != null)
-                    mapBg.style.backgroundImage = new StyleBackground(relief);
+                // Featured desk geography, colorized for a readable home hero (not raw relief).
+                string featuredId = ResolveFeaturedTheaterId() ?? "hist-1947-radcliffe";
+                var preview = MapTextureLibrary.LoadUiMapPreview(featuredId, "southasia", size: 768);
+                if (preview != null)
+                    mapBg.style.backgroundImage = new StyleBackground(preview);
             }
             catch (Exception ex)
             {

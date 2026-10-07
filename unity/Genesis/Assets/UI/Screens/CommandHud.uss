@@ -66,11 +66,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .top-title {
     flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
     font-size: 36px;
     color: var(--color-text-primary);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .top-right-group {

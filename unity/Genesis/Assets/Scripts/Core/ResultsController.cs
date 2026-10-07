@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Genesis.Atlas;
 using Genesis.Data;
+using Genesis.Theater;
 using Genesis.UI.Toolkit;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -163,7 +163,7 @@ namespace Genesis.Core
 
             if (run.ordersExecuted == null || run.ordersExecuted.Count == 0)
             {
-                container.Add(MakeDecisionRow("–", "No orders committed", null));
+                container.Add(MakeDecisionRow(0, "No orders committed", null));
                 return;
             }
 
@@ -172,38 +172,56 @@ namespace Genesis.Core
                 string callsign = run.ordersExecuted[i] ?? "Order";
                 string scar = run.scarLines != null && i < run.scarLines.Count
                     ? run.scarLines[i] : null;
-                container.Add(MakeDecisionRow($"Phase {i + 1}", callsign, scar));
+                container.Add(MakeDecisionRow(i + 1, callsign, scar));
             }
         }
 
-        static VisualElement MakeDecisionRow(string phase, string callsign, string desc)
+        /// <summary>
+        /// Stacked decision row (phase kicker → title → caption).
+        /// Avoids side-by-side overflow where "Phase N" painted over the callsign.
+        /// </summary>
+        static VisualElement MakeDecisionRow(int phaseIndex, string callsign, string desc)
         {
             var row = new VisualElement();
             row.AddToClassList("decision-row");
 
-            var phaseLabel = new Label { text = phase };
+            var phaseLabel = new Label
+            {
+                text = phaseIndex <= 0 ? "—" : $"PHASE {phaseIndex:00}"
+            };
             phaseLabel.AddToClassList("decision-phase");
             row.Add(phaseLabel);
 
-            var col = new VisualElement();
-            col.style.flexGrow = 1;
-            col.style.flexDirection = FlexDirection.Column;
-
-            var csLabel = new Label { text = callsign };
+            var title = string.IsNullOrWhiteSpace(callsign) ? "Order" : callsign.Trim();
+            var csLabel = new Label { text = title };
             csLabel.AddToClassList("decision-callsign");
-            col.Add(csLabel);
+            row.Add(csLabel);
 
-            if (!string.IsNullOrEmpty(desc))
+            string caption = CleanDecisionCaption(title, desc);
+            if (!string.IsNullOrEmpty(caption))
             {
-                var descLabel = new Label { text = desc };
-                descLabel.AddToClassList("label-caption");
-                descLabel.style.marginTop = 4;
-                descLabel.style.whiteSpace = WhiteSpace.Normal;
-                col.Add(descLabel);
+                var descLabel = new Label { text = caption };
+                descLabel.AddToClassList("decision-caption");
+                row.Add(descLabel);
             }
 
-            row.Add(col);
             return row;
+        }
+
+        static string CleanDecisionCaption(string title, string desc)
+        {
+            if (string.IsNullOrWhiteSpace(desc)) return null;
+            string d = desc.Trim();
+            // Drop redundant "X · TITLE" when title already shows the callsign.
+            if (string.Equals(d, title, StringComparison.OrdinalIgnoreCase)) return null;
+            if (d.EndsWith(" · " + title, StringComparison.OrdinalIgnoreCase))
+                d = d.Substring(0, d.Length - (" · " + title).Length).Trim();
+            else if (d.EndsWith("· " + title, StringComparison.OrdinalIgnoreCase))
+                d = d.Substring(0, d.Length - ("· " + title).Length).Trim(' ', '·');
+            if (string.IsNullOrWhiteSpace(d) ||
+                string.Equals(d, title, StringComparison.OrdinalIgnoreCase))
+                return null;
+            return d;
         }
 
         // ── Places learned + Atlas Codex discovery ────────────────────────────
@@ -288,18 +306,10 @@ namespace Genesis.Core
             {
                 var catalog = TheaterCatalogLoader.LoadCatalog();
                 var entry   = catalog?.theaters?.Find(t => t != null && t.id == theaterId);
-                string key  = entry?.terrainKey ?? entry?.region ?? theaterId;
-                if (string.IsNullOrEmpty(key)) return;
-
-                var path  = Path.Combine(Application.streamingAssetsPath, "Maps", "relief", key + ".png");
-                var bytes = StreamingAssetsIO.ReadAllBytes(path);
-                if (bytes == null || bytes.Length == 0) return;
-
-                var tex = new Texture2D(2, 2, TextureFormat.RGB24, false);
-                if (!tex.LoadImage(bytes)) return;
-                tex.Apply(false, true);
-
-                thumb.style.backgroundImage = new StyleBackground(tex);
+                var preview = MapTextureLibrary.LoadUiMapPreview(
+                    theaterId, entry?.terrainKey ?? entry?.region, size: 512);
+                if (preview != null)
+                    thumb.style.backgroundImage = new StyleBackground(preview);
 
                 if (entry?.region != null)
                     SetLabel(root, "mapLabel", entry.region);

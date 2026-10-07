@@ -11,7 +11,9 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     <!-- Ocean background root, safe-area applied by SafeAreaRootBehaviour -->
     <ui:VisualElement name="safeRoot" class="after-action">
 
-        <ui:ScrollView name="scrollView" mode="Vertical" class="after-action__scroll">
+        <ui:ScrollView name="scrollView" mode="Vertical" class="after-action__scroll"
+                       vertical-scroller-visibility="Hidden"
+                       horizontal-scroller-visibility="Hidden">
             <ui:VisualElement name="contentStack" class="after-action__stack">
 
                 <!-- ── HEADER ── -->

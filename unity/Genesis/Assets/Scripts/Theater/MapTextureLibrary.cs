@@ -68,6 +68,195 @@ namespace Genesis.Theater
         }
 
         /// <summary>
+        /// Geo-aligned NASA Blue Marble crop for a region (StreamingAssets/Maps/realistic).
+        /// Preferred albedo for theater boards and UI previews.
+        /// </summary>
+        public static Texture2D LoadRealistic(string regionOrTerrainKey, string theaterId = null)
+        {
+            var resolved = ResolveRegionKey(theaterId, regionOrTerrainKey);
+            if (string.IsNullOrEmpty(resolved)) return null;
+            var key = $"realistic:{resolved}";
+            if (Cache.TryGetValue(key, out var cached) && cached != null) return cached;
+
+            var path = Path.Combine(Application.streamingAssetsPath, "Maps", "realistic",
+                $"{resolved}.jpg");
+            var tex = LoadFile(path);
+            if (tex != null) Cache[key] = tex;
+            return tex;
+        }
+
+        /// <summary>
+        /// Cartographic preview for Atlas cards / Main Menu / Results.
+        /// Prefers NASA Blue Marble region crops; falls back to hypsometric bake.
+        /// </summary>
+        public static Texture2D LoadUiMapPreview(string theaterId, string regionOrTerrainKey = null,
+            int size = 512)
+        {
+            var resolved = ResolveRegionKey(theaterId, regionOrTerrainKey);
+            if (string.IsNullOrEmpty(resolved)) return null;
+
+            size = Mathf.Clamp(size, 160, 768);
+            var key = $"uipreview:{resolved}:{size}";
+            if (Cache.TryGetValue(key, out var cached) && cached != null) return cached;
+
+            // Prefer geo-aligned satellite crop — already square and board-UV matched.
+            var realistic = LoadRealistic(resolved, theaterId);
+            if (realistic != null)
+            {
+                Cache[key] = realistic;
+                return realistic;
+            }
+
+            var relief  = LoadRelief(resolved, theaterId);
+            var mask    = LoadMask(resolved, theaterId);
+            var terrain = LoadTerrainAlbedo(RegionToTerrainKey(resolved));
+            var baked   = BakeUiMapPreview(relief, mask, terrain, size, resolved);
+            if (baked != null)
+            {
+                Cache[key] = baked;
+                return baked;
+            }
+
+            return relief ?? terrain;
+        }
+
+        static string RegionToTerrainKey(string region)
+        {
+            return (region ?? "").ToLowerInvariant() switch
+            {
+                "manchuria" or "korea" or "china-east" or "pacific-japan"
+                    or "pacific-hawaii" or "se-asia" => "pacific",
+                "southasia" or "afghanistan" => "southasia",
+                "gulf" or "levant" or "suez" or "anatolia" => "gulf",
+                "maghreb-east" => "redsea",
+                "caribbean" => "americas",
+                "atlantic-finance" or "world-hubs" => "markets",
+                "europe-central" or "europe-east" or "europe-west"
+                    or "berlin" or "poland-corridor" or "russia-west"
+                    or "black-sea" => "europe",
+                _ => "europe"
+            };
+        }
+
+        static Texture2D BakeUiMapPreview(Texture2D relief, Texture2D mask, Texture2D terrain,
+            int size, string nameStem)
+        {
+            if (relief == null && mask == null && terrain == null) return null;
+
+            Color32[] rPix = null, mPix = null, tPix = null;
+            int rw = 1, rh = 1, mw = 1, mh = 1, tw = 1, th = 1;
+            try
+            {
+                if (relief != null)  { rPix = relief.GetPixels32();  rw = relief.width;  rh = relief.height; }
+                if (mask != null)    { mPix = mask.GetPixels32();    mw = mask.width;    mh = mask.height; }
+                if (terrain != null) { tPix = terrain.GetPixels32(); tw = terrain.width; th = terrain.height; }
+            }
+            catch
+            {
+                return null;
+            }
+
+            var dst = new Texture2D(size, size, TextureFormat.RGB24, mipChain: true);
+            var outPix = new Color32[size * size];
+
+            // Cabinet hypsometric tints (land) + deep ink basin (water).
+            var waterDeep = new Color(0.035f, 0.07f, 0.12f);
+            var waterShallow = new Color(0.08f, 0.16f, 0.24f);
+            var landLow = new Color(0.42f, 0.48f, 0.32f);
+            var landMid = new Color(0.62f, 0.55f, 0.36f);
+            var landHigh = new Color(0.82f, 0.76f, 0.58f);
+            var landPeak = new Color(0.92f, 0.90f, 0.84f);
+            var parchment = new Color(0.78f, 0.70f, 0.52f);
+
+            for (int y = 0; y < size; y++)
+            {
+                float v = (y + 0.5f) / size;
+                for (int x = 0; x < size; x++)
+                {
+                    float u = (x + 0.5f) / size;
+
+                    float h = rPix != null ? SampleLuma(rPix, rw, rh, u, v) : 0.45f;
+                    float land = mPix != null
+                        ? SampleLuma(mPix, mw, mh, u, v)
+                        : Mathf.SmoothStep(0.22f, 0.48f, h);
+
+                    // Soft coast falloff — crisp enough to read geography.
+                    land = Mathf.SmoothStep(0.28f, 0.62f, land);
+
+                    Color water = Color.Lerp(waterDeep, waterShallow, Mathf.Clamp01(h * 1.2f));
+                    // Subtle wave grain from terrain tile on water.
+                    if (tPix != null)
+                    {
+                        float g = SampleLuma(tPix, tw, th, u * 2.1f, v * 2.1f);
+                        water = Color.Lerp(water, water * (0.85f + g * 0.3f), 0.35f);
+                    }
+
+                    Color elev = h < 0.35f ? Color.Lerp(landLow, landMid, h / 0.35f)
+                        : h < 0.65f ? Color.Lerp(landMid, landHigh, (h - 0.35f) / 0.3f)
+                        : Color.Lerp(landHigh, landPeak, (h - 0.65f) / 0.35f);
+
+                    // Blend parchment + terrain grain so land feels material, not flat fill.
+                    Color landCol = Color.Lerp(elev, parchment, 0.22f);
+                    if (tPix != null)
+                    {
+                        Color grain = SampleColor(tPix, tw, th, u, v);
+                        landCol = Color.Lerp(landCol, landCol * (0.55f + grain.g * 0.7f), 0.4f);
+                    }
+
+                    // Hillshade from relief neighbors for depth.
+                    float hx = rPix != null
+                        ? SampleLuma(rPix, rw, rh, u + 1.5f / size, v)
+                          - SampleLuma(rPix, rw, rh, u - 1.5f / size, v)
+                        : 0f;
+                    float hy = rPix != null
+                        ? SampleLuma(rPix, rw, rh, u, v + 1.5f / size)
+                          - SampleLuma(rPix, rw, rh, u, v - 1.5f / size)
+                        : 0f;
+                    float shade = Mathf.Clamp01(0.55f + (-hx * 1.8f + hy * 1.1f) * 1.6f);
+                    landCol *= Mathf.Lerp(0.72f, 1.12f, shade);
+
+                    Color c = Color.Lerp(water, landCol, land);
+
+                    // Soft vignette — desk-lamp focus, not a heavy letterbox.
+                    float dx = u - 0.5f, dy = v - 0.5f;
+                    float vig = 1f - Mathf.Clamp01((dx * dx + dy * dy) * 1.55f) * 0.28f;
+                    c *= vig;
+
+                    // Warm cabinet grade.
+                    c.r = Mathf.Clamp01(c.r * 1.04f + 0.01f);
+                    c.b = Mathf.Clamp01(c.b * 0.94f);
+
+                    outPix[y * size + x] = (Color32)c;
+                }
+            }
+
+            dst.SetPixels32(outPix);
+            dst.Apply(true, true);
+            dst.name = (nameStem ?? "map") + "_ui";
+            ApplyMapSampling(dst, linear: false);
+            return dst;
+        }
+
+        static float SampleLuma(Color32[] pix, int w, int h, float u, float v)
+        {
+            u = Mathf.Repeat(u, 1f);
+            v = Mathf.Clamp01(v);
+            int x = Mathf.Clamp(Mathf.FloorToInt(u * (w - 1)), 0, w - 1);
+            int y = Mathf.Clamp(Mathf.FloorToInt(v * (h - 1)), 0, h - 1);
+            var c = pix[y * w + x];
+            return (c.r + c.g + c.b) / (3f * 255f);
+        }
+
+        static Color SampleColor(Color32[] pix, int w, int h, float u, float v)
+        {
+            u = Mathf.Repeat(u, 1f);
+            v = Mathf.Clamp01(v);
+            int x = Mathf.Clamp(Mathf.FloorToInt(u * (w - 1)), 0, w - 1);
+            int y = Mathf.Clamp(Mathf.FloorToInt(v * (h - 1)), 0, h - 1);
+            return pix[y * w + x];
+        }
+
+        /// <summary>
         /// Land silhouette masks (StreamingAssets/Maps/mask) — previously dead inventory.
         /// Used for coast/foam alpha and land silhouette crispness.
         /// </summary>

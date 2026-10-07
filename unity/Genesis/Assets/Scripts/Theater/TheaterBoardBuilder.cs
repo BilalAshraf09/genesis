@@ -87,8 +87,10 @@ namespace Genesis.Theater
                 board.geo?.terrainKey ?? board.terrainKey);
             var relief  = MapTextureLibrary.LoadRelief(regionKey, TheaterId);
             var mask    = MapTextureLibrary.LoadMask(regionKey, TheaterId);
-            var terrain = MapTextureLibrary.LoadTerrainAlbedo(
-                board.geo?.terrainKey ?? board.terrainKey ?? "southasia");
+            // Prefer geo-aligned Blue Marble crop; fall back to tiling terrain grain.
+            var terrain = MapTextureLibrary.LoadRealistic(regionKey, TheaterId)
+                          ?? MapTextureLibrary.LoadTerrainAlbedo(
+                              board.geo?.terrainKey ?? board.terrainKey ?? "southasia");
 
             // Disable fog — clean map read is more important than atmosphere.
             RenderSettings.fog = false;

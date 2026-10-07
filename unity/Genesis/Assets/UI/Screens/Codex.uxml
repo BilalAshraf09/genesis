@@ -34,7 +34,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
             <!-- Theater sections — built dynamically by C# -->
             <ui:ScrollView name="codexScroll" class="codex-scroll"
-                           vertical-scroller-visibility="Auto"
+                           vertical-scroller-visibility="Hidden"
                            horizontal-scroller-visibility="Hidden">
                 <ui:VisualElement name="theaterSections" class="codex-theater-sections" />
             </ui:ScrollView>

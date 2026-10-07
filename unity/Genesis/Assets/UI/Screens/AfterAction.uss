@@ -19,6 +19,14 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     flex-grow: 1;
 }
 
+/* Hide default desktop scrollbar — mobile games use content scroll only. */
+.after-action__scroll > .unity-scroll-view__vertical-scroller {
+    width: 0;
+    min-width: 0;
+    opacity: 0;
+    display: none;
+}
+
 /* Content stack inside the scroll */
 .after-action__stack {
     flex-direction: column;
@@ -122,21 +130,29 @@ ScoreRing {
 }
 
 .pillar-name {
-    width: 192px;
-    font-size: 28px;
+    width: 168px;
+    min-width: 120px;
+    max-width: 40%;
+    font-size: 26px;
     color: #F2EFE6;
     flex-shrink: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .pillar-track {
     flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 80px;
     margin-left: 8px;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 .pillar-pct {
-    width: 64px;
-    font-size: 28px;
+    width: 72px;
+    min-width: 64px;
+    font-size: 26px;
     color: #A9B3C4;
     -unity-text-align: middle-right;
     flex-shrink: 0;
@@ -177,33 +193,48 @@ ScoreRing {
 }
 
 .decision-row {
-    flex-direction: row;
-    align-items: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-left: 14px;
-    padding-right: 14px;
-    margin-bottom: 8px;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 10px;
     background-color: #111A2B;
-    border-radius: 10px;
+    border-radius: 12px;
     border-width: 1px;
     border-color: #FFFFFF14;
     flex-shrink: 0;
+    overflow: hidden;
 }
 
 .decision-phase {
-    width: 56px;
-    font-size: 26px;
+    font-size: 20px;
     color: #6E7A8F;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    margin-bottom: 4px;
     flex-shrink: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .decision-callsign {
-    flex-grow: 1;
     font-size: 28px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: normal;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+
+.decision-caption {
+    font-size: 22px;
+    color: #A9B3C4;
+    white-space: normal;
+    margin-top: 6px;
+    overflow: hidden;
 }
 
 /* ── Places learned card ── */

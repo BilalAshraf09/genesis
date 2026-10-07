@@ -32,7 +32,8 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(11, 18, 32, 0.68);
+    /* Lighter scrim so the Blue Marble hero map reads through. */
+    background-color: rgba(11, 18, 32, 0.32);
 }
 
 /* Extra scrim on the bottom half where buttons live */
@@ -42,7 +43,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     left: 0;
     width: 100%;
     height: 55%;
-    background-color: rgba(11, 18, 32, 0.5);
+    background-color: rgba(11, 18, 32, 0.42);
 }
 
 /* ── Safe-area content root (padding set by C# SafeAreaRoot.Apply) */
@@ -97,6 +98,8 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .main-menu__resume-info {
     flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
     flex-direction: column;
     margin-right: 16px;
 }
@@ -105,7 +108,9 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     font-size: 32px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    white-space: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main-menu__resume-meta {

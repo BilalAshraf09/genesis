@@ -127,10 +127,13 @@ Shader "Genesis/AtlasMap"
                 // Land base: height → colour tint × hillshade
                 float3 landBase = lerp(_LandLow.rgb, _LandHigh.rgb, saturate(height)) * shade;
 
-                // [Sample 6] Terrain albedo — desaturated ~60%, darkened for "premium dark atlas"
+                // [Sample 6] Terrain albedo — keep saturation when blend is high
+                // (Blue Marble crops), mute grain textures when blend is low.
                 float3 terr = SAMPLE_TEXTURE2D(_TerrainTex, sampler_TerrainTex, uv).rgb;
                 float  lum  = dot(terr, float3(0.299, 0.587, 0.114));
-                terr = lerp(float3(lum, lum, lum), terr, 0.4) * 0.65;
+                float  sat  = lerp(0.4, 1.0, saturate(_TerrainBlend));
+                float  gain = lerp(0.65, 0.92, saturate(_TerrainBlend));
+                terr = lerp(float3(lum, lum, lum), terr, sat) * gain;
 
                 // ── Coast anti-aliasing via fwidth ──────────────────────────
                 float mGrad   = max(fwidth(mask), 0.001);
@@ -142,15 +145,18 @@ Shader "Genesis/AtlasMap"
                 float cring   = smoothstep(0.0, mGrad * 3.0, mask)
                               * (1.0 - smoothstep(mGrad * 4.0, mGrad * 22.0, mask));
 
-                // Ocean colour: deep + nearshore shallow tint
+                // Ocean: prefer Blue Marble water when terrain blend is high.
                 float3 oceanCol = lerp(_Ocean.rgb, _ShallowColor.rgb, shallow * 0.75);
+                oceanCol = lerp(oceanCol, terr, saturate(_TerrainBlend) * 0.88);
 
-                // Land colour: base hillshade + subtle terrain overlay
-                float3 landCol  = lerp(landBase, terr * shade, _TerrainBlend * coastal);
+                // Land: hillshade base → realistic albedo
+                float landShade = lerp(shade, lerp(0.88, 1.05, shade), saturate(_TerrainBlend));
+                float3 landCol  = lerp(landBase, terr * landShade, _TerrainBlend * coastal);
 
                 // Composite: ocean ↔ land, then coast ring overlay
                 float3 col = lerp(oceanCol, landCol, coastal);
-                col = lerp(col, _CoastColor.rgb, cring * _CoastColor.a);
+                // Soften coast ring when showing satellite albedo.
+                col = lerp(col, _CoastColor.rgb, cring * _CoastColor.a * (1.0 - saturate(_TerrainBlend) * 0.7));
 
                 // ── Modern Tactical Cartography Overlay (Subtle Lat/Lon Grid) ──
                 // Generates an elegant, fine tactical coordinate grid (12x12 subdivisions)

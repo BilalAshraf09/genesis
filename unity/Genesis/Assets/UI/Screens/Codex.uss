@@ -117,6 +117,13 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     flex-grow: 1;
 }
 
+.codex-scroll > .unity-scroll-view__vertical-scroller {
+    width: 0;
+    min-width: 0;
+    opacity: 0;
+    display: none;
+}
+
 .codex-theater-sections {
     flex-direction: column;
     padding-left: 20px;

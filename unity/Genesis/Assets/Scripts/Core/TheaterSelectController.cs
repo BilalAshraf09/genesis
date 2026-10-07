@@ -255,10 +255,10 @@ namespace Genesis.Core
         {
             try
             {
-                var regionKey = MapTextureLibrary.ResolveRegionKey(entry.id, entry.terrainKey ?? entry.region);
-                var relief    = MapTextureLibrary.LoadRelief(regionKey, entry.id);
-                if (relief != null)
-                    thumb.style.backgroundImage = new StyleBackground(relief);
+                var preview = MapTextureLibrary.LoadUiMapPreview(
+                    entry.id, entry.terrainKey ?? entry.region, size: 384);
+                if (preview != null)
+                    thumb.style.backgroundImage = new StyleBackground(preview);
             }
             catch (Exception ex)
             {

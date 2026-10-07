@@ -115,6 +115,14 @@ namespace Genesis.Atlas
             mat.SetColor("_Ocean",
                 ParseHex(board.water ?? board.geo?.water,   new Color(0.043f, 0.071f, 0.125f)));
 
+            // Blue Marble crops carry their own oceans/land — lean on terrain albedo.
+            bool realisticAlbedo = terrain != null &&
+                terrain.name.IndexOf("terrain_", System.StringComparison.OrdinalIgnoreCase) < 0;
+            if (mat.HasProperty("_TerrainBlend"))
+                mat.SetFloat("_TerrainBlend", realisticAlbedo ? 0.92f : 0.22f);
+            if (mat.HasProperty("_HillshadeStr"))
+                mat.SetFloat("_HillshadeStr", realisticAlbedo ? 0.55f : 1.4f);
+
             mr.sharedMaterial = mat;
             mr.shadowCastingMode = ShadowCastingMode.Off;
             mr.receiveShadows    = false;

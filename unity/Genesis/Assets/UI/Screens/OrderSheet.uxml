@@ -1,7 +1,7 @@
 <!--
-Order sheet — bottom drawer.
-Cards sit in a fixed horizontal rail (no nested scroll) so every order
-is visible at once for fair comparison.
+Order sheet — crisis decision drawer.
+Hierarchy: flashpoint → compare orders → hold to commit.
+Cards share one horizontal rail (no nested scroll) for fair comparison.
 -->
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
@@ -11,18 +11,20 @@ is visible at once for fair comparison.
         <ui:VisualElement name="mapSpacerSheet" class="flex-grow" picking-mode="Ignore" />
 
         <ui:VisualElement name="sheet" class="order-sheet hidden">
+            <ui:VisualElement class="sheet-urgency-line" picking-mode="Ignore" />
+
             <ui:VisualElement name="dragHandle" class="drag-handle">
                 <ui:VisualElement class="drag-pill" picking-mode="Ignore" />
             </ui:VisualElement>
 
             <ui:VisualElement name="sheetHeader" class="sheet-header" picking-mode="Ignore">
+                <ui:Label text="FLASHPOINT" class="sheet-eyebrow" picking-mode="Ignore" />
                 <ui:Label name="placeNameLabel" text="LOCATION" class="place-name-label" picking-mode="Ignore" />
-                <ui:Label name="beatTitleLabel" text="Select an order" class="beat-title-label" picking-mode="Ignore" />
+                <ui:Label name="beatTitleLabel" text="Choose an order — this cannot be undone" class="beat-title-label" picking-mode="Ignore" />
             </ui:VisualElement>
 
             <ui:VisualElement name="cardRail" class="card-rail" />
 
-            <!-- Hold sits in an inset footer; never edge-to-edge of the sheet. -->
             <ui:VisualElement name="holdButtonContainer" class="hold-button-container" />
 
             <ui:VisualElement name="gestureSpacer" class="gesture-spacer" picking-mode="Ignore" />

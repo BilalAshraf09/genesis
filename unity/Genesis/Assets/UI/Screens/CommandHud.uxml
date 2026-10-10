@@ -1,5 +1,5 @@
 <!--
-2026-10-02 AI-Tag
+2026-10-08 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 -->
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
@@ -10,53 +10,78 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     <ui:VisualElement name="safeRoot" picking-mode="Ignore" class="screen-fill">
 
         <!-- TOP CONTAINER: top bar + meter + chips (picking-mode Ignore — only back-btn is interactive) -->
-        <ui:VisualElement name="topContainer" picking-mode="Ignore">
+        <ui:VisualElement name="topContainer" picking-mode="Ignore" class="top-container">
 
             <!-- Glass top bar: ◀ | title | phase+timer -->
             <ui:VisualElement name="topBar" class="glass top-bar">
                 <ui:Button name="backButton" class="back-btn">
                     <ui:Label text="◀" />
                 </ui:Button>
-                <ui:Label name="titleLabel" text="1947 · India Partition" class="top-title" />
+                <ui:VisualElement class="top-title-stack" picking-mode="Ignore">
+                    <ui:Label name="opsTag" text="OPS CHANNEL" class="ops-tag" picking-mode="Ignore" />
+                    <ui:Label name="titleLabel" text="1947 · India Partition" class="top-title" />
+                </ui:VisualElement>
                 <ui:VisualElement name="topRightGroup" class="top-right-group" picking-mode="Ignore">
-                    <ui:Label name="phaseLabel" text="Phase 1/3" class="phase-label" />
-                    <ui:Label name="timerLabel" text="0:45" class="timer-label" />
-                    <ui:VisualElement name="timerBar" class="timer-bar" picking-mode="Ignore">
-                        <ui:VisualElement name="timerFill" class="timer-fill" picking-mode="Ignore" />
+                    <ui:VisualElement class="phase-pill" picking-mode="Ignore">
+                        <ui:Label name="phaseLabel" text="Phase 1/3" class="phase-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="timer-block" picking-mode="Ignore">
+                        <ui:Label name="timerLabel" text="0:45" class="timer-label" />
+                        <ui:VisualElement name="timerBar" class="timer-bar" picking-mode="Ignore">
+                            <ui:VisualElement name="timerFill" class="timer-fill" picking-mode="Ignore" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
 
+            <ui:VisualElement class="top-accent-line" picking-mode="Ignore" />
+
             <!-- Meter strip: Stability · Credibility · Civilian toll · Escalation -->
             <ui:VisualElement name="meterStrip" class="meter-strip" picking-mode="Ignore">
                 <ui:VisualElement name="meterStab" class="meter-col" picking-mode="Ignore">
-                    <ui:Label text="🛡 STAB" class="meter-label" picking-mode="Ignore" />
+                    <ui:VisualElement class="meter-label-row" picking-mode="Ignore">
+                        <ui:VisualElement class="meter-dot meter-dot--stab" picking-mode="Ignore" />
+                        <ui:Label text="STAB" class="meter-label" picking-mode="Ignore" />
+                    </ui:VisualElement>
                     <ui:VisualElement class="meter" picking-mode="Ignore">
                         <ui:VisualElement name="meterStabFill" class="meter__fill meter__fill--stab" picking-mode="Ignore" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="meterCred" class="meter-col" picking-mode="Ignore">
-                    <ui:Label text="🤝 CRED" class="meter-label" picking-mode="Ignore" />
+                    <ui:VisualElement class="meter-label-row" picking-mode="Ignore">
+                        <ui:VisualElement class="meter-dot meter-dot--cred" picking-mode="Ignore" />
+                        <ui:Label text="CRED" class="meter-label" picking-mode="Ignore" />
+                    </ui:VisualElement>
                     <ui:VisualElement class="meter" picking-mode="Ignore">
                         <ui:VisualElement name="meterCredFill" class="meter__fill meter__fill--cred" picking-mode="Ignore" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="meterToll" class="meter-col" picking-mode="Ignore">
-                    <ui:Label text="💀 TOLL" class="meter-label" picking-mode="Ignore" />
+                    <ui:VisualElement class="meter-label-row" picking-mode="Ignore">
+                        <ui:VisualElement class="meter-dot meter-dot--toll" picking-mode="Ignore" />
+                        <ui:Label text="TOLL" class="meter-label" picking-mode="Ignore" />
+                    </ui:VisualElement>
                     <ui:VisualElement class="meter" picking-mode="Ignore">
                         <ui:VisualElement name="meterTollFill" class="meter__fill meter__fill--toll" picking-mode="Ignore" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="meterEsc" class="meter-col" picking-mode="Ignore">
-                    <ui:Label text="📈 ESC" class="meter-label" picking-mode="Ignore" />
+                    <ui:VisualElement class="meter-label-row" picking-mode="Ignore">
+                        <ui:VisualElement class="meter-dot meter-dot--esc" picking-mode="Ignore" />
+                        <ui:Label text="ESC" class="meter-label" picking-mode="Ignore" />
+                    </ui:VisualElement>
                     <ui:VisualElement class="meter" picking-mode="Ignore">
                         <ui:VisualElement name="meterEscFill" class="meter__fill meter__fill--esc" picking-mode="Ignore" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
 
+            <!-- Soft fade so HUD blends into the map -->
+            <ui:VisualElement class="hud-map-fade" picking-mode="Ignore" />
+
             <!-- Intel chip: shown when a pin is selected -->
             <ui:VisualElement name="intelChip" class="glass intel-chip hidden" picking-mode="Ignore">
+                <ui:VisualElement class="intel-accent" picking-mode="Ignore" />
                 <ui:Label text="ℹ" class="intel-icon" picking-mode="Ignore" />
                 <ui:Label name="intelText" text=" " class="intel-body" picking-mode="Ignore" />
             </ui:VisualElement>

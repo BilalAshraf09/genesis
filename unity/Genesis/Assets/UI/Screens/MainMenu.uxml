@@ -1,4 +1,8 @@
 <!--
+2026-10-08 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<!--
 2026-10-02 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 -->
@@ -8,34 +12,67 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     <ui:Style src="project://database/Assets/UI/Screens/MainMenu.uss" />
 
     <!-- Full-screen root, safe-area applied to safeRoot via C# SafeAreaRoot.Apply -->
-    <ui:VisualElement name="mainMenuRoot" class="main-menu">
+    <ui:VisualElement name="mainMenuRoot" class="main-menu" picking-mode="Ignore">
 
-        <!-- Real map relief background — texture set in C#, animated via schedule -->
-        <ui:VisualElement name="mapBg" class="main-menu__map-bg" />
+        <!-- Parallax Real Map Satellite background layers -->
+        <ui:VisualElement name="mapBgDeep" class="main-menu__map-bg main-menu__map-bg--deep" picking-mode="Ignore" />
+        <ui:VisualElement name="mapBg" class="main-menu__map-bg" picking-mode="Ignore" />
 
-        <!-- Dark atmospheric scrims -->
-        <ui:VisualElement class="main-menu__scrim" />
-        <ui:VisualElement class="main-menu__scrim-bottom" />
+        <!-- Atmosphere layers -->
+        <ui:VisualElement name="dawnRim" class="main-menu__dawn-rim" picking-mode="Ignore" />
+        <ui:VisualElement name="hazeA" class="main-menu__haze-a" picking-mode="Ignore" />
+        <ui:VisualElement name="hazeB" class="main-menu__haze-b" picking-mode="Ignore" />
 
-        <!-- Safe-area content root: padding applied by C# SafeAreaRoot.Apply -->
-        <ui:VisualElement name="safeRoot" class="main-menu__safe-root">
+        <!-- Cartographic Meridians & Scan Beam -->
+        <ui:VisualElement name="meridians" class="main-menu__meridians" picking-mode="Ignore">
+            <ui:VisualElement class="graticule-line graticule-line--lat1" picking-mode="Ignore" />
+            <ui:VisualElement class="graticule-line graticule-line--lat2" picking-mode="Ignore" />
+            <ui:VisualElement class="graticule-line graticule-line--lat3" picking-mode="Ignore" />
+            <ui:VisualElement class="graticule-line graticule-line--lon1" picking-mode="Ignore" />
+            <ui:VisualElement class="graticule-line graticule-line--lon2" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="scanBeam" class="main-menu__scan-beam" picking-mode="Ignore" />
 
-            <!-- ── HERO ── -->
-            <ui:VisualElement class="main-menu__hero">
+        <!-- Living Atlas Theater Crisis Pins layer (populated by C# BuildTheaterPins) -->
+        <ui:VisualElement name="hotspotLayer" class="main-menu__hotspot-layer" picking-mode="Position" />
+
+        <!-- Atmospheric Scrims: overall scrim, and smooth dynamic gradient bottom scrim -->
+        <ui:VisualElement class="main-menu__scrim" picking-mode="Ignore" />
+        <ui:VisualElement name="scrimBottom" class="main-menu__scrim-bottom" picking-mode="Ignore" />
+
+        <!-- Safe-area content root -->
+        <ui:VisualElement name="safeRoot" class="main-menu__safe-root" picking-mode="Ignore">
+
+            <!-- ── HERO HEADER ── -->
+            <ui:VisualElement name="hero" class="main-menu__hero" picking-mode="Ignore">
+                <!-- Tactical Clearance Tag -->
+                <ui:VisualElement class="main-menu__clearance-pill" picking-mode="Ignore">
+                    <ui:VisualElement name="liveDot" class="main-menu__live-dot" />
+                    <ui:Label text="STRATEGIC ADVISORY ARCHIVES" class="main-menu__clearance-text" />
+                </ui:VisualElement>
+
+                <!-- Game Title & Subtitle -->
                 <ui:Label text="GENESIS" class="main-menu__title" />
-                <ui:Label text="Living Atlas of Crisis" class="main-menu__subtitle" />
+                <ui:Label text="LIVING ATLAS OF CRISIS" class="main-menu__subtitle" />
+
+                <!-- Telemetry / Dispatch Ticker -->
+                <ui:VisualElement name="intelTicker" class="main-menu__ticker" picking-mode="Ignore">
+                    <ui:Label text="DISPATCH" class="main-menu__ticker-prefix" />
+                    <ui:Label name="tickerText" text="15 AUG 1947 · SUB-CONTINENT SOVEREIGNTY TRANSFERS IN 73 DAYS" class="main-menu__ticker-text" />
+                </ui:VisualElement>
             </ui:VisualElement>
 
-            <!-- Flexible gap -->
-            <ui:VisualElement class="main-menu__spacer" />
+            <!-- Flexible Spacer pushing dock to thumb zone -->
+            <ui:VisualElement class="main-menu__spacer" picking-mode="Ignore" />
 
-            <!-- ── RESUME CARD (shown when active run exists) ── -->
+            <!-- ── RESUME CARD (shown when active save exists) ── -->
             <ui:VisualElement name="resumeCard" class="main-menu__resume-card">
                 <ui:VisualElement class="main-menu__resume-info">
-                    <ui:Label name="resumeTitle" text="Active theater"
-                              class="main-menu__resume-title" />
-                    <ui:Label name="resumeMeta"  text="Phase 1/3"
-                              class="main-menu__resume-meta" />
+                    <ui:VisualElement class="main-menu__resume-badge">
+                        <ui:Label text="IN PROGRESS" class="main-menu__resume-badge-text" />
+                    </ui:VisualElement>
+                    <ui:Label name="resumeTitle" text="Active theater" class="main-menu__resume-title" />
+                    <ui:Label name="resumeMeta" text="Phase 1/3" class="main-menu__resume-meta" />
                 </ui:VisualElement>
                 <ui:VisualElement class="main-menu__resume-actions">
                     <ui:Button name="resumeBtn" class="main-menu__resume-btn">
@@ -47,27 +84,58 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                 </ui:VisualElement>
             </ui:VisualElement>
 
-            <!-- ── MAIN ACTION BUTTONS ── -->
-            <ui:VisualElement class="main-menu__btn-stack">
+            <!-- ── COMMAND DOCK (Featured Theater Dossier + Nav) ── -->
+            <ui:VisualElement name="dock" class="main-menu__dock">
 
-                <!-- Primary: play featured theater (label set in C#) -->
-                <ui:Button name="playBtn" class="main-menu__play-btn">
-                    <ui:Label name="playBtnLabel" text="Play ▶" />
-                </ui:Button>
+                <!-- Featured Theater Dossier Card -->
+                <ui:VisualElement class="main-menu__dossier-card glass">
+                    <ui:VisualElement class="main-menu__dossier-meta">
+                        <ui:VisualElement class="main-menu__theater-tag">
+                            <ui:VisualElement class="main-menu__theater-dot" />
+                            <ui:Label text="FLAGSHIP CRISIS" class="main-menu__theater-tag-text" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="main-menu__dossier-meta-right">
+                            <ui:Label name="featuredYear" text="1947" class="main-menu__year-badge" />
+                            <ui:Label name="featuredRegion" text="South Asia" class="main-menu__region-badge" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
 
-                <!-- Navigation row: Atlas | Codex | Settings
-                     Codex and Settings get the gap class for left margin -->
+                    <!-- Title & Premise -->
+                    <ui:Label name="featuredTitle" text="India Partition" class="main-menu__dossier-title" />
+                    <ui:Label name="featuredPremise" text="A subcontinent dividing in 73 days. Draw the Radcliffe Line, manage 15 million displaced citizens, and prevent continental war." class="main-menu__dossier-premise" />
+
+                    <!-- Tactical Chips -->
+                    <ui:VisualElement class="main-menu__chips-row">
+                        <ui:VisualElement class="chip chip--warn">
+                            <ui:Label text="⚔️ 3 Phases" class="main-menu__chip-label" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="chip">
+                            <ui:Label text="📍 6 Flashpoints" class="main-menu__chip-label" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="chip chip--cost">
+                            <ui:Label text="⚠ High Tension" class="main-menu__chip-label" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+
+                    <!-- Primary Action Button -->
+                    <ui:Button name="playBtn" class="main-menu__play-btn">
+                        <ui:VisualElement class="main-menu__play-btn-stack">
+                            <ui:Label name="playBtnLabel" text="ENTER THEATER ▶" class="main-menu__play-btn-main" />
+                            <ui:Label name="playBtnSub" text="India Partition" class="main-menu__play-btn-sub" />
+                        </ui:VisualElement>
+                    </ui:Button>
+                </ui:VisualElement>
+
+                <!-- Navigation row: Atlas | Codex | Settings -->
                 <ui:VisualElement class="main-menu__nav-row">
                     <ui:Button name="atlasBtn" class="main-menu__nav-btn">
-                        <ui:Label text="Atlas" />
+                        <ui:Label text="🗺 Atlas" />
                     </ui:Button>
-                    <ui:Button name="codexBtn"
-                               class="main-menu__nav-btn main-menu__nav-btn-gap">
-                        <ui:Label text="Codex" />
+                    <ui:Button name="codexBtn" class="main-menu__nav-btn main-menu__nav-btn-gap">
+                        <ui:Label text="📖 Codex" />
                     </ui:Button>
-                    <ui:Button name="settingsBtn"
-                               class="main-menu__nav-btn main-menu__nav-btn-gap">
-                        <ui:Label text="Settings" />
+                    <ui:Button name="settingsBtn" class="main-menu__nav-btn main-menu__nav-btn-gap">
+                        <ui:Label text="⚙ Settings" />
                     </ui:Button>
                 </ui:VisualElement>
 

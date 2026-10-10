@@ -1,9 +1,13 @@
 /*
+2026-10-08 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
 2026-10-02 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
 /* ============================================================
-   Genesis — Main Menu  (Night Atlas)
+   Genesis — Main Menu  (Night Atlas Geopolitical Command)
    ============================================================ */
 
 /* ── Screen root ─────────────────────────────────────────── */
@@ -14,8 +18,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     background-color: #0B1220;
 }
 
-/* ── Map background (animated in C# via transform) ─────────
-   Slightly oversized so the drift stays within screen bounds */
+/* ── Parallax Map backgrounds ────────────────────────────── */
 .main-menu__map-bg {
     position: absolute;
     top: -5%;
@@ -23,30 +26,240 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     width: 110%;
     height: 110%;
     -unity-background-scale-mode: scale-and-crop;
+    opacity: 0;
+    transition-duration: 0.8s;
 }
 
-/* ── Dark scrim layers ───────────────────────────────────── */
+.main-menu__map-bg--ready {
+    opacity: 0.88;
+}
+
+.main-menu__map-bg--deep {
+    opacity: 0.35;
+    scale: 1.05 1.05;
+}
+
+/* ── Atmosphere layers ───────────────────────────────────── */
+.main-menu__dawn-rim {
+    position: absolute;
+    top: -120px;
+    left: 5%;
+    width: 90%;
+    height: 240px;
+    border-radius: 120px;
+    background-color: rgba(245, 165, 36, 0.06);
+}
+
+.main-menu__haze-a {
+    position: absolute;
+    top: 18%;
+    left: 8%;
+    width: 320px;
+    height: 320px;
+    border-radius: 160px;
+    background-color: rgba(90, 169, 230, 0.04);
+}
+
+.main-menu__haze-b {
+    position: absolute;
+    top: 36%;
+    right: 8%;
+    width: 280px;
+    height: 280px;
+    border-radius: 140px;
+    background-color: rgba(245, 165, 36, 0.03);
+}
+
+/* ── Cartographic meridians & scan beam ──────────────────── */
+.main-menu__meridians {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.graticule-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.graticule-line--lat1 {
+    top: 22%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.graticule-line--lat2 {
+    top: 36%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.graticule-line--lat3 {
+    top: 48%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+
+.graticule-line--lon1 {
+    top: 0;
+    left: 33%;
+    width: 1px;
+    height: 100%;
+}
+
+.graticule-line--lon2 {
+    top: 0;
+    left: 67%;
+    width: 1px;
+    height: 100%;
+}
+
+.main-menu__scan-beam {
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    background-color: rgba(245, 165, 36, 0.04);
+}
+
+/* ── Hotspot layer for crisis theater pins ───────────────── */
+.main-menu__hotspot-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Crisis Pin elements (generated in C#) ───────────────── */
+.main-menu__pin {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    opacity: 0;
+    transition-duration: 0.35s;
+}
+
+.main-menu__pin--ready {
+    opacity: 1;
+}
+
+.main-menu__pin-pulse {
+    position: absolute;
+    border-radius: 999px;
+    border-width: 1.5px;
+}
+
+.main-menu__pin-pulse--outer {
+    width: 44px;
+    height: 44px;
+    border-color: rgba(245, 165, 36, 0.4);
+    background-color: rgba(245, 165, 36, 0.08);
+}
+
+.main-menu__pin-pulse--inner {
+    width: 28px;
+    height: 28px;
+    border-color: rgba(245, 165, 36, 0.65);
+    background-color: rgba(245, 165, 36, 0.15);
+}
+
+.main-menu__pin-core {
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background-color: #F5A524;
+    border-width: 2px;
+    border-color: #0B1220;
+    transition-duration: 0.15s;
+}
+
+.main-menu__pin--secondary .main-menu__pin-core {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #A9B3C4;
+}
+
+.main-menu__pin--secondary .main-menu__pin-pulse--outer {
+    width: 32px;
+    height: 32px;
+    border-color: rgba(169, 179, 196, 0.25);
+    background-color: rgba(169, 179, 196, 0.04);
+}
+
+.main-menu__pin--secondary .main-menu__pin-pulse--inner {
+    width: 20px;
+    height: 20px;
+    border-color: rgba(169, 179, 196, 0.4);
+    background-color: rgba(169, 179, 196, 0.08);
+}
+
+.main-menu__pin--selected .main-menu__pin-core {
+    background-color: #F5A524;
+    scale: 1.35 1.35;
+}
+
+.main-menu__pin-chip {
+    position: absolute;
+    top: 30px;
+    align-items: center;
+    background-color: rgba(11, 18, 32, 0.88);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition-duration: 0.15s;
+}
+
+.main-menu__pin--selected .main-menu__pin-chip {
+    background-color: rgba(245, 165, 36, 0.22);
+    border-color: #F5A524;
+}
+
+.main-menu__pin-label {
+    font-size: 14px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.main-menu__pin--selected .main-menu__pin-label {
+    color: #F5A524;
+}
+
+/* ── Atmospheric scrim layers ────────────────────────────── */
 .main-menu__scrim {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Lighter scrim so the Blue Marble hero map reads through. */
-    background-color: rgba(11, 18, 32, 0.32);
+    background-color: rgba(11, 18, 32, 0.18);
 }
 
-/* Extra scrim on the bottom half where buttons live */
 .main-menu__scrim-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 55%;
-    background-color: rgba(11, 18, 32, 0.42);
+    height: 62%;
 }
 
-/* ── Safe-area content root (padding set by C# SafeAreaRoot.Apply) */
+/* ── Safe-area content root ──────────────────────────────── */
 .main-menu__safe-root {
     position: absolute;
     top: 0;
@@ -57,26 +270,94 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     padding: 24px;
 }
 
-/* ── Hero area ─────────────────────────────────────────────  */
+/* ── Header area ─────────────────────────────────────────── */
 .main-menu__hero {
     align-items: center;
-    margin-top: 80px;
+    margin-top: 24px;
+    opacity: 0;
+    transition-duration: 0.35s;
+}
+
+.main-menu__hero--ready {
+    opacity: 1;
+}
+
+.main-menu__clearance-pill {
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(23, 35, 58, 0.75);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding-left: 10px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+}
+
+.main-menu__live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 4px;
+    background-color: #3FB97A;
+    margin-right: 8px;
+}
+
+.main-menu__clearance-text {
+    font-size: 15px;
+    color: #A9B3C4;
+    letter-spacing: 1.5px;
 }
 
 .main-menu__title {
-    font-size: 80px;
+    font-size: 74px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 10px;
+    letter-spacing: 12px;
     -unity-text-align: middle-center;
 }
 
 .main-menu__subtitle {
-    font-size: 28px;
+    font-size: 25px;
     color: #F5A524;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     -unity-text-align: middle-center;
-    margin-top: 8px;
+    margin-top: 4px;
+}
+
+/* ── Telemetry / Dispatch Ticker ─────────────────────────── */
+.main-menu__ticker {
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(11, 18, 32, 0.88);
+    border-width: 1px;
+    border-color: rgba(245, 165, 36, 0.3);
+    border-radius: 12px;
+    padding-left: 12px;
+    padding-right: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 14px;
+    max-width: 96%;
+}
+
+.main-menu__ticker-prefix {
+    font-size: 15px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1.5px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.main-menu__ticker-text {
+    font-size: 17px;
+    color: #F2EFE6;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* ── Flexible spacer ─────────────────────────────────────── */
@@ -90,10 +371,10 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     border-width: 1px;
     border-color: #FFFFFF14;
     border-radius: 20px;
-    padding: 20px;
+    padding: 16px;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .main-menu__resume-info {
@@ -104,8 +385,25 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     margin-right: 16px;
 }
 
+.main-menu__resume-badge {
+    background-color: rgba(245, 165, 36, 0.2);
+    border-radius: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    align-self: flex-start;
+    margin-bottom: 4px;
+}
+
+.main-menu__resume-badge-text {
+    font-size: 15px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
 .main-menu__resume-title {
-    font-size: 32px;
+    font-size: 28px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: nowrap;
@@ -114,7 +412,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .main-menu__resume-meta {
-    font-size: 26px;
+    font-size: 22px;
     color: #A9B3C4;
     margin-top: 4px;
 }
@@ -128,19 +426,19 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 .main-menu__resume-btn {
     background-color: #F5A524;
     border-width: 0;
-    border-radius: 16px;
-    min-width: 156px;
-    height: 76px;
+    border-radius: 14px;
+    min-width: 144px;
+    height: 64px;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 8px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-bottom: 6px;
     transition-duration: 0.12s;
 }
 
 .main-menu__resume-btn > Label {
-    font-size: 28px;
+    font-size: 26px;
     color: #1A1206;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
@@ -153,18 +451,18 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     background-color: #17233A;
     border-width: 1px;
     border-color: #FFFFFF14;
-    border-radius: 16px;
-    min-width: 156px;
-    height: 56px;
+    border-radius: 14px;
+    min-width: 144px;
+    height: 48px;
     align-items: center;
     justify-content: center;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 14px;
+    padding-right: 14px;
     transition-duration: 0.12s;
 }
 
 .main-menu__abandon-btn > Label {
-    font-size: 24px;
+    font-size: 20px;
     color: #E5534B;
 }
 
@@ -172,39 +470,149 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     scale: 0.97 0.97;
 }
 
-/* ── Main button stack ───────────────────────────────────── */
-.main-menu__btn-stack {
+/* ── Command Dock (Featured Dossier + Nav) ───────────────── */
+.main-menu__dock {
     flex-direction: column;
-    margin-bottom: 24px;
+    opacity: 0;
+    transition-duration: 0.45s;
 }
 
+.main-menu__dock--ready {
+    opacity: 1;
+}
+
+/* ── Featured Crisis Dossier Card ────────────────────────── */
+.main-menu__dossier-card {
+    background-color: rgba(17, 26, 43, 0.90);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 14px;
+}
+
+.main-menu__dossier-meta {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.main-menu__theater-tag {
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(245, 165, 36, 0.16);
+    border-width: 1px;
+    border-color: rgba(245, 165, 36, 0.35);
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.main-menu__theater-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 4px;
+    background-color: #F5A524;
+    margin-right: 6px;
+}
+
+.main-menu__theater-tag-text {
+    font-size: 16px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+}
+
+.main-menu__dossier-meta-right {
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-menu__year-badge {
+    font-size: 20px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-right: 8px;
+}
+
+.main-menu__region-badge {
+    font-size: 18px;
+    color: #A9B3C4;
+}
+
+.main-menu__dossier-title {
+    font-size: 36px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.main-menu__dossier-premise {
+    font-size: 21px;
+    color: #A9B3C4;
+    white-space: normal;
+    margin-bottom: 12px;
+}
+
+.main-menu__chips-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.main-menu__chip-label {
+    font-size: 19px;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Primary Action CTA Button ───────────────────────────── */
 .main-menu__play-btn {
     background-color: #F5A524;
     border-width: 0;
     border-radius: 16px;
-    height: 112px;
+    min-height: 92px;
     align-items: center;
     justify-content: center;
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     transition-duration: 0.12s;
 }
 
-.main-menu__play-btn > Label {
-    font-size: 36px;
+.main-menu__play-btn-stack {
+    align-items: center;
+}
+
+.main-menu__play-btn-main {
+    font-size: 30px;
     color: #1A1206;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+}
+
+.main-menu__play-btn-sub {
+    font-size: 18px;
+    color: #5C3E08;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
 }
 
 .main-menu__play-btn:active {
     scale: 0.97 0.97;
+    background-color: #D98C18;
 }
 
-/* Nav row: 3 equal buttons, evenly spaced */
+/* ── Bottom Navigation Row ───────────────────────────────── */
 .main-menu__nav-row {
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 8px;
 }
 
 .main-menu__nav-btn {
@@ -213,7 +621,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     border-width: 1px;
     border-color: #FFFFFF14;
     border-radius: 16px;
-    height: 88px;
+    height: 80px;
     align-items: center;
     justify-content: center;
     padding-left: 8px;
@@ -222,16 +630,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .main-menu__nav-btn > Label {
-    font-size: 28px;
+    font-size: 25px;
     color: #F2EFE6;
     -unity-text-align: middle-center;
 }
 
 .main-menu__nav-btn:active {
     scale: 0.97 0.97;
+    background-color: #213252;
 }
 
-/* Gap between nav buttons applied via left margin on middle and right buttons */
 .main-menu__nav-btn-gap {
     margin-left: 8px;
 }

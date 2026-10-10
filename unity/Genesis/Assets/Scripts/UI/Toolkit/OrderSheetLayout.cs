@@ -12,19 +12,17 @@ namespace Genesis.UI.Toolkit
         public const float RefPanelHeight = 1920f;
         public const float RefPanelWidth  = 1080f;
 
-        public const float SheetPadHRef       = 20f;
-        public const float HandleRef          = 28f;
-        public const float HeaderRef          = 44f;
-        /// <summary>Breathing room between header and card rail.</summary>
-        public const float ScrollGapTopRef    = 20f;
-        /// <summary>Gap between card rail and hold button (matches USS margin-bottom).</summary>
+        public const float SheetPadHRef       = 18f;
+        public const float HandleRef          = 26f;
+        public const float HeaderRef          = 72f;
+        public const float ScrollGapTopRef    = 8f;
         public const float ScrollGapBottomRef = 12f;
-        public const float HoldHeightRef      = 88f;
+        public const float HoldHeightRef      = 84f;
         public const float GestureMinRef      = 12f;
-        public const float CardHeightMinRef   = 240f;
-        public const float CardHeightMaxRef   = 380f;
-        public const float CardGapRef         = 10f;
-        public const float CardWidthFloor     = 96f;
+        public const float CardHeightMinRef   = 220f;
+        public const float CardHeightMaxRef   = 340f;
+        public const float CardGapRef         = 8f;
+        public const float CardWidthFloor     = 100f;
 
         public struct Metrics
         {
@@ -51,7 +49,8 @@ namespace Genesis.UI.Toolkit
             float s = PanelScale(panelHeight);
             float want = (HandleRef + HeaderRef + ScrollGapTopRef + ScrollGapBottomRef
                           + CardHeightMinRef + HoldHeightRef + GestureMinRef + 8f) * s;
-            return Mathf.Clamp(want, panelHeight * 0.46f, panelHeight * 0.58f);
+            // Leave more map visible — sheet is a decision fork, not the stage.
+            return Mathf.Clamp(want, panelHeight * 0.42f, panelHeight * 0.54f);
         }
 
         /// <summary>
@@ -95,7 +94,7 @@ namespace Genesis.UI.Toolkit
                 HoldHeight = holdH,
                 GestureSpacerHeight = gesture,
                 InnerWidth = innerW,
-                CompactCards = cardW < 220f
+                CompactCards = cardW < 200f
             };
         }
     }

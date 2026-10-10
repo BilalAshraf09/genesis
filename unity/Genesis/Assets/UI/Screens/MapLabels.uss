@@ -63,16 +63,19 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     height: 18px;
     border-radius: 9px;
     border-color: #FFFFFF;
+    border-width: 3px;
 }
 
 /* Historical fact bubble — crisp tactical tooltip / dossier */
 .pin-fact-bubble {
     position: absolute;
     background-color: rgba(11, 18, 32, 0.96);
-    border-radius: 14px;
-    border-width: 2px;
-    border-color: #F5A524;
-    padding: 18px 22px;
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: rgba(245, 165, 36, 0.55);
+    border-left-width: 5px;
+    border-left-color: #F5A524;
+    padding: 16px 20px;
     width: 460px;
     flex-direction: column;
     align-items: flex-start;
@@ -83,10 +86,10 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .pin-fact-title {
     color: #F5A524;
-    font-size: 26px;
+    font-size: 24px;
     -unity-text-align: middle-left;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
+    margin-bottom: 6px;
+    letter-spacing: 1.5px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 

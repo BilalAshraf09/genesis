@@ -73,7 +73,7 @@ namespace Genesis.UI
         void BuildHoldButton()
         {
             _holdButton = new HoldToConfirmButton();
-            _holdButton.SetLabels("HOLD TO AUTHORISE", null);
+            _holdButton.SetLabels("HOLD TO COMMIT", null);
             _holdButton.Confirmed += () =>
             {
                 if (string.IsNullOrEmpty(_selectedOrderId) && _cards.Count > 0)
@@ -137,7 +137,7 @@ namespace Genesis.UI
             {
                 SetHoldButtonArmed(false);
                 SetHoldButtonLocked(false);
-                _holdButton?.SetLabels("SELECT AN ORDER", null);
+                _holdButton?.SetLabels("CHOOSE AN ORDER", null);
             }
         }
 
@@ -168,7 +168,7 @@ namespace Genesis.UI
         public void SetHoldButtonLabels(string primary, string subtitle)
         {
             _holdButton?.SetLabels(
-                string.IsNullOrEmpty(primary) ? "HOLD TO AUTHORISE" : primary,
+                string.IsNullOrEmpty(primary) ? "HOLD TO COMMIT" : primary,
                 subtitle);
         }
 

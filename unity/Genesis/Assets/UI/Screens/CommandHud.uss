@@ -1,5 +1,5 @@
 /*
-2026-10-02 AI-Tag
+2026-10-08 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
 /* CommandHud.uss — Top bar + meter strip for the GenesisPlay command screen.
@@ -21,30 +21,34 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     display: none;
 }
 
+.top-container {
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
 /* ---- Top bar ------------------------------------------------- */
 
 .top-bar {
     flex-direction: row;
     align-items: center;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    min-height: 112px;
-    background-color: var(--color-glass);
-    border-bottom-width: 1px;
-    border-bottom-color: var(--color-border);
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 18px;
+    padding-bottom: 14px;
+    min-height: 118px;
+    background-color: rgba(11, 18, 32, 0.92);
+    border-bottom-width: 0;
     border-radius: 0;
 }
 
 .back-btn {
-    width: 64px;
-    height: 64px;
-    border-radius: 32px;
-    background-color: rgba(255,255,255,0.06);
+    width: 68px;
+    height: 68px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.06);
     border-width: 1px;
-    border-color: var(--color-border);
-    margin-right: 24px;
+    border-color: rgba(255, 255, 255, 0.12);
+    margin-right: 20px;
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -54,25 +58,47 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .back-btn > Label {
     color: var(--color-text-primary);
-    font-size: 28px;
+    font-size: 26px;
     -unity-text-align: middle-center;
-    margin-right: 4px; /* optical center for triangle */
+    margin-right: 4px;
+}
+
+.back-btn:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(245, 165, 36, 0.35);
 }
 
 .back-btn:active {
-    background-color: rgba(255,255,255,0.12);
-    scale: 0.95 0.95;
+    background-color: rgba(255, 255, 255, 0.14);
+    scale: 0.94 0.94;
 }
 
-.top-title {
+.top-title-stack {
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0;
-    font-size: 36px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ops-tag {
+    font-size: 18px;
+    color: var(--color-accent);
+    letter-spacing: 2px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 2px;
+    opacity: 0.9;
+}
+
+.top-title {
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-width: 0;
+    font-size: 34px;
     color: var(--color-text-primary);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -83,21 +109,41 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     flex-shrink: 0;
     flex-direction: column;
     justify-content: center;
-    margin-left: 16px;
+    margin-left: 12px;
+}
+
+.phase-pill {
+    background-color: rgba(245, 165, 36, 0.12);
+    border-width: 1px;
+    border-color: rgba(245, 165, 36, 0.35);
+    border-radius: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .phase-label {
-    font-size: 26px;
-    color: var(--color-text-secondary);
+    font-size: 22px;
+    color: var(--color-accent);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    margin-bottom: 4px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+.timer-block {
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 120px;
 }
 
 .timer-label {
-    font-size: 24px;
-    color: var(--color-text-secondary);
+    font-size: 28px;
+    color: var(--color-text-primary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     margin-bottom: 6px;
+    letter-spacing: 1px;
     transition-property: color;
     transition-duration: 0.25s;
 }
@@ -110,16 +156,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     color: var(--color-cost);
 }
 
-/* ---- Timer bar (amber accent) -------------------------------- */
+/* ---- Timer bar ---------------------------------------------- */
 
 .timer-bar {
-    width: 120px;
-    height: 6px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 3px;
+    width: 128px;
+    height: 7px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
     overflow: hidden;
     border-width: 1px;
-    border-color: rgba(255,255,255,0.05);
+    border-color: rgba(255, 255, 255, 0.06);
 }
 
 .timer-fill {
@@ -138,69 +184,103 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     background-color: var(--color-cost);
 }
 
+/* ---- Accent line under top bar ------------------------------ */
+
+.top-accent-line {
+    height: 2px;
+    background-color: rgba(245, 165, 36, 0.55);
+    flex-shrink: 0;
+}
+
 /* ---- Meter strip --------------------------------------------- */
 
 .meter-strip {
     flex-direction: row;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: rgba(11,18,32,0.85);
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: rgba(11, 18, 32, 0.88);
     border-bottom-width: 1px;
-    border-bottom-color: var(--color-border);
-    min-height: 72px;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+    min-height: 76px;
 }
 
 .meter-col {
     flex: 1;
     flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
-.meter-label {
-    font-size: 22px;
-    color: var(--color-text-muted);
+.meter-label-row {
+    flex-direction: row;
+    align-items: center;
     margin-bottom: 8px;
+}
+
+.meter-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.meter-dot--stab { background-color: var(--color-gain); }
+.meter-dot--cred { background-color: var(--color-info); }
+.meter-dot--toll { background-color: var(--color-cost); }
+.meter-dot--esc  { background-color: var(--color-accent); }
+
+.meter-label {
+    font-size: 20px;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
 }
 
 .meter {
-    height: 10px;
-    background-color: rgba(0,0,0,0.25);
+    height: 9px;
+    background-color: rgba(0, 0, 0, 0.35);
     border-radius: 5px;
     overflow: hidden;
     border-width: 1px;
-    border-color: rgba(255,255,255,0.03);
+    border-color: rgba(255, 255, 255, 0.04);
 }
 
 .meter__fill {
     height: 100%;
-    border-radius: 5px;
+    border-radius: 4px;
     transition-duration: 0.8s;
 }
 
-/* Pillar colors */
 .meter__fill--stab { background-color: var(--color-gain); }
 .meter__fill--cred { background-color: var(--color-info); }
 .meter__fill--toll { background-color: var(--color-cost); }
 .meter__fill--esc  { background-color: var(--color-accent); }
 
+/* Soft blend into map */
+.hud-map-fade {
+    height: 28px;
+    background-color: rgba(11, 18, 32, 0.45);
+    flex-shrink: 0;
+}
+
 /* ---- Intel chip ---------------------------------------------- */
 
 .intel-chip {
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 12px;
-    padding: 16px 20px;
+    margin-left: 28px;
+    margin-right: 28px;
+    margin-top: 10px;
+    padding: 0;
     flex-direction: row;
-    align-items: center;
-    background-color: var(--color-glass);
-    border-radius: var(--radius-md);
+    align-items: stretch;
+    background-color: rgba(17, 26, 43, 0.94);
+    border-radius: 16px;
     border-width: 1px;
-    border-color: rgba(90, 169, 230, 0.2); /* Info tint border */
+    border-color: rgba(90, 169, 230, 0.28);
+    overflow: hidden;
     opacity: 1;
     translate: 0 0;
     transition-property: opacity, translate;
@@ -212,32 +292,45 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     translate: 0 -12px;
 }
 
-.intel-icon {
-    font-size: 32px;
-    color: var(--color-info);
-    margin-right: 16px;
+.intel-accent {
+    width: 5px;
+    background-color: var(--color-info);
     flex-shrink: 0;
+}
+
+.intel-icon {
+    font-size: 28px;
+    color: var(--color-info);
+    margin-left: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    -unity-text-align: middle-center;
+    align-self: center;
 }
 
 .intel-body {
     flex-grow: 1;
-    font-size: 30px;
+    font-size: 28px;
     color: var(--color-text-primary);
     white-space: normal;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 18px;
+    -unity-text-align: middle-left;
 }
 
 /* ---- Field brief card ---------------------------------------- */
 
 .field-brief {
-    margin-left: 32px;
-    margin-right: 32px;
-    margin-top: 12px;
-    padding: 24px 28px;
+    margin-left: 28px;
+    margin-right: 28px;
+    margin-top: 10px;
+    padding: 22px 26px;
     flex-direction: column;
-    background-color: rgba(17,26,43,0.92);
-    border-radius: var(--radius-lg);
+    background-color: rgba(17, 26, 43, 0.94);
+    border-radius: 18px;
     border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.25); /* Accent tint border */
+    border-color: rgba(245, 165, 36, 0.32);
     opacity: 1;
     translate: 0 0;
     transition-property: opacity, translate;
@@ -257,14 +350,15 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .brief-headline {
-    font-size: 34px;
+    font-size: 32px;
     color: var(--color-accent);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
 }
 
 .brief-fact {
-    font-size: 30px;
+    font-size: 28px;
     color: var(--color-text-secondary);
     white-space: normal;
 }
@@ -273,16 +367,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .commit-toast {
     align-self: center;
-    margin-top: 16px;
-    font-size: 32px;
+    margin-top: 14px;
+    font-size: 30px;
     color: var(--color-accent);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-center;
-    padding: 12px 32px;
-    background-color: rgba(245,165,36,0.15);
+    padding: 14px 36px;
+    background-color: rgba(245, 165, 36, 0.16);
     border-radius: 40px;
     border-width: 1px;
-    border-color: rgba(245,165,36,0.3);
+    border-color: rgba(245, 165, 36, 0.4);
     opacity: 1;
     scale: 1 1;
     transition-property: opacity, scale;
@@ -301,16 +395,15 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     left: 40px;
     right: 40px;
     top: 38%;
-    font-size: 44px;
+    font-size: 42px;
     color: var(--color-text-primary);
     -unity-text-align: middle-center;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    background-color: rgba(11,18,32,0.95);
+    background-color: rgba(11, 18, 32, 0.96);
     padding: 40px;
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     align-self: center;
     border-width: 2px;
     border-color: var(--color-accent);
-    text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
 }
-

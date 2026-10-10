@@ -44,7 +44,7 @@ namespace Genesis.UI.Toolkit
         public void SetLabels(string primary, string subtitle)
         {
             if (_btnLabel != null)
-                _btnLabel.text = string.IsNullOrWhiteSpace(primary) ? "HOLD TO AUTHORISE" : primary.Trim();
+                _btnLabel.text = string.IsNullOrWhiteSpace(primary) ? "HOLD TO COMMIT" : primary.Trim();
             if (_subLabel != null)
             {
                 bool hasSub = !string.IsNullOrWhiteSpace(subtitle);
@@ -84,7 +84,7 @@ namespace Genesis.UI.Toolkit
             _textCol.AddToClassList("hold-btn__text-col");
             _textCol.pickingMode = PickingMode.Ignore;
 
-            _btnLabel = new Label { text = "HOLD TO AUTHORISE" };
+            _btnLabel = new Label { text = "HOLD TO COMMIT" };
             _btnLabel.AddToClassList("hold-btn__label");
             _btnLabel.pickingMode = PickingMode.Ignore;
             _btnLabel.style.marginRight = 0;
@@ -234,7 +234,13 @@ namespace Genesis.UI.Toolkit
             float cx = w * 0.5f, cy = h * 0.5f, r = Mathf.Min(cx, cy) - 3f;
             if (r < 2f) return;
             var painter = ctx.painter2D;
-            painter.strokeColor = new Color(1f, 1f, 1f, 0.18f);
+            bool solidCta = ClassListContains("hold-btn--armed")
+                         || ClassListContains("hold-btn--holding")
+                         || ClassListContains("hold-btn--success");
+            // Dark track on solid gold/green; light track on idle glass.
+            painter.strokeColor = solidCta
+                ? new Color(0.102f, 0.071f, 0.024f, 0.35f)
+                : new Color(1f, 1f, 1f, 0.18f);
             painter.lineWidth = 2.5f;
             painter.lineCap = LineCap.Round;
             painter.BeginPath();
@@ -244,8 +250,8 @@ namespace Genesis.UI.Toolkit
             {
                 float endDeg = -90f + 360f * _progress;
                 painter.strokeColor = ClassListContains("hold-btn--success")
-                    ? new Color(0.247f, 0.725f, 0.478f, 1f)
-                    : new Color(0.961f, 0.647f, 0.141f, 1f);
+                    ? new Color(0.043f, 0.071f, 0.125f, 1f)
+                    : new Color(0.102f, 0.071f, 0.024f, 1f);
                 painter.BeginPath();
                 painter.Arc(new Vector2(cx, cy), r, Angle.Degrees(-90f), Angle.Degrees(endDeg), ArcDirection.Clockwise);
                 painter.Stroke();

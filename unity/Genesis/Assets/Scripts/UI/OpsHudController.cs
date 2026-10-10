@@ -328,7 +328,7 @@ namespace Genesis.UI
             if (rail != null)
             {
                 rail.SetHoldButtonLocked(false);
-                rail.SetHoldButtonLabels("HOLD TO AUTHORISE", subtitle);
+                rail.SetHoldButtonLabels("HOLD TO COMMIT", subtitle);
                 rail.SetHoldButtonArmed(true);
             }
         }

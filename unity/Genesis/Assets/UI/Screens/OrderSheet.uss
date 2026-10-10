@@ -1,7 +1,7 @@
 /*
-OrderSheet — state-of-art mobile war desk rail.
-Sheet horizontal padding + bottom safe spacer prevent hold-button corner clipping.
-Cards use flex zones; selected state keeps 2px border (color only) to avoid layout jump.
+OrderSheet — crisis war-desk.
+Clear hierarchy, compare-at-a-glance cards, hold-to-commit climax.
+Unity USS: no sibling combinators (+/~).
 */
 
 .screen-fill {
@@ -17,96 +17,137 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
     display: none;
 }
 
+/* ---- Sheet shell ---------------------------------------- */
+
 .order-sheet {
     flex-direction: column;
-    background-color: rgba(11, 18, 32, 0.97);
+    background-color: rgba(8, 13, 24, 0.97);
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
     border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 165, 36, 0.22);
     border-bottom-width: 0;
     transition-duration: 0.22s;
     overflow: hidden;
     max-height: 88%;
     min-height: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+    position: relative;
+}
+
+.sheet-urgency-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background-color: #F5A524;
 }
 
 .drag-handle {
-    height: 28px;
+    height: 22px;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-top: 4px;
 }
 
 .drag-pill {
-    width: 56px;
-    height: 5px;
+    width: 48px;
+    height: 4px;
     background-color: rgba(255, 255, 255, 0.28);
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
+/* ---- Header: flashpoint → place → stakes --------------- */
+
 .sheet-header {
-    flex-direction: row;
-    align-items: center;
-    padding-bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     flex-shrink: 0;
-    height: 44px;
-    min-height: 44px;
-    max-height: 44px;
+    height: 72px;
+    min-height: 72px;
+    max-height: 72px;
+    padding-bottom: 4px;
     overflow: hidden;
+}
+
+.sheet-eyebrow {
+    font-size: 14px;
+    color: rgba(245, 165, 36, 0.85);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 3px;
+    margin-bottom: 2px;
+    flex-shrink: 0;
 }
 
 .place-name-label {
     font-size: 28px;
-    color: #F5A524;
+    color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    flex-grow: 1;
-    flex-shrink: 1;
+    letter-spacing: 1px;
+    flex-shrink: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: 2px;
 }
 
 .beat-title-label {
-    font-size: 22px;
-    color: #A9B3C4;
+    font-size: 15px;
+    color: #6E7A8F;
     flex-shrink: 0;
-    margin-left: 10px;
-    max-width: 200px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    -unity-text-align: middle-right;
+    max-width: 100%;
+    -unity-text-align: middle-left;
 }
 
-/* Fixed horizontal rail — no ScrollView (avoids vertical/horizontal nested pans). */
+/* ---- Card rail ----------------------------------------- */
+
 .card-rail {
     flex-direction: row;
     align-items: stretch;
     justify-content: flex-start;
     flex-grow: 0;
     flex-shrink: 0;
+    margin-top: 8px;
     margin-bottom: 12px;
     overflow: hidden;
     width: 100%;
 }
 
-/* ---- Order card ---- */
+/* ---- Order card ---------------------------------------- */
 
 .order-card {
     flex-shrink: 0;
     align-self: stretch;
     margin-right: 0;
     flex-direction: column;
-    padding: 12px 12px 10px 12px;
-    background-color: rgba(23, 35, 58, 0.96);
+    padding: 0;
+    background-color: rgba(17, 26, 43, 0.98);
     border-radius: 14px;
-    /* Constant 2px border — selected only changes color (no header clip jump). */
+    /* Constant 2px — selected only changes color (no layout jump). */
     border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.10);
     overflow: hidden;
+    transition-duration: 0.14s;
+}
+
+.order-card__rail {
+    display: none;
+}
+
+.order-card__body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    flex-direction: column;
+    padding: 12px 11px 10px 11px;
 }
 
 .order-card--selected {
@@ -114,113 +155,162 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
     border-color: #F5A524;
 }
 
+.order-card--selected .order-card__kind {
+    color: #F5A524;
+    background-color: rgba(245, 165, 36, 0.16);
+    border-color: rgba(245, 165, 36, 0.45);
+}
+
+.order-card--compact .order-card__body {
+    padding: 10px 9px 8px 9px;
+}
+
 .order-card--compact {
-    padding: 10px 8px 8px 8px;
     border-radius: 12px;
 }
 
 .order-card__header {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     flex-shrink: 0;
-    min-height: 24px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     overflow: hidden;
 }
 
 .order-card__kind {
-    font-size: 15px;
-    color: #F5A524;
+    font-size: 12px;
+    color: #A9B3C4;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+    padding: 3px 7px;
     flex-shrink: 1;
-    flex-grow: 1;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-top: 2px;
-    min-width: 0;
+    max-width: 100%;
 }
+
+.order-card--military .order-card__kind { color: #E5534B; border-color: rgba(229, 83, 75, 0.35); }
+.order-card--diplomatic .order-card__kind { color: #5AA9E6; border-color: rgba(90, 169, 230, 0.35); }
+.order-card--covert .order-card__kind { color: #F5A524; border-color: rgba(245, 165, 36, 0.35); }
+.order-card--economic .order-card__kind { color: #3FB97A; border-color: rgba(63, 185, 122, 0.35); }
+.order-card--political .order-card__kind { color: #D9B45A; border-color: rgba(217, 180, 90, 0.35); }
 
 .order-card--compact .order-card__kind {
-    font-size: 13px;
+    font-size: 11px;
+    padding: 2px 6px;
 }
 
+/* Place tags unused — location lives in sheet header. */
 .order-card__place {
-    font-size: 13px;
-    color: #A9B3C4;
-    background-color: rgba(0, 0, 0, 0.28);
-    padding: 2px 6px;
-    border-radius: 6px;
-    max-width: 42%;
-    margin-left: 4px;
-    flex-shrink: 1;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    display: none;
 }
 
 .order-card__title {
-    font-size: 22px;
+    font-size: 18px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: normal;
     flex-shrink: 0;
     min-height: 0;
-    max-height: 120px;
+    max-height: 84px;
     overflow: hidden;
     margin-bottom: 6px;
     -unity-text-align: upper-left;
 }
 
 .order-card--compact .order-card__title {
-    font-size: 18px;
-    max-height: 110px;
+    font-size: 16px;
+    max-height: 78px;
+    margin-bottom: 4px;
 }
 
 .order-card__desc {
-    font-size: 16px;
-    color: #A9B3C4;
+    font-size: 13px;
+    color: #6E7A8F;
     white-space: normal;
     flex-grow: 1;
     flex-shrink: 1;
     min-height: 0;
-    max-height: 72px;
+    max-height: 48px;
     overflow: hidden;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     -unity-text-align: upper-left;
 }
 
 .order-card--compact .order-card__desc {
-    font-size: 14px;
-    max-height: 64px;
-}
-
-.order-card__chips {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-shrink: 0;
-    min-height: 28px;
-    max-height: 56px;
-    overflow: hidden;
-    margin-top: auto;
-}
-
-.order-card__chips > .chip {
     font-size: 12px;
-    padding: 3px 6px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    border-radius: 6px;
-    flex-shrink: 1;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    max-height: 40px;
+    margin-bottom: 6px;
 }
 
-/* ---- Hold footer ---- */
+/* Consequence strip — the glanceable compare row */
+.order-card__deltas {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    margin-top: auto;
+    min-height: 28px;
+    max-height: 28px;
+    overflow: hidden;
+}
+
+.order-card__deltas.hidden {
+    display: none;
+    min-height: 0;
+    max-height: 0;
+}
+
+.delta {
+    font-size: 12px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.5px;
+    padding: 4px 6px;
+    margin-right: 4px;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.10);
+    background-color: rgba(0, 0, 0, 0.35);
+    color: #A9B3C4;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.delta--gain {
+    background-color: rgba(63, 185, 122, 0.14);
+    color: #3FB97A;
+    border-color: rgba(63, 185, 122, 0.40);
+}
+
+.delta--cost {
+    background-color: rgba(229, 83, 75, 0.14);
+    color: #E5534B;
+    border-color: rgba(229, 83, 75, 0.40);
+}
+
+.delta--warn {
+    background-color: rgba(245, 165, 36, 0.14);
+    color: #F5A524;
+    border-color: rgba(245, 165, 36, 0.45);
+}
+
+.order-card--compact .delta {
+    font-size: 11px;
+    padding: 3px 5px;
+}
+
+/* Effect chips hidden — deltas carry the compare signal. */
+.order-card__chips {
+    display: none;
+}
+
+/* ---- Hold / commit climax ------------------------------ */
 
 .hold-button-container {
     flex-grow: 0;
@@ -250,13 +340,14 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    min-height: 88px;
-    border-radius: 18px;
+    min-height: 84px;
+    border-radius: 16px;
     border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.14);
-    background-color: rgba(245, 165, 36, 0.12);
+    border-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(245, 165, 36, 0.10);
     overflow: hidden;
     position: relative;
+    transition-duration: 0.14s;
 }
 
 .hold-btn__fill {
@@ -265,32 +356,52 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
     top: 0;
     bottom: 0;
     width: 0%;
-    background-color: rgba(245, 165, 36, 0.28);
-    border-radius: 16px;
+    background-color: rgba(26, 18, 6, 0.20);
+    border-radius: 14px;
 }
 
 .hold-btn--armed {
-    background-color: rgba(245, 165, 36, 0.20);
-    border-color: #F5A524;
+    background-color: #F5A524;
+    border-color: #FFC857;
+}
+
+.hold-btn--armed .hold-btn__label {
+    color: #0B1220;
+}
+
+.hold-btn--armed .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.70);
 }
 
 .hold-btn--holding {
-    background-color: rgba(245, 165, 36, 0.28);
-    border-color: #F5A524;
+    background-color: #E89612;
+    border-color: #FFC857;
+}
+
+.hold-btn--holding .hold-btn__label {
+    color: #0B1220;
+}
+
+.hold-btn--holding .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.70);
 }
 
 .hold-btn--success {
-    background-color: rgba(63, 185, 122, 0.28);
-    border-color: #3FB97A;
+    background-color: #3FB97A;
+    border-color: #5FD498;
 }
 
 .hold-btn--success .hold-btn__fill {
     width: 100%;
-    background-color: rgba(63, 185, 122, 0.4);
+    background-color: rgba(11, 18, 32, 0.12);
 }
 
 .hold-btn--success .hold-btn__label {
-    color: #3FB97A;
+    color: #0B1220;
+}
+
+.hold-btn--success .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.70);
 }
 
 .hold-btn--idle {
@@ -299,7 +410,7 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
 }
 
 .hold-btn--locked {
-    opacity: 0.55;
+    opacity: 0.5;
 }
 
 .hold-btn__ring-canvas {
@@ -314,29 +425,35 @@ Cards use flex zones; selected state keeps 2px border (color only) to avoid layo
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0;
-    font-size: 28px;
+    font-size: 24px;
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 16px;
+    margin-right: 14px;
+    letter-spacing: 1px;
 }
 
 .hold-btn__sublabel {
-    font-size: 20px;
+    font-size: 14px;
     color: #A9B3C4;
     -unity-text-align: middle-left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 16px;
+    margin-right: 14px;
     margin-top: 2px;
 }
 
 .hold-btn--idle .hold-btn__label,
 .hold-btn--locked .hold-btn__label {
+    color: #6E7A8F;
+}
+
+.hold-btn--idle .hold-btn__sublabel,
+.hold-btn--locked .hold-btn__sublabel {
     color: #6E7A8F;
 }
 

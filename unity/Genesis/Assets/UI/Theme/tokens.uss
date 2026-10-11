@@ -1,4 +1,8 @@
 /*
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
 2026-10-01 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
@@ -31,7 +35,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     /* ---- Radii -------------------------------------------- */
     --radius-sm: 10px;
     --radius-md: 16px;
-    --radius-lg: 20px;
+    --radius-lg: 24px;
 
     /* ---- Spacing scale (4-base) --------------------------- */
     --space-1: 4px;
@@ -41,12 +45,29 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     --space-6: 24px;
     --space-8: 32px;
 
-    /* ---- Type scale (reference px at 1080 ref res) -------- */
-    --font-caption: 26px;
-    --font-body:    30px;
-    --font-title:   36px;
-    --font-h2:      44px;
-    --font-h1:      64px;
+    /* ---- Type scale (legacy menus / dense screens) ------- */
+    --font-caption: 20px;
+    --font-body:    24px;
+    --font-title:   30px;
+    --font-h2:      38px;
+    --font-h1:      52px;
+
+    /* ---- Theater UI type scale @ 882×1784 panel units ------ */
+    --type-screen-title: 18px;
+    --type-panel-title:  23px;
+    --type-card-title:   13px;
+    --type-body:         12px;
+    --type-category:     9px;
+    --type-effect:       9px;
+    --type-hold:         16px;
+    --type-hold-sub:     12px;
+
+    /* ---- Content constraints ------------------------------ */
+    /* Panel-unit reading width (≈ large-phone width @ ref 882).
+       Do NOT use device logical points (390/430) here — ScaleWithScreenSize
+       panel units are ~2× larger; 430px was the narrow centered-column bug. */
+    --content-max-width: 860px;
+    --gutter: 16px;
 
     /* ---- Default font ------------------------------------- */
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");

@@ -19,11 +19,11 @@ namespace Genesis.UI.Toolkit
         // ── Snap enum ─────────────────────────────────────────────────────────
         public enum SnapState { Hidden, Peek, Half, Full }
 
-        // Peek from OrderSheetLayout; Half/Full remain percentage snaps.
-        const float HalfPct = 0.56f;
-        const float FullPct = 0.72f;
-        const float HalfMinPx = 500f;
-        const float FullMinPx = 580f;
+        // Peek from OrderSheetLayout (map-first ~32–36%); Half/Full for more detail.
+        const float HalfPct = 0.50f;
+        const float FullPct = 0.70f;
+        const float HalfMinPx = 420f;
+        const float FullMinPx = 520f;
 
         // ── Drag threshold (px) to register a directional swipe ─────────────
         const float DragThreshold = 28f;
@@ -187,8 +187,8 @@ namespace Genesis.UI.Toolkit
         float StateToHeight(SnapState state) => state switch
         {
             SnapState.Peek => OrderSheetLayout.PeekSheetHeight(_panelHeight),
-            SnapState.Half => Mathf.Clamp(_panelHeight * HalfPct, HalfMinPx, _panelHeight * 0.62f),
-            SnapState.Full => Mathf.Clamp(_panelHeight * FullPct, FullMinPx, _panelHeight * 0.82f),
+            SnapState.Half => Mathf.Clamp(_panelHeight * HalfPct, HalfMinPx, _panelHeight * 0.55f),
+            SnapState.Full => Mathf.Clamp(_panelHeight * FullPct, FullMinPx, _panelHeight * 0.75f),
             _              => 0f
         };
     }

@@ -1,0 +1,21 @@
+=== ROOT CAUSE REGRESSION PROOF ===
+OLD bug: ShouldConstrain used raw Screen.width >= 600
+  devicePixels=750 oldConstrain=True → would set maxWidth=430 + align=Center
+  devicePixels=1080 oldConstrain=True → would set maxWidth=430 + align=Center
+  devicePixels=1125 oldConstrain=True → would set maxWidth=430 + align=Center
+  devicePixels=1170 oldConstrain=True → would set maxWidth=430 + align=Center
+  devicePixels=1284 oldConstrain=True → would set maxWidth=430 + align=Center
+  devicePixels=1290 oldConstrain=True → would set maxWidth=430 + align=Center
+
+NEW: runtime never applies centered max-width; LogicalScreenWidth for diagnostics only
+  LogicalScreenWidth=1965 (editor=GameView Screen.width)
+  MaxContentWidth token/panel units=860 (was wrongly 430)
+
+callouts visible=1/6
+SHEET=984.9 align=Stretch maxW=None
+  rail=948.8 hold=948.8 cards=3
+  sheet/root=1.000 (must be ~1.0)
+  card0=310.2 titleSize=13
+  card1=311.9 titleSize=13
+  card2=310.2 titleSize=13
+HUD header=984.9 root=984.9 padT=0.0 padB=0.0

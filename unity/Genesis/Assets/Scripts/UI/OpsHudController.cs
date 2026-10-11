@@ -107,12 +107,16 @@ namespace Genesis.UI
             var backBtn = _root.Q<Button>("backButton");
             if (backBtn != null) backBtn.clicked += OnBackButtonPressed;
 
-            // Meter strip
+            // Meter strip (fills + percentage labels)
             _meterStrip = new MeterStrip(
                 _root.Q("meterStabFill"),
                 _root.Q("meterCredFill"),
                 _root.Q("meterTollFill"),
-                _root.Q("meterEscFill"));
+                _root.Q("meterEscFill"),
+                _root.Q<Label>("meterStabValue"),
+                _root.Q<Label>("meterCredValue"),
+                _root.Q<Label>("meterTollValue"),
+                _root.Q<Label>("meterEscValue"));
         }
 
         // ── Pause dialog ──────────────────────────────────────────────────────
@@ -231,6 +235,12 @@ namespace Genesis.UI
                 _timerLabel.EnableInClassList("timer-label--warn", level == 1);
                 _timerLabel.EnableInClassList("timer-label--urgent", level >= 2);
             }
+
+            var rail = TheaterSession.Instance?.orderRail;
+            if (rail != null)
+            {
+                rail.SetUrgency(level);
+            }
         }
 
         void ResetTimerUrgency()
@@ -246,8 +256,10 @@ namespace Genesis.UI
         {
             if (bundle?.scenario == null || bundle.board == null) return;
             _theaterId = bundle.scenario.id ?? "";
-            string title = $"{bundle.scenario.year}  ·  {bundle.board.title}";
+            string title = $"{bundle.scenario.year} · {bundle.board.title}".ToUpperInvariant();
             if (_titleLabel != null) _titleLabel.text = title;
+            var opsTag = _root?.Q<Label>("opsTag");
+            if (opsTag != null) opsTag.text = "CRISIS LINE";
         }
 
         public void ShowBeat(BeatData beat, int index, int total, float seconds)
@@ -256,7 +268,7 @@ namespace Genesis.UI
 
             if (_phaseLabel != null)
             {
-                _phaseLabel.text = $"Phase {index + 1}/{Mathf.Max(1, total)}";
+                _phaseLabel.text = $"PHASE {index + 1}/{Mathf.Max(1, total)}";
                 PulseEnter(_phaseLabel);
             }
 
@@ -276,8 +288,9 @@ namespace Genesis.UI
             HideToast(_commitToast);
             HideToast(_missionToast);
 
-            // Brief lands first; order sheet stays at Peek so the map band remains visible.
-            ShowFieldBrief(beat);
+            // Order sheet carries the decision fork — skip field brief so the map
+            // band matches the Europe Desk composition (tooltip + sheet only).
+            HideBrief();
         }
 
         /// <summary>
@@ -292,6 +305,14 @@ namespace Genesis.UI
 
         public void ShowIntelChip(string line)
         {
+            // Sheet already carries place + decision — avoid triple-echo of the same line.
+            var rail = TheaterSession.Instance?.orderRail;
+            if (rail != null && rail.IsSheetVisible)
+            {
+                ClearIntelChip();
+                return;
+            }
+
             bool has = !string.IsNullOrWhiteSpace(line);
             if (_intelText != null) _intelText.text = has ? line.Trim() : "";
             if (_intelChip == null) return;
@@ -435,7 +456,7 @@ namespace Genesis.UI
             evt.StopPropagation();
         }
 
-        void HideBrief()
+        public void HideBrief()
         {
             _briefDismissItem?.Pause();
             _briefDismissItem = null;

@@ -1,11 +1,10 @@
 /*
-2026-10-02 AI-Tag
+2026-10-10 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
-/* MapLabels.uss — Night Atlas map label overlay
- * Sorting order 0 (behind HUD at 10).
- * All label elements use picking-mode: ignore so taps pass through to the 3D map.
- */
+/*
+MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
+*/
 
 .map-label-root {
     position: absolute;
@@ -14,11 +13,10 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     overflow: hidden;
 }
 
-/* Country name labels — large, letter-spaced, muted slate */
 .country-label {
     position: absolute;
-    font-size: 30px;
-    color: rgba(169, 179, 196, 0.70);
+    font-size: 22px;
+    color: rgba(169, 179, 196, 0.55);
     letter-spacing: 3px;
     -unity-font-style: bold;
     -unity-text-align: middle-center;
@@ -27,76 +25,126 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     overflow: visible;
 }
 
-/* City / hotspot pin labels — paper-white with dark text-shadow */
 .pin-label {
     position: absolute;
-    font-size: 30px;
+    font-size: 22px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-left;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
     white-space: nowrap;
     overflow: visible;
 }
 
-/* Selected pin label — amber accent */
 .pin-label--selected {
-    font-size: 34px;
+    font-size: 24px;
     color: #F5A524;
-    text-shadow: 0 0 10px rgba(245, 165, 36, 0.6);
+    text-shadow: 0 0 12px rgba(245, 165, 36, 0.6);
 }
 
-/* Small dot glyph before pin label */
 .pin-dot {
     position: absolute;
-    width: 14px;
-    height: 14px;
-    border-radius: 7px;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
     background-color: #F2EFE6;
     border-width: 2px;
     border-color: #0B1220;
 }
 
-.pin-dot--selected {
-    background-color: #F5A524;
-    width: 18px;
-    height: 18px;
-    border-radius: 9px;
-    border-color: #FFFFFF;
-    border-width: 3px;
+.pin-halo {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: rgba(245, 165, 36, 0.28);
+    border-width: 0;
 }
 
-/* Historical fact bubble — crisp tactical tooltip / dossier */
+.pin-dot--selected {
+    background-color: #FFFFFF;
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    border-color: #F5A524;
+    border-width: 4px;
+}
+
+/* Selected pin tooltip — width set from C# to the map viewport */
 .pin-fact-bubble {
     position: absolute;
-    background-color: rgba(11, 18, 32, 0.96);
-    border-radius: 16px;
-    border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.55);
-    border-left-width: 5px;
-    border-left-color: #F5A524;
-    padding: 16px 20px;
-    width: 460px;
+    background-color: rgba(11, 18, 32, 0.97);
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #F5A524;
+    padding: 10px 14px 10px 14px;
+    min-width: 180px;
+    max-width: 92%;
+    min-height: 58px;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     transition-duration: 0.15s;
-    text-shadow: 0 0 0 transparent;
 }
 
 .pin-fact-title {
     color: #F5A524;
-    font-size: 24px;
+    font-size: 13px;
     -unity-text-align: middle-left;
-    margin-bottom: 6px;
-    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+    letter-spacing: 1.1px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.pin-fact-body-row {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.pin-fact-pin {
+    font-size: 12px;
+    color: #F2EFE6;
+    margin-right: 6px;
+    flex-shrink: 0;
+    margin-top: 0;
 }
 
 .pin-fact-body {
     color: #F2EFE6;
-    font-size: 24px;
+    font-size: 12px;
     -unity-text-align: middle-left;
     white-space: normal;
+    flex-grow: 1;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+}
+
+@media (max-width: 360px) {
+    .pin-fact-bubble {
+        width: 220px;
+        min-height: 52px;
+        padding: 8px 12px;
+    }
+
+    .pin-fact-title {
+        font-size: 12px;
+    }
+
+    .pin-fact-body {
+        font-size: 11px;
+    }
+}
+
+.pin-fact-caret {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(11, 18, 32, 0.97);
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-color: #F5A524;
+    rotate: 45deg;
+    translate: -6px 0;
 }

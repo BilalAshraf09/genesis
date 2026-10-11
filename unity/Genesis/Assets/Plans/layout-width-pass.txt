@@ -1,0 +1,16 @@
+=== WIDTH PASS (resolved styles @ 390 logical / ScaleWithScreenSize) ===
+screen reported=1965x1624 (Game View window; framebuffer sized for 390x844)
+requested=390x844
+sheetRoot=852.2 sheetAlign=Stretch sheetMaxW=None
+hudHeader=852.2 hudRoot=852.2
+sheet=852.2
+rail=817.2
+hold=817.2
+card0=264.4 card1=266.6 card2=264.4
+fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS
+delta(header-sheet)=0.0
+PASS=True
+
+Note: ScreenCapture PNGs may show letterboxing around the Game View
+framebuffer. Within the UI Toolkit panel, sheet width == HUD width == root.

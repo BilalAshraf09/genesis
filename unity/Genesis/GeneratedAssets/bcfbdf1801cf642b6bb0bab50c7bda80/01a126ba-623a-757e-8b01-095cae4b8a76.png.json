@@ -1,0 +1,31 @@
+{
+    "asset": "bcfbdf1801cf642b6bb0bab50c7bda80",
+    "fileName": "01a126ba-623a-757e-8b01-095cae4b8a76.png",
+    "prompt": "Subtle technical grid pattern for high-tech game UI, thin dark lines on a deep navy background, minimalist, sci-fi aesthetic, seamless, tileable.",
+    "negativePrompt": "",
+    "model": "scenario-texture",
+    "modelName": "Scenario Texture",
+    "customSeed": -1,
+    "w3CTraceId": "",
+    "feedback": 0,
+    "refinementMode": "Generation",
+    "pixelateTargetSize": 0,
+    "pixelateKeepImageSize": false,
+    "pixelatePixelBlockSize": 0,
+    "pixelatePixelGridSize": 0,
+    "pixelateMode": 0,
+    "pixelateOutlineThickness": 0,
+    "doodles": {
+        "m_Items": []
+    },
+    "upscaleFactor": 0,
+    "dimensions": {
+        "width": 512,
+        "height": 512
+    },
+    "spriteSheet": false,
+    "duration": 0.0,
+    "dynamicParams": {
+        "serializedData": []
+    }
+}

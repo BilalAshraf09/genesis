@@ -44,7 +44,29 @@ namespace Genesis.Theater
         RealMapBoard _realMap;
 
         // ── Public contract (same names / signatures as before) ─────────────────
-        public IReadOnlyDictionary<string, HotspotMarker> Hotspots => _hotspots;
+        public IReadOnlyDictionary<string, HotspotMarker> Hotspots
+        {
+            get
+            {
+                // Soft domain reload can wipe the runtime dictionary while child
+                // HotspotMarker objects survive in the hierarchy.
+                if (_hotspots.Count == 0)
+                    RecoverHotspotsFromHierarchy();
+                return _hotspots;
+            }
+        }
+
+        void RecoverHotspotsFromHierarchy()
+        {
+            var markers = _hotspotRoot != null
+                ? _hotspotRoot.GetComponentsInChildren<HotspotMarker>(true)
+                : GetComponentsInChildren<HotspotMarker>(true);
+            foreach (var hs in markers)
+            {
+                if (hs?.Marker == null || string.IsNullOrEmpty(hs.Marker.id)) continue;
+                _hotspots[hs.Marker.id] = hs;
+            }
+        }
         public BoardData Board    => _board;
 
         /// <summary>lon/lat ↔ world projection for the current board.</summary>
@@ -182,6 +204,13 @@ namespace Genesis.Theater
                 if (kv.Value == null) continue;
                 kv.Value.SetSelected(kv.Key == markerId);
             }
+
+            // Keep the UI Toolkit callout in sync even if it initialized before pins existed
+            // or soft-reload emptied the MapLabels document.
+            var overlay = _boardRoot != null
+                ? _boardRoot.GetComponentInChildren<MapLabelOverlay>(true)
+                : GetComponentInChildren<MapLabelOverlay>(true);
+            overlay?.EnsurePinsBuilt();
         }
 
         // ── Animate* — lightweight no-ops / thin implementations ─────────────────

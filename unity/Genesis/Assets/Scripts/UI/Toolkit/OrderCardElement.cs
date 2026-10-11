@@ -7,7 +7,8 @@ using UnityEngine.UIElements;
 namespace Genesis.UI.Toolkit
 {
     /// <summary>
-    /// Crisis order card — kind, decision, stakes. Built for glanceable comparison.
+    /// Crisis order card — matches Europe Desk reference:
+    /// icon + kind badge on one row, title, effect chips.
     /// </summary>
     public sealed class OrderCardElement : VisualElement
     {
@@ -25,33 +26,42 @@ namespace Genesis.UI.Toolkit
             AddToClassList(KindClass(order.kind));
             pickingMode = PickingMode.Position;
 
-            // Accent rail kept for USS kind hooks; hidden by default stylesheet.
-            var accentRail = new VisualElement();
-            accentRail.AddToClassList("order-card__rail");
-            accentRail.pickingMode = PickingMode.Ignore;
-            Add(accentRail);
+            var selectionGlow = new VisualElement();
+            selectionGlow.AddToClassList("order-card__glow");
+            selectionGlow.pickingMode = PickingMode.Ignore;
+            Add(selectionGlow);
 
             var body = new VisualElement();
             body.AddToClassList("order-card__body");
             body.pickingMode = PickingMode.Ignore;
 
+            // Header row: icon (left) + kind pill (right) — reference layout
             var header = new VisualElement();
             header.AddToClassList("order-card__header");
             header.pickingMode = PickingMode.Ignore;
+
+            var icon = new VisualElement();
+            icon.AddToClassList("order-card__icon");
+            icon.AddToClassList(KindIconClass(order.kind));
+            icon.pickingMode = PickingMode.Ignore;
+            header.Add(icon);
 
             var kindBadge = new Label { text = KindTitle(order.kind) };
             kindBadge.AddToClassList("order-card__kind");
             kindBadge.pickingMode = PickingMode.Ignore;
             header.Add(kindBadge);
+
             body.Add(header);
 
             _titleLabel = new Label { text = PreferredTitle(order) };
             _titleLabel.AddToClassList("order-card__title");
+            _titleLabel.AddToClassList("card-title");
             _titleLabel.pickingMode = PickingMode.Ignore;
             body.Add(_titleLabel);
 
             _descLabel = new Label { text = PreferredDetail(order) };
             _descLabel.AddToClassList("order-card__desc");
+            _descLabel.AddToClassList("body-copy");
             _descLabel.pickingMode = PickingMode.Ignore;
             body.Add(_descLabel);
 
@@ -73,9 +83,12 @@ namespace Genesis.UI.Toolkit
         public void SetSelected(bool selected) =>
             EnableInClassList("order-card--selected", selected);
 
+        /// <summary>
+        /// Fixed-width band (scroll row). Cards keep a readable constant width.
+        /// </summary>
         public void ApplyBandLayout(float cardHeightPx, float cardWidthPx, float gapRightPx = 0f, bool compact = false)
         {
-            float h = Mathf.Max(160f, cardHeightPx);
+            float h = Mathf.Max(140f, cardHeightPx);
             float w = Mathf.Max(OrderSheetLayout.CardWidthFloor, cardWidthPx);
             style.height = h;
             style.width = w;
@@ -83,8 +96,36 @@ namespace Genesis.UI.Toolkit
             style.maxHeight = h;
             style.minWidth = w;
             style.maxWidth = w;
+            style.flexBasis = w;
             style.marginRight = gapRightPx;
+            style.marginBottom = 0f;
+            style.flexGrow = 0;
+            style.flexShrink = 0;
             EnableInClassList("order-card--compact", compact);
+            if (_descLabel != null)
+                _descLabel.EnableInClassList("hidden", compact);
+        }
+
+        /// <summary>
+        /// Equal flex columns that fill the card rail (standard phone widths).
+        /// </summary>
+        public void ApplyEqualFlexLayout(float cardHeightPx, float gapRightPx = 0f, bool compact = false)
+        {
+            float h = Mathf.Max(140f, cardHeightPx);
+            style.height = h;
+            style.minHeight = h;
+            style.maxHeight = h;
+            style.width = StyleKeyword.Null;
+            style.minWidth = 0f;
+            style.maxWidth = StyleKeyword.Null;
+            style.flexBasis = 0f;
+            style.flexGrow = 1f;
+            style.flexShrink = 1f;
+            style.marginRight = gapRightPx;
+            style.marginBottom = 0f;
+            EnableInClassList("order-card--compact", compact);
+            if (_descLabel != null)
+                _descLabel.EnableInClassList("hidden", compact);
         }
 
         static string PreferredTitle(OrderChoice order)
@@ -99,7 +140,7 @@ namespace Genesis.UI.Toolkit
         static string PreferredDetail(OrderChoice order)
         {
             if (!string.IsNullOrWhiteSpace(order.detail))
-                return SoftClamp(order.detail.Trim(), 56);
+                return SoftClamp(order.detail.Trim(), 80);
             return "Arms this order for commit.";
         }
 
@@ -107,8 +148,6 @@ namespace Genesis.UI.Toolkit
         {
             _deltasRow.Clear();
             var projected = ProjectMeters(effects);
-
-            // Rank by absolute impact so the two most consequential meters win the strip.
             projected.Sort((a, b) => Mathf.Abs(b.points).CompareTo(Mathf.Abs(a.points)));
 
             int shown = 0;
@@ -117,23 +156,30 @@ namespace Genesis.UI.Toolkit
                 if (d.points == 0) continue;
                 if (shown >= 2) break;
 
+                // Reference format: "↑ STAB +5" / "↓ TOLL -2"
+                string arrow = d.points > 0 ? "↑" : "↓";
                 string sign = d.points > 0 ? $"+{d.points}" : $"{d.points}";
-                var label = new Label { text = $"{d.abbrev} {sign}" };
+
+                var pill = new VisualElement();
+                pill.AddToClassList("delta-pill");
+                if (d.warn) pill.AddToClassList("delta-pill--warn");
+                else if (d.abbrev == "CRED" && d.points > 0) pill.AddToClassList("delta-pill--info");
+                else if (d.points > 0) pill.AddToClassList("delta-pill--gain");
+                else pill.AddToClassList("delta-pill--cost");
+
+                var label = new Label { text = $"{arrow} {d.abbrev} {sign}" };
                 label.pickingMode = PickingMode.Ignore;
-                label.AddToClassList("delta");
-                if (d.warn) label.AddToClassList("delta--warn");
-                else if (d.points > 0) label.AddToClassList("delta--gain");
-                else label.AddToClassList("delta--cost");
-                _deltasRow.Add(label);
+                label.AddToClassList("delta-pill__label");
+                label.AddToClassList("effect-label");
+                pill.Add(label);
+
+                _deltasRow.Add(pill);
                 shown++;
             }
 
             _deltasRow.EnableInClassList("hidden", shown == 0);
         }
 
-        /// <summary>
-        /// Maps effects onto HUD meters for at-a-glance comparison.
-        /// </summary>
         static List<(string abbrev, int points, bool warn)> ProjectMeters(List<ChoiceEffect> effects)
         {
             int stab = 0, cred = 0, toll = 0, esc = 0;
@@ -215,11 +261,22 @@ namespace Genesis.UI.Toolkit
         static string KindTitle(string kind) => (kind ?? "").ToLowerInvariant() switch
         {
             "military" => "MILITARY",
-            "diplomatic" => "DIPLOMACY",
+            "diplomatic" => "DIPLOMATIC",
             "covert" => "COVERT",
             "economic" => "ECONOMIC",
             "political" => "POLITICAL",
-            _ => "DIRECTIVE"
+            _ => "ORDER"
+        };
+
+        static string KindIconClass(string kind) => (kind ?? "").ToLowerInvariant() switch
+        {
+            "military" => "order-card__icon--military",
+            "diplomatic" => "order-card__icon--diplomatic",
+            "covert" => "order-card__icon--diplomatic",
+            "economic" => "order-card__icon--political",
+            // Political uses the people glyph so it stays distinct from diplomatic (eye-slash).
+            "political" => "order-card__icon--people",
+            _ => "order-card__icon--people"
         };
     }
 }

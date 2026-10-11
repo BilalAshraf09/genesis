@@ -1,0 +1,7 @@
+selectedOrder=brussels
+re-selected first choice
+MapLabelOverlay count=1
+BoardBuilder count=1
+hotspots=0
+MapLabels panel=True size=852.2066x1844.263
+bubbles=0 dots=0 selDots=0

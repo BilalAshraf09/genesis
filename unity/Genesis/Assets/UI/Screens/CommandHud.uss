@@ -1,10 +1,11 @@
 /*
-2026-10-08 AI-Tag
+2026-10-10 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
-/* CommandHud.uss — Top bar + meter strip for the GenesisPlay command screen.
-   Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
-   Do NOT edit tokens.uss or components.uss — new rules only here. */
+/*
+CommandHud.uss — Crisis Line command header (Brussels Europe Desk reference).
+Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
+*/
 
 /* ---- Layout helpers ----------------------------------------- */
 
@@ -26,29 +27,39 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     flex-shrink: 0;
 }
 
-/* ---- Top bar ------------------------------------------------- */
+/* ---- Command Header ----------------------------------------- */
 
-.top-bar {
+.command-header {
+    flex-direction: column;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+    background-color: rgba(11, 18, 32, 0.97);
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    align-self: stretch;
+}
+
+.header-main-row {
     flex-direction: row;
     align-items: center;
-    padding-left: 28px;
-    padding-right: 28px;
-    padding-top: 18px;
-    padding-bottom: 14px;
-    min-height: 118px;
-    background-color: rgba(11, 18, 32, 0.92);
-    border-bottom-width: 0;
-    border-radius: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    min-height: 48px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(255, 255, 255, 0.10);
 }
 
 .back-btn {
-    width: 68px;
-    height: 68px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.06);
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.12);
-    margin-right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background-color: rgba(17, 26, 43, 0.95);
+    border-width: 1.5px;
+    border-color: rgba(169, 179, 196, 0.5);
+    margin-right: 10px;
     align-items: center;
     justify-content: center;
     padding: 0;
@@ -57,234 +68,257 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .back-btn > Label {
-    color: var(--color-text-primary);
-    font-size: 26px;
+    color: #FFFFFF;
+    font-size: 30px;
     -unity-text-align: middle-center;
-    margin-right: 4px;
+    margin-top: -3px;
 }
 
 .back-btn:hover {
-    background-color: rgba(255, 255, 255, 0.10);
-    border-color: rgba(245, 165, 36, 0.35);
+    background-color: rgba(245, 165, 36, 0.12);
 }
 
-.back-btn:active {
-    background-color: rgba(255, 255, 255, 0.14);
-    scale: 0.94 0.94;
-}
-
-.top-title-stack {
+.header-title-stack {
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    margin-right: 8px;
 }
 
 .ops-tag {
-    font-size: 18px;
-    color: var(--color-accent);
+    font-size: 9px;
+    color: #F5A524;
     letter-spacing: 2px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     margin-bottom: 2px;
-    opacity: 0.9;
+    opacity: 0.98;
 }
 
 .top-title {
-    flex-grow: 0;
-    flex-shrink: 1;
-    min-width: 0;
-    font-size: 34px;
-    color: var(--color-text-primary);
+    font-size: 18px;
+    color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.55);
+    letter-spacing: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: 100%;
+    min-width: 0;
 }
 
-.top-right-group {
-    align-items: flex-end;
+/* Status Group — compact horizontal phase + timer (reference layout) */
+.ops-status-cluster {
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(17, 26, 43, 0.98);
+    border-width: 2px;
+    border-color: #F5A524;
+    border-radius: 12px;
+    padding: 6px 10px 8px 10px;
     flex-shrink: 0;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 12px;
-}
-
-.phase-pill {
-    background-color: rgba(245, 165, 36, 0.12);
-    border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.35);
-    border-radius: 20px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-bottom: 8px;
-}
-
-.phase-label {
-    font-size: 22px;
-    color: var(--color-accent);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
-    margin-bottom: 0;
-}
-
-.timer-block {
-    flex-direction: column;
-    align-items: flex-end;
-    min-width: 120px;
-}
-
-.timer-label {
-    font-size: 28px;
-    color: var(--color-text-primary);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    margin-bottom: 6px;
-    letter-spacing: 1px;
-    transition-property: color;
-    transition-duration: 0.25s;
-}
-
-.timer-label--warn {
-    color: var(--color-accent);
-}
-
-.timer-label--urgent {
-    color: var(--color-cost);
-}
-
-/* ---- Timer bar ---------------------------------------------- */
-
-.timer-bar {
-    width: 128px;
-    height: 7px;
-    background-color: rgba(0, 0, 0, 0.35);
-    border-radius: 4px;
+    position: relative;
     overflow: hidden;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.06);
+    min-height: 40px;
+    min-width: 0;
 }
 
-.timer-fill {
+.ops-status-phase {
+    font-size: 10px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.3px;
+    margin-right: 0;
+    white-space: nowrap;
+}
+
+.ops-status-timer-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.ops-status-divider {
+    width: 1px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.22);
+    margin-left: 7px;
+    margin-right: 7px;
+    flex-shrink: 0;
+    display: flex;
+}
+
+.ops-status-clock {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+    flex-shrink: 0;
+    background-color: transparent;
+    border-width: 1.5px;
+    border-color: #F2EFE6;
+    border-radius: 6px;
+    font-size: 1px;
+    color: rgba(0, 0, 0, 0);
+}
+
+.ops-status-timer {
+    font-size: 13px;
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
+/* Bottom progress strip inside phase/timer badge (reference) */
+.ops-status-timer-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(245, 165, 36, 0.18);
+}
+
+.ops-timer-fill {
     height: 100%;
-    background-color: var(--color-accent);
-    border-radius: 3px;
+    background-color: #F5A524;
     transition-property: background-color, width;
     transition-duration: 0.35s;
 }
 
-.timer-fill--warn {
-    background-color: var(--color-diplomacy);
+.timer-fill--warn { background-color: var(--color-diplomacy); }
+.timer-fill--urgent { background-color: var(--color-cost); }
+
+.timer-label--warn { color: var(--color-accent); }
+.timer-label--urgent { color: var(--color-cost); }
+
+/* Resource meter strip — flat cells with dividers */
+.ops-resource-bar {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-top: 0;
+    padding: 2px 0 0 0;
 }
 
-.timer-fill--urgent {
-    background-color: var(--color-cost);
+.ops-meter-cell {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    flex-direction: column;
+    padding: 2px 6px;
+    min-width: 0;
 }
 
-/* ---- Accent line under top bar ------------------------------ */
-
-.top-accent-line {
-    height: 2px;
-    background-color: rgba(245, 165, 36, 0.55);
+.ops-meter-divider {
+    width: 1px;
+    align-self: stretch;
+    min-height: 28px;
+    background-color: rgba(255, 255, 255, 0.28);
+    margin-top: 2px;
+    margin-bottom: 2px;
     flex-shrink: 0;
 }
 
-/* ---- Meter strip --------------------------------------------- */
-
-.meter-strip {
-    flex-direction: row;
-    padding-left: 28px;
-    padding-right: 28px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    background-color: rgba(11, 18, 32, 0.88);
-    border-bottom-width: 1px;
-    border-bottom-color: rgba(255, 255, 255, 0.06);
-    min-height: 76px;
-}
-
-.meter-col {
-    flex: 1;
-    flex-direction: column;
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-.meter-label-row {
+.ops-meter-top {
     flex-direction: row;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    min-height: 22px;
+    width: 100%;
 }
 
-.meter-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    margin-right: 8px;
+.ops-meter-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    flex-shrink: 0;
+    background-size: contain;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: transparent;
+}
+
+.ops-meter-icon--stab {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_stab.png");
+}
+.ops-meter-icon--cred {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_cred.png");
+}
+.ops-meter-icon--toll {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_toll.png");
+}
+.ops-meter-icon--esc {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_esc.png");
+}
+
+.ops-meter-label {
+    font-size: 9px;
+    color: #C5CDD9;
+    letter-spacing: 1px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-right: 4px;
     flex-shrink: 0;
 }
 
-.meter-dot--stab { background-color: var(--color-gain); }
-.meter-dot--cred { background-color: var(--color-info); }
-.meter-dot--toll { background-color: var(--color-cost); }
-.meter-dot--esc  { background-color: var(--color-accent); }
-
-.meter-label {
-    font-size: 20px;
-    color: var(--color-text-muted);
-    margin-bottom: 0;
+.ops-meter-value {
+    font-size: 12px;
+    color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 1.5px;
+    flex-grow: 1;
+    margin-left: auto;
+    -unity-text-align: middle-right;
+    white-space: nowrap;
 }
 
-.meter {
-    height: 9px;
-    background-color: rgba(0, 0, 0, 0.35);
-    border-radius: 5px;
+.ops-meter-track {
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.20);
+    border-radius: 3px;
     overflow: hidden;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.04);
+    width: 100%;
 }
 
-.meter__fill {
+.ops-meter-fill {
     height: 100%;
-    border-radius: 4px;
-    transition-duration: 0.8s;
+    border-radius: 2px;
+    transition-duration: 0.6s;
+    width: 0%;
 }
 
-.meter__fill--stab { background-color: var(--color-gain); }
-.meter__fill--cred { background-color: var(--color-info); }
-.meter__fill--toll { background-color: var(--color-cost); }
-.meter__fill--esc  { background-color: var(--color-accent); }
+.ops-meter-fill--stab { background-color: #3FB97A; }
+.ops-meter-fill--cred { background-color: #5AA9E6; }
+.ops-meter-fill--toll { background-color: #E5534B; }
+.ops-meter-fill--esc  { background-color: #F5A524; }
 
 /* Soft blend into map */
 .hud-map-fade {
-    height: 28px;
-    background-color: rgba(11, 18, 32, 0.45);
+    height: 20px;
+    background-color: rgba(11, 18, 32, 0.35);
     flex-shrink: 0;
 }
 
 /* ---- Intel chip ---------------------------------------------- */
 
 .intel-chip {
-    margin-left: 28px;
-    margin-right: 28px;
-    margin-top: 10px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 8px;
     padding: 0;
     flex-direction: row;
     align-items: stretch;
     background-color: rgba(17, 26, 43, 0.94);
-    border-radius: 16px;
+    border-radius: 10px;
     border-width: 1px;
-    border-color: rgba(90, 169, 230, 0.28);
+    border-color: rgba(90, 169, 230, 0.32);
     overflow: hidden;
     opacity: 1;
     translate: 0 0;
     transition-property: opacity, translate;
     transition-duration: 0.28s;
+    max-height: 48px;
 }
 
 .intel-chip--enter {
@@ -293,16 +327,16 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .intel-accent {
-    width: 5px;
+    width: 4px;
     background-color: var(--color-info);
     flex-shrink: 0;
 }
 
 .intel-icon {
-    font-size: 28px;
+    font-size: 20px;
     color: var(--color-info);
-    margin-left: 16px;
-    margin-right: 12px;
+    margin-left: 10px;
+    margin-right: 8px;
     flex-shrink: 0;
     -unity-text-align: middle-center;
     align-self: center;
@@ -310,27 +344,29 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .intel-body {
     flex-grow: 1;
-    font-size: 28px;
+    font-size: 16px;
     color: var(--color-text-primary);
-    white-space: normal;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 12px;
     -unity-text-align: middle-left;
 }
 
 /* ---- Field brief card ---------------------------------------- */
 
 .field-brief {
-    margin-left: 28px;
-    margin-right: 28px;
-    margin-top: 10px;
-    padding: 22px 26px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 8px;
+    padding: 12px 16px;
     flex-direction: column;
-    background-color: rgba(17, 26, 43, 0.94);
-    border-radius: 18px;
+    background-color: rgba(17, 26, 43, 0.96);
+    border-radius: 12px;
     border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.32);
+    border-color: rgba(245, 165, 36, 0.35);
     opacity: 1;
     translate: 0 0;
     transition-property: opacity, translate;
@@ -350,15 +386,15 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .brief-headline {
-    font-size: 32px;
+    font-size: 24px;
     color: var(--color-accent);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     letter-spacing: 0.5px;
 }
 
 .brief-fact {
-    font-size: 28px;
+    font-size: 18px;
     color: var(--color-text-secondary);
     white-space: normal;
 }
@@ -368,7 +404,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 .commit-toast {
     align-self: center;
     margin-top: 14px;
-    font-size: 30px;
+    font-size: 28px;
     color: var(--color-accent);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-center;
@@ -395,15 +431,49 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     left: 40px;
     right: 40px;
     top: 38%;
-    font-size: 42px;
+    font-size: 44px;
     color: var(--color-text-primary);
     -unity-text-align: middle-center;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    background-color: rgba(11, 18, 32, 0.96);
+    background-color: rgba(11, 18, 32, 0.98);
     padding: 40px;
     border-radius: 20px;
     align-self: center;
     border-width: 2px;
     border-color: var(--color-accent);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.95);
 }
+
+/* Narrow phones — keep header/meters readable without clipping */
+@media (max-width: 360px) {
+    .command-header {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        max-width: none;
+    }
+
+    .ops-status-cluster {
+        min-width: 0;
+        padding: 6px 8px 8px 8px;
+    }
+
+    .ops-status-phase {
+        font-size: 9px;
+    }
+
+    .ops-status-timer {
+        font-size: 12px;
+    }
+
+    .ops-meter-cell {
+        padding: 2px 3px;
+    }
+
+    .ops-meter-label {
+        letter-spacing: 0.4px;
+    }
+}
+
+/* Tablet reading-width cap is applied from C# via LogicalScreenWidth(), not raw pixels. */

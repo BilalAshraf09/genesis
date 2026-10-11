@@ -53,6 +53,12 @@ namespace Genesis.Theater
             Instance = this;
         }
 
+        void OnEnable()
+        {
+            // Soft domain reload clears statics while the component survives.
+            Instance = this;
+        }
+
         void OnDestroy()
         {
             if (Instance == this) Instance = null;
@@ -247,9 +253,8 @@ namespace Genesis.Theater
                 }
             }
 
-            var year = _bundle?.scenario?.year ?? 0;
-            var theaterId = _bundle?.scenario?.id ?? "";
-            hud?.ShowIntelChip(order.label ?? "");
+            // Decision copy lives on the selected card + hold subtitle (not the intel chip).
+            hud?.ClearIntelChip();
             orderRail?.SetSelected(order.id);
             hud?.ArmExecute(order);
             RefreshSelectionLink(order, _selectedHotspot);

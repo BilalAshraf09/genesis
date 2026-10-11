@@ -1,0 +1,15 @@
+isPlaying=True
+screen=1965x1624
+builder=True overlay=True markers=6
+dictCount=6
+  hs capital sel=False active=True
+  hs brussels sel=True active=True
+  hs parliament sel=False active=True
+  hs streets sel=False active=True
+  hs districts sel=False active=True
+  hs ballot sel=False active=True
+overlayDoc=False root=False rootW=0.0 rootH=0.0
+bubbles=0 visibleCallouts=0 dots=0 dotsVis=0
+sheet=NaN h=NaN
+rail=NaN h=NaN
+cards=0 equal=True sum=0.0 fillRatio=0.000

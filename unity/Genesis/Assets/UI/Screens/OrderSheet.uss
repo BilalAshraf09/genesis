@@ -1,6 +1,9 @@
 /*
-OrderSheet — crisis war-desk.
-Clear hierarchy, compare-at-a-glance cards, hold-to-commit climax.
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
+OrderSheet — Europe Desk decision drawer (Brussels Crisis Line reference).
 Unity USS: no sibling combinators (+/~).
 */
 
@@ -21,19 +24,21 @@ Unity USS: no sibling combinators (+/~).
 
 .order-sheet {
     flex-direction: column;
-    background-color: rgba(8, 13, 24, 0.97);
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    background-color: rgba(11, 18, 32, 0.985);
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
     border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.22);
+    border-color: rgba(255, 255, 255, 0.10);
     border-bottom-width: 0;
     transition-duration: 0.22s;
     overflow: hidden;
-    max-height: 88%;
+    max-height: 90%;
     min-height: 0;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
     position: relative;
+    width: 100%;
+    align-self: stretch;
 }
 
 .sheet-urgency-line {
@@ -41,73 +46,86 @@ Unity USS: no sibling combinators (+/~).
     left: 0;
     right: 0;
     top: 0;
-    height: 2px;
+    height: 3px;
+    background-color: #F5A524;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.sheet--warn .sheet-urgency-line {
+    opacity: 1;
     background-color: #F5A524;
 }
 
+.sheet--urgent .sheet-urgency-line {
+    opacity: 1;
+    background-color: #E5534B;
+}
+
 .drag-handle {
-    height: 22px;
+    height: 18px;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 .drag-pill {
-    width: 48px;
+    width: 44px;
     height: 4px;
     background-color: rgba(255, 255, 255, 0.28);
     border-radius: 2px;
 }
 
-/* ---- Header: flashpoint → place → stakes --------------- */
+/* ---- Header --------------------------------------------- */
 
 .sheet-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
     flex-shrink: 0;
-    height: 72px;
     min-height: 72px;
-    max-height: 72px;
-    padding-bottom: 4px;
+    max-height: 92px;
+    width: 100%;
+    padding-bottom: 0;
     overflow: hidden;
 }
 
 .sheet-eyebrow {
-    font-size: 14px;
-    color: rgba(245, 165, 36, 0.85);
+    font-size: 9px;
+    color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 3px;
+    letter-spacing: 2.5px;
     margin-bottom: 2px;
     flex-shrink: 0;
 }
 
 .place-name-label {
-    font-size: 28px;
-    color: #F2EFE6;
+    font-size: 23px;
+    color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     flex-shrink: 0;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100%;
     margin-bottom: 2px;
 }
 
 .beat-title-label {
-    font-size: 15px;
-    color: #6E7A8F;
+    font-size: 12px;
+    color: #A9B3C4;
     flex-shrink: 0;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: 100%;
     -unity-text-align: middle-left;
 }
 
-/* ---- Card rail ----------------------------------------- */
+/* ---- Card rail (horizontal) ----------------------------- */
 
 .card-rail {
     flex-direction: row;
@@ -121,25 +139,67 @@ Unity USS: no sibling combinators (+/~).
     width: 100%;
 }
 
-/* ---- Order card ---------------------------------------- */
+.card-rail--scroll {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-rail__scroll-hint {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    background-color: rgba(11, 18, 32, 0.55);
+    display: none;
+}
+
+.card-rail--stack {
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-rail__content {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+/* ---- Order card ----------------------------------------- */
 
 .order-card {
-    flex-shrink: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 0%;
     align-self: stretch;
+    min-width: 0;
     margin-right: 0;
     flex-direction: column;
     padding: 0;
     background-color: rgba(17, 26, 43, 0.98);
-    border-radius: 14px;
-    /* Constant 2px — selected only changes color (no layout jump). */
+    border-radius: 16px;
     border-width: 2px;
     border-color: rgba(255, 255, 255, 0.10);
     overflow: hidden;
     transition-duration: 0.14s;
+    position: relative;
 }
 
-.order-card__rail {
-    display: none;
+.order-card__glow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 16px;
+    border-width: 0;
+    transition-duration: 0.2s;
 }
 
 .order-card__body {
@@ -148,169 +208,193 @@ Unity USS: no sibling combinators (+/~).
     min-width: 0;
     flex-direction: column;
     padding: 12px 11px 10px 11px;
+    position: relative;
 }
 
 .order-card--selected {
-    background-color: rgba(245, 165, 36, 0.14);
+    background-color: rgba(23, 35, 58, 0.99);
+    /* Keep border-width identical to unselected so flex columns stay equal width */
+    border-width: 2px;
     border-color: #F5A524;
 }
 
-.order-card--selected .order-card__kind {
-    color: #F5A524;
-    background-color: rgba(245, 165, 36, 0.16);
-    border-color: rgba(245, 165, 36, 0.45);
+.order-card--selected .order-card__glow {
+    border-width: 0;
 }
 
 .order-card--compact .order-card__body {
-    padding: 10px 9px 8px 9px;
-}
-
-.order-card--compact {
-    border-radius: 12px;
+    padding: 12px 10px 10px 10px;
 }
 
 .order-card__header {
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     flex-shrink: 0;
-    margin-bottom: 8px;
-    overflow: hidden;
+    margin-bottom: 12px;
+    min-height: 30px;
+}
+
+.order-card__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+    margin-right: 6px;
+    flex-shrink: 0;
+    background-size: contain;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: transparent;
+}
+
+.order-card__icon--political {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_political.png");
+}
+.order-card__icon--diplomatic {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_diplomatic.png");
+}
+.order-card__icon--people {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_people.png");
+}
+.order-card__icon--military {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_esc.png");
 }
 
 .order-card__kind {
-    font-size: 12px;
-    color: #A9B3C4;
+    font-size: 9px;
+    color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 1px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 6px;
+    letter-spacing: 0.7px;
+    background-color: rgba(11, 18, 32, 0.95);
+    border-radius: 20px;
     border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.08);
-    padding: 3px 7px;
-    flex-shrink: 1;
-    overflow: hidden;
+    border-color: rgba(90, 169, 230, 0.4);
+    padding: 3px 8px;
+    flex-shrink: 0;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 100%;
+    margin-bottom: 0;
+    margin-left: auto;
 }
 
-.order-card--military .order-card__kind { color: #E5534B; border-color: rgba(229, 83, 75, 0.35); }
-.order-card--diplomatic .order-card__kind { color: #5AA9E6; border-color: rgba(90, 169, 230, 0.35); }
-.order-card--covert .order-card__kind { color: #F5A524; border-color: rgba(245, 165, 36, 0.35); }
-.order-card--economic .order-card__kind { color: #3FB97A; border-color: rgba(63, 185, 122, 0.35); }
-.order-card--political .order-card__kind { color: #D9B45A; border-color: rgba(217, 180, 90, 0.35); }
-
-.order-card--compact .order-card__kind {
-    font-size: 11px;
-    padding: 2px 6px;
+.order-card--military .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(229, 83, 75, 0.35);
 }
-
-/* Place tags unused — location lives in sheet header. */
-.order-card__place {
-    display: none;
+.order-card--diplomatic .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(90, 169, 230, 0.35);
+}
+.order-card--political .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(245, 165, 36, 0.25);
+}
+.order-card--covert .order-card__kind {
+    color: #F2EFE6;
+}
+.order-card--economic .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(63, 185, 122, 0.35);
 }
 
 .order-card__title {
-    font-size: 18px;
-    color: #F2EFE6;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    white-space: normal;
-    flex-shrink: 0;
-    min-height: 0;
-    max-height: 84px;
-    overflow: hidden;
-    margin-bottom: 6px;
-    -unity-text-align: upper-left;
-}
-
-.order-card--compact .order-card__title {
-    font-size: 16px;
-    max-height: 78px;
-    margin-bottom: 4px;
-}
-
-.order-card__desc {
     font-size: 13px;
-    color: #6E7A8F;
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: normal;
     flex-grow: 1;
     flex-shrink: 1;
     min-height: 0;
-    max-height: 48px;
+    max-height: 72px;
     overflow: hidden;
     margin-bottom: 8px;
     -unity-text-align: upper-left;
 }
 
-.order-card--compact .order-card__desc {
-    font-size: 12px;
-    max-height: 40px;
-    margin-bottom: 6px;
+.order-card--compact .order-card__title {
+    font-size: 13px;
+    max-height: 68px;
+    -unity-text-align: middle-left;
 }
 
-/* Consequence strip — the glanceable compare row */
+.order-card__desc {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    white-space: normal;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-height: 0;
+    max-height: 48px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.order-card--compact .order-card__desc {
+    display: none;
+}
+
 .order-card__deltas {
     flex-direction: row;
-    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
     flex-shrink: 0;
     margin-top: auto;
     min-height: 28px;
-    max-height: 28px;
-    overflow: hidden;
+    flex-wrap: wrap;
 }
 
-.order-card__deltas.hidden {
-    display: none;
-    min-height: 0;
-    max-height: 0;
-}
-
-.delta {
-    font-size: 12px;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
-    padding: 4px 6px;
+.delta-pill {
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 8px;
     margin-right: 4px;
-    border-radius: 6px;
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.10);
-    background-color: rgba(0, 0, 0, 0.35);
-    color: #A9B3C4;
-    flex-shrink: 0;
+    margin-bottom: 2px;
+    border-radius: 10px;
+    background-color: rgba(63, 185, 122, 0.22);
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.delta-pill__label {
+    font-size: 9px;
+    color: #3FB97A;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.15px;
     white-space: nowrap;
 }
 
-.delta--gain {
-    background-color: rgba(63, 185, 122, 0.14);
+.delta-pill--gain {
+    border-width: 0;
+    background-color: rgba(63, 185, 122, 0.22);
+}
+.delta-pill--gain .delta-pill__label {
     color: #3FB97A;
-    border-color: rgba(63, 185, 122, 0.40);
 }
 
-.delta--cost {
-    background-color: rgba(229, 83, 75, 0.14);
+.delta-pill--cost {
+    border-width: 0;
+    background-color: rgba(229, 83, 75, 0.22);
+}
+.delta-pill--cost .delta-pill__label {
     color: #E5534B;
-    border-color: rgba(229, 83, 75, 0.40);
 }
 
-.delta--warn {
-    background-color: rgba(245, 165, 36, 0.14);
+.delta-pill--warn {
+    border-width: 0;
+    background-color: rgba(245, 165, 36, 0.22);
+}
+.delta-pill--warn .delta-pill__label {
     color: #F5A524;
-    border-color: rgba(245, 165, 36, 0.45);
 }
 
-.order-card--compact .delta {
-    font-size: 11px;
-    padding: 3px 5px;
+.delta-pill--info {
+    border-width: 0;
+    background-color: rgba(90, 169, 230, 0.22);
+}
+.delta-pill--info .delta-pill__label {
+    color: #5AA9E6;
 }
 
-/* Effect chips hidden — deltas carry the compare signal. */
-.order-card__chips {
-    display: none;
-}
-
-/* ---- Hold / commit climax ------------------------------ */
+/* ---- Hold / commit -------------------------------------- */
 
 .hold-button-container {
     flex-grow: 0;
@@ -319,6 +403,7 @@ Unity USS: no sibling combinators (+/~).
     align-self: stretch;
     margin-bottom: 0;
     overflow: visible;
+    padding-top: 4px;
 }
 
 .hold-button-container > .hold-btn {
@@ -331,6 +416,7 @@ Unity USS: no sibling combinators (+/~).
     height: 12px;
 }
 
+/* Override Unity default .unity-button chrome so armed orange wins */
 .hold-btn {
     flex-grow: 1;
     flex-shrink: 0;
@@ -340,12 +426,14 @@ Unity USS: no sibling combinators (+/~).
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    min-height: 84px;
-    border-radius: 16px;
-    border-width: 2px;
-    border-color: rgba(255, 255, 255, 0.12);
-    background-color: rgba(245, 165, 36, 0.10);
-    overflow: hidden;
+    min-height: 92px;
+    border-radius: 20px;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(20, 25, 35, 0.9);
+    background-image: none;
+    /* Visible so primary + subtitle both stay inside the orange CTA */
+    overflow: visible;
     position: relative;
     transition-duration: 0.14s;
 }
@@ -356,13 +444,15 @@ Unity USS: no sibling combinators (+/~).
     top: 0;
     bottom: 0;
     width: 0%;
-    background-color: rgba(26, 18, 6, 0.20);
-    border-radius: 14px;
+    background-color: rgba(11, 18, 32, 0.18);
+    border-radius: 0;
 }
 
 .hold-btn--armed {
     background-color: #F5A524;
-    border-color: #FFC857;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    background-image: none;
 }
 
 .hold-btn--armed .hold-btn__label {
@@ -370,12 +460,18 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .hold-btn--armed .hold-btn__sublabel {
-    color: rgba(11, 18, 32, 0.70);
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--armed .hold-btn__arrow {
+    color: #0B1220;
 }
 
 .hold-btn--holding {
     background-color: #E89612;
-    border-color: #FFC857;
+    border-width: 0;
+    background-image: none;
+    translate: 0 1px;
 }
 
 .hold-btn--holding .hold-btn__label {
@@ -383,12 +479,17 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .hold-btn--holding .hold-btn__sublabel {
-    color: rgba(11, 18, 32, 0.70);
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--holding .hold-btn__arrow {
+    color: #0B1220;
 }
 
 .hold-btn--success {
     background-color: #3FB97A;
-    border-color: #5FD498;
+    border-width: 0;
+    background-image: none;
 }
 
 .hold-btn--success .hold-btn__fill {
@@ -401,12 +502,18 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .hold-btn--success .hold-btn__sublabel {
-    color: rgba(11, 18, 32, 0.70);
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--success .hold-btn__arrow {
+    color: #0B1220;
 }
 
 .hold-btn--idle {
-    background-color: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.10);
+    background-color: rgba(255, 255, 255, 0.06);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    background-image: none;
 }
 
 .hold-btn--locked {
@@ -414,8 +521,8 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .hold-btn__ring-canvas {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     flex-shrink: 0;
     margin-left: 16px;
     margin-right: 12px;
@@ -425,26 +532,30 @@ Unity USS: no sibling combinators (+/~).
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0;
-    font-size: 24px;
+    font-size: 16px;
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 14px;
-    letter-spacing: 1px;
+    margin-right: 8px;
+    letter-spacing: 0.6px;
 }
 
 .hold-btn__sublabel {
-    font-size: 14px;
+    font-size: 12px;
     color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
     -unity-text-align: middle-left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 14px;
+    margin-right: 8px;
     margin-top: 2px;
+    min-height: 14px;
+    flex-shrink: 0;
+    opacity: 1;
 }
 
 .hold-btn--idle .hold-btn__label,
@@ -457,6 +568,11 @@ Unity USS: no sibling combinators (+/~).
     color: #6E7A8F;
 }
 
+.hold-btn--idle .hold-btn__arrow,
+.hold-btn--locked .hold-btn__arrow {
+    color: #6E7A8F;
+}
+
 .hold-btn__text-col {
     flex-grow: 1;
     flex-shrink: 1;
@@ -465,3 +581,52 @@ Unity USS: no sibling combinators (+/~).
     min-width: 0;
     margin-right: 8px;
 }
+
+.hold-btn__arrow {
+    font-size: 22px;
+    color: #0B1220;
+    flex-shrink: 0;
+    margin-right: 18px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.hold-btn__sublabel.hidden {
+    display: none;
+}
+
+/* Narrow phones — scrollable card rail, tighter sheet chrome */
+@media (max-width: 360px) {
+    .order-sheet {
+        padding-left: 12px;
+        padding-right: 12px;
+        max-width: none;
+        border-top-left-radius: 22px;
+        border-top-right-radius: 22px;
+    }
+
+    .sheet-header {
+        min-height: 64px;
+        max-height: 84px;
+    }
+
+    .place-name-label {
+        font-size: 20px;
+    }
+
+    .hold-btn {
+        min-height: 84px;
+        border-radius: 16px;
+    }
+
+    .hold-btn__label {
+        font-size: 15px;
+    }
+
+    .hold-btn__sublabel {
+        font-size: 11px;
+    }
+}
+
+/* Do NOT use panel-unit min-width:600 here — ScaleWithScreenSize reports
+   ~800+ panel units on phones. Tablet cap uses C# LogicalScreenWidth() (not raw pixels). */

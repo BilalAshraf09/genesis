@@ -1,4 +1,8 @@
 /*
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
 2026-10-01 AI-Tag
 This was created with the help of Assistant, a Unity Artificial Intelligence product.
 */
@@ -17,24 +21,24 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .glass {
     background-color: #111A2BDB;
-    border-width: 1px;
+    border-width: 2px;
     border-color: #FFFFFF14;
-    border-radius: 20px;
+    border-radius: 24px;
 }
 
 /* ---- Card ------------------------------------------------- */
 
 .card {
     background-color: #17233A;
-    border-width: 1px;
+    border-width: 2px;
     border-color: #FFFFFF14;
-    border-radius: 16px;
-    padding: 16px;
+    border-radius: 20px;
+    padding: 20px;
     flex-shrink: 0;
 }
 
 .card--selected {
-    border-width: 3px;
+    border-width: 4px;
     border-color: #F5A524;
 }
 
@@ -42,47 +46,47 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .chip {
     background-color: #17233A;
-    border-radius: 12px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    margin-right: 6px;
-    margin-bottom: 4px;
+    border-radius: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 10px;
+    margin-bottom: 8px;
     align-self: flex-start;
-    font-size: 22px;
+    font-size: 26px;
     color: #A9B3C4;
     border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
 }
 
 .chip--gain {
-    background-color: rgba(63, 185, 122, 0.16);
+    background-color: rgba(63, 185, 122, 0.2);
     color: #3FB97A;
-    border-color: rgba(63, 185, 122, 0.35);
+    border-color: rgba(63, 185, 122, 0.4);
 }
 
 .chip--cost {
-    background-color: rgba(229, 83, 75, 0.16);
+    background-color: rgba(229, 83, 75, 0.2);
     color: #E5534B;
-    border-color: rgba(229, 83, 75, 0.35);
+    border-color: rgba(229, 83, 75, 0.4);
 }
 
 .chip--warn {
-    background-color: rgba(245, 165, 36, 0.16);
+    background-color: rgba(245, 165, 36, 0.2);
     color: #F5A524;
-    border-color: rgba(245, 165, 36, 0.35);
+    border-color: rgba(245, 165, 36, 0.4);
 }
 
 /* ---- Buttons ---------------------------------------------- */
 
 .btn {
     border-width: 0;
-    border-radius: 16px;
+    border-radius: 20px;
     align-items: center;
     justify-content: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
     padding-top: 0;
     padding-bottom: 0;
     transition-duration: 0.12s;
@@ -90,27 +94,27 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .btn--primary {
     background-color: #F5A524;
-    height: 112px;
-    border-radius: 16px;
+    height: 120px;
+    border-radius: 20px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 
 .btn--primary > Label {
     color: #1A1206;
-    font-size: 32px;
+    font-size: 36px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 
 .btn--secondary {
     background-color: #17233A;
-    height: 88px;
-    border-width: 1px;
+    height: 100px;
+    border-width: 2px;
     border-color: #FFFFFF14;
 }
 
 .btn--secondary > Label {
     color: #F2EFE6;
-    font-size: 30px;
+    font-size: 34px;
 }
 
 .btn:active {
@@ -120,41 +124,99 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 /* ---- Typography labels ------------------------------------ */
 
 .label-title {
-    font-size: 36px;
+    font-size: 44px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 
 .label-body {
-    font-size: 30px;
+    font-size: 36px;
     color: #F2EFE6;
     white-space: normal;
 }
 
 .label-caption {
-    font-size: 26px;
+    font-size: 30px;
     color: #A9B3C4;
 }
 
 .label-muted {
-    font-size: 26px;
+    font-size: 30px;
     color: #6E7A8F;
+}
+
+/* ---- Semantic theater type (882×1784 targets) ------------- */
+
+.screen-title {
+    font-size: var(--type-screen-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel-title {
+    font-size: var(--type-panel-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-title {
+    font-size: var(--type-card-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    white-space: normal;
+    -unity-text-align: upper-left;
+}
+
+.body-copy {
+    font-size: var(--type-body);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    white-space: normal;
+}
+
+.category-label {
+    font-size: var(--type-category);
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+
+.effect-label {
+    font-size: var(--type-effect);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.15px;
+    white-space: nowrap;
+}
+
+.content-constrain {
+    width: 100%;
+    max-width: var(--content-max-width);
+    align-self: center;
 }
 
 /* ---- Meter bar -------------------------------------------- */
 
 .meter {
-    height: 8px;
+    height: 12px;
     background-color: #17233A;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
 .meter__fill {
     flex-grow: 0;
-    height: 8px;
+    height: 12px;
     background-color: #F5A524;
-    border-radius: 4px;
+    border-radius: 6px;
     transition-duration: 0.3s;
 }
 
@@ -162,21 +224,21 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .sheet {
     background-color: #111A2BDB;
-    border-width: 1px;
+    border-width: 2px;
     border-color: #FFFFFF14;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    padding: 24px;
+    padding: 32px;
 }
 
 /* ---- Divider ---------------------------------------------- */
 
 .divider {
-    height: 1px;
+    height: 2px;
     background-color: #FFFFFF14;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     flex-shrink: 0;
 }

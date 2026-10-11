@@ -145,56 +145,94 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     color: #6E7A8F;
 }
 
-/* ---- Semantic theater type (882×1784 targets) ------------- */
+/* ---- Semantic theater type (Inter, 882×1784 targets) ------
+   Canonical .type-* classes (plan) + legacy aliases kept in sync. */
 
+.type-screen-title,
 .screen-title {
     font-size: var(--type-screen-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0;
+    letter-spacing: var(--track-title);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.type-section-title,
 .panel-title {
     font-size: var(--type-panel-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
+    letter-spacing: var(--track-title);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+.type-card-title,
 .card-title {
     font-size: var(--type-card-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
     white-space: normal;
     -unity-text-align: upper-left;
 }
 
+.type-body,
 .body-copy {
     font-size: var(--type-body);
     color: #A9B3C4;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
     white-space: normal;
 }
 
+.type-secondary {
+    font-size: var(--type-secondary);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
+    white-space: normal;
+}
+
+.type-category,
 .category-label {
     font-size: var(--type-category);
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 1.5px;
+    letter-spacing: var(--track-meta);
     white-space: nowrap;
 }
 
+.type-effect-badge,
 .effect-label {
     font-size: var(--type-effect);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.15px;
+    letter-spacing: var(--track-numeric);
     white-space: nowrap;
+}
+
+/* Status meters + timer — SemiBold stands in for Medium (no Medium SDF bundled).
+   Digit width: Inter + restrained tracking; OpenType tnum not exposed via UITK USS. */
+.type-status-label,
+.meta-label {
+    font-size: var(--type-meta);
+    color: var(--color-text-secondary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-meta);
+    white-space: nowrap;
+}
+
+.type-status-value,
+.numeric-value {
+    font-size: var(--type-numeric);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-numeric);
+    white-space: nowrap;
+    -unity-text-align: middle-right;
 }
 
 .content-constrain {

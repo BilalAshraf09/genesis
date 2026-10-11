@@ -1,0 +1,11 @@
+peek=564.5 min=300 max=320
+safeRoot.padBottom=0.0 sheetH=563.8
+railH=325.6 holdH=96.1 spacerH=10.9
+gapBelowHold=6.6 sheetBottom=1844.3 holdBottom=1837.7 panelH=1844.3
+  sheet-urgency-line: h=2.2 mt=0.0 mb=0.0
+  dragHandle: h=17.5 mt=8.7 mb=0.0
+  sheetHeader: h=87.4 mt=0.0 mb=0.0
+  cardRail: h=325.6 mt=8.7 mb=10.9
+  holdButtonContainer: h=96.1 mt=0.0 mb=0.0
+  gestureSpacer: h=10.9 mt=0.0 mb=0.0
+sum=568.1 slack=-4.4

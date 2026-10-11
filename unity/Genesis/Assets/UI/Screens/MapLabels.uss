@@ -15,10 +15,11 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 
 .country-label {
     position: absolute;
-    font-size: 22px;
-    color: rgba(169, 179, 196, 0.55);
-    letter-spacing: 3px;
-    -unity-font-style: bold;
+    font-size: var(--type-map-label);
+    /* Recede so geographic markers / active callout stay primary */
+    color: rgba(169, 179, 196, 0.42);
+    letter-spacing: var(--track-meta);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-center;
     text-shadow: 1px 1px 0 rgba(11, 18, 32, 0.85);
     white-space: nowrap;
@@ -27,9 +28,10 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 
 .pin-label {
     position: absolute;
-    font-size: 22px;
-    color: #F2EFE6;
+    font-size: var(--type-map-label);
+    color: rgba(242, 239, 230, 0.88);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
     -unity-text-align: middle-left;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
     white-space: nowrap;
@@ -37,9 +39,9 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 }
 
 .pin-label--selected {
-    font-size: 24px;
+    font-size: 17px;
     color: #F5A524;
-    text-shadow: 0 0 12px rgba(245, 165, 36, 0.6);
+    text-shadow: 0 0 10px rgba(245, 165, 36, 0.55);
 }
 
 .pin-dot {
@@ -80,7 +82,7 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
     padding: 10px 14px 10px 14px;
     min-width: 180px;
     max-width: 92%;
-    min-height: 58px;
+    min-height: 64px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -89,10 +91,10 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 
 .pin-fact-title {
     color: #F5A524;
-    font-size: 13px;
+    font-size: var(--type-callout-title);
     -unity-text-align: middle-left;
     margin-bottom: 3px;
-    letter-spacing: 1.1px;
+    letter-spacing: var(--track-meta);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 
@@ -103,7 +105,7 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 }
 
 .pin-fact-pin {
-    font-size: 12px;
+    font-size: var(--type-body);
     color: #F2EFE6;
     margin-right: 6px;
     flex-shrink: 0;
@@ -112,10 +114,11 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 
 .pin-fact-body {
     color: #F2EFE6;
-    font-size: 12px;
+    font-size: var(--type-callout-body);
     -unity-text-align: middle-left;
     white-space: normal;
     flex-grow: 1;
+    letter-spacing: 0;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
 }
 
@@ -127,11 +130,11 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
     }
 
     .pin-fact-title {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .pin-fact-body {
-        font-size: 11px;
+        font-size: 13px;
     }
 }
 

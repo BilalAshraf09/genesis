@@ -72,6 +72,27 @@ namespace Genesis.Theater
         /// <summary>lon/lat ↔ world projection for the current board.</summary>
         public GeoProjection Projection { get; protected set; }
 
+        /// <summary>
+        /// Soft domain reload clears the managed Projection while the board hierarchy
+        /// survives — rebuild from cached BoardData / session bundle when missing.
+        /// </summary>
+        public GeoProjection EnsureProjection()
+        {
+            if (Projection != null) return Projection;
+
+            var board = _board ?? TheaterSession.Instance?.Bundle?.board;
+            if (board == null) return null;
+
+            _board = board;
+            if (string.IsNullOrEmpty(TheaterId))
+                TheaterId = TheaterSession.Instance?.Bundle?.scenario?.id ?? board.id;
+
+            Projection = BuildProjection(board);
+            if (Projection != null)
+                boardDepth = Projection.BoardDepth;
+            return Projection;
+        }
+
         /// <summary>Theater id used for AtlasContent lookups.</summary>
         public string TheaterId { get; set; }
 

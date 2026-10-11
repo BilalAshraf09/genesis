@@ -20,7 +20,7 @@ public static class LayoutVerifyRunner
 {
     const string OutDir = "Assets/Plans";
     const string PendingKey = "Genesis.LayoutVerify.Pending";
-    const string ModeKey = "Genesis.LayoutVerify.Mode"; // "390" | "multi"
+    const string ModeKey = "Genesis.LayoutVerify.Mode"; // "390" | "multi" | "typography"
 
     static LayoutVerifyRunner()
     {
@@ -49,6 +49,8 @@ public static class LayoutVerifyRunner
 
             if (mode == "multi")
                 EditorCoroutine.Start(RunMultiCoroutine());
+            else if (mode == "typography")
+                EditorCoroutine.Start(RunTypographyMultiCoroutine());
             else
             {
                 SetGameViewSize(390, 844);
@@ -94,6 +96,24 @@ public static class LayoutVerifyRunner
         }
     }
 
+    [MenuItem("Genesis/Verify/Typography Multi Viewport")]
+    public static void VerifyTypographyMulti()
+    {
+        SessionState.SetString(ModeKey, "typography");
+        SessionState.SetBool(PendingKey, true);
+        if (EditorApplication.isPlaying)
+        {
+            SessionState.SetBool(PendingKey, false);
+            EditorApplication.isPaused = false;
+            EditorCoroutine.Start(RunTypographyMultiCoroutine());
+        }
+        else
+        {
+            Debug.Log("[LayoutVerify] Arming typography verify; entering Play Mode…");
+            EditorApplication.isPlaying = true;
+        }
+    }
+
     static IEnumerator RunMultiCoroutine()
     {
         int[] widths = { 320, 360, 390, 430, 600 };
@@ -104,11 +124,12 @@ public static class LayoutVerifyRunner
             EditorApplication.isPaused = false;
             DismissPauseUi();
             SetGameViewSize(w, h);
-            for (int i = 0; i < 8; i++) yield return null;
+            // Wait out sheet height transitions + theater bootstrap after resize.
+            for (int i = 0; i < 16; i++) yield return null;
             EnsureBrusselsSelected();
-            for (int i = 0; i < 6; i++) yield return null;
+            for (int i = 0; i < 14; i++) yield return null;
             DismissPauseUi();
-            for (int i = 0; i < 4; i++) yield return null;
+            for (int i = 0; i < 8; i++) yield return null;
             var metrics = CaptureMetrics(w, h);
             summary.AppendLine(metrics);
             summary.AppendLine("---");
@@ -123,6 +144,96 @@ public static class LayoutVerifyRunner
         Debug.Log("[LayoutVerify] Multi-viewport done.");
     }
 
+    static IEnumerator RunTypographyMultiCoroutine()
+    {
+        int[] widths = { 320, 360, 390, 430, 600 };
+        var summary = new StringBuilder();
+        summary.AppendLine("=== TYPOGRAPHY MULTI-VIEWPORT ===");
+        summary.AppendLine($"font=Inter Regular+SemiBold SDF panelRef=882x1784");
+        foreach (var w in widths)
+        {
+            int h = w <= 430 ? 844 : 960;
+            EditorApplication.isPaused = false;
+            DismissPauseUi();
+            SetGameViewSize(w, h);
+            for (int i = 0; i < 8; i++) yield return null;
+            EnsureBrusselsSelected();
+            for (int i = 0; i < 6; i++) yield return null;
+            DismissPauseUi();
+            for (int i = 0; i < 4; i++) yield return null;
+
+            var typeMetrics = CaptureTypographyMetrics(w, h);
+            var layoutMetrics = CaptureMetrics(w, h);
+            summary.AppendLine(typeMetrics);
+            summary.AppendLine(layoutMetrics);
+            summary.AppendLine("---");
+
+            string pngRel = Path.Combine(OutDir, $"verify-typography-{w}x{h}.png").Replace('\\', '/');
+            ScreenCapture.CaptureScreenshot(pngRel);
+            yield return null;
+            Debug.Log($"[TypographyVerify]\n{typeMetrics}");
+        }
+
+        File.WriteAllText(Path.Combine(Application.dataPath, "Plans", "typography-metrics.txt"), summary.ToString());
+        AssetDatabase.Refresh();
+        Debug.Log("[TypographyVerify] Multi-viewport typography done.");
+    }
+
+    static string CaptureTypographyMetrics(int screenW, int screenH)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"viewport={screenW}x{screenH} screen={Screen.width}x{Screen.height}");
+
+        Label FindFirst(Func<VisualElement, Label> query)
+        {
+            foreach (var d in UnityEngine.Object.FindObjectsByType<UIDocument>(FindObjectsInactive.Include))
+            {
+                var r = d.rootVisualElement;
+                if (r == null) continue;
+                var hit = query(r);
+                if (hit != null) return hit;
+            }
+            return null;
+        }
+
+        void Sample(string tag, Label lbl)
+        {
+            if (lbl == null)
+            {
+                sb.AppendLine($"{tag}: missing");
+                return;
+            }
+
+            sb.AppendLine(
+                $"{tag}: size={lbl.resolvedStyle.fontSize:F0} " +
+                $"classes={string.Join(",", lbl.GetClasses())} " +
+                $"text=\"{Truncate(lbl.text, 36)}\"");
+        }
+
+        Sample("screenTitle", FindFirst(r => r.Q<Label>(null, "type-screen-title") ?? r.Q<Label>("titleLabel")));
+        Sample("opsTag", FindFirst(r => r.Q<Label>("opsTag")));
+        Sample("phase", FindFirst(r => r.Q<Label>("phaseLabel")));
+        Sample("timer", FindFirst(r => r.Q<Label>("timerLabel")));
+        Sample("meterLabel", FindFirst(r => r.Q<Label>(null, "ops-meter-label")));
+        Sample("meterValue", FindFirst(r => r.Q<Label>("meterStabValue")));
+        Sample("sectionTitle", FindFirst(r => r.Q<Label>(null, "type-section-title") ?? r.Q<Label>("placeNameLabel")));
+        Sample("body", FindFirst(r => r.Q<Label>(null, "type-body") ?? r.Q<Label>("beatTitleLabel")));
+        Sample("cardTitle", FindFirst(r => r.Q<Label>(null, "order-card__title")));
+        Sample("cardSecondary", FindFirst(r => r.Q<Label>(null, "order-card__desc")));
+        Sample("category", FindFirst(r => r.Q<Label>(null, "order-card__kind")));
+        Sample("effect", FindFirst(r => r.Q<Label>(null, "type-effect-badge") ?? r.Q<Label>(null, "delta-pill__label")));
+        Sample("hold", FindFirst(r => r.Q<Label>(null, "hold-btn__label")));
+
+        return sb.ToString().TrimEnd();
+    }
+
+    static string Truncate(string s, int max)
+    {
+        if (string.IsNullOrEmpty(s)) return "";
+        s = s.Replace('\n', ' ');
+        return s.Length <= max ? s : s.Substring(0, max - 1) + "…";
+    }
+
     static IEnumerator RunVerifyCoroutine(int w, int h, string pngName)
     {
         EditorApplication.isPaused = false;
@@ -130,9 +241,10 @@ public static class LayoutVerifyRunner
         SetGameViewSize(w, h);
         for (int i = 0; i < 8; i++) yield return null;
         EnsureBrusselsSelected();
-        for (int i = 0; i < 6; i++) yield return null;
+        // Allow MapLabelOverlay.LateUpdate to project the selected callout.
+        for (int i = 0; i < 12; i++) yield return null;
         DismissPauseUi();
-        for (int i = 0; i < 4; i++) yield return null;
+        for (int i = 0; i < 6; i++) yield return null;
 
         var metrics = CaptureMetrics(w, h);
         File.WriteAllText(Path.Combine(Application.dataPath, "Plans", "layout-metrics.txt"), metrics + "\n");
@@ -207,11 +319,19 @@ public static class LayoutVerifyRunner
         // Always re-show orders — domain reload / soft wipe commonly clears cards
         // while leaving an empty sheet shell visible.
         var session = TheaterSession.Instance;
-        if (session != null && builder.Hotspots != null
-            && !string.IsNullOrEmpty(id)
-            && builder.Hotspots.TryGetValue(id, out var hs) && hs != null)
+        var rail = UnityEngine.Object.FindAnyObjectByType<OrderRailController>();
+        if (session != null)
         {
-            session.OnHotspotTapped(hs);
+            var beat = session.CurrentBeat;
+            if (beat?.choices != null && beat.choices.Count > 0 && rail != null)
+                rail.ShowOrders(beat.choices, session.OnOrderSelected);
+
+            if (builder.Hotspots != null
+                && !string.IsNullOrEmpty(id)
+                && builder.Hotspots.TryGetValue(id, out var hs) && hs != null)
+            {
+                session.OnHotspotTapped(hs);
+            }
         }
     }
 
@@ -246,7 +366,11 @@ public static class LayoutVerifyRunner
 
             foreach (var bubble in r.Query(null, "pin-fact-bubble").ToList())
             {
-                if (bubble.resolvedStyle.display == DisplayStyle.Flex)
+                // Accept any non-hidden bubble — UITK may resolve Flex or Default.
+                if (bubble.resolvedStyle.display != DisplayStyle.None
+                    && bubble.resolvedStyle.visibility != Visibility.Hidden
+                    && bubble.resolvedStyle.opacity > 0.01f
+                    && bubble.resolvedStyle.width > 1f)
                 {
                     visibleCallouts++;
                     var title = bubble.Q<Label>(null, "pin-fact-title");
@@ -270,16 +394,34 @@ public static class LayoutVerifyRunner
 
         if (sheet != null)
         {
-            sb.AppendLine($"sheet={sheet.resolvedStyle.width:F1}");
-            if (rail != null) sb.AppendLine($"rail={rail.resolvedStyle.width:F1}");
+            float panelH = 0f;
+            foreach (var d in UnityEngine.Object.FindObjectsByType<UIDocument>(FindObjectsInactive.Include))
+            {
+                var sr = d.rootVisualElement?.Q("safeRoot");
+                if (sr != null && sr.resolvedStyle.height > 1f)
+                {
+                    panelH = sr.resolvedStyle.height;
+                    break;
+                }
+            }
+
+            float peekH = OrderSheetLayout.PeekSheetHeight(panelH > 1f ? panelH : OrderSheetLayout.RefPanelHeight);
+            var spacer = sheet.Q("gestureSpacer");
+            sb.AppendLine($"sheet={sheet.resolvedStyle.width:F1}x{sheet.resolvedStyle.height:F1} peekH={peekH:F1} panelH={panelH:F1}");
+            if (rail != null) sb.AppendLine($"rail={rail.resolvedStyle.width:F1}x{rail.resolvedStyle.height:F1}");
             if (content != null) sb.AppendLine($"content={content.resolvedStyle.width:F1}");
-            if (hold != null) sb.AppendLine($"hold={hold.resolvedStyle.width:F1}");
+            if (hold != null)
+            {
+                sb.AppendLine($"hold={hold.resolvedStyle.width:F1}x{hold.resolvedStyle.height:F1}");
+                sb.AppendLine($"gapBelowHold={sheet.worldBound.yMax - hold.worldBound.yMax:F1} spacerH={spacer?.resolvedStyle.height ?? 0f:F1}");
+            }
 
             var cards = sheet.Query(null, "order-card").ToList();
             float sum = 0f;
             float gapSum = 0f;
             bool equal = true;
             float first = -1f;
+            int clipped = 0;
             for (int i = 0; i < cards.Count; i++)
             {
                 float w = cards[i].resolvedStyle.width;
@@ -288,8 +430,29 @@ public static class LayoutVerifyRunner
                 if (i < cards.Count - 1) gapSum += mr;
                 if (first < 0) first = w;
                 else if (Mathf.Abs(w - first) > 2.5f) equal = false;
-                sb.AppendLine($"card{i}={w:F1} grow={cards[i].resolvedStyle.flexGrow} marginR={mr:F1}");
+                var title = cards[i].Q<Label>(null, "order-card__title");
+                var desc = cards[i].Q<Label>(null, "order-card__desc");
+                float titleMax = title != null && title.resolvedStyle.maxHeight.keyword == StyleKeyword.None
+                    ? -1f : (title?.resolvedStyle.maxHeight.value ?? -1f);
+                float descMax = desc != null && desc.resolvedStyle.maxHeight.keyword == StyleKeyword.None
+                    ? -1f : (desc?.resolvedStyle.maxHeight.value ?? -1f);
+                bool titleClip = title != null && titleMax > 0f && title.contentRect.height > titleMax + 1f;
+                bool descClip = desc != null
+                    && desc.resolvedStyle.display != DisplayStyle.None
+                    && descMax > 0f
+                    && desc.contentRect.height > descMax + 1f;
+                // Also flag when card band is shorter than body content.
+                var body = cards[i].Q(null, "order-card__body");
+                bool bandClip = body != null
+                    && cards[i].resolvedStyle.height > 1f
+                    && body.resolvedStyle.height > cards[i].resolvedStyle.height + 2f;
+                if (titleClip || descClip || bandClip) clipped++;
+                sb.AppendLine($"card{i}={w:F1}x{cards[i].resolvedStyle.height:F1} grow={cards[i].resolvedStyle.flexGrow} marginR={mr:F1} titleMax={titleMax:F0} descMax={descMax:F0} clipT={titleClip} clipD={descClip} bandClip={bandClip}");
+                if (title != null) sb.AppendLine($"  title='{Truncate(title.text, 80)}' h={title.resolvedStyle.height:F0}");
+                if (desc != null && desc.resolvedStyle.display != DisplayStyle.None)
+                    sb.AppendLine($"  desc='{Truncate(desc.text, 80)}' h={desc.resolvedStyle.height:F0}");
             }
+            sb.AppendLine($"CLIPPED_CARDS={clipped}");
 
             float railW = rail != null ? rail.resolvedStyle.width : 0f;
             float occupied = sum + gapSum;
@@ -311,13 +474,33 @@ public static class LayoutVerifyRunner
             var editorAsm = typeof(EditorWindow).Assembly;
             var gameViewType = editorAsm.GetType("UnityEditor.GameView");
             if (gameViewType == null) return;
+
+            // Prefer an existing Game view; creating with a title can open a second view.
             var gameView = EditorWindow.GetWindow(gameViewType, false, null, false);
             if (gameView == null) return;
 
             var sizesType = editorAsm.GetType("UnityEditor.GameViewSizes");
             var singletonType = typeof(ScriptableSingleton<>).MakeGenericType(sizesType);
             var sizesInstance = singletonType.GetProperty("instance")?.GetValue(null, null);
-            var currentGroup = sizesType.GetProperty("currentGroup")?.GetValue(sizesInstance, null);
+            if (sizesInstance == null) return;
+
+            // Standalone group is the most reliable for FixedResolution in the Editor Game view.
+            // Device Simulator / iOS-Android groups often ignore SizeSelectionCallback.
+            object currentGroup = null;
+            var getGroup = sizesType.GetMethod("GetGroup", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var groupEnumType = editorAsm.GetType("UnityEditor.GameViewSizeGroupType");
+            if (getGroup != null && groupEnumType != null)
+            {
+                object standalone = Enum.Parse(groupEnumType, "Standalone");
+                currentGroup = getGroup.Invoke(sizesInstance, new[] { standalone });
+
+                var currentGroupTypeProp = sizesType.GetProperty("currentGroupType",
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                if (currentGroupTypeProp != null && currentGroupTypeProp.CanWrite)
+                    currentGroupTypeProp.SetValue(sizesInstance, standalone, null);
+            }
+
+            currentGroup ??= sizesType.GetProperty("currentGroup")?.GetValue(sizesInstance, null);
             if (currentGroup == null) return;
 
             var groupType = currentGroup.GetType();
@@ -366,6 +549,14 @@ public static class LayoutVerifyRunner
             if (selectedProp != null && selectedProp.CanWrite)
                 selectedProp.SetValue(gameView, index, null);
 
+            var so = new SerializedObject(gameView);
+            var sizeIdxProp = so.FindProperty("m_SelectedSizeIndex");
+            if (sizeIdxProp != null)
+            {
+                sizeIdxProp.intValue = index;
+                so.ApplyModifiedPropertiesWithoutUndo();
+            }
+
             var sizeSelectionCallback = gameViewType.GetMethod("SizeSelectionCallback",
                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
             sizeSelectionCallback?.Invoke(gameView, new object[] { index, null });
@@ -375,8 +566,9 @@ public static class LayoutVerifyRunner
                 BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
             updateZoom?.Invoke(gameView, null);
             gameView.Repaint();
+            gameView.Focus();
 
-            Debug.Log($"[LayoutVerify] GameView → {width}x{height} (index {index}) ScreenNow={Screen.width}x{Screen.height}");
+            Debug.Log($"[LayoutVerify] GameView → {width}x{height} (index {index} text='{texts[index]}') ScreenNow={Screen.width}x{Screen.height}");
         }
         catch (Exception ex)
         {

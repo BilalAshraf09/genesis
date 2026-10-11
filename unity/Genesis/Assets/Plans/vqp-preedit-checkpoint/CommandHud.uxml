@@ -1,0 +1,113 @@
+<!--
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/CommandHud.uss" />
+
+    <!-- Safe-area root: fills the panel, all non-interactive by default -->
+    <ui:VisualElement name="safeRoot" picking-mode="Ignore" class="screen-fill">
+
+        <!-- Unified Command Header: Top Bar + Resource Meters -->
+        <ui:VisualElement name="topContainer" picking-mode="Ignore" class="top-container">
+
+            <ui:VisualElement name="commandHeader" class="command-header">
+                <ui:VisualElement class="header-main-row" picking-mode="Ignore">
+                    <ui:Button name="backButton" class="back-btn">
+                        <ui:Label text="‹" picking-mode="Ignore" />
+                    </ui:Button>
+                    <ui:VisualElement class="header-title-stack" picking-mode="Ignore">
+                        <ui:Label name="opsTag" text="CRISIS LINE" class="ops-tag category-label type-category" picking-mode="Ignore" />
+                        <ui:Label name="titleLabel" text="1914 · EUROPE DESK" class="top-title screen-title type-screen-title" picking-mode="Ignore" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="statusGroup" class="ops-status-cluster" picking-mode="Ignore">
+                        <ui:Label name="phaseLabel" text="PHASE 1/3" class="ops-status-phase type-status-label" picking-mode="Ignore" />
+                        <ui:VisualElement class="ops-status-divider" picking-mode="Ignore" />
+                        <ui:VisualElement class="ops-status-timer-row" picking-mode="Ignore">
+                            <ui:VisualElement class="ops-status-clock" picking-mode="Ignore" />
+                            <ui:Label name="timerLabel" text="0:30" class="ops-status-timer type-status-value" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <!-- Hidden fill kept for OpsHudController timer binding -->
+                        <ui:VisualElement name="timerBar" class="ops-status-timer-bar" picking-mode="Ignore">
+                            <ui:VisualElement name="timerFill" class="ops-timer-fill" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+
+                <ui:VisualElement name="resourceBar" class="ops-resource-bar" picking-mode="Ignore">
+                    <ui:VisualElement name="meterStabPill" class="ops-meter-cell" picking-mode="Ignore">
+                        <ui:VisualElement class="ops-meter-top" picking-mode="Ignore">
+                            <ui:VisualElement class="ops-meter-icon ops-meter-icon--stab" picking-mode="Ignore" />
+                            <ui:Label text="STAB" class="ops-meter-label type-status-label" picking-mode="Ignore" />
+                            <ui:Label name="meterStabValue" text="72%" class="ops-meter-value type-status-value" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="ops-meter-track" picking-mode="Ignore">
+                            <ui:VisualElement name="meterStabFill" class="ops-meter-fill ops-meter-fill--stab" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="ops-meter-divider" picking-mode="Ignore" />
+                    <ui:VisualElement name="meterCredPill" class="ops-meter-cell" picking-mode="Ignore">
+                        <ui:VisualElement class="ops-meter-top" picking-mode="Ignore">
+                            <ui:VisualElement class="ops-meter-icon ops-meter-icon--cred" picking-mode="Ignore" />
+                            <ui:Label text="CRED" class="ops-meter-label type-status-label" picking-mode="Ignore" />
+                            <ui:Label name="meterCredValue" text="58%" class="ops-meter-value type-status-value" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="ops-meter-track" picking-mode="Ignore">
+                            <ui:VisualElement name="meterCredFill" class="ops-meter-fill ops-meter-fill--cred" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="ops-meter-divider" picking-mode="Ignore" />
+                    <ui:VisualElement name="meterTollPill" class="ops-meter-cell" picking-mode="Ignore">
+                        <ui:VisualElement class="ops-meter-top" picking-mode="Ignore">
+                            <ui:VisualElement class="ops-meter-icon ops-meter-icon--toll" picking-mode="Ignore" />
+                            <ui:Label text="TOLL" class="ops-meter-label type-status-label" picking-mode="Ignore" />
+                            <ui:Label name="meterTollValue" text="34%" class="ops-meter-value type-status-value" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="ops-meter-track" picking-mode="Ignore">
+                            <ui:VisualElement name="meterTollFill" class="ops-meter-fill ops-meter-fill--toll" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="ops-meter-divider" picking-mode="Ignore" />
+                    <ui:VisualElement name="meterEscPill" class="ops-meter-cell" picking-mode="Ignore">
+                        <ui:VisualElement class="ops-meter-top" picking-mode="Ignore">
+                            <ui:VisualElement class="ops-meter-icon ops-meter-icon--esc" picking-mode="Ignore" />
+                            <ui:Label text="ESC" class="ops-meter-label type-status-label" picking-mode="Ignore" />
+                            <ui:Label name="meterEscValue" text="21%" class="ops-meter-value type-status-value" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:VisualElement class="ops-meter-track" picking-mode="Ignore">
+                            <ui:VisualElement name="meterEscFill" class="ops-meter-fill ops-meter-fill--esc" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <!-- Soft fade so HUD blends into the map -->
+            <ui:VisualElement class="hud-map-fade" picking-mode="Ignore" />
+
+            <!-- Intel chip: shown when a pin is selected -->
+            <ui:VisualElement name="intelChip" class="glass intel-chip hidden" picking-mode="Ignore">
+                <ui:VisualElement class="intel-accent" picking-mode="Ignore" />
+                <ui:Label text="ℹ" class="intel-icon" picking-mode="Ignore" />
+                <ui:Label name="intelText" text=" " class="intel-body" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <!-- Field brief card: shown 4s at beat start -->
+            <ui:VisualElement name="fieldBrief" class="glass field-brief hidden" picking-mode="Ignore">
+                <ui:Label name="briefHeadline" text="Region" class="brief-headline" picking-mode="Ignore" />
+                <ui:Label name="briefFact" text=" " class="brief-fact" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <!-- Commit toast: shown when execute committed -->
+            <ui:Label name="commitToast" text=" " class="commit-toast hidden" picking-mode="Ignore" />
+
+        </ui:VisualElement>
+
+        <!-- Map spacer: fills all remaining vertical space, fully transparent -->
+        <ui:VisualElement name="mapSpacer" class="flex-grow" picking-mode="Ignore" />
+
+        <!-- Mission complete toast (absolute, centre-screen) -->
+        <ui:Label name="missionToast" text=" " class="mission-toast hidden" picking-mode="Ignore" />
+
+    </ui:VisualElement>
+</ui:UXML>

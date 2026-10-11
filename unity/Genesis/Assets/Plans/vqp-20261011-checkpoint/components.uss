@@ -1,0 +1,282 @@
+/*
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* ============================================================
+   Genesis — component classes
+   Depends on tokens.uss being loaded first (via Genesis.tss)
+   ============================================================ */
+
+/* ---- Layout helpers --------------------------------------- */
+
+.screen {
+    flex-grow: 1;
+}
+
+/* ---- Glass surface ---------------------------------------- */
+
+.glass {
+    background-color: #111A2BDB;
+    border-width: 2px;
+    border-color: #FFFFFF14;
+    border-radius: 24px;
+}
+
+/* ---- Card ------------------------------------------------- */
+
+.card {
+    background-color: #17233A;
+    border-width: 2px;
+    border-color: #FFFFFF14;
+    border-radius: 20px;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.card--selected {
+    border-width: 4px;
+    border-color: #F5A524;
+}
+
+/* ---- Chip ------------------------------------------------- */
+
+.chip {
+    background-color: #17233A;
+    border-radius: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    font-size: 26px;
+    color: #A9B3C4;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.chip--gain {
+    background-color: rgba(63, 185, 122, 0.2);
+    color: #3FB97A;
+    border-color: rgba(63, 185, 122, 0.4);
+}
+
+.chip--cost {
+    background-color: rgba(229, 83, 75, 0.2);
+    color: #E5534B;
+    border-color: rgba(229, 83, 75, 0.4);
+}
+
+.chip--warn {
+    background-color: rgba(245, 165, 36, 0.2);
+    color: #F5A524;
+    border-color: rgba(245, 165, 36, 0.4);
+}
+
+/* ---- Buttons ---------------------------------------------- */
+
+.btn {
+    border-width: 0;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition-duration: 0.12s;
+}
+
+.btn--primary {
+    background-color: #F5A524;
+    height: 120px;
+    border-radius: 20px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.btn--primary > Label {
+    color: #1A1206;
+    font-size: 36px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.btn--secondary {
+    background-color: #17233A;
+    height: 100px;
+    border-width: 2px;
+    border-color: #FFFFFF14;
+}
+
+.btn--secondary > Label {
+    color: #F2EFE6;
+    font-size: 34px;
+}
+
+.btn:active {
+    scale: 0.97 0.97;
+}
+
+/* ---- Typography labels ------------------------------------ */
+
+.label-title {
+    font-size: 44px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.label-body {
+    font-size: 36px;
+    color: #F2EFE6;
+    white-space: normal;
+}
+
+.label-caption {
+    font-size: 30px;
+    color: #A9B3C4;
+}
+
+.label-muted {
+    font-size: 30px;
+    color: #6E7A8F;
+}
+
+/* ---- Semantic theater type (Inter, 882×1784 targets) ------
+   Canonical .type-* classes (plan) + legacy aliases kept in sync. */
+
+.type-screen-title,
+.screen-title {
+    font-size: var(--type-screen-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.type-section-title,
+.panel-title {
+    font-size: var(--type-panel-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.type-card-title,
+.card-title {
+    font-size: var(--type-card-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
+    white-space: normal;
+    -unity-text-align: upper-left;
+}
+
+.type-body,
+.body-copy {
+    font-size: var(--type-body);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
+    white-space: normal;
+}
+
+.type-secondary {
+    font-size: var(--type-secondary);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
+    white-space: normal;
+}
+
+.type-category,
+.category-label {
+    font-size: var(--type-category);
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-meta);
+    white-space: nowrap;
+}
+
+.type-effect-badge,
+.effect-label {
+    font-size: var(--type-effect);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-numeric);
+    white-space: nowrap;
+}
+
+/* Status meters + timer — SemiBold stands in for Medium (no Medium SDF bundled).
+   Digit width: Inter + restrained tracking; OpenType tnum not exposed via UITK USS. */
+.type-status-label,
+.meta-label {
+    font-size: var(--type-meta);
+    color: var(--color-text-secondary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-meta);
+    white-space: nowrap;
+}
+
+.type-status-value,
+.numeric-value {
+    font-size: var(--type-numeric);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-numeric);
+    white-space: nowrap;
+    -unity-text-align: middle-right;
+}
+
+.content-constrain {
+    width: 100%;
+    max-width: var(--content-max-width);
+    align-self: center;
+}
+
+/* ---- Meter bar -------------------------------------------- */
+
+.meter {
+    height: 12px;
+    background-color: #17233A;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.meter__fill {
+    flex-grow: 0;
+    height: 12px;
+    background-color: #F5A524;
+    border-radius: 6px;
+    transition-duration: 0.3s;
+}
+
+/* ---- Bottom sheet ----------------------------------------- */
+
+.sheet {
+    background-color: #111A2BDB;
+    border-width: 2px;
+    border-color: #FFFFFF14;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 32px;
+}
+
+/* ---- Divider ---------------------------------------------- */
+
+.divider {
+    height: 2px;
+    background-color: #FFFFFF14;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+}

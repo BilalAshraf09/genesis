@@ -1,0 +1,215 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+namespace Genesis.UI.Toolkit
+{
+    /// <summary>
+    /// Controls the bottom sheet element with three snap heights:
+    ///   Peek  = OrderSheetLayout.PeekSheetHeight (cards + execute, no gap)
+    ///   Half  ≈ 55 % of panel height
+    ///   Full  ≈ 72 % of panel height (max order detail)
+    /// Animates via <c>style.height</c>; the CSS <c>transition-duration: 0.22s</c>
+    /// already defined on <c>.order-sheet</c> provides the easing.
+    /// Drag on the drag-handle snaps to the nearest height.
+    /// Never fully hides the map — Peek is the minimum shown state.
+    /// </summary>
+    public sealed class BottomSheet
+    {
+        // ── Snap enum ─────────────────────────────────────────────────────────
+        public enum SnapState { Hidden, Peek, Half, Full }
+
+        // Peek from OrderSheetLayout (map-first ~32–36%); Half/Full for more detail.
+        const float HalfPct = 0.50f;
+        const float FullPct = 0.70f;
+        const float HalfMinPx = 420f;
+        const float FullMinPx = 520f;
+
+        // ── Drag threshold (px) to register a directional swipe ─────────────
+        const float DragThreshold = 28f;
+
+        // ── References ────────────────────────────────────────────────────────
+        readonly VisualElement _sheet;
+        readonly VisualElement _rootForHeight;
+
+        // ── State ─────────────────────────────────────────────────────────────
+        SnapState _state = SnapState.Hidden;
+        float _panelHeight = 667f;    // fallback until geometry resolves
+        float _dragStartY;
+        float _sheetStartH;
+        bool  _dragging;
+        int   _dragPointerId = -1;
+
+        public SnapState State => _state;
+        public bool IsVisible  => _state != SnapState.Hidden;
+
+        /// <summary>Raised whenever the snap state changes.</summary>
+        public event Action<SnapState> StateChanged;
+
+        // ── Constructor ───────────────────────────────────────────────────────
+        public BottomSheet(VisualElement sheet, VisualElement dragHandle, VisualElement heightRoot)
+        {
+            _sheet          = sheet  ?? throw new ArgumentNullException(nameof(sheet));
+            _rootForHeight  = heightRoot ?? sheet.parent ?? sheet;
+
+            // Resolve panel height whenever the root layout changes.
+            _rootForHeight.RegisterCallback<GeometryChangedEvent>(OnRootGeometry);
+
+            // Wire drag events on the drag handle.
+            if (dragHandle != null)
+            {
+                dragHandle.pickingMode = PickingMode.Position;
+                dragHandle.RegisterCallback<PointerDownEvent>(OnHandleDown);
+                dragHandle.RegisterCallback<PointerMoveEvent>(OnHandleMove);
+                dragHandle.RegisterCallback<PointerUpEvent>(OnHandleUp);
+                dragHandle.RegisterCallback<PointerCancelEvent>(OnHandleCancel);
+            }
+        }
+
+        // ── Public API ────────────────────────────────────────────────────────
+        public void Show()           => SnapTo(SnapState.Peek, immediate: true);
+        public void Hide()           => SnapTo(SnapState.Hidden, immediate: true);
+        public void Expand()         => SnapTo(SnapState.Half);
+        public void Collapse()       => SnapTo(SnapState.Peek);
+
+        public void SnapTo(SnapState state, bool immediate = false)
+        {
+            _state = state;
+
+            if (state == SnapState.Hidden)
+            {
+                _sheet.AddToClassList("hidden");
+                _sheet.style.height = StyleKeyword.Auto;
+                StateChanged?.Invoke(state);
+                return;
+            }
+
+            _sheet.RemoveFromClassList("hidden");
+
+            float targetH = StateToHeight(state);
+            ApplyHeight(targetH, immediate);
+            StateChanged?.Invoke(state);
+        }
+
+        // ── Geometry tracking ─────────────────────────────────────────────────
+        void OnRootGeometry(GeometryChangedEvent evt)
+        {
+            float h = evt.newRect.height;
+            if (h > 1f) _panelHeight = h;
+
+            // Re-apply current state with updated dimensions (no transition — Game View
+            // / safe-area resizes must land on the exact peek height immediately).
+            if (_state != SnapState.Hidden)
+                ApplyHeight(StateToHeight(_state), immediate: true);
+        }
+
+        void ApplyHeight(float targetH, bool immediate)
+        {
+            if (immediate)
+            {
+                // Kill USS transition so verify / geometry changes don't sample mid-tween.
+                _sheet.style.transitionDuration = new List<TimeValue> { new TimeValue(0) };
+                _sheet.style.height = targetH;
+                _sheet.schedule.Execute(() =>
+                {
+                    _sheet.style.transitionDuration = StyleKeyword.Null;
+                }).StartingIn(32);
+            }
+            else
+            {
+                _sheet.style.height = targetH;
+            }
+        }
+
+        // ── Drag handle events ────────────────────────────────────────────────
+        void OnHandleDown(PointerDownEvent evt)
+        {
+            _dragging       = true;
+            _dragStartY     = evt.position.y;
+            _sheetStartH    = _sheet.resolvedStyle.height;
+            _dragPointerId  = evt.pointerId;
+            ((VisualElement)evt.target).CapturePointer(evt.pointerId);
+            evt.StopPropagation();
+        }
+
+        void OnHandleMove(PointerMoveEvent evt)
+        {
+            if (!_dragging) return;
+            // Positive dy → dragging up (expanding sheet).
+            float dy      = _dragStartY - evt.position.y;
+            float maxH    = _panelHeight * FullPct * 1.05f;
+            float newH    = Mathf.Clamp(_sheetStartH + dy, 0f, maxH);
+            _sheet.style.height = newH;
+            evt.StopPropagation();
+        }
+
+        void OnHandleUp(PointerUpEvent evt)
+        {
+            if (!_dragging) return;
+            float dy = _dragStartY - evt.position.y;
+            FinishDrag(dy);
+            ((VisualElement)evt.target).ReleasePointer(evt.pointerId);
+            _dragging      = false;
+            _dragPointerId = -1;
+            evt.StopPropagation();
+        }
+
+        void OnHandleCancel(PointerCancelEvent evt)
+        {
+            if (!_dragging) return;
+            _dragging      = false;
+            _dragPointerId = -1;
+            SnapTo(_state); // restore
+        }
+
+        void FinishDrag(float dy)
+        {
+            float peekH = StateToHeight(SnapState.Peek);
+            float halfH = StateToHeight(SnapState.Half);
+            float fullH = StateToHeight(SnapState.Full);
+            float currH = _sheet.resolvedStyle.height;
+
+            SnapState target;
+            if (dy > DragThreshold)          // dragged up → expand
+            {
+                target = _state switch
+                {
+                    SnapState.Peek => SnapState.Half,
+                    SnapState.Half => SnapState.Full,
+                    _              => SnapState.Full
+                };
+            }
+            else if (dy < -DragThreshold)    // dragged down → collapse
+            {
+                target = _state switch
+                {
+                    SnapState.Full => SnapState.Half,
+                    SnapState.Half => SnapState.Peek,
+                    _              => SnapState.Peek
+                };
+            }
+            else                             // small move → snap to nearest
+            {
+                float dPeek = Mathf.Abs(currH - peekH);
+                float dHalf = Mathf.Abs(currH - halfH);
+                float dFull = Mathf.Abs(currH - fullH);
+                float minD  = Mathf.Min(dPeek, Mathf.Min(dHalf, dFull));
+                target = minD == dPeek ? SnapState.Peek
+                       : minD == dHalf ? SnapState.Half
+                       :                 SnapState.Full;
+            }
+
+            SnapTo(target);
+        }
+
+        // ── Helpers ───────────────────────────────────────────────────────────
+        float StateToHeight(SnapState state) => state switch
+        {
+            SnapState.Peek => OrderSheetLayout.PeekSheetHeight(_panelHeight),
+            SnapState.Half => Mathf.Clamp(_panelHeight * HalfPct, HalfMinPx, _panelHeight * 0.55f),
+            SnapState.Full => Mathf.Clamp(_panelHeight * FullPct, FullMinPx, _panelHeight * 0.75f),
+            _              => 0f
+        };
+    }
+}

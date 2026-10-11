@@ -19,13 +19,21 @@ namespace Genesis.UI.Toolkit
 
         public const float SheetPadHRef       = 16f;
         public const float HandleRef          = 18f;
-        public const float HeaderRef          = 78f;
-        public const float ScrollGapTopRef    = 10f;
-        public const float ScrollGapBottomRef = 12f;
-        public const float HoldHeightRef      = 96f;
-        public const float GestureMinRef      = 16f;
-        public const float CardHeightMinRef   = 156f;
-        public const float CardHeightMaxRef   = 190f;
+        // .drag-handle margin-top in OrderSheet.uss — must be in peek math or the
+        // sheet overshoots content and parks navy under HOLD TO COMMIT.
+        public const float HandleMarginTopRef = 8f;
+        // Matches .sheet-header max-height (eyebrow + place + beat).
+        public const float HeaderRef          = 88f;
+        public const float ScrollGapTopRef    = 8f;
+        public const float ScrollGapBottomRef = 10f;
+        public const float HoldHeightRef      = 92f;
+        public const float GestureMinRef      = 12f;
+        // Content-driven band: header + multi-line title + desc + deltas + pad.
+        // Sized so Peek lands near ~36% panel — matches TheaterCameraRig portrait
+        // map-band framing (HUD ~14% / sheet ~36%). Keep min≈max so the card rail
+        // absorbs peek height (badges pin via margin-top:auto; no navy under HOLD).
+        public const float CardHeightMinRef   = 380f;
+        public const float CardHeightMaxRef   = 390f;
         public const float CardGapRef         = 10f;
         public const float CardWidthFloor     = 110f;
         public const float ScrollCardWidthRef = 148f;
@@ -107,26 +115,43 @@ namespace Genesis.UI.Toolkit
 
         /// <summary>
         /// Bottom safe-area inset in panel coordinates (not raw screen pixels).
+        /// Clamped — ScreenToPanel can return huge garbage when Game View size
+        /// disagrees with the panel scale, which previously inflated gestureSpacer
+        /// to 200+ panel units and stranded HOLD TO COMMIT above empty navy.
         /// </summary>
+        public const float SafeAreaBottomMaxPanel = 40f;
+
         public static float SafeAreaBottomPanel(IPanel panel)
         {
             if (panel == null || Screen.width <= 0 || Screen.height <= 0)
                 return 0f;
 
-            Rect safeArea = Screen.safeArea;
-            Vector2 safeMax = RuntimePanelUtils.ScreenToPanel(panel,
-                new Vector2(safeArea.xMax, Screen.height - safeArea.yMin));
-            float panelBottom = RuntimePanelUtils.ScreenToPanel(panel,
-                new Vector2(0f, Screen.height)).y;
-            return Mathf.Max(0f, panelBottom - safeMax.y);
+            // Unity: safeArea.y is the bottom inset in screen pixels (bottom-left origin).
+            float bottomPixels = Mathf.Max(0f, Screen.safeArea.y);
+            if (bottomPixels < 0.5f)
+                return 0f;
+
+            // Convert using the same X so Y only reflects the inset distance.
+            Vector2 atBottom = RuntimePanelUtils.ScreenToPanel(panel, new Vector2(0f, 0f));
+            Vector2 atSafe = RuntimePanelUtils.ScreenToPanel(panel, new Vector2(0f, bottomPixels));
+            float inset = Mathf.Abs(atSafe.y - atBottom.y);
+            if (float.IsNaN(inset) || float.IsInfinity(inset))
+                return 0f;
+
+            return Mathf.Clamp(inset, 0f, SafeAreaBottomMaxPanel);
         }
 
         public static float PeekSheetHeight(float panelHeight)
         {
             float s = PanelScale(panelHeight);
-            float want = (HandleRef + HeaderRef + ScrollGapTopRef + ScrollGapBottomRef
-                          + CardHeightMinRef + HoldHeightRef + GestureMinRef + 18f) * s;
-            return Mathf.Clamp(want, panelHeight * 0.34f, panelHeight * 0.40f);
+            // Content-driven peek: handle (+margin) + header + readable cards + hold + inset.
+            // Do NOT raise above want — a floor taller than CardHeightMax parks navy
+            // under HOLD TO COMMIT. Cap so the map stays ≥ ~60% of panel.
+            // +12 covers urgency hairline + margin rounding so content fits inside sheet.
+            float want = (HandleRef + HandleMarginTopRef + HeaderRef
+                          + ScrollGapTopRef + ScrollGapBottomRef
+                          + CardHeightMinRef + HoldHeightRef + GestureMinRef + 12f) * s;
+            return Mathf.Min(want, panelHeight * 0.40f);
         }
 
         /// <param name="contentWidth">Sheet/panel resolved width (includes padding box).</param>
@@ -142,8 +167,13 @@ namespace Genesis.UI.Toolkit
             float gapTop = Scaled(ScrollGapTopRef, panelHeight);
             float gapBottom = Scaled(ScrollGapBottomRef, panelHeight);
             float holdH = Scaled(HoldHeightRef, panelHeight);
-            float gesture = Mathf.Max(Scaled(GestureMinRef, panelHeight), safeAreaBottomPanel);
-            float handle = Scaled(HandleRef, panelHeight);
+            // Aesthetic inset only. Device home-indicator / notch insets are already
+            // applied by SafeAreaRoot on the panel root — adding SafeAreaBottomPanel
+            // here double-counts and parks a navy band under HOLD TO COMMIT.
+            // (safeAreaBottomPanel kept on the signature for diagnostics/callers.)
+            _ = safeAreaBottomPanel;
+            float gesture = Scaled(GestureMinRef, panelHeight);
+            float handle = Scaled(HandleRef, panelHeight) + Scaled(HandleMarginTopRef, panelHeight);
             float header = measuredHeaderPx > 1f
                 ? measuredHeaderPx
                 : Scaled(HeaderRef, panelHeight);
@@ -151,9 +181,12 @@ namespace Genesis.UI.Toolkit
             float reserved = handle + header + gapTop + gapBottom + holdH + gesture;
             float scrollH = Mathf.Max(Scaled(120f, panelHeight), sheetHeight - reserved);
 
-            float cardH = Mathf.Clamp(scrollH - 4f,
-                Scaled(CardHeightMinRef, panelHeight),
-                Scaled(CardHeightMaxRef, panelHeight));
+            float cardMin = Scaled(CardHeightMinRef, panelHeight);
+            float cardMax = Scaled(CardHeightMaxRef, panelHeight);
+            // Allow the rail to grow up to the remaining peek budget so slack never
+            // becomes a navy band under HOLD. Soft ceiling ≈ cardMax + 48.
+            float absorbMax = Mathf.Max(cardMax, cardMin + Scaled(48f, panelHeight));
+            float cardH = Mathf.Clamp(scrollH - 4f, cardMin, absorbMax);
             if (cardH > scrollH) cardH = scrollH;
             scrollH = cardH;
 
@@ -194,7 +227,7 @@ namespace Genesis.UI.Toolkit
 
             // Hide secondary body copy only when columns are genuinely tight.
             bool compact = mode == RailMode.ScrollRow
-                           || (mode == RailMode.EqualRow && (equalW < 150f || cardH < Scaled(168f, panelHeight)));
+                           || (mode == RailMode.EqualRow && (equalW < 150f || cardH < Scaled(200f, panelHeight)));
 
             return new Metrics
             {

@@ -112,10 +112,21 @@ namespace Genesis.UI
 
         bool TryBuildUi()
         {
-            if (_bottomSheet != null && _holdButton != null && _root != null) return true;
-
             EnsureDocument();
             if (_root == null) return false;
+
+            // Soft domain reload can leave managed refs to detached VisualElements.
+            if (_holdButton != null && (_holdButton.panel == null || _holdButton.parent == null))
+            {
+                _holdButton = null;
+                _bottomSheet = null;
+                _layoutCallbacksRegistered = false;
+                _cards.Clear();
+            }
+
+            if (_bottomSheet != null && _holdButton != null
+                && _holdButton.panel != null && _cardRail != null && _cardRail.panel != null)
+                return true;
 
             BindElements();
             if (_sheet == null || _holdButtonContainer == null || _cardRail == null)
@@ -225,6 +236,7 @@ namespace Genesis.UI
 
             UpdatePlaceName(orders);
             _bottomSheet?.Show();
+            SyncResponsiveLayout();
             RequestLayoutSync();
             _root?.schedule.Execute(RequestLayoutSync).StartingIn(48);
 
@@ -315,8 +327,21 @@ namespace Genesis.UI
             // sheet.resolvedStyle.width that may still carry a prior max-width cap.
             float contentW = _panelWidth;
 
+            float peekH = OrderSheetLayout.PeekSheetHeight(_panelHeight);
             float sheetH = _sheet.resolvedStyle.height;
-            if (sheetH < 80f) sheetH = OrderSheetLayout.PeekSheetHeight(_panelHeight);
+            if (sheetH < 80f) sheetH = peekH;
+
+            // Peek is the production snap — keep style.height locked to content-driven
+            // peek so transition/overshoot cannot leave a navy band under HOLD.
+            if (_bottomSheet == null || _bottomSheet.State == BottomSheet.SnapState.Peek)
+            {
+                sheetH = peekH;
+                _sheet.style.transitionDuration = new System.Collections.Generic.List<TimeValue>
+                {
+                    new TimeValue(0)
+                };
+                _sheet.style.height = peekH;
+            }
 
             float safeBottom = OrderSheetLayout.SafeAreaBottomPanel(_root.panel);
             int cardCount = Mathf.Max(1, _cards.Count);

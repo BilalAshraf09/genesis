@@ -1,0 +1,7 @@
+peekTarget=661.6 pct=35.9
+sheet=NaN styleH=266.8px
+rail=NaN hold=NaN spacer=NaN gap=NaN
+cards=3
+  c0=NaNxNaN t='Endorse with a 48-hour mediation rider' d='Support firmness but force a pause clock.'
+  c1=NaNxNaN t='Full public endorsement' d='Match the ally’s maximal text.'
+  c2=NaNxNaN t='Quietly urge softer terms' d='Private pressure, public silence.'

@@ -15,7 +15,9 @@ namespace Genesis.Atlas
     {
         // Visible band constants (fraction of screen height from top)
         const float HudBandTop    = 0.15f;  // below the top HUD bar
-        const float SheetBandBottom = 0.42f; // matches PeekPct (0.38) + margin
+        // Fallback when OrderSheet geometry is unavailable. Prefer live sheet height.
+        // Matches TheaterCameraRig + OrderSheetLayout peek (~36% panel) + small margin.
+        const float SheetBandBottomFallback = 0.36f;
         const int MaxPinLabels    = 4;
         const float LabelDotOffsetX = 12f;  // px right of the projected dot centre
         const float LabelDotOffsetY = -16f; // px up from the projected dot centre
@@ -245,6 +247,7 @@ namespace Genesis.Atlas
                 var title = new Label(display.ToUpperInvariant());
                 title.pickingMode = PickingMode.Ignore;
                 title.AddToClassList("pin-fact-title");
+                title.AddToClassList("type-card-title");
                 bubble.Add(title);
 
                 var bodyRow = new VisualElement();
@@ -261,6 +264,7 @@ namespace Genesis.Atlas
                 var fact = new Label(factText);
                 fact.pickingMode = PickingMode.Ignore;
                 fact.AddToClassList("pin-fact-body");
+                fact.AddToClassList("type-secondary");
                 bodyRow.Add(fact);
                 bubble.Add(bodyRow);
 
@@ -297,7 +301,7 @@ namespace Genesis.Atlas
             EnsurePinsBuilt();
             if (_pinEntries.Count == 0) return;
 
-            var proj = _builder.Projection;
+            var proj = _builder.EnsureProjection();
             if (proj == null) return;
 
             var panel = _root.panel;
@@ -307,9 +311,12 @@ namespace Genesis.Atlas
             float panelH = _root.resolvedStyle.height;
             if (panelW < 1f || panelH < 1f) return;
 
-            // Visible band in panel pixels (top-down from panel top)
-            float bandTopPx    = HudBandTop     * panelH;
-            float bandBottomPx = (1f - SheetBandBottom) * panelH;
+            // Visible band in panel pixels (top-down from panel top).
+            // Derive the sheet occlusion from the live OrderSheet height when possible
+            // so callouts stay in the open map band after peek/typography changes.
+            float sheetFrac = ResolveSheetBandFraction(panelH);
+            float bandTopPx    = HudBandTop * panelH;
+            float bandBottomPx = (1f - sheetFrac) * panelH;
 
             _activeBubbleRect = Rect.zero;
             _placedPinRects.Clear();
@@ -319,6 +326,19 @@ namespace Genesis.Atlas
 
             // --- Country labels second (culled against pin labels and bubble) ---
             UpdateCountryLabels(proj, panel, bandTopPx, bandBottomPx, panelW);
+        }
+
+        static float ResolveSheetBandFraction(float panelH)
+        {
+            if (panelH < 1f) return SheetBandBottomFallback;
+
+            // Prefer peek math (cheap, no scene scan) so LateUpdate never depends on
+            // FindObjectsByType after soft reload. Matches OrderSheetLayout peek ≈ 36%.
+            float peek = OrderSheetLayout.PeekSheetHeight(panelH);
+            if (peek > 40f)
+                return Mathf.Clamp((peek / panelH) + 0.02f, 0.22f, 0.42f);
+
+            return SheetBandBottomFallback;
         }
 
         static bool TryWorldToPanel(IPanel panel, Camera cam, Vector3 worldPos, out Vector2 panelPos)
@@ -543,6 +563,7 @@ namespace Genesis.Atlas
 
                     entry.FactBubble.style.display = DisplayStyle.Flex;
                     entry.FactBubble.style.visibility = Visibility.Visible;
+                    entry.FactBubble.style.opacity = 1f;
                     entry.FactBubble.BringToFront();
 
                     // Keep callout inside the map band; scale width with panel.
@@ -556,14 +577,21 @@ namespace Genesis.Atlas
                     float bubbleH = entry.FactBubble.resolvedStyle.height;
                     if (bubbleH < 1f) bubbleH = 64f;
 
-                    // Prefer above the marker; stay inside the open map band.
+                    // Prefer above the marker. Selected callouts may use the full open
+                    // map band even when the pin sits near the sheet edge.
                     float gap = 10f;
-                    float targetY = panelPos.y - bubbleH - gap;
                     float minY = bandTopPx + 4f;
                     float maxY = Mathf.Max(minY, bandBottomPx - bubbleH - 4f);
-                    if (targetY < minY)
-                        targetY = Mathf.Min(panelPos.y + gap + 6f, maxY);
-                    targetY = Mathf.Clamp(targetY, minY, maxY);
+                    float above = panelPos.y - bubbleH - gap;
+                    float below = panelPos.y + gap + 6f;
+                    float targetY;
+                    if (above >= minY && above <= maxY)
+                        targetY = above;
+                    else if (below >= minY && below <= maxY)
+                        targetY = below;
+                    else
+                        // Pin near sheet: park callout in the upper map band, still readable.
+                        targetY = Mathf.Clamp(minY + (maxY - minY) * 0.35f, minY, maxY);
 
                     entry.FactBubble.style.top = Length.Pixels(targetY);
                     _activeBubbleRect = new Rect(clampedX - 12f, targetY - 12f, bw + 24f, bubbleH + 24f);

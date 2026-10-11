@@ -1,0 +1,645 @@
+/*
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
+OrderSheet — Europe Desk decision drawer (Brussels Crisis Line reference).
+Unity USS: no sibling combinators (+/~).
+*/
+
+.screen-fill {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---- Sheet shell ---------------------------------------- */
+
+.order-sheet {
+    flex-direction: column;
+    background-color: rgba(11, 18, 32, 0.985);
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.10);
+    border-bottom-width: 0;
+    transition-duration: 0.22s;
+    overflow: hidden;
+    max-height: 90%;
+    min-height: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+    align-self: stretch;
+}
+
+.sheet-urgency-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    background-color: #F5A524;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.3s;
+}
+
+.sheet--warn .sheet-urgency-line {
+    opacity: 1;
+    background-color: #F5A524;
+}
+
+.sheet--urgent .sheet-urgency-line {
+    opacity: 1;
+    background-color: #E5534B;
+}
+
+.drag-handle {
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 8px;
+}
+
+.drag-pill {
+    width: 44px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.28);
+    border-radius: 2px;
+}
+
+/* ---- Header --------------------------------------------- */
+
+.sheet-header {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    flex-shrink: 0;
+    min-height: 76px;
+    max-height: 98px;
+    width: 100%;
+    padding-bottom: 0;
+    overflow: hidden;
+}
+
+.sheet-eyebrow {
+    font-size: var(--type-category);
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-meta);
+    margin-bottom: 2px;
+    flex-shrink: 0;
+}
+
+.place-name-label {
+    font-size: var(--type-panel-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
+    flex-shrink: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.beat-title-label {
+    font-size: var(--type-body);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
+    flex-shrink: 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -unity-text-align: middle-left;
+}
+
+/* ---- Card rail (horizontal) ----------------------------- */
+
+.card-rail {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-rail--scroll {
+    overflow: hidden;
+    position: relative;
+}
+
+.card-rail__scroll-hint {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    background-color: rgba(11, 18, 32, 0.55);
+    display: none;
+}
+
+.card-rail--stack {
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card-rail__content {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-shrink: 1;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+}
+
+/* ---- Order card ----------------------------------------- */
+
+.order-card {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 0%;
+    align-self: stretch;
+    min-width: 0;
+    margin-right: 0;
+    flex-direction: column;
+    padding: 0;
+    background-color: rgba(17, 26, 43, 0.98);
+    border-radius: 16px;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.10);
+    overflow: hidden;
+    transition-duration: 0.14s;
+    position: relative;
+}
+
+.order-card__glow {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    border-radius: 16px;
+    border-width: 0;
+    transition-duration: 0.2s;
+}
+
+.order-card__body {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    flex-direction: column;
+    padding: 12px 11px 10px 11px;
+    position: relative;
+}
+
+.order-card--selected {
+    background-color: rgba(23, 35, 58, 0.99);
+    /* Keep border-width identical to unselected so flex columns stay equal width */
+    border-width: 2px;
+    border-color: #F5A524;
+}
+
+.order-card--selected .order-card__glow {
+    border-width: 0;
+}
+
+.order-card--compact .order-card__body {
+    padding: 12px 10px 10px 10px;
+}
+
+.order-card__header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    margin-bottom: 12px;
+    min-height: 30px;
+}
+
+.order-card__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+    margin-right: 6px;
+    flex-shrink: 0;
+    background-size: contain;
+    -unity-background-scale-mode: scale-to-fit;
+    background-color: transparent;
+}
+
+.order-card__icon--political {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_political.png");
+}
+.order-card__icon--diplomatic {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_diplomatic.png");
+}
+.order-card__icon--people {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_people.png");
+}
+.order-card__icon--military {
+    background-image: url("project://database/Assets/UI/Textures/Icons/icon_esc.png");
+}
+
+.order-card__kind {
+    font-size: var(--type-category);
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-meta);
+    background-color: rgba(11, 18, 32, 0.95);
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: rgba(90, 169, 230, 0.4);
+    padding: 4px 9px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+.order-card--military .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(229, 83, 75, 0.35);
+}
+.order-card--diplomatic .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(90, 169, 230, 0.35);
+}
+.order-card--political .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(245, 165, 36, 0.25);
+}
+.order-card--covert .order-card__kind {
+    color: #F2EFE6;
+}
+.order-card--economic .order-card__kind {
+    color: #F2EFE6;
+    border-color: rgba(63, 185, 122, 0.35);
+}
+
+.order-card__title {
+    font-size: var(--type-card-title);
+    color: #FFFFFF;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
+    white-space: normal;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    max-height: 78px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    -unity-text-align: upper-left;
+}
+
+.order-card--compact .order-card__title {
+    font-size: var(--type-card-title);
+    max-height: 74px;
+    -unity-text-align: middle-left;
+}
+
+.order-card__desc {
+    font-size: var(--type-secondary);
+    color: var(--color-text-secondary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
+    white-space: normal;
+    flex-grow: 0;
+    flex-shrink: 1;
+    min-height: 0;
+    max-height: 52px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    opacity: 0.95;
+}
+
+.order-card--compact .order-card__desc {
+    display: none;
+}
+
+.order-card__deltas {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    margin-top: auto;
+    min-height: 28px;
+    flex-wrap: wrap;
+}
+
+.delta-pill {
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 8px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    border-radius: 10px;
+    background-color: rgba(63, 185, 122, 0.22);
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.delta-pill__label {
+    font-size: var(--type-effect);
+    color: #3FB97A;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-numeric);
+    white-space: nowrap;
+}
+
+.delta-pill--gain {
+    border-width: 0;
+    background-color: rgba(63, 185, 122, 0.22);
+}
+.delta-pill--gain .delta-pill__label {
+    color: #3FB97A;
+}
+
+.delta-pill--cost {
+    border-width: 0;
+    background-color: rgba(229, 83, 75, 0.22);
+}
+.delta-pill--cost .delta-pill__label {
+    color: #E5534B;
+}
+
+.delta-pill--warn {
+    border-width: 0;
+    background-color: rgba(245, 165, 36, 0.22);
+}
+.delta-pill--warn .delta-pill__label {
+    color: #F5A524;
+}
+
+.delta-pill--info {
+    border-width: 0;
+    background-color: rgba(90, 169, 230, 0.22);
+}
+.delta-pill--info .delta-pill__label {
+    color: #5AA9E6;
+}
+
+/* ---- Hold / commit -------------------------------------- */
+
+.hold-button-container {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-self: stretch;
+    margin-bottom: 0;
+    overflow: visible;
+    padding-top: 4px;
+}
+
+.hold-button-container > .hold-btn {
+    width: 100%;
+}
+
+.gesture-spacer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 12px;
+}
+
+/* Override Unity default .unity-button chrome so armed orange wins */
+.hold-btn {
+    flex-grow: 1;
+    flex-shrink: 0;
+    align-self: stretch;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 92px;
+    border-radius: 20px;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(20, 25, 35, 0.9);
+    background-image: none;
+    /* Visible so primary + subtitle both stay inside the orange CTA */
+    overflow: visible;
+    position: relative;
+    transition-duration: 0.14s;
+}
+
+.hold-btn__fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background-color: rgba(11, 18, 32, 0.18);
+    border-radius: 0;
+}
+
+.hold-btn--armed {
+    background-color: #F5A524;
+    border-width: 0;
+    border-color: rgba(0, 0, 0, 0);
+    background-image: none;
+}
+
+.hold-btn--armed .hold-btn__label {
+    color: #0B1220;
+}
+
+.hold-btn--armed .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--armed .hold-btn__arrow {
+    color: #0B1220;
+}
+
+.hold-btn--holding {
+    background-color: #E89612;
+    border-width: 0;
+    background-image: none;
+    translate: 0 1px;
+}
+
+.hold-btn--holding .hold-btn__label {
+    color: #0B1220;
+}
+
+.hold-btn--holding .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--holding .hold-btn__arrow {
+    color: #0B1220;
+}
+
+.hold-btn--success {
+    background-color: #3FB97A;
+    border-width: 0;
+    background-image: none;
+}
+
+.hold-btn--success .hold-btn__fill {
+    width: 100%;
+    background-color: rgba(11, 18, 32, 0.12);
+}
+
+.hold-btn--success .hold-btn__label {
+    color: #0B1220;
+}
+
+.hold-btn--success .hold-btn__sublabel {
+    color: rgba(11, 18, 32, 0.75);
+}
+
+.hold-btn--success .hold-btn__arrow {
+    color: #0B1220;
+}
+
+.hold-btn--idle {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.12);
+    background-image: none;
+}
+
+.hold-btn--locked {
+    opacity: 0.5;
+}
+
+.hold-btn__ring-canvas {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    margin-left: 16px;
+    margin-right: 12px;
+}
+
+.hold-btn__label {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    font-size: var(--type-hold);
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: middle-left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+    letter-spacing: var(--track-meta);
+}
+
+.hold-btn__sublabel {
+    font-size: var(--type-hold-sub);
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    -unity-text-align: middle-left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+    margin-top: 2px;
+    min-height: 16px;
+    flex-shrink: 0;
+    opacity: 1;
+}
+
+.hold-btn--idle .hold-btn__label,
+.hold-btn--locked .hold-btn__label {
+    color: #6E7A8F;
+}
+
+.hold-btn--idle .hold-btn__sublabel,
+.hold-btn--locked .hold-btn__sublabel {
+    color: #6E7A8F;
+}
+
+.hold-btn--idle .hold-btn__arrow,
+.hold-btn--locked .hold-btn__arrow {
+    color: #6E7A8F;
+}
+
+.hold-btn__text-col {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    margin-right: 8px;
+}
+
+.hold-btn__arrow {
+    font-size: 22px;
+    color: #0B1220;
+    flex-shrink: 0;
+    margin-right: 18px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.hold-btn__sublabel.hidden {
+    display: none;
+}
+
+/* Narrow phones — scrollable card rail, tighter sheet chrome */
+@media (max-width: 360px) {
+    .order-sheet {
+        padding-left: 12px;
+        padding-right: 12px;
+        max-width: none;
+        border-top-left-radius: 22px;
+        border-top-right-radius: 22px;
+    }
+
+    .sheet-header {
+        min-height: 64px;
+        max-height: 84px;
+    }
+
+    .place-name-label {
+        font-size: 23px;
+    }
+
+    .order-card__title {
+        font-size: 14px;
+    }
+
+    .order-card__desc {
+        font-size: 13px;
+    }
+
+    .hold-btn {
+        min-height: 84px;
+        border-radius: 16px;
+    }
+
+    .hold-btn__label {
+        font-size: 16px;
+    }
+
+    .hold-btn__sublabel {
+        font-size: 12px;
+    }
+}
+
+/* Do NOT use panel-unit min-width:600 here — ScaleWithScreenSize reports
+   ~800+ panel units on phones. Tablet cap uses C# LogicalScreenWidth() (not raw pixels). */

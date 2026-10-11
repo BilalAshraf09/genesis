@@ -21,9 +21,9 @@ Hierarchy: flashpoint → compare orders → hold to commit.
             </ui:VisualElement>
 
             <ui:VisualElement name="sheetHeader" class="sheet-header" picking-mode="Ignore">
-                <ui:Label text="FLASHPOINT" class="sheet-eyebrow category-label" picking-mode="Ignore" />
-                <ui:Label name="placeNameLabel" text="BRUSSELS" class="place-name-label panel-title" picking-mode="Ignore" />
-                <ui:Label name="beatTitleLabel" text="Choose your action — it can shape the outcome." class="beat-title-label body-copy" picking-mode="Ignore" />
+                <ui:Label text="FLASHPOINT" class="sheet-eyebrow category-label type-category" picking-mode="Ignore" />
+                <ui:Label name="placeNameLabel" text="BRUSSELS" class="place-name-label panel-title type-section-title" picking-mode="Ignore" />
+                <ui:Label name="beatTitleLabel" text="Choose your action — it can shape the outcome." class="beat-title-label body-copy type-body" picking-mode="Ignore" />
             </ui:VisualElement>
 
             <ui:VisualElement name="cardRail" class="card-rail" />

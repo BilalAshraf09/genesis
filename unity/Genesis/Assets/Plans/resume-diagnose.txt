@@ -1,0 +1,27 @@
+Screen=1965x1624 dpi=266
+doc=OrderSheet panelH=1844.3 sheet=852.2x515.7 worldY=1328.6..1844.3
+  peekWant=516.4 half=922.1
+  header=87.4
+  rail=817.2x279.7
+  hold=96.1 gapBelow=0.0 holdWorldY=1748.1..1844.3
+  spacer=10.9 worldY=1839.9..1850.8
+  card0=264.4x279.7 bodyH=275.3 titleH=48.1 descH=41.5 fsT=16 fsD=13
+    title='Endorse with a 48-hour mediation rider'
+    desc='Support firmness but force a pause clock.'
+    cardWorld=1453.1..1732.8 titleWorld=1516.5..1564.6
+  card1=266.6x279.7 bodyH=275.3 titleH=28.4 descH=26.2 fsT=16 fsD=13
+    title='Full public endorsement'
+    desc='Match the ally’s maximal text.'
+    cardWorld=1453.1..1732.8 titleWorld=1516.5..1544.9
+  card2=264.4x279.7 bodyH=275.3 titleH=28.4 descH=26.2 fsT=16 fsD=13
+    title='Quietly urge softer terms'
+    desc='Private pressure, public silence.'
+    cardWorld=1453.1..1732.8 titleWorld=1516.5..1544.9
+  child sheet-urgency-line h=2.2 grow=0 mt=0.0 mb=0.0 world=1330.8..1332.9
+  child dragHandle h=17.5 grow=0 mt=8.7 mb=0.0 world=1339.5..1357.0
+  child sheetHeader h=87.4 grow=0 mt=0.0 mb=0.0 world=1357.0..1444.4
+  child cardRail h=279.7 grow=0 mt=8.7 mb=10.9 world=1453.1..1732.8
+  child holdButtonContainer h=96.1 grow=0 mt=0.0 mb=0.0 world=1743.7..1839.9
+  child gestureSpacer h=10.9 grow=0 mt=0.0 mb=0.0 world=1839.9..1850.8
+  childSum=493.8 sheetH=515.7 slack=21.9
+cam Main Camera orth=True size=26.48 rect=(x:0.00, y:0.00, width:1.00, height:1.00) aspect=0.462 pixel=390x844

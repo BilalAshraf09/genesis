@@ -1,14 +1,115 @@
+screen=1965x1624 requested=320x844
+logical=1965x1624 dpi=458 constrain=False maxW=860
+hotspots=6
+hudHeader=765.6 hudRoot=765.6
+sheetRoot=765.6 sheetAlign=Stretch sheetMaxW=None
+sheet=765.6x710.6 peekH=624.9 panelH=1775.3
+rail=727.4x452.2
+content=727.4
+hold=727.4x105.3
+gapBelowHold=16.7 spacerH=14.4
+card0=234.5x452.2 grow=1 marginR=12.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Endorse with a 48-hour mediation rider' h=50
+  desc='Support firmness but force a pause clock.' h=43
+card1=234.5x452.2 grow=1 marginR=12.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Full public endorsement' h=31
+  desc='Match the ally’s maximal text.' h=26
+card2=234.5x452.2 grow=1 marginR=0.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Quietly urge softer terms' h=31
+  desc='Private pressure, public silence.' h=26
+CLIPPED_CARDS=0
+cards=3 equal=True sum=703.4 gaps=23.9 occupied=727.4 fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS
+---
+screen=1965x1624 requested=360x844
+logical=1965x1624 dpi=458 constrain=False maxW=860
+hotspots=6
+hudHeader=817.0 hudRoot=817.0
+sheetRoot=817.0 sheetAlign=Stretch sheetMaxW=None
+sheet=817.0x674.0 peekH=592.8 panelH=1684.0
+rail=780.7x422.1
+content=780.7
+hold=780.7x97.6
+gapBelowHold=15.9 spacerH=13.6
+card0=251.9x422.1 grow=1 marginR=11.3 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Endorse with a 48-hour mediation rider' h=50
+  desc='Support firmness but force a pause clock.' h=41
+card1=254.2x422.1 grow=1 marginR=11.3 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Full public endorsement' h=30
+  desc='Match the ally’s maximal text.' h=25
+card2=251.9x422.1 grow=1 marginR=0.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Quietly urge softer terms' h=30
+  desc='Private pressure, public silence.' h=25
+CLIPPED_CARDS=0
+cards=3 equal=True sum=758.0 gaps=22.7 occupied=780.7 fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS
+---
 screen=1965x1624 requested=390x844
 logical=1965x1624 dpi=458 constrain=False maxW=860
 hotspots=6
-sheetRoot=852.2 sheetAlign=Stretch sheetMaxW=None
 hudHeader=852.2 hudRoot=852.2
-sheet=852.2
-rail=817.2
+sheetRoot=852.2 sheetAlign=Stretch sheetMaxW=None
+sheet=852.2x649.0 peekH=570.8 panelH=1621.4
+rail=817.2x406.4
 content=817.2
-hold=817.2
-card0=264.4 grow=1 marginR=10.9
-card1=266.6 grow=1 marginR=10.9
-card2=264.4 grow=1 marginR=0.0
+hold=817.2x94.0
+gapBelowHold=13.1 spacerH=13.1
+card0=264.4x406.4 grow=1 marginR=10.9 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Endorse with a 48-hour mediation rider' h=48
+  desc='Support firmness but force a pause clock.' h=42
+card1=266.6x406.4 grow=1 marginR=10.9 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Full public endorsement' h=28
+  desc='Match the ally’s maximal text.' h=26
+card2=264.4x406.4 grow=1 marginR=0.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Quietly urge softer terms' h=28
+  desc='Private pressure, public silence.' h=26
+CLIPPED_CARDS=0
 cards=3 equal=True sum=795.4 gaps=21.9 occupied=817.2 fillRatio=1.000
 visibleCallouts=1 title=BRUSSELS
+---
+screen=1965x1624 requested=430x844
+logical=1965x1624 dpi=458 constrain=False maxW=860
+hotspots=6
+hudHeader=895.3 hudRoot=895.3
+sheetRoot=895.3 sheetAlign=Stretch sheetMaxW=None
+sheet=895.3x618.3 peekH=543.8 panelH=1544.8
+rail=857.8x381.0
+content=857.8
+hold=857.8x89.5
+gapBelowHold=10.4 spacerH=12.5
+card0=279.0x381.0 grow=1 marginR=10.4 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Endorse with a 48-hour mediation rider' h=48
+  desc='Support firmness but force a pause clock.' h=42
+card1=279.0x381.0 grow=1 marginR=10.4 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Full public endorsement' h=29
+  desc='Match the ally’s maximal text.' h=25
+card2=279.0x381.0 grow=1 marginR=0.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Quietly urge softer terms' h=29
+  desc='Private pressure, public silence.' h=25
+CLIPPED_CARDS=0
+cards=3 equal=True sum=837.0 gaps=20.8 occupied=857.8 fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS
+---
+screen=1965x1624 requested=600x960
+logical=1965x1624 dpi=458 constrain=False maxW=860
+hotspots=6
+hudHeader=984.9 hudRoot=984.9
+sheetRoot=984.9 sheetAlign=Stretch sheetMaxW=None
+sheet=984.9x554.8 peekH=502.4 panelH=1408.4
+rail=948.8x334.9
+content=948.8
+hold=948.8x80.4
+gapBelowHold=4.9 spacerH=11.5
+card0=310.2x334.9 grow=1 marginR=8.2 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Endorse with a 48-hour mediation rider' h=46
+  desc='Support firmness but force a pause clock.' h=23
+card1=311.9x334.9 grow=1 marginR=8.2 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Full public endorsement' h=26
+  desc='Match the ally’s maximal text.' h=23
+card2=310.2x334.9 grow=1 marginR=0.0 titleMax=-1 descMax=-1 clipT=False clipD=False bandClip=False
+  title='Quietly urge softer terms' h=26
+  desc='Private pressure, public silence.' h=23
+CLIPPED_CARDS=0
+cards=3 equal=True sum=932.4 gaps=16.4 occupied=948.8 fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS
+---

@@ -1,0 +1,17 @@
+panelH=1844.3 sheet=852.2x662.1 peek=661.6
+rail=413.0 hold=94.0 spacer=13.1
+gapBelowHold=17.5
+  sheet-urgency-line h=4.4 mt=0.0 mb=0.0
+  dragHandle h=17.5 mt=8.7 mb=0.0
+  sheetHeader h=89.6 mt=0.0 mb=0.0
+  cardRail h=413.0 mt=8.7 mb=10.9
+  holdButtonContainer h=94.0 mt=0.0 mb=0.0
+  gestureSpacer h=13.1 mt=0.0 mb=0.0
+sum=659.9 slack=2.2
+  card0=264.4x413.0 titleH=48.1 descH=41.5 fsT=16 fsD=13 bandClip=False
+    'Endorse with a 48-hour mediation rider' / 'Support firmness but force a pause clock.'
+  card1=266.6x413.0 titleH=28.4 descH=26.2 fsT=16 fsD=13 bandClip=False
+    'Full public endorsement' / 'Match the ally’s maximal text.'
+  card2=264.4x413.0 titleH=28.4 descH=26.2 fsT=16 fsD=13 bandClip=False
+    'Quietly urge softer terms' / 'Private pressure, public silence.'
+CLIPPED=0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -67,8 +68,8 @@ namespace Genesis.UI.Toolkit
         }
 
         // ── Public API ────────────────────────────────────────────────────────
-        public void Show()           => SnapTo(SnapState.Peek);
-        public void Hide()           => SnapTo(SnapState.Hidden);
+        public void Show()           => SnapTo(SnapState.Peek, immediate: true);
+        public void Hide()           => SnapTo(SnapState.Hidden, immediate: true);
         public void Expand()         => SnapTo(SnapState.Half);
         public void Collapse()       => SnapTo(SnapState.Peek);
 
@@ -87,7 +88,7 @@ namespace Genesis.UI.Toolkit
             _sheet.RemoveFromClassList("hidden");
 
             float targetH = StateToHeight(state);
-            _sheet.style.height = targetH;
+            ApplyHeight(targetH, immediate);
             StateChanged?.Invoke(state);
         }
 
@@ -97,9 +98,28 @@ namespace Genesis.UI.Toolkit
             float h = evt.newRect.height;
             if (h > 1f) _panelHeight = h;
 
-            // Re-apply current state with updated dimensions.
+            // Re-apply current state with updated dimensions (no transition — Game View
+            // / safe-area resizes must land on the exact peek height immediately).
             if (_state != SnapState.Hidden)
-                _sheet.style.height = StateToHeight(_state);
+                ApplyHeight(StateToHeight(_state), immediate: true);
+        }
+
+        void ApplyHeight(float targetH, bool immediate)
+        {
+            if (immediate)
+            {
+                // Kill USS transition so verify / geometry changes don't sample mid-tween.
+                _sheet.style.transitionDuration = new List<TimeValue> { new TimeValue(0) };
+                _sheet.style.height = targetH;
+                _sheet.schedule.Execute(() =>
+                {
+                    _sheet.style.transitionDuration = StyleKeyword.Null;
+                }).StartingIn(32);
+            }
+            else
+            {
+                _sheet.style.height = targetH;
+            }
         }
 
         // ── Drag handle events ────────────────────────────────────────────────

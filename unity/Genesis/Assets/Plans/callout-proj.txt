@@ -1,0 +1,4 @@
+overlayEnabled=True goActive=True
+cam=Main Camera (UnityEngine.Camera) ortho=True size=26.48187 pos=(-0.50, 30.00, -3.20)
+proj=False theater=hist-1914-july-wire
+mapRoot=852.2066x1844.263 panel=True

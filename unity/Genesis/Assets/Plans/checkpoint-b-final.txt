@@ -1,0 +1,6 @@
+sheet=662.1 peek=661.6 pct=35.9 rail=413.0
+gapBelow=17.5 spacer=13.1
+callouts=0 title=
+card0=264x413 fs=16/13 'Endorse with a 48-hour mediation rider' / 'Support firmness but force a pause clock.'
+card1=267x413 fs=16/13 'Full public endorsement' / 'Match the ally’s maximal text.'
+card2=264x413 fs=16/13 'Quietly urge softer terms' / 'Private pressure, public silence.'

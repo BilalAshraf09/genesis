@@ -1,0 +1,9 @@
+paused=False timeScale=1 id=brussels
+  hs capital sel=False
+  hs brussels sel=True
+  hs parliament sel=False
+  hs streets sel=False
+  hs districts sel=False
+  hs ballot sel=False
+MapLabels root=852x1844
+dotsVis=0/6 bubVis=0

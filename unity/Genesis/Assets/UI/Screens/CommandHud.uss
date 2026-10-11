@@ -89,19 +89,19 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .ops-tag {
-    font-size: 9px;
+    font-size: var(--type-category);
     color: #F5A524;
-    letter-spacing: 2px;
+    letter-spacing: var(--track-meta);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     margin-bottom: 2px;
     opacity: 0.98;
 }
 
 .top-title {
-    font-size: 18px;
+    font-size: var(--type-screen-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0;
+    letter-spacing: var(--track-title);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -126,10 +126,10 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .ops-status-phase {
-    font-size: 10px;
+    font-size: var(--type-meta);
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.3px;
+    letter-spacing: var(--track-numeric);
     margin-right: 0;
     white-space: nowrap;
 }
@@ -163,10 +163,10 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .ops-status-timer {
-    font-size: 13px;
+    font-size: var(--type-numeric);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.2px;
+    letter-spacing: var(--track-numeric);
     white-space: nowrap;
 }
 
@@ -255,18 +255,19 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .ops-meter-label {
-    font-size: 9px;
+    font-size: var(--type-meta);
     color: #C5CDD9;
-    letter-spacing: 1px;
+    letter-spacing: var(--track-meta);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     margin-right: 4px;
     flex-shrink: 0;
 }
 
 .ops-meter-value {
-    font-size: 12px;
+    font-size: var(--type-numeric);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-numeric);
     flex-grow: 1;
     margin-left: auto;
     -unity-text-align: middle-right;
@@ -460,11 +461,11 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
     }
 
     .ops-status-phase {
-        font-size: 9px;
+        font-size: var(--type-meta);
     }
 
     .ops-status-timer {
-        font-size: 12px;
+        font-size: var(--type-numeric);
     }
 
     .ops-meter-cell {
@@ -472,7 +473,16 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
     }
 
     .ops-meter-label {
-        letter-spacing: 0.4px;
+        font-size: var(--type-meta);
+        letter-spacing: var(--track-meta);
+    }
+
+    .ops-meter-value {
+        font-size: var(--type-numeric);
+    }
+
+    .top-title {
+        font-size: var(--type-screen-title);
     }
 }
 

@@ -1,0 +1,15 @@
+=== POST-FIX MEASURE ===
+Screen=390x844
+panelH=1844.3 peekH=627.0 peekFloor=405.7
+handle: 817.2x19.7
+header: 817.2x98.3
+rail: 817.2x0.0
+holdC: 817.2x4.4
+hold=null
+spacer: 817.2x10.9
+sheet: 852.2x163.9
+cards=0
+equalWidths=True
+type screen=19
+type meter=12
+type panel=24

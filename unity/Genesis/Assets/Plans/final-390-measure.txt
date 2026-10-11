@@ -1,0 +1,6 @@
+sheet=662.1 peek=661.6 pct=35.9 rail=139.8
+gapBelow=290.6
+callouts=0 title=
+card0=264x330 fs=16/13 'Endorse with a 48-hour mediation rider'
+card1=267x330 fs=16/13 'Full public endorsement'
+card2=264x330 fs=16/13 'Quietly urge softer terms'

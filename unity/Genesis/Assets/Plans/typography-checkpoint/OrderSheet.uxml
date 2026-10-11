@@ -1,0 +1,36 @@
+<!--
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+-->
+<!--
+Order sheet — crisis decision drawer (Europe Desk reference).
+Hierarchy: flashpoint → compare orders → hold to commit.
+-->
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/OrderSheet.uss" />
+
+    <ui:VisualElement name="safeRoot" picking-mode="Ignore" class="screen-fill">
+        <ui:VisualElement name="mapSpacerSheet" class="flex-grow" picking-mode="Ignore" />
+
+        <ui:VisualElement name="sheet" class="order-sheet hidden">
+            <ui:VisualElement name="sheet-urgency-line" class="sheet-urgency-line" picking-mode="Ignore" />
+
+            <ui:VisualElement name="dragHandle" class="drag-handle">
+                <ui:VisualElement class="drag-pill" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="sheetHeader" class="sheet-header" picking-mode="Ignore">
+                <ui:Label text="FLASHPOINT" class="sheet-eyebrow category-label type-category" picking-mode="Ignore" />
+                <ui:Label name="placeNameLabel" text="BRUSSELS" class="place-name-label panel-title type-section-title" picking-mode="Ignore" />
+                <ui:Label name="beatTitleLabel" text="Choose your action — it can shape the outcome." class="beat-title-label body-copy type-body" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <ui:VisualElement name="cardRail" class="card-rail" />
+
+            <ui:VisualElement name="holdButtonContainer" class="hold-button-container" />
+
+            <ui:VisualElement name="gestureSpacer" class="gesture-spacer" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,32 @@
+=== PHASE1 DIAGNOSE ===
+Screen=3420x1934 dpi=266 unity=6000.6.3f1
+logical=3420x1934
+safeArea=(x:0.00, y:0.00, width:3420.00, height:1934.00)
+Panel[OpsHud] mode=ScaleWithScreenSize ref=(882, 1784) scale=1 refDpi=458 match=0.5
+Panel[OrderSheet] mode=ScaleWithScreenSize ref=(882, 1784) scale=1 refDpi=458 match=0.5
+Panel[MapLabels] mode=ScaleWithScreenSize ref=(882, 1784) scale=1 refDpi=458 match=0.5
+Panel[Debrief] mode=ScaleWithScreenSize ref=(882, 1784) scale=1 refDpi=458 match=0.5
+Panel[PauseDialog] mode=ScaleWithScreenSize ref=(882, 1784) scale=1 refDpi=458 match=0.5
+panel=852.2x1844.3 peekH=627.0 safeBottomPanel=0.0
+peekFloor=627.0 peekCeil=737.7
+handle: 817.2x17.5 worldY=1228.1..1245.5 mt=8.7 mb=0.0
+header: 817.2x98.3 worldY=1245.5..1343.9 mt=0.0 mb=0.0
+rail: 817.2x196.7 worldY=1354.8..1551.5 mt=10.9 mb=10.9
+holdC: 817.2x98.3 worldY=1562.4..1660.7 mt=0.0 mb=0.0
+hold: 817.2x98.3 worldY=1566.7..1665.1 mt=0.0 mb=0.0
+spacer: 817.2x17.5 worldY=1660.7..1678.2 mt=0.0 mb=0.0
+sheet: 852.2x627.1 worldY=1217.1..1844.3 mt=0.0 mb=0.0
+GAP_sheetBottom_minus_holdBottom=179.2
+GAP_sheetBottom_minus_spacerBottom=166.1
+childSum=439.2 sheetH=627.1 slack=187.9
+cards=3
+  card 264x197 titleSz=15 descSz=13 kindSz=11 title='Endorse with a 48-hour mediation rider'
+  card 267x197 titleSz=15 descSz=13 kindSz=11 title='Full public endorsement'
+  card 264x197 titleSz=15 descSz=13 kindSz=11 title='Quietly urge softer terms'
+type screen: 20px
+type meter: 11px
+type meterVal: 15px
+type timer: 15px
+type panel: 26px
+type body: 14px
+type hold: 17px

@@ -1,0 +1,19 @@
+=== TYPOGRAPHY RESOLVED ===
+Expected: screen=20 panel=26 card=15 body=14 cat/effect=11 hold=17 numeric=15
+topTitle: size=20
+opsTag: size=11
+phase: size=11
+timer: size=15
+meterStab: size=15
+meterLabel: size=11
+headerW=852.2
+place: size=26
+beat: size=14
+cardTitle: size=15
+cardDesc: size=14
+cardKind: size=11
+delta: size=11
+hold: size=17
+sheetW=852.2
+calloutTitle: size=15
+calloutBody: size=14

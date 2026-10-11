@@ -1,0 +1,3 @@
+playing=False paused=False
+Screen=1965x1624 dpi=458
+UIDocuments=0

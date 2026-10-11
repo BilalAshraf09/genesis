@@ -1,0 +1,3 @@
+Screen=390x844 panelH=1844.3 peekH=430.1
+sheetH=430.5 railH=124.6 cards=3
+GAP_below_hold=218.5

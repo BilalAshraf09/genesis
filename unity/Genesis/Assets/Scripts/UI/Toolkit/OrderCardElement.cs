@@ -48,6 +48,7 @@ namespace Genesis.UI.Toolkit
 
             var kindBadge = new Label { text = KindTitle(order.kind) };
             kindBadge.AddToClassList("order-card__kind");
+            kindBadge.AddToClassList("type-category");
             kindBadge.pickingMode = PickingMode.Ignore;
             header.Add(kindBadge);
 
@@ -56,12 +57,14 @@ namespace Genesis.UI.Toolkit
             _titleLabel = new Label { text = PreferredTitle(order) };
             _titleLabel.AddToClassList("order-card__title");
             _titleLabel.AddToClassList("card-title");
+            _titleLabel.AddToClassList("type-card-title");
             _titleLabel.pickingMode = PickingMode.Ignore;
             body.Add(_titleLabel);
 
             _descLabel = new Label { text = PreferredDetail(order) };
             _descLabel.AddToClassList("order-card__desc");
             _descLabel.AddToClassList("body-copy");
+            _descLabel.AddToClassList("type-secondary");
             _descLabel.pickingMode = PickingMode.Ignore;
             body.Add(_descLabel);
 
@@ -88,7 +91,7 @@ namespace Genesis.UI.Toolkit
         /// </summary>
         public void ApplyBandLayout(float cardHeightPx, float cardWidthPx, float gapRightPx = 0f, bool compact = false)
         {
-            float h = Mathf.Max(140f, cardHeightPx);
+            float h = Mathf.Max(OrderSheetLayout.CardHeightMinRef * 0.85f, cardHeightPx);
             float w = Mathf.Max(OrderSheetLayout.CardWidthFloor, cardWidthPx);
             style.height = h;
             style.width = w;
@@ -111,7 +114,7 @@ namespace Genesis.UI.Toolkit
         /// </summary>
         public void ApplyEqualFlexLayout(float cardHeightPx, float gapRightPx = 0f, bool compact = false)
         {
-            float h = Mathf.Max(140f, cardHeightPx);
+            float h = Mathf.Max(OrderSheetLayout.CardHeightMinRef * 0.85f, cardHeightPx);
             style.height = h;
             style.minHeight = h;
             style.maxHeight = h;
@@ -130,17 +133,18 @@ namespace Genesis.UI.Toolkit
 
         static string PreferredTitle(OrderChoice order)
         {
+            // Prefer full decision title; wrap in-card instead of ellipsis-clamping.
             if (!string.IsNullOrWhiteSpace(order.label))
-                return SoftClamp(order.label.Trim(), 64);
+                return SoftClamp(order.label.Trim(), 96);
             if (!string.IsNullOrWhiteSpace(order.ShortLabel) && order.ShortLabel.Trim().Length >= 6)
-                return SoftClamp(order.ShortLabel.Trim(), 64);
+                return SoftClamp(order.ShortLabel.Trim(), 96);
             return order.DisplayCallsign ?? "ORDER";
         }
 
         static string PreferredDetail(OrderChoice order)
         {
             if (!string.IsNullOrWhiteSpace(order.detail))
-                return SoftClamp(order.detail.Trim(), 80);
+                return SoftClamp(order.detail.Trim(), 120);
             return "Arms this order for commit.";
         }
 
@@ -171,6 +175,7 @@ namespace Genesis.UI.Toolkit
                 label.pickingMode = PickingMode.Ignore;
                 label.AddToClassList("delta-pill__label");
                 label.AddToClassList("effect-label");
+                label.AddToClassList("type-effect-badge");
                 pill.Add(label);
 
                 _deltasRow.Add(pill);

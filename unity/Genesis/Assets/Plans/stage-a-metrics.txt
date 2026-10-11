@@ -1,0 +1,61 @@
+=== STAGE A TYPOGRAPHY ===
+screen: 19px text='1914 · EUROPE DESK'
+panel: missing
+body: missing
+cardTitle: missing
+cardDesc: missing
+kind: missing
+effect: missing
+meter: 12px text='STAB'
+meterVal: 14px text='72%'
+timer: 14px text='0:30'
+hold: missing
+callout: missing
+screen: missing
+panel: 24px text='BRUSSELS'
+body: 14px text='Choose your action — it can shape the ou'
+cardTitle: missing
+cardDesc: missing
+kind: missing
+effect: missing
+meter: missing
+meterVal: missing
+timer: missing
+hold: missing
+callout: missing
+screen: missing
+panel: missing
+body: missing
+cardTitle: missing
+cardDesc: missing
+kind: missing
+effect: missing
+meter: missing
+meterVal: missing
+timer: missing
+hold: missing
+callout: 15px text='CAPITAL'
+screen: missing
+panel: missing
+body: missing
+cardTitle: missing
+cardDesc: missing
+kind: missing
+effect: missing
+meter: missing
+meterVal: missing
+timer: missing
+hold: missing
+callout: missing
+screen: missing
+panel: missing
+body: missing
+cardTitle: missing
+cardDesc: missing
+kind: missing
+effect: missing
+meter: missing
+meterVal: missing
+timer: missing
+hold: missing
+callout: missing

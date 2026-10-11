@@ -1,0 +1,91 @@
+/*
+2026-10-10 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/*
+2026-10-01 AI-Tag
+This was created with the help of Assistant, a Unity Artificial Intelligence product.
+*/
+/* ============================================================
+   Genesis — Night Atlas design tokens
+   Reference resolution: 1080 × 1920 (ScaleWithScreenSize 0.5)
+   ============================================================ */
+
+:root {
+    /* ---- Colours ------------------------------------------ */
+    --color-ocean:        #0B1220;
+    --color-surface:      #111A2B;
+    --color-surface-2:    #17233A;
+    /* Glass: rgba(17,26,43,0.86) expressed as 8-digit hex */
+    --color-glass:        #111A2BDB;
+    /* Border: rgba(255,255,255,0.08) → alpha 0x14 */
+    --color-border:       #FFFFFF14;
+
+    --color-text-primary:   #F2EFE6;
+    --color-text-secondary: #A9B3C4;
+    --color-text-muted:     #6E7A8F;
+
+    --color-accent:       #F5A524;
+    --color-gain:         #3FB97A;
+    --color-cost:         #E5534B;
+    --color-escalation:   #E5534B;
+    --color-diplomacy:    #D9B45A;
+    --color-info:         #5AA9E6;
+
+    /* ---- Radii -------------------------------------------- */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* ---- Spacing scale (4-base) --------------------------- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+
+    /* ---- Type scale (legacy menus / dense screens) ------- */
+    --font-caption: 20px;
+    --font-body:    24px;
+    --font-title:   30px;
+    --font-h2:      38px;
+    --font-h1:      52px;
+
+    /* ---- Theater UI type scale @ 882×1784 panel units ------
+       Premium strategy readability (Inter). Sizes are panel units,
+       not CSS device px — keep hierarchy, not a global multiplier.
+       Weights: Regular + SemiBold SDF only (Medium/Bold roles → SemiBold).
+       Targets: title 18–20, flashpoint 22–24, card 15–16, body 13–14,
+       secondary 12–13, status/timer 12–14, pills/effects 10–11. */
+    --type-screen-title: 19px;   /* .type-screen-title — SemiBold */
+    --type-panel-title:  24px;   /* .type-section-title — SemiBold (Bold role) */
+    --type-card-title:   16px;   /* .type-card-title — SemiBold */
+    --type-body:         14px;   /* .type-body — Regular */
+    --type-secondary:    13px;   /* .type-secondary — Regular */
+    --type-category:     11px;   /* .type-category — SemiBold */
+    --type-effect:       11px;   /* .type-effect-badge — SemiBold */
+    --type-hold:         16px;
+    --type-hold-sub:     13px;
+    --type-meta:         12px;   /* .type-status-label — SemiBold (Medium role) */
+    --type-numeric:      14px;   /* .type-status-value / timer — SemiBold */
+    --type-callout-title: 15px;
+    --type-callout-body:  13px;
+    --type-map-label:     16px;
+
+    /* Tracking — restrained; uppercase meta only.
+       Numeric tracking approximates tabular feel (UITK has no tnum USS). */
+    --track-meta:    1.2px;
+    --track-title:   0.2px;
+    --track-numeric: 0.15px;
+
+    /* ---- Content constraints ------------------------------ */
+    /* Panel-unit reading width (≈ large-phone width @ ref 882).
+       Do NOT use device logical points (390/430) here — ScaleWithScreenSize
+       panel units are ~2× larger; 430px was the narrow centered-column bug. */
+    --content-max-width: 860px;
+    --gutter: 16px;
+
+    /* ---- Primary UI font (Inter — already bundled as SDF) -- */
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+}

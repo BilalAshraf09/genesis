@@ -1,0 +1,15 @@
+screen=1965x1624 requested=390x844
+logical=1965x1624 dpi=266 constrain=False maxW=860
+hotspots=6
+hudHeader=852.2 hudRoot=852.2
+sheetRoot=852.2 sheetAlign=Stretch sheetMaxW=None
+sheet=852.2x496.0 peekH=430.1 panelH=1844.3
+rail=817.2x238.2
+content=817.2
+hold=817.2x98.3
+gapBelowHold=10.9 spacerH=15.3
+card0=264.4x227.3 grow=1 marginR=10.9
+card1=266.6x227.3 grow=1 marginR=10.9
+card2=264.4x227.3 grow=1 marginR=0.0
+cards=3 equal=True sum=795.4 gaps=21.9 occupied=817.2 fillRatio=1.000
+visibleCallouts=1 title=BRUSSELS

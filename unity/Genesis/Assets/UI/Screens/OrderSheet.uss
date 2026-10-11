@@ -85,27 +85,27 @@ Unity USS: no sibling combinators (+/~).
     align-items: stretch;
     justify-content: center;
     flex-shrink: 0;
-    min-height: 72px;
-    max-height: 92px;
+    min-height: 70px;
+    max-height: 88px;
     width: 100%;
     padding-bottom: 0;
     overflow: hidden;
 }
 
 .sheet-eyebrow {
-    font-size: 9px;
+    font-size: var(--type-category);
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 2.5px;
+    letter-spacing: var(--track-meta);
     margin-bottom: 2px;
     flex-shrink: 0;
 }
 
 .place-name-label {
-    font-size: 23px;
+    font-size: var(--type-panel-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.5px;
+    letter-spacing: var(--track-title);
     flex-shrink: 0;
     width: 100%;
     overflow: hidden;
@@ -115,8 +115,10 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .beat-title-label {
-    font-size: 12px;
+    font-size: var(--type-body);
     color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
     flex-shrink: 0;
     width: 100%;
     overflow: hidden;
@@ -207,7 +209,8 @@ Unity USS: no sibling combinators (+/~).
     flex-shrink: 1;
     min-width: 0;
     flex-direction: column;
-    padding: 12px 11px 10px 11px;
+    /* Header → title → desc → deltas (pinned via margin-top:auto) */
+    padding: 14px 12px 12px 12px;
     position: relative;
 }
 
@@ -231,8 +234,8 @@ Unity USS: no sibling combinators (+/~).
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    margin-bottom: 12px;
-    min-height: 30px;
+    margin-bottom: 10px;
+    min-height: 32px;
 }
 
 .order-card__icon {
@@ -260,15 +263,15 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .order-card__kind {
-    font-size: 9px;
+    font-size: var(--type-category);
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.7px;
+    letter-spacing: var(--track-meta);
     background-color: rgba(11, 18, 32, 0.95);
     border-radius: 20px;
     border-width: 1px;
     border-color: rgba(90, 169, 230, 0.4);
-    padding: 3px 8px;
+    padding: 4px 9px;
     flex-shrink: 0;
     white-space: nowrap;
     margin-bottom: 0;
@@ -296,36 +299,39 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .order-card__title {
-    font-size: 13px;
+    font-size: var(--type-card-title);
     color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: var(--track-title);
     white-space: normal;
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-height: 0;
-    max-height: 72px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* No max-height — card band grows to fit wrapped title.
+       Clip paint to the label box so overflow never leaks under the sheet. */
     overflow: hidden;
     margin-bottom: 8px;
     -unity-text-align: upper-left;
+    -unity-line-height: 20px;
 }
 
 .order-card--compact .order-card__title {
-    font-size: 13px;
-    max-height: 68px;
-    -unity-text-align: middle-left;
+    font-size: var(--type-card-title);
+    -unity-text-align: upper-left;
 }
 
 .order-card__desc {
-    font-size: 12px;
+    font-size: var(--type-secondary);
     color: var(--color-text-secondary);
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    letter-spacing: 0;
     white-space: normal;
     flex-grow: 0;
-    flex-shrink: 1;
-    min-height: 0;
-    max-height: 48px;
+    flex-shrink: 0;
+    /* No max-height — wrap fully; parent card height supplies room */
     overflow: hidden;
     margin-bottom: 10px;
-    opacity: 0.9;
+    opacity: 0.95;
+    -unity-line-height: 17px;
 }
 
 .order-card--compact .order-card__desc {
@@ -334,11 +340,12 @@ Unity USS: no sibling combinators (+/~).
 
 .order-card__deltas {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-start;
     flex-shrink: 0;
     margin-top: auto;
-    min-height: 28px;
+    padding-top: 4px;
+    min-height: 30px;
     flex-wrap: wrap;
 }
 
@@ -355,10 +362,10 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .delta-pill__label {
-    font-size: 9px;
+    font-size: var(--type-effect);
     color: #3FB97A;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 0.15px;
+    letter-spacing: var(--track-numeric);
     white-space: nowrap;
 }
 
@@ -401,9 +408,15 @@ Unity USS: no sibling combinators (+/~).
     flex-shrink: 0;
     flex-direction: column;
     align-self: stretch;
+    /* Peek height is content-driven — keep CTA immediately under the card rail.
+       Half/Full snaps may leave slack above; avoid margin-top:auto (UITK often
+       resolves it to 0 and parks empty navy under the button instead).
+       No padding-top: it was double-counting HoldHeight and pushing the button
+       + gesture spacer past the sheet bottom (stray paint under HOLD). */
+    margin-top: 0;
     margin-bottom: 0;
-    overflow: visible;
-    padding-top: 4px;
+    overflow: hidden;
+    padding-top: 0;
 }
 
 .hold-button-container > .hold-btn {
@@ -532,7 +545,7 @@ Unity USS: no sibling combinators (+/~).
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 0;
-    font-size: 16px;
+    font-size: var(--type-hold);
     color: #F5A524;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-left;
@@ -540,11 +553,11 @@ Unity USS: no sibling combinators (+/~).
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 8px;
-    letter-spacing: 0.6px;
+    letter-spacing: var(--track-meta);
 }
 
 .hold-btn__sublabel {
-    font-size: 12px;
+    font-size: var(--type-hold-sub);
     color: #A9B3C4;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
     -unity-text-align: middle-left;
@@ -553,7 +566,7 @@ Unity USS: no sibling combinators (+/~).
     text-overflow: ellipsis;
     margin-right: 8px;
     margin-top: 2px;
-    min-height: 14px;
+    min-height: 16px;
     flex-shrink: 0;
     opacity: 1;
 }
@@ -611,7 +624,15 @@ Unity USS: no sibling combinators (+/~).
     }
 
     .place-name-label {
-        font-size: 20px;
+        font-size: var(--type-panel-title);
+    }
+
+    .order-card__title {
+        font-size: var(--type-card-title);
+    }
+
+    .order-card__desc {
+        font-size: var(--type-secondary);
     }
 
     .hold-btn {
@@ -620,11 +641,11 @@ Unity USS: no sibling combinators (+/~).
     }
 
     .hold-btn__label {
-        font-size: 15px;
+        font-size: var(--type-hold);
     }
 
     .hold-btn__sublabel {
-        font-size: 11px;
+        font-size: var(--type-hold-sub);
     }
 }
 

@@ -22,8 +22,8 @@ namespace Genesis.UI.Toolkit
         // .drag-handle margin-top in OrderSheet.uss — must be in peek math or the
         // sheet overshoots content and parks navy under HOLD TO COMMIT.
         public const float HandleMarginTopRef = 8f;
-        // Matches .sheet-header max-height (eyebrow + place + beat).
-        public const float HeaderRef          = 88f;
+        // Matches .sheet-header max-height (eyebrow + place + 2-line beat).
+        public const float HeaderRef          = 104f;
         public const float ScrollGapTopRef    = 8f;
         public const float ScrollGapBottomRef = 10f;
         public const float HoldHeightRef      = 92f;

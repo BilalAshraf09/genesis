@@ -1,0 +1,109 @@
+/* Welcome — first-launch auth gate (Night Atlas) */
+
+.welcome-root {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(6, 12, 24, 0.96);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.welcome-card {
+    width: 720px;
+    max-width: 94%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 24px 24px 24px;
+    border-radius: 20px;
+}
+
+.welcome-logo {
+    font-size: 36px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: middle-center;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.welcome-tagline {
+    font-size: 13px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    -unity-text-align: middle-center;
+    letter-spacing: 1.6px;
+    margin-bottom: 18px;
+}
+
+.welcome-body {
+    font-size: 14px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    -unity-text-align: middle-center;
+    white-space: normal;
+    margin-bottom: 14px;
+}
+
+.welcome-status {
+    font-size: 13px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 18px;
+    margin-bottom: 12px;
+}
+
+.welcome-status--error {
+    color: #E5534B;
+}
+
+.welcome-btn {
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    min-height: 56px;
+}
+
+.welcome-btn:disabled {
+    opacity: 0.45;
+}
+
+.welcome-divider {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.welcome-divider__label {
+    font-size: 12px;
+    color: #6B7585;
+    letter-spacing: 1px;
+}
+
+.welcome-link-btn {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    margin-bottom: 2px;
+}
+
+.welcome-link-btn > Label {
+    font-size: 14px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+}
+
+.hidden {
+    display: none;
+}

@@ -86,29 +86,90 @@ namespace Genesis.Atlas
             return false;
         }
 
-        /// <summary>Native share of text (and optional PNG path). Falls back to clipboard.</summary>
+        /// <summary>Native share of text. Falls back to clipboard.</summary>
         public static void ShareText(string text, string subject = "Genesis — Living Atlas")
         {
-#if UNITY_ANDROID && !UNITY_EDITOR
+            if (ShareImageAndText(null, text, subject))
+                return;
+            GUIUtility.systemCopyBuffer = text ?? "";
+            Debug.Log("[Genesis] Share text copied to clipboard.");
+        }
+
+        /// <summary>
+        /// Native share sheet with optional PNG + text (Android FileProvider / iOS UIActivityViewController).
+        /// Returns true if a native sheet was presented. Does not prove the user posted.
+        /// </summary>
+        public static bool ShareImageAndText(string imagePath, string text, string subject = "Genesis — Living Atlas")
+        {
+#if UNITY_EDITOR
+            if (!string.IsNullOrEmpty(text))
+                GUIUtility.systemCopyBuffer = text;
+            if (!string.IsNullOrEmpty(imagePath))
+                Debug.Log($"[Genesis] Share card ready (editor): {imagePath}");
+            return false;
+#elif UNITY_ANDROID
+            try
+            {
+                using var unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                using var activity = unity.GetStatic<AndroidJavaObject>("currentActivity");
+                using var bridge = new AndroidJavaClass("com.bilalashraf.genesis.GenesisShare");
+                bool ok = bridge.CallStatic<bool>(
+                    "shareImageAndText",
+                    activity,
+                    imagePath ?? "",
+                    text ?? "",
+                    subject ?? "");
+                if (ok) return true;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[Genesis] Android image share failed: " + e.Message);
+            }
+
+            // Fallback: text-only Intent
             try
             {
                 using var intentClass = new AndroidJavaClass("android.content.Intent");
                 using var intent = new AndroidJavaObject("android.content.Intent");
                 intent.Call<AndroidJavaObject>("setAction", intentClass.GetStatic<string>("ACTION_SEND"));
                 intent.Call<AndroidJavaObject>("setType", "text/plain");
-                intent.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_SUBJECT"), subject);
-                intent.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), text);
+                intent.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_SUBJECT"), subject ?? "");
+                intent.Call<AndroidJavaObject>("putExtra", intentClass.GetStatic<string>("EXTRA_TEXT"), text ?? "");
                 using var unity = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
                 using var activity = unity.GetStatic<AndroidJavaObject>("currentActivity");
                 using var chooser = intentClass.CallStatic<AndroidJavaObject>("createChooser", intent, "Share via");
                 activity.Call("startActivity", chooser);
-                return;
+                return true;
             }
-            catch (Exception e) { Debug.LogWarning("[Genesis] Native share failed, using clipboard: " + e.Message); }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[Genesis] Android text share failed: " + e.Message);
+            }
+
+            GUIUtility.systemCopyBuffer = text ?? "";
+            return false;
+#elif UNITY_IOS
+            try
+            {
+                int presented = Genesis_ShareImageAndText(imagePath ?? "", text ?? "", subject ?? "");
+                return presented == 1;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("[Genesis] iOS share failed: " + e.Message);
+                GUIUtility.systemCopyBuffer = text ?? "";
+                return false;
+            }
+#else
+            GUIUtility.systemCopyBuffer = text ?? "";
+            return false;
 #endif
-            GUIUtility.systemCopyBuffer = text;
-            Debug.Log("[Genesis] Share text copied to clipboard.");
         }
+
+#if UNITY_IOS && !UNITY_EDITOR
+        [System.Runtime.InteropServices.DllImport("__Internal")]
+        static extern int Genesis_ShareImageAndText(string imagePath, string text, string subject);
+#endif
 
         enum HapticKind { Tick, Progress, Confirm }
 

@@ -1,5 +1,7 @@
 using System;
 using Genesis.Atlas;
+using Genesis.Auth;
+using Genesis.Monetization;
 using Genesis.Theater;
 using Genesis.UI.Toolkit;
 using UnityEngine;
@@ -22,6 +24,7 @@ namespace Genesis.Core
         Label      _audioLabel;
         Button     _highQualBtn;
         Button     _standardQualBtn;
+        VisualElement _root;
 
         // ── Lifecycle ─────────────────────────────────────────────────────────
         void Awake()
@@ -40,6 +43,7 @@ namespace Genesis.Core
         {
             var doc = UiRegistry.CreateDocument("Settings", transform, 10, "Settings");
             var root = doc.rootVisualElement;
+            _root = root;
             if (root == null)
             {
                 Debug.LogError("[Genesis] Settings: rootVisualElement is null.");
@@ -85,12 +89,78 @@ namespace Genesis.Core
                 };
             }
 
+            // ── Account ──
+            PopulateAccountSection(root);
+
             // ── Freemium / access ──
             PopulateAccessSection(root);
 
             // ── Android Back: navigate to main menu ──
             _backHandler = () => { AppFlow.GoMainMenu(); return true; };
             MobilePlatform.PushBack(_backHandler);
+        }
+
+        void OnEnable()
+        {
+            if (AuthService.Instance != null)
+                AuthService.Instance.StateChanged += RefreshAccountLabels;
+        }
+
+        void OnDisable()
+        {
+            if (AuthService.Instance != null)
+                AuthService.Instance.StateChanged -= RefreshAccountLabels;
+        }
+
+        void PopulateAccountSection(VisualElement root)
+        {
+            RefreshAccountLabels();
+
+            WireButton(root, "linkAccountBtn", () =>
+            {
+                var auth = AuthService.Instance;
+                if (auth.IsGuest || !auth.IsSignedIn)
+                    WelcomeController.Show();
+                else
+                    AuthEmailController.Show(AuthEmailMode.Login);
+            });
+
+            WireButton(root, "signOutBtn", async () =>
+            {
+                await AuthService.Instance.SignOut();
+                RefreshAccountLabels();
+            });
+        }
+
+        void RefreshAccountLabels()
+        {
+            if (_root == null) return;
+
+            var auth = AuthService.Instance;
+            var accountLbl = _root.Q<Label>("accountLabel");
+            if (accountLbl != null)
+            {
+                if (!auth.IsSignedIn)
+                    accountLbl.text = "Not signed in";
+                else if (auth.IsGuest)
+                    accountLbl.text = "Guest — progress saved on this device";
+                else if (!string.IsNullOrEmpty(auth.CurrentUser.Email))
+                    accountLbl.text = auth.CurrentUser.Email;
+                else
+                    accountLbl.text = $"{auth.CurrentUser.PrimaryProvider} · signed in";
+            }
+
+            var linkLbl = _root.Q<Label>("linkAccountBtnLabel");
+            if (linkLbl != null)
+            {
+                linkLbl.text = auth.IsGuest || !auth.IsSignedIn
+                    ? "Create Account / Sign In"
+                    : "Switch Account";
+            }
+
+            var signOut = _root.Q<Button>("signOutBtn");
+            if (signOut != null)
+                signOut.style.display = auth.IsSignedIn ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         // ── Graphics quality section ──────────────────────────────────────────
@@ -169,24 +239,29 @@ namespace Genesis.Core
         // ── Access / premium section ──────────────────────────────────────────
         void PopulateAccessSection(VisualElement root)
         {
-            var freemium = FindAnyObjectByType<FreemiumStub>()
-                           ?? new GameObject("FreemiumStub").AddComponent<FreemiumStub>();
+            var access = TheaterAccessService.Instance;
 
             var clearanceLbl = root.Q<Label>("clearanceLabel");
             if (clearanceLbl != null)
             {
-                if (freemium.IsPro)
+                if (access.IsFullGameUnlocked)
                 {
-                    clearanceLbl.text = "Genesis Pro — All theaters unlocked";
+                    clearanceLbl.text = "Full Game — All theaters unlocked";
                     clearanceLbl.AddToClassList("settings-status-label--pro");
                 }
                 else
                 {
-                    clearanceLbl.text = $"Standard access — {freemium.FreeTheatersRemaining} free theater(s) remaining";
+                    clearanceLbl.text =
+                        $"Standard access — {TheaterAccessService.FreeTheaterCount} free theaters · unlock the rest";
                 }
             }
 
-            WireButton(root, "specialOpsBtn", () => freemium.ShowPaywallStub());
+            WireButton(root, "specialOpsBtn", () => access.RequestUnlockAllTheaters());
+            WireButton(root, "restorePurchasesBtn", () =>
+            {
+                FullGameUnlockController.Show(null);
+                access.RestorePurchases();
+            });
         }
 
         // ── Utilities ─────────────────────────────────────────────────────────

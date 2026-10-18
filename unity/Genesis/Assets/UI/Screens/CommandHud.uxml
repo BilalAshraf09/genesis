@@ -18,8 +18,8 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                         <ui:Label text="‹" picking-mode="Ignore" />
                     </ui:Button>
                     <ui:VisualElement class="header-title-stack" picking-mode="Ignore">
-                        <ui:Label name="opsTag" text="CRISIS LINE" class="ops-tag category-label type-category" picking-mode="Ignore" />
-                        <ui:Label name="titleLabel" text="1914 · EUROPE DESK" class="top-title screen-title type-screen-title" picking-mode="Ignore" />
+                        <ui:Label name="opsTag" text="1914 · EUROPE" class="ops-tag category-label type-category" picking-mode="Ignore" />
+                        <ui:Label name="titleLabel" text="JULY WIRE" class="top-title screen-title type-screen-title" picking-mode="Ignore" />
                     </ui:VisualElement>
                     <ui:VisualElement name="statusGroup" class="ops-status-cluster" picking-mode="Ignore">
                         <ui:Label name="phaseLabel" text="PHASE 1/3" class="ops-status-phase type-status-label" picking-mode="Ignore" />

@@ -103,7 +103,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                 <ui:VisualElement name="actionsSection" class="after-action__actions">
 
                     <ui:Button name="shareBtn" class="btn btn--primary after-action__share-btn">
-                        <ui:Label text="Share result" />
+                        <ui:Label name="shareBtnLabel" text="SHARE RESULT" />
                     </ui:Button>
 
                     <ui:VisualElement class="after-action__action-row">
@@ -117,6 +117,10 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
                     <ui:Button name="codexBtn" class="btn btn--secondary after-action__codex-btn">
                         <ui:Label text="Atlas Codex" />
+                    </ui:Button>
+
+                    <ui:Button name="homeBtn" class="btn btn--secondary after-action__home-btn">
+                        <ui:Label text="Main Menu" />
                     </ui:Button>
 
                     <ui:Label name="shareStatus" text="" class="after-action__share-status" />

@@ -1,0 +1,146 @@
+.auth-email-overlay {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.72);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.auth-email-card {
+    width: 720px;
+    max-width: 94%;
+    flex-direction: column;
+    padding: 28px 24px 20px 24px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.auth-email-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-email-close > Label {
+    font-size: 22px;
+    color: #A9B3C4;
+}
+
+.auth-email-title {
+    font-size: 24px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 8px;
+    margin-right: 40px;
+}
+
+.auth-email-body {
+    font-size: 14px;
+    color: #A9B3C4;
+    white-space: normal;
+    margin-bottom: 14px;
+}
+
+.auth-email-field {
+    margin-bottom: 10px;
+    min-height: 48px;
+}
+
+.auth-email-field--grow {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.auth-email-password-row {
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.auth-email-eye {
+    width: 72px;
+    height: 48px;
+    margin-left: 8px;
+    background-color: rgba(23, 35, 58, 0.9);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-email-eye > Label {
+    font-size: 11px;
+    color: #F5A524;
+    letter-spacing: 0.6px;
+}
+
+.auth-email-status {
+    font-size: 13px;
+    color: #A9B3C4;
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 18px;
+    margin-bottom: 12px;
+}
+
+.auth-email-status--error {
+    color: #E5534B;
+}
+
+.auth-email-status--ok {
+    color: #3FB97A;
+}
+
+.auth-email-btn {
+    margin-bottom: 10px;
+    min-height: 56px;
+}
+
+.auth-email-btn:disabled {
+    opacity: 0.45;
+}
+
+.auth-email-link {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+}
+
+.auth-email-link > Label {
+    font-size: 13px;
+    color: #A9B3C4;
+}
+
+.auth-email-back {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    margin-top: 4px;
+}
+
+.auth-email-back > Label {
+    font-size: 14px;
+    color: #A9B3C4;
+}
+
+.hidden {
+    display: none;
+}

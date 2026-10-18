@@ -1,9 +1,11 @@
+using Genesis.Auth;
+using Genesis.Monetization;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Genesis.Core
 {
-    /// <summary>Boot splash → MainMenu. First scene in build settings.</summary>
+    /// <summary>Boot splash → Welcome (first launch) or MainMenu.</summary>
     public class BootController : MonoBehaviour
     {
         public float holdSeconds = 1.35f;
@@ -15,6 +17,10 @@ namespace Genesis.Core
             Application.targetFrameRate = 60;
             EnsureCamera();
             EnsureCanvas();
+            // Warm auth, theater access, and IAP before shell screens.
+            _ = AuthService.Instance;
+            _ = TheaterAccessService.Instance;
+            _ = IapPurchaseService.Instance;
         }
 
         void Update()
@@ -24,8 +30,14 @@ namespace Genesis.Core
             if (_t >= holdSeconds || Input.anyKeyDown || Input.GetMouseButtonDown(0))
             {
                 _done = true;
-                AppFlow.GoMainMenu();
+                ProceedAfterSplash();
             }
+        }
+
+        static void ProceedAfterSplash()
+        {
+            // Guest / signed-in users skip Welcome; first launch must choose a path.
+            WelcomeController.ShowIfNeeded(AppFlow.GoMainMenu);
         }
 
         static void EnsureCamera()

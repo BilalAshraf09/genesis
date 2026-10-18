@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Genesis.Atlas;
 using Genesis.Data;
+using Genesis.Monetization;
 using Genesis.Theater;
 using Genesis.UI.Toolkit;
 using UnityEngine;
@@ -37,9 +38,25 @@ namespace Genesis.Core
             BuildUi();
         }
 
+        void OnEnable()
+        {
+            TheaterAccessService.Instance.EntitlementsChanged += OnEntitlementsChanged;
+        }
+
+        void OnDisable()
+        {
+            if (TheaterAccessService.Instance != null)
+                TheaterAccessService.Instance.EntitlementsChanged -= OnEntitlementsChanged;
+        }
+
         void OnDestroy()
         {
             MobilePlatform.PopBack(_backHandler);
+        }
+
+        void OnEntitlementsChanged()
+        {
+            PopulateTheaterList();
         }
 
         // ── UI build ──────────────────────────────────────────────────────────
@@ -187,11 +204,30 @@ namespace Genesis.Core
             var card = new VisualElement();
             card.AddToClassList("theater-card");
 
+            bool locked = !_freemium.CanDeploy(entry.id);
+            if (locked)
+                card.AddToClassList("theater-card--locked");
+
             // Thumbnail
             var thumb = new VisualElement();
             thumb.AddToClassList("theater-card__thumb");
             LoadCardThumbnail(thumb, entry);
             card.Add(thumb);
+
+            if (locked)
+            {
+                var lockBadge = new Label { text = "FULL GAME" };
+                lockBadge.AddToClassList("theater-card__lock");
+                lockBadge.pickingMode = PickingMode.Ignore;
+                thumb.Add(lockBadge);
+            }
+            else if (_freemium.IsFreeDesk(entry.id) && !TheaterAccessService.Instance.IsFullGameUnlocked)
+            {
+                var freeBadge = new Label { text = "FREE" };
+                freeBadge.AddToClassList("theater-card__free");
+                freeBadge.pickingMode = PickingMode.Ignore;
+                thumb.Add(freeBadge);
+            }
 
             // Body
             var body = new VisualElement();
@@ -239,12 +275,16 @@ namespace Genesis.Core
 
             card.Add(body);
 
-            // Tap handler
+            // Tap: locked → paywall only (BeginTheater also gates as safety net).
             var capturedId = entry.id;
             card.RegisterCallback<PointerUpEvent>(_ =>
             {
                 if (!_freemium.CanDeploy(capturedId))
+                {
                     _freemium.ShowPaywallStub();
+                    return;
+                }
+
                 AppFlow.BeginTheater(capturedId);
             });
 

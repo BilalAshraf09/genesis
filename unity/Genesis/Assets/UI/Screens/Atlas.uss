@@ -241,6 +241,36 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     height: 188px;
     -unity-background-scale-mode: scale-and-crop;
     background-color: #0B1220;
+    position: relative;
+}
+
+.theater-card--locked .theater-card__thumb {
+    opacity: 0.72;
+}
+
+.theater-card__lock,
+.theater-card__free {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    color: #F2EFE6;
+    background-color: #0B1220CC;
+    border-width: 1px;
+    border-color: #FFFFFF22;
+}
+
+.theater-card__lock {
+    color: #F5A524;
+    border-color: #F5A52466;
+}
+
+.theater-card__free {
+    color: #7DCEA0;
+    border-color: #7DCEA066;
 }
 
 .theater-card__body {

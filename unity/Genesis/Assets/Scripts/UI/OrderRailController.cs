@@ -17,6 +17,7 @@ namespace Genesis.UI
         VisualElement _root;
         VisualElement _sheet;
         Label         _placeNameLabel;
+        Label         _beatTitleLabel;
         VisualElement _cardRail;
         VisualElement _holdButtonContainer;
         VisualElement _gestureSpacer;
@@ -150,6 +151,7 @@ namespace Genesis.UI
         {
             _sheet               = _root.Q("sheet");
             _placeNameLabel      = _root.Q<Label>("placeNameLabel");
+            _beatTitleLabel      = _root.Q<Label>("beatTitleLabel");
             _holdButtonContainer = _root.Q("holdButtonContainer");
             _gestureSpacer       = _root.Q("gestureSpacer");
             _cardRail            = _root.Q("cardRail");
@@ -170,15 +172,8 @@ namespace Genesis.UI
             _holdButton.SetLabels("HOLD TO COMMIT", null);
             _holdButton.Confirmed += () =>
             {
-                if (string.IsNullOrEmpty(_selectedOrderId) && _cards.Count > 0)
-                {
-                    var first = _cards[0].Order;
-                    if (first != null)
-                    {
-                        TheaterSession.Instance?.OnOrderSelected(first);
-                        SetSelected(first.id);
-                    }
-                }
+                // Require an explicit order selection — never silently commit the first card.
+                if (string.IsNullOrEmpty(_selectedOrderId)) return;
                 TheaterSession.Instance?.OnExecutePressed();
             };
             _holdButtonContainer?.Clear();
@@ -204,7 +199,22 @@ namespace Genesis.UI
             _scrollHint = null;
             _scrollOffset = 0f;
             _selectedOrderId = null;
-            if (orders == null || orders.Count == 0) return;
+
+            var beat = TheaterSession.Instance?.CurrentBeat;
+            SetBeatGuidance(beat);
+
+            if (orders == null || orders.Count == 0)
+            {
+                if (_placeNameLabel != null) _placeNameLabel.text = "NO ORDERS";
+                if (_beatTitleLabel != null &&
+                    (_beatTitleLabel.text == null || _beatTitleLabel.text.Length < 2))
+                    _beatTitleLabel.text = "No actionable orders for this phase.";
+                SetHoldButtonArmed(false);
+                SetHoldButtonLocked(true);
+                _holdButton?.SetLabels("NO ORDERS", null);
+                _bottomSheet?.Show();
+                return;
+            }
 
             _cardContent = new VisualElement();
             _cardContent.AddToClassList("card-rail__content");
@@ -240,17 +250,32 @@ namespace Genesis.UI
             RequestLayoutSync();
             _root?.schedule.Execute(RequestLayoutSync).StartingIn(48);
 
-            if (orders.Count > 0 && orders[0] != null)
+            // Peek with no forced selection — player compares, then commits.
+            SetHoldButtonArmed(false);
+            SetHoldButtonLocked(false);
+            _holdButton?.SetLabels("CHOOSE AN ORDER", "Tap a card or map pin");
+        }
+
+        /// <summary>Bind beat title / briefing into the sheet guidance line.</summary>
+        public void SetBeatGuidance(BeatData beat)
+        {
+            if (_beatTitleLabel == null) return;
+            string line = null;
+            if (beat != null)
             {
-                onSelect?.Invoke(orders[0]);
-                SetSelected(orders[0].id);
+                if (!string.IsNullOrWhiteSpace(beat.briefing)) line = beat.briefing.Trim();
+                else if (!string.IsNullOrWhiteSpace(beat.title)) line = beat.title.Trim();
             }
-            else
+            if (string.IsNullOrEmpty(line))
+                line = "Compare orders — then hold to commit.";
+            // Fit ~3 wrapped lines; prefer a clean word break over mid-word ellipsis.
+            if (line.Length > 168)
             {
-                SetHoldButtonArmed(false);
-                SetHoldButtonLocked(false);
-                _holdButton?.SetLabels("CHOOSE AN ORDER", null);
+                int cut = line.LastIndexOf(' ', 168);
+                if (cut < 80) cut = 168;
+                line = line.Substring(0, cut).TrimEnd() + "…";
             }
+            _beatTitleLabel.text = line;
         }
 
         public void SetSelected(string orderId)

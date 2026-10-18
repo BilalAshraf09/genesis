@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/AuthConflict.uss" />
+
+    <ui:VisualElement name="conflictOverlay" class="auth-conflict-overlay">
+        <ui:VisualElement class="glass auth-conflict-card">
+            <ui:Label text="ACCOUNT EXISTS" class="auth-conflict-title" picking-mode="Ignore" />
+            <ui:Label name="messageLabel"
+                      text="This identity already belongs to another Genesis account."
+                      class="auth-conflict-body"
+                      picking-mode="Ignore" />
+            <ui:Label text="Your guest progress was backed up on this device. Signing in will merge scores without deleting either side."
+                      class="auth-conflict-body auth-conflict-body--dim"
+                      picking-mode="Ignore" />
+
+            <ui:Button name="signInBtn" class="btn btn--primary auth-conflict-btn">
+                <ui:Label name="signInBtnLabel" text="SIGN IN TO EXISTING ACCOUNT" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="cancelBtn" class="btn btn--secondary auth-conflict-btn">
+                <ui:Label text="KEEP PLAYING AS GUEST" picking-mode="Ignore" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

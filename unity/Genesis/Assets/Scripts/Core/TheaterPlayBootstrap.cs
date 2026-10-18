@@ -1,4 +1,5 @@
 using Genesis.Effects;
+using Genesis.Monetization;
 using Genesis.Theater;
 using Genesis.UI;
 using UnityEngine;
@@ -30,8 +31,26 @@ namespace Genesis.Core
                 theaterId = AppFlow.SelectedTheaterId;
             }
 
+            // Safety net: direct TheaterPlay loads (editor / deep link) must not bypass paywall.
+            if (Application.isPlaying &&
+                !TheaterAccessService.Instance.CanAccessTheater(theaterId))
+            {
+                Debug.LogWarning(
+                    $"[Genesis] TheaterPlay blocked for locked theater '{theaterId}' — redirecting.");
+                // Defer scene change — LoadScene during Awake is unsafe.
+                StartCoroutine(RedirectLockedTheater(theaterId));
+                return;
+            }
+
             EnsureSceneGraph();
             GenesisPremiumVisuals.ApplyForCurrentQuality();
+        }
+
+        System.Collections.IEnumerator RedirectLockedTheater(string lockedId)
+        {
+            yield return null;
+            FullGameUnlockController.Show(lockedId);
+            AppFlow.GoTheaterSelect();
         }
 
         /// <summary>

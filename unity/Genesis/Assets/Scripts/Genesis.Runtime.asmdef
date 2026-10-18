@@ -6,7 +6,10 @@
         "Unity.RenderPipelines.Universal.Runtime",
         "Unity.RenderPipelines.Core.Runtime",
         "Unity.Cinemachine",
-        "UnityEngine.UI"
+        "UnityEngine.UI",
+        "Unity.Purchasing",
+        "Unity.Services.Core",
+        "Unity.Services.Core.Environments"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -30,6 +33,21 @@
             "name": "com.unity.inputsystem",
             "expression": "",
             "define": "GENESIS_INPUT_SYSTEM"
+        },
+        {
+            "name": "com.unity.purchasing",
+            "expression": "",
+            "define": "GENESIS_IAP"
+        },
+        {
+            "name": "com.google.firebase.app",
+            "expression": "",
+            "define": "GENESIS_FIREBASE"
+        },
+        {
+            "name": "com.google.firebase.auth",
+            "expression": "",
+            "define": "GENESIS_FIREBASE"
         }
     ],
     "noEngineReferences": false

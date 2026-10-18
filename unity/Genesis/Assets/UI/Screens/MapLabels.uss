@@ -29,19 +29,24 @@ MapLabels.uss — Europe Desk tooltip style (CrisisUI_Reference)
 .pin-label {
     position: absolute;
     font-size: var(--type-map-label);
-    color: rgba(242, 239, 230, 0.88);
+    color: #FFFFFF;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: var(--track-title);
     -unity-text-align: middle-left;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
     white-space: nowrap;
     overflow: visible;
+    background-color: rgba(11, 18, 32, 0.86);
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.16);
+    padding: 2px 8px;
 }
 
 .pin-label--selected {
     font-size: 17px;
-    color: #F5A524;
-    text-shadow: 0 0 10px rgba(245, 165, 36, 0.55);
+    color: #0B1220;
+    background-color: #F5A524;
+    border-color: #F5A524;
 }
 
 .pin-dot {

@@ -1,20 +1,22 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using Genesis.UI;
 
 namespace Genesis.Core
 {
     /// <summary>
-    /// Phase 3 viral close — DOWNLOAD renders a cabinet share card to PNG (not a clipboard stub).
-    /// Offscreen uGUI → Camera → RenderTexture → EncodeToPNG under persistentDataPath.
+    /// Branded After Action share card — 1080×1350 portrait PNG from real RunSummary data only.
+    /// Offscreen uGUI → Camera → RenderTexture → EncodeToPNG.
     /// </summary>
     public static class ShareCardRenderer
     {
-        const int Width = 1080;
-        const int Height = 1350;
+        public const int Width = 1080;
+        public const int Height = 1350;
 
         public static string LastPath { get; private set; }
+
+        public static string ShareDirectory =>
+            Path.Combine(Application.persistentDataPath, "ShareCards");
 
         public static string Render(RunSummary run)
         {
@@ -28,7 +30,8 @@ namespace Genesis.Core
                 camGo.transform.SetParent(root.transform, false);
                 var cam = camGo.AddComponent<Camera>();
                 cam.clearFlags = CameraClearFlags.SolidColor;
-                cam.backgroundColor = new Color(0.039f, 0.035f, 0.031f, 1f);
+                // Night Atlas navy
+                cam.backgroundColor = new Color(0.043f, 0.071f, 0.125f, 1f);
                 cam.orthographic = true;
                 cam.orthographicSize = 5f;
                 cam.nearClipPlane = 0.1f;
@@ -51,6 +54,9 @@ namespace Genesis.Core
 
                 BuildCard(canvasGo.transform, run);
 
+                // Force layout before capture
+                Canvas.ForceUpdateCanvases();
+
                 var rt = new RenderTexture(Width, Height, 24, RenderTextureFormat.ARGB32);
                 cam.targetTexture = rt;
                 var prev = RenderTexture.active;
@@ -67,11 +73,10 @@ namespace Genesis.Core
                 rt.Release();
                 Object.DestroyImmediate(rt);
 
-                var dir = Path.Combine(Application.persistentDataPath, "ShareCards");
-                Directory.CreateDirectory(dir);
+                Directory.CreateDirectory(ShareDirectory);
                 var safeTitle = Sanitize(string.IsNullOrEmpty(run.theaterTitle) ? "theater" : run.theaterTitle);
                 var file = $"genesis-{safeTitle}-{run.score}-{run.grade}-{System.DateTime.UtcNow:yyyyMMddHHmmss}.png";
-                var path = Path.Combine(dir, file);
+                var path = Path.Combine(ShareDirectory, file);
                 File.WriteAllBytes(path, bytes);
                 LastPath = path;
                 return path;
@@ -84,12 +89,12 @@ namespace Genesis.Core
 
         static void BuildCard(Transform parent, RunSummary run)
         {
-            var voidBg = new Color(0.039f, 0.035f, 0.031f, 1f);
-            var panel = new Color(0.086f, 0.071f, 0.055f, 0.96f);
-            var brass = new Color(0.878f, 0.753f, 0.471f, 1f);
-            var brassMuted = new Color(0.62f, 0.545f, 0.396f, 0.95f);
-            var ink = new Color(0.788f, 0.733f, 0.627f, 1f);
-            var ember = new Color(0.831f, 0.471f, 0.227f, 1f);
+            var voidBg = new Color(0.043f, 0.071f, 0.125f, 1f);
+            var panel = new Color(0.09f, 0.14f, 0.23f, 0.98f);
+            var brass = new Color(0.961f, 0.647f, 0.141f, 1f); // orange accent #F5A524
+            var brassMuted = new Color(0.663f, 0.702f, 0.769f, 0.95f); // #A9B3C4
+            var ink = new Color(0.949f, 0.937f, 0.902f, 1f); // #F2EFE6
+            var ember = new Color(0.961f, 0.647f, 0.141f, 1f);
 
             var bg = MakeImage(parent, "BG", voidBg);
             Stretch(bg.rectTransform);
@@ -102,41 +107,93 @@ namespace Genesis.Core
 
             var v = plate.gameObject.AddComponent<VerticalLayoutGroup>();
             v.padding = new RectOffset(48, 48, 56, 48);
-            v.spacing = 18f;
+            v.spacing = 16f;
             v.childAlignment = TextAnchor.UpperCenter;
             v.childControlHeight = true;
             v.childControlWidth = true;
             v.childForceExpandWidth = true;
             v.childForceExpandHeight = false;
 
-            Label(plate.transform, "GENESIS · AFTER ACTION", 22, brassMuted, 36f, FontStyle.Bold);
-            Label(plate.transform,
-                string.IsNullOrEmpty(run.theaterTitle) ? "THEATER" : run.theaterTitle.ToUpperInvariant(),
-                42, brass, 56f, FontStyle.Bold);
-            Label(plate.transform,
-                $"{(run.year > 0 ? run.year.ToString() : "—")}  ·  {(string.IsNullOrEmpty(run.pathFamily) ? "MIXED" : run.pathFamily.Replace('_', ' ').ToUpperInvariant())}",
-                22, ink, 36f, FontStyle.Normal);
+            Label(plate.transform, "GENESIS", 28, brass, 40f, FontStyle.Bold);
+            Label(plate.transform, "LIVING ATLAS · AFTER ACTION", 20, brassMuted, 32f, FontStyle.Normal);
+
+            string title = string.IsNullOrEmpty(run.theaterTitle) ? "THEATER" : run.theaterTitle.ToUpperInvariant();
+            Label(plate.transform, Truncate(title, 42), 40, ink, 56f, FontStyle.Bold);
+
+            string meta = BuildMetaLine(run);
+            if (!string.IsNullOrEmpty(meta))
+                Label(plate.transform, meta, 22, brassMuted, 36f, FontStyle.Normal);
+
+            // Outcome from real score/grade mapping used on results screen — omit if no score context.
+            string outcome = OutcomeFromRun(run);
+            if (!string.IsNullOrEmpty(outcome))
+                Label(plate.transform, outcome, 26, brass, 40f, FontStyle.Bold);
 
             Label(plate.transform, "CABINET SCORE", 20, brassMuted, 32f, FontStyle.Normal);
             Label(plate.transform, run.score.ToString(), 96, brass, 110f, FontStyle.Bold);
-            Label(plate.transform, string.IsNullOrEmpty(run.grade) ? "—" : run.grade,
-                56, brass, 64f, FontStyle.Bold);
 
-            var head = string.IsNullOrEmpty(run.headline)
-                ? (string.IsNullOrEmpty(run.closingLine) ? "World course locked." : run.closingLine)
-                : run.headline;
-            Label(plate.transform, Truncate(head, 96), 24, ink, 72f, FontStyle.Normal);
+            if (!string.IsNullOrEmpty(run.grade))
+                Label(plate.transform, run.grade.ToUpperInvariant(), 56, brass, 64f, FontStyle.Bold);
 
-            Label(plate.transform, $"BEAT MY PATH · score {run.score}", 28, ember, 40f, FontStyle.Bold);
-            Label(plate.transform, "genesis · cabinet war table", 18, brassMuted, 30f, FontStyle.Normal);
+            string head = FirstNonEmpty(run.headline, run.closingLine);
+            if (!string.IsNullOrEmpty(head))
+                Label(plate.transform, Truncate(head, 96), 24, ink, 72f, FontStyle.Normal);
+
+            if (!string.IsNullOrEmpty(run.topGainLine))
+                Label(plate.transform, Truncate("↑ " + run.topGainLine, 64), 20, ink, 30f, FontStyle.Normal);
+            if (!string.IsNullOrEmpty(run.topCostLine))
+                Label(plate.transform, Truncate("↓ " + run.topCostLine, 64), 20, brassMuted, 30f, FontStyle.Normal);
 
             if (run.scarLines != null && run.scarLines.Count > 0)
             {
                 Label(plate.transform, "SCARS LEFT ON THE DESK", 18, brassMuted, 28f, FontStyle.Bold);
                 var n = Mathf.Min(4, run.scarLines.Count);
                 for (var i = 0; i < n; i++)
-                    Label(plate.transform, "· " + run.scarLines[i], 20, ink, 28f, FontStyle.Normal);
+                {
+                    if (string.IsNullOrEmpty(run.scarLines[i])) continue;
+                    Label(plate.transform, "· " + Truncate(run.scarLines[i], 48), 20, ink, 28f, FontStyle.Normal);
+                }
             }
+
+            Label(plate.transform, "Can you beat this desk?", 28, ember, 40f, FontStyle.Bold);
+            Label(plate.transform, "Play Genesis — real geography, real history.", 18, brassMuted, 30f, FontStyle.Normal);
+        }
+
+        static string BuildMetaLine(RunSummary run)
+        {
+            var parts = new System.Collections.Generic.List<string>();
+            if (run.year > 0) parts.Add(run.year.ToString());
+            if (run.phasesTotal > 0)
+                parts.Add($"{run.phasesCompleted}/{run.phasesTotal} phases");
+            if (!string.IsNullOrEmpty(run.pathFamily))
+                parts.Add(run.pathFamily.Replace('_', ' ').ToUpperInvariant());
+            return parts.Count == 0 ? "" : string.Join("  ·  ", parts);
+        }
+
+        /// <summary>Maps score to the same titles shown on the results screen. No invented ranks.</summary>
+        static string OutcomeFromRun(RunSummary run)
+        {
+            if (run == null) return "";
+            // Prefer explicit grade letter as the outcome badge; title from score bands used in UI.
+            string title = GradeTitle(run.score);
+            return string.IsNullOrEmpty(title) ? "" : title.ToUpperInvariant();
+        }
+
+        static string GradeTitle(int score)
+        {
+            if (score >= 90) return "Master Strategist";
+            if (score >= 80) return "Steady Hand";
+            if (score >= 70) return "Pragmatic Course";
+            if (score >= 60) return "Fragile Equilibrium";
+            return "Volatile Standoff";
+        }
+
+        static string FirstNonEmpty(params string[] values)
+        {
+            if (values == null) return "";
+            foreach (var v in values)
+                if (!string.IsNullOrEmpty(v)) return v;
+            return "";
         }
 
         static Image MakeImage(Transform parent, string name, Color c)
@@ -169,6 +226,7 @@ namespace Genesis.Core
             t.horizontalOverflow = HorizontalWrapMode.Wrap;
             t.verticalOverflow = VerticalWrapMode.Truncate;
             t.raycastTarget = false;
+            // Built-in Arial is acceptable for share bitmap; avoids SDF dependency offscreen.
         }
 
         static void Stretch(RectTransform rt)

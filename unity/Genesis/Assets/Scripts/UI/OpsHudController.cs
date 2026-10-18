@@ -28,6 +28,7 @@ namespace Genesis.UI
         bool          _pauseVisible;
 
         // ── Cached elements ───────────────────────────────────────────────────
+        Label         _opsTag;
         Label         _titleLabel;
         Label         _phaseLabel;
         Label         _timerLabel;
@@ -88,6 +89,7 @@ namespace Genesis.UI
         // ── Element binding ───────────────────────────────────────────────────
         void BindElements()
         {
+            _opsTag        = _root.Q<Label>("opsTag");
             _titleLabel    = _root.Q<Label>("titleLabel");
             _phaseLabel    = _root.Q<Label>("phaseLabel");
             _timerLabel    = _root.Q<Label>("timerLabel");
@@ -158,6 +160,9 @@ namespace Genesis.UI
             else audio.ResumeAmbience();
         }
 
+        /// <summary>True while the pause overlay is up — timer and urgency must freeze.</summary>
+        public bool IsPaused => _pauseVisible;
+
         // ── Android Back handler ──────────────────────────────────────────────
         void RegisterBackHandler()
         {
@@ -190,7 +195,7 @@ namespace Genesis.UI
         // ── Timer (Update) ────────────────────────────────────────────────────
         void Update()
         {
-            if (!_timerRunning) return;
+            if (!_timerRunning || _pauseVisible) return;
 
             _remaining -= Time.deltaTime;
             float safe = Mathf.Max(0f, _remaining);
@@ -254,12 +259,58 @@ namespace Genesis.UI
 
         public void BindTheater(TheaterBundle bundle)
         {
-            if (bundle?.scenario == null || bundle.board == null) return;
-            _theaterId = bundle.scenario.id ?? "";
-            string title = $"{bundle.scenario.year} · {bundle.board.title}".ToUpperInvariant();
-            if (_titleLabel != null) _titleLabel.text = title;
-            var opsTag = _root?.Q<Label>("opsTag");
-            if (opsTag != null) opsTag.text = "CRISIS LINE";
+            if (bundle?.scenario == null) return;
+            var scenario = bundle.scenario;
+            _theaterId = scenario.id ?? "";
+
+            // Primary line: actual theater name (readable + informative).
+            // Meta line: year · place — not the generic "CRISIS LINE" stub.
+            string theaterName = FirstNonEmpty(
+                scenario.title,
+                bundle.board?.title,
+                "Theater");
+
+            if (_titleLabel != null)
+                _titleLabel.text = theaterName.ToUpperInvariant();
+
+            if (_opsTag != null)
+                _opsTag.text = BuildTheaterMeta(scenario, bundle.board);
+        }
+
+        static string BuildTheaterMeta(ScenarioData scenario, BoardData board)
+        {
+            var parts = new System.Collections.Generic.List<string>(2);
+            if (scenario != null && scenario.year > 0)
+                parts.Add(scenario.year.ToString());
+
+            string place = FirstRegionClause(scenario?.region);
+            if (string.IsNullOrEmpty(place))
+                place = FirstNonEmpty(board?.title, scenario?.era);
+            if (!string.IsNullOrEmpty(place))
+                parts.Add(place.ToUpperInvariant());
+
+            return parts.Count > 0 ? string.Join(" · ", parts) : "CRISIS DESK";
+        }
+
+        static string FirstRegionClause(string region)
+        {
+            if (string.IsNullOrWhiteSpace(region)) return "";
+            int cut = region.IndexOf('·');
+            if (cut < 0) cut = region.IndexOf(',');
+            string clause = cut >= 0 ? region.Substring(0, cut) : region;
+            return clause.Trim();
+        }
+
+        static string FirstNonEmpty(params string[] values)
+        {
+            if (values == null) return "";
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(values[i]))
+                    return values[i].Trim();
+            }
+
+            return "";
         }
 
         public void ShowBeat(BeatData beat, int index, int total, float seconds)
@@ -288,9 +339,11 @@ namespace Genesis.UI
             HideToast(_commitToast);
             HideToast(_missionToast);
 
-            // Order sheet carries the decision fork — skip field brief so the map
-            // band matches the Europe Desk composition (tooltip + sheet only).
-            HideBrief();
+            // Short field brief at beat start; tap or 3.5s dismisses into the sheet.
+            if (!string.IsNullOrWhiteSpace(beat.title) || !string.IsNullOrWhiteSpace(beat.briefing))
+                ShowFieldBrief(beat);
+            else
+                HideBrief();
         }
 
         /// <summary>
@@ -447,7 +500,7 @@ namespace Genesis.UI
             _fieldBrief.RegisterCallback<PointerDownEvent>(OnBriefTap);
             PulseEnter(_fieldBrief, "field-brief--enter");
 
-            _briefDismissItem = _root.schedule.Execute(HideBrief).StartingIn(4000);
+            _briefDismissItem = _root.schedule.Execute(HideBrief).StartingIn(3500);
         }
 
         void OnBriefTap(PointerDownEvent evt)

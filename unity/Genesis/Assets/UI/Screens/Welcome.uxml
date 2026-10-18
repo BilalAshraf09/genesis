@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/Welcome.uss" />
+
+    <ui:VisualElement name="welcomeRoot" class="welcome-root">
+        <ui:VisualElement name="welcomeCard" class="glass welcome-card">
+
+            <ui:Label text="GENESIS" class="welcome-logo" picking-mode="Ignore" />
+            <ui:Label text="DECISION WORLDS" class="welcome-tagline" picking-mode="Ignore" />
+
+            <ui:Label text="Play the first 5 theaters free. Sign in anytime to keep your desk across devices."
+                      class="welcome-body"
+                      picking-mode="Ignore" />
+
+            <ui:Label name="statusLabel" text="" class="welcome-status" picking-mode="Ignore" />
+
+            <ui:Button name="guestBtn" class="btn btn--primary welcome-btn">
+                <ui:Label name="guestBtnLabel" text="CONTINUE AS GUEST" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="googleBtn" class="btn btn--secondary welcome-btn">
+                <ui:Label text="CONTINUE WITH GOOGLE" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="appleBtn" class="btn btn--secondary welcome-btn">
+                <ui:Label text="CONTINUE WITH APPLE" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:VisualElement class="welcome-divider" picking-mode="Ignore">
+                <ui:Label text="OR" class="welcome-divider__label" picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <ui:Button name="emailSignUpBtn" class="welcome-link-btn">
+                <ui:Label text="Sign up with Email" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="emailLoginBtn" class="welcome-link-btn">
+                <ui:Label text="Log in" picking-mode="Ignore" />
+            </ui:Button>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

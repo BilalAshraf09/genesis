@@ -105,8 +105,9 @@ namespace Genesis.UI.Toolkit
             style.flexGrow = 0;
             style.flexShrink = 0;
             EnableInClassList("order-card--compact", compact);
+            // Keep decision detail visible — compact only tightens title wrap via USS.
             if (_descLabel != null)
-                _descLabel.EnableInClassList("hidden", compact);
+                _descLabel.EnableInClassList("hidden", false);
         }
 
         /// <summary>
@@ -128,24 +129,24 @@ namespace Genesis.UI.Toolkit
             style.marginBottom = 0f;
             EnableInClassList("order-card--compact", compact);
             if (_descLabel != null)
-                _descLabel.EnableInClassList("hidden", compact);
+                _descLabel.EnableInClassList("hidden", false);
         }
 
         static string PreferredTitle(OrderChoice order)
         {
-            // Prefer full decision title; wrap in-card instead of ellipsis-clamping.
+            // Full decision title (wrapped). Short callsigns like "RIDER" are too opaque alone.
             if (!string.IsNullOrWhiteSpace(order.label))
-                return SoftClamp(order.label.Trim(), 96);
+                return SoftClamp(order.label.Trim(), 72);
             if (!string.IsNullOrWhiteSpace(order.ShortLabel) && order.ShortLabel.Trim().Length >= 6)
-                return SoftClamp(order.ShortLabel.Trim(), 96);
+                return SoftClamp(order.ShortLabel.Trim(), 48);
             return order.DisplayCallsign ?? "ORDER";
         }
 
         static string PreferredDetail(OrderChoice order)
         {
             if (!string.IsNullOrWhiteSpace(order.detail))
-                return SoftClamp(order.detail.Trim(), 120);
-            return "Arms this order for commit.";
+                return SoftClamp(order.detail.Trim(), 90);
+            return "Tap to arm — then hold to commit.";
         }
 
         void BuildDeltas(List<ChoiceEffect> effects)
@@ -263,13 +264,14 @@ namespace Genesis.UI.Toolkit
             _ => "order-card--covert"
         };
 
+        // Short badges free horizontal space for the decision title on phone cards.
         static string KindTitle(string kind) => (kind ?? "").ToLowerInvariant() switch
         {
-            "military" => "MILITARY",
-            "diplomatic" => "DIPLOMATIC",
-            "covert" => "COVERT",
-            "economic" => "ECONOMIC",
-            "political" => "POLITICAL",
+            "military" => "MIL",
+            "diplomatic" => "DIPLO",
+            "covert" => "COV",
+            "economic" => "ECON",
+            "political" => "POL",
             _ => "ORDER"
         };
 

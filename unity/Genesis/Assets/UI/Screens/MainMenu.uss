@@ -241,6 +241,37 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     color: #F5A524;
 }
 
+.main-menu__pin-lock {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    font-size: 9px;
+    color: #0B1220;
+    background-color: #F5A524;
+    border-radius: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.4px;
+    display: none;
+}
+
+.main-menu__pin--locked .main-menu__pin-lock {
+    display: flex;
+}
+
+.main-menu__pin--locked .main-menu__pin-core {
+    background-color: #6B7280;
+}
+
+.main-menu__pin--locked .main-menu__pin-pulse--outer,
+.main-menu__pin--locked .main-menu__pin-pulse--inner {
+    border-color: rgba(169, 179, 196, 0.28);
+    background-color: rgba(169, 179, 196, 0.06);
+}
+
 /* ── Atmospheric scrim layers ────────────────────────────── */
 .main-menu__scrim {
     position: absolute;

@@ -1,0 +1,47 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/AuthEmail.uss" />
+
+    <ui:VisualElement name="authEmailOverlay" class="auth-email-overlay">
+        <ui:VisualElement name="authEmailCard" class="glass auth-email-card">
+
+            <ui:Button name="closeBtn" class="auth-email-close" tooltip="Close">
+                <ui:Label text="✕" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Label name="titleLabel" text="SIGN UP" class="auth-email-title" picking-mode="Ignore" />
+            <ui:Label name="bodyLabel"
+                      text="Create an account to keep your progress."
+                      class="auth-email-body"
+                      picking-mode="Ignore" />
+
+            <ui:TextField name="emailField" class="auth-email-field" label="Email" />
+            <ui:VisualElement class="auth-email-password-row">
+                <ui:TextField name="passwordField" class="auth-email-field auth-email-field--grow" label="Password" password="true" />
+                <ui:Button name="togglePasswordBtn" class="auth-email-eye">
+                    <ui:Label name="togglePasswordLabel" text="SHOW" picking-mode="Ignore" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:TextField name="confirmField" class="auth-email-field" label="Confirm password" password="true" />
+
+            <ui:Label name="statusLabel" text="" class="auth-email-status" picking-mode="Ignore" />
+
+            <ui:Button name="primaryBtn" class="btn btn--primary auth-email-btn">
+                <ui:Label name="primaryBtnLabel" text="CREATE ACCOUNT" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="forgotBtn" class="auth-email-link">
+                <ui:Label text="Forgot password?" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="switchModeBtn" class="auth-email-link">
+                <ui:Label name="switchModeLabel" text="Already have an account? Log in" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="backBtn" class="auth-email-back">
+                <ui:Label text="Back" picking-mode="Ignore" />
+            </ui:Button>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

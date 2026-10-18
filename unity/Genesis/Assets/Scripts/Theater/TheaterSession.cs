@@ -11,7 +11,7 @@ namespace Genesis.Theater
 {
     /// <summary>
     /// Full theater play loop: load theater → hotspot / order → timer → EXECUTE → resolve → all beats → Results.
-    /// Freemium / RevenueCat remain stubbed (do not block Editor play-through).
+    /// Theater access is gated by <see cref="Genesis.Monetization.TheaterAccessService"/> via AppFlow.BeginTheater.
     /// </summary>
     public class TheaterSession : MonoBehaviour
     {
@@ -123,6 +123,14 @@ namespace Genesis.Theater
             }
 
             var id = ResolveTheaterId();
+            if (!Genesis.Monetization.TheaterAccessService.Instance.CanAccessTheater(id))
+            {
+                Debug.LogWarning($"[Genesis] TheaterSession blocked locked theater '{id}'.");
+                Genesis.Monetization.FullGameUnlockController.Show(id);
+                AppFlow.GoTheaterSelect();
+                return;
+            }
+
             try
             {
                 _bundle = TheaterCatalogLoader.LoadTheater(id);
@@ -537,30 +545,26 @@ namespace Genesis.Theater
         }
     }
 
+    /// <summary>
+    /// Compatibility shim over <see cref="Genesis.Monetization.TheaterAccessService"/>.
+    /// Prefer TheaterAccessService for new code.
+    /// </summary>
     public class FreemiumStub : MonoBehaviour
     {
-        public bool IsPro => false;
+        public bool IsPro => Genesis.Monetization.TheaterAccessService.Instance.IsFullGameUnlocked;
 
-        public int FreeTheatersRemaining => 2;
+        public int FreeTheatersRemaining =>
+            Genesis.Monetization.TheaterAccessService.Instance.FreeTheatersRemaining;
 
-        static readonly HashSet<string> FreeIds = new()
-        {
-            "hist-1947-radcliffe",
-            "hist-1962-cuba"
-        };
-
-        /// <summary>
-        /// Unity Editor play-through never hard-blocks. Paywall is stubbed so Bilal can test all theaters.
-        /// Catalog still marks free desks for UI chrome.
-        /// </summary>
-        public bool CanDeploy(string theaterId) => true;
+        public bool CanDeploy(string theaterId) =>
+            Genesis.Monetization.TheaterAccessService.Instance.CanAccessTheater(theaterId);
 
         public bool IsFreeDesk(string theaterId) =>
-            !string.IsNullOrEmpty(theaterId) && FreeIds.Contains(theaterId);
+            Genesis.Monetization.TheaterAccessService.Instance.IsFreeDesk(theaterId);
 
         public void ShowPaywallStub()
         {
-            Debug.Log("[Genesis] Freemium/RevenueCat stub — paywall deferred (Unity does not block Deploy).");
+            Genesis.Monetization.TheaterAccessService.Instance.RequestUnlockAllTheaters();
         }
     }
 }

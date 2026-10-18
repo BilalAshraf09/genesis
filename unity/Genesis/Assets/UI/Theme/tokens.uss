@@ -56,21 +56,20 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
        Premium strategy readability (Inter). Sizes are panel units,
        not CSS device px — keep hierarchy, not a global multiplier.
        Weights: Regular + SemiBold SDF only (Medium/Bold roles → SemiBold).
-       Targets: title 18–20, flashpoint 22–24, card 15–16, body 13–14,
-       secondary 12–13, status/timer 12–14, pills/effects 10–11. */
+       Modest bump for mobile; avoid layout-breaking jumps. */
     --type-screen-title: 19px;   /* .type-screen-title — SemiBold */
     --type-panel-title:  23px;   /* .type-section-title — SemiBold (Bold role) */
     --type-card-title:   16px;   /* .type-card-title — SemiBold */
-    --type-body:         14px;   /* .type-body — Regular */
-    --type-secondary:    13px;   /* .type-secondary — Regular */
+    --type-body:         15px;   /* .type-body — Regular */
+    --type-secondary:    14px;   /* .type-secondary — Regular */
     --type-category:     11px;   /* .type-category — SemiBold */
-    --type-effect:       11px;   /* .type-effect-badge — SemiBold */
+    --type-effect:       12px;   /* .type-effect-badge — SemiBold */
     --type-hold:         16px;
     --type-hold-sub:     13px;
-    --type-meta:         12px;   /* .type-status-label — SemiBold (Medium role) */
-    --type-numeric:      14px;   /* .type-status-value / timer — SemiBold */
+    --type-meta:         13px;   /* .type-status-label — SemiBold (Medium role) */
+    --type-numeric:      15px;   /* .type-status-value / timer — SemiBold */
     --type-callout-title: 15px;
-    --type-callout-body:  13px;
+    --type-callout-body:  14px;
     --type-map-label:     16px;
 
     /* Tracking — restrained; uppercase meta only.

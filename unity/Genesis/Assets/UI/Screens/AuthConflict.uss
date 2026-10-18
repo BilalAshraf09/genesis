@@ -1,0 +1,50 @@
+.auth-conflict-overlay {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.78);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.auth-conflict-card {
+    width: 720px;
+    max-width: 94%;
+    flex-direction: column;
+    padding: 28px 24px 20px 24px;
+    border-radius: 20px;
+}
+
+.auth-conflict-title {
+    font-size: 22px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 10px;
+}
+
+.auth-conflict-body {
+    font-size: 14px;
+    color: #F2EFE6;
+    white-space: normal;
+    margin-bottom: 10px;
+}
+
+.auth-conflict-body--dim {
+    color: #A9B3C4;
+    margin-bottom: 18px;
+}
+
+.auth-conflict-btn {
+    margin-bottom: 10px;
+    min-height: 56px;
+}
+
+.hidden {
+    display: none;
+}

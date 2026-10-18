@@ -83,12 +83,12 @@ Unity USS: no sibling combinators (+/~).
 .sheet-header {
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
+    justify-content: flex-start;
     flex-shrink: 0;
-    min-height: 70px;
-    max-height: 88px;
+    min-height: 78px;
+    max-height: 108px;
     width: 100%;
-    padding-bottom: 0;
+    padding-bottom: 2px;
     overflow: hidden;
 }
 
@@ -111,20 +111,23 @@ Unity USS: no sibling combinators (+/~).
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .beat-title-label {
     font-size: var(--type-body);
-    color: #A9B3C4;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    color: #E8EDF5;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    -unity-text-align: middle-left;
+    white-space: normal;
+    /* 2 lines — wraps instead of one-line ellipsis */
+    max-height: 40px;
+    -unity-text-align: upper-left;
+    -unity-line-height: 20px;
+    opacity: 1;
 }
 
 /* ---- Card rail (horizontal) ----------------------------- */
@@ -210,7 +213,7 @@ Unity USS: no sibling combinators (+/~).
     min-width: 0;
     flex-direction: column;
     /* Header → title → desc → deltas (pinned via margin-top:auto) */
-    padding: 14px 12px 12px 12px;
+    padding: 12px 11px 11px 11px;
     position: relative;
 }
 
@@ -234,13 +237,13 @@ Unity USS: no sibling combinators (+/~).
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    margin-bottom: 10px;
-    min-height: 32px;
+    margin-bottom: 8px;
+    min-height: 28px;
 }
 
 .order-card__icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     margin-bottom: 0;
     margin-right: 6px;
     flex-shrink: 0;
@@ -263,15 +266,15 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .order-card__kind {
-    font-size: var(--type-category);
+    font-size: 10px;
     color: #F2EFE6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: var(--track-meta);
+    letter-spacing: 0.6px;
     background-color: rgba(11, 18, 32, 0.95);
-    border-radius: 20px;
+    border-radius: 8px;
     border-width: 1px;
     border-color: rgba(90, 169, 230, 0.4);
-    padding: 4px 9px;
+    padding: 3px 7px;
     flex-shrink: 0;
     white-space: nowrap;
     margin-bottom: 0;
@@ -279,23 +282,29 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .order-card--military .order-card__kind {
-    color: #F2EFE6;
-    border-color: rgba(229, 83, 75, 0.35);
+    color: #FFB4AE;
+    border-color: rgba(229, 83, 75, 0.65);
+    background-color: rgba(229, 83, 75, 0.14);
 }
 .order-card--diplomatic .order-card__kind {
-    color: #F2EFE6;
-    border-color: rgba(90, 169, 230, 0.35);
+    color: #A8D4F5;
+    border-color: rgba(90, 169, 230, 0.65);
+    background-color: rgba(90, 169, 230, 0.14);
 }
 .order-card--political .order-card__kind {
-    color: #F2EFE6;
-    border-color: rgba(245, 165, 36, 0.25);
+    color: #FFD28A;
+    border-color: rgba(245, 165, 36, 0.65);
+    background-color: rgba(245, 165, 36, 0.14);
 }
 .order-card--covert .order-card__kind {
-    color: #F2EFE6;
+    color: #C9B8E8;
+    border-color: rgba(160, 132, 220, 0.55);
+    background-color: rgba(160, 132, 220, 0.14);
 }
 .order-card--economic .order-card__kind {
-    color: #F2EFE6;
-    border-color: rgba(63, 185, 122, 0.35);
+    color: #9EE0BC;
+    border-color: rgba(63, 185, 122, 0.65);
+    background-color: rgba(63, 185, 122, 0.14);
 }
 
 .order-card__title {
@@ -306,36 +315,41 @@ Unity USS: no sibling combinators (+/~).
     white-space: normal;
     flex-grow: 0;
     flex-shrink: 0;
-    /* No max-height — card band grows to fit wrapped title.
-       Clip paint to the label box so overflow never leaks under the sheet. */
     overflow: hidden;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     -unity-text-align: upper-left;
-    -unity-line-height: 20px;
+    -unity-line-height: 21px;
+    max-height: 63px;
 }
 
 .order-card--compact .order-card__title {
     font-size: var(--type-card-title);
     -unity-text-align: upper-left;
+    max-height: 42px;
 }
 
 .order-card__desc {
     font-size: var(--type-secondary);
-    color: var(--color-text-secondary);
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    color: #C8D0DE;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: 0;
     white-space: normal;
     flex-grow: 0;
-    flex-shrink: 0;
-    /* No max-height — wrap fully; parent card height supplies room */
+    flex-shrink: 1;
     overflow: hidden;
-    margin-bottom: 10px;
-    opacity: 0.95;
-    -unity-line-height: 17px;
+    margin-bottom: 8px;
+    opacity: 1;
+    -unity-line-height: 18px;
+    max-height: 36px;
+    min-height: 18px;
 }
 
 .order-card--compact .order-card__desc {
-    display: none;
+    /* Keep a one-line hint even in compact — never blank the decision */
+    display: flex;
+    max-height: 18px;
+    color: #C8D0DE;
+    opacity: 1;
 }
 
 .order-card__deltas {
@@ -355,15 +369,15 @@ Unity USS: no sibling combinators (+/~).
     padding: 4px 8px;
     margin-right: 4px;
     margin-bottom: 2px;
-    border-radius: 10px;
-    background-color: rgba(63, 185, 122, 0.22);
+    border-radius: 8px;
+    background-color: rgba(63, 185, 122, 0.28);
     border-width: 0;
     border-color: rgba(0, 0, 0, 0);
 }
 
 .delta-pill__label {
     font-size: var(--type-effect);
-    color: #3FB97A;
+    color: #5FD49A;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: var(--track-numeric);
     white-space: nowrap;
@@ -374,7 +388,7 @@ Unity USS: no sibling combinators (+/~).
     background-color: rgba(63, 185, 122, 0.22);
 }
 .delta-pill--gain .delta-pill__label {
-    color: #3FB97A;
+    color: #5FD49A;
 }
 
 .delta-pill--cost {
@@ -445,8 +459,8 @@ Unity USS: no sibling combinators (+/~).
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(20, 25, 35, 0.9);
     background-image: none;
-    /* Visible so primary + subtitle both stay inside the orange CTA */
-    overflow: visible;
+    /* Clip to button — overflow:visible painted subtitle under the sheet edge */
+    overflow: hidden;
     position: relative;
     transition-duration: 0.14s;
 }
@@ -523,9 +537,9 @@ Unity USS: no sibling combinators (+/~).
 }
 
 .hold-btn--idle {
-    background-color: rgba(255, 255, 255, 0.06);
-    border-width: 1px;
-    border-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(245, 165, 36, 0.10);
+    border-width: 1.5px;
+    border-color: rgba(245, 165, 36, 0.45);
     background-image: none;
 }
 
@@ -558,8 +572,8 @@ Unity USS: no sibling combinators (+/~).
 
 .hold-btn__sublabel {
     font-size: var(--type-hold-sub);
-    color: #A9B3C4;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    color: #DCE3EE;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-left;
     white-space: nowrap;
     overflow: hidden;
@@ -571,17 +585,26 @@ Unity USS: no sibling combinators (+/~).
     opacity: 1;
 }
 
-.hold-btn--idle .hold-btn__label,
+.hold-btn--idle .hold-btn__label {
+    color: #F5A524;
+}
+
 .hold-btn--locked .hold-btn__label {
     color: #6E7A8F;
 }
 
-.hold-btn--idle .hold-btn__sublabel,
+.hold-btn--idle .hold-btn__sublabel {
+    color: #C8D0DE;
+}
+
 .hold-btn--locked .hold-btn__sublabel {
     color: #6E7A8F;
 }
 
-.hold-btn--idle .hold-btn__arrow,
+.hold-btn--idle .hold-btn__arrow {
+    color: #F5A524;
+}
+
 .hold-btn--locked .hold-btn__arrow {
     color: #6E7A8F;
 }
@@ -619,8 +642,13 @@ Unity USS: no sibling combinators (+/~).
     }
 
     .sheet-header {
-        min-height: 64px;
-        max-height: 84px;
+        min-height: 72px;
+        max-height: 100px;
+    }
+
+    .beat-title-label {
+        max-height: 36px;
+        -unity-line-height: 18px;
     }
 
     .place-name-label {

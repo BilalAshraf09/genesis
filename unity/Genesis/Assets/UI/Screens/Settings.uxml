@@ -58,13 +58,29 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                 </ui:VisualElement>
             </ui:VisualElement>
 
-            <!-- ── ACCOUNT / PREMIUM ── -->
+            <!-- ── ACCOUNT ── -->
+            <ui:VisualElement class="settings-section">
+                <ui:Label text="ACCOUNT" class="settings-section__heading" />
+                <ui:Label name="accountLabel" text="Guest"
+                          class="settings-status-label" />
+                <ui:Button name="linkAccountBtn" class="settings-action-btn">
+                    <ui:Label name="linkAccountBtnLabel" text="Create Account / Sign In" />
+                </ui:Button>
+                <ui:Button name="signOutBtn" class="settings-action-btn">
+                    <ui:Label text="Sign Out" />
+                </ui:Button>
+            </ui:VisualElement>
+
+            <!-- ── ACCESS / PREMIUM ── -->
             <ui:VisualElement class="settings-section">
                 <ui:Label text="ACCESS" class="settings-section__heading" />
                 <ui:Label name="clearanceLabel" text="Clearance: Standard"
                           class="settings-status-label" />
                 <ui:Button name="specialOpsBtn" class="settings-action-btn">
-                    <ui:Label text="Access Special Operations" />
+                    <ui:Label text="Unlock Full Game" />
+                </ui:Button>
+                <ui:Button name="restorePurchasesBtn" class="settings-action-btn">
+                    <ui:Label text="Restore Purchases" />
                 </ui:Button>
             </ui:VisualElement>
 

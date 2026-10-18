@@ -323,6 +323,12 @@ ScoreRing {
 
 .after-action__share-btn {
     margin-bottom: 12px;
+    min-height: 56px;
+    flex-shrink: 0;
+}
+
+.after-action__share-btn:disabled {
+    opacity: 0.45;
 }
 
 .after-action__action-row {
@@ -342,10 +348,15 @@ ScoreRing {
     border-width: 1px;
     border-color: #D9B45A;
     color: #D9B45A;
+    margin-bottom: 10px;
 }
 
 .after-action__codex-btn > Label {
     color: #D9B45A;
+}
+
+.after-action__home-btn {
+    margin-bottom: 4px;
 }
 
 .after-action__share-status {

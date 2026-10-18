@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Genesis.Atlas;
 using Genesis.Data;
+using Genesis.Monetization;
 using Genesis.Theater;
 using Genesis.UI.Toolkit;
 using UnityEngine;
@@ -20,17 +21,17 @@ namespace Genesis.Core
         const float PulsePeriodSec = 2.4f;
         const float ScanPeriodSec  = 11f;
 
-        // Flagship theaters shown as crisis pins (layout % of screen).
+        // Crisis pins: free desks front-and-center; a few flagship paid desks with lock chrome.
         // Primary / featured sits center; others form a living-atlas constellation.
         static readonly PinSpec[] PinLayout =
         {
-            new("hist-1947-radcliffe", 50f, 36f, primary: true),  // India Partition
-            new("hist-1962-cuba",      16f, 44f, primary: false), // Thirteen Days
-            new("hist-1989-wall",      78f, 30f, primary: false), // Wall Night
-            new("hist-1917-balfour",   24f, 28f, primary: false), // Balfour
-            new("hist-1950-korea",     84f, 48f, primary: false), // Parallel War
-            new("hist-1956-suez",      34f, 52f, primary: false), // Canal Crisis
-            new("hist-1938-munich",    66f, 52f, primary: false), // Munich Window
+            new("hist-1914-july-wire",   50f, 36f, primary: true),  // July Wire (free)
+            new("hist-1905-port-arthur", 16f, 44f, primary: false), // Port Arthur (free)
+            new("hist-1917-balfour",     78f, 30f, primary: false), // Balfour (free)
+            new("hist-1919-versailles",  24f, 28f, primary: false), // Versailles (free)
+            new("hist-1947-radcliffe",   84f, 48f, primary: false), // Partition (paid)
+            new("hist-1962-cuba",        34f, 52f, primary: false), // Cuba (paid)
+            new("hist-1989-wall",        66f, 52f, primary: false), // Wall Night (paid)
         };
 
         struct PinSpec
@@ -71,6 +72,7 @@ namespace Genesis.Core
         readonly List<PinAnim> _pins = new();
         readonly Dictionary<string, VisualElement> _pinById = new();
         string _selectedTheaterId;
+        bool _abandonPlayArmed;
         Func<bool> _backHandler;
 
         static Texture2D _bottomGradient;
@@ -95,11 +97,6 @@ namespace Genesis.Core
             BuildUi();
         }
 
-        void OnDestroy()
-        {
-            MobilePlatform.PopBack(_backHandler);
-        }
-
         // ── UI build ──────────────────────────────────────────────────────────
         void BuildUi()
         {
@@ -119,9 +116,10 @@ namespace Genesis.Core
                     SafeAreaRoot.Apply(safeEl, panel);
             }).StartingIn(0);
 
-            // ── Featured / selected theater ──
+            // ── Featured / selected theater (prefer free desk so Play isn't a cold paywall) ──
             var featured = ResolveFeaturedTheater();
-            _selectedTheaterId = featured?.id ?? "hist-1947-radcliffe";
+            _selectedTheaterId = featured?.id
+                ?? TheaterAccessService.Instance.GetDefaultFreeTheaterId();
             ApplySelectedTheater(featured);
 
             // ── Map background (parallax pair) ──
@@ -182,13 +180,64 @@ namespace Genesis.Core
             }
 
             // ── Navigation buttons ──
-            WireButton(_root, "playBtn",     () => AppFlow.BeginTheater(_selectedTheaterId));
+            WireButton(_root, "playBtn",     OnPlayPressed);
             WireButton(_root, "atlasBtn",    AppFlow.GoTheaterSelect);
             WireButton(_root, "codexBtn",    CodexOverlay.Open);
             WireButton(_root, "settingsBtn", AppFlow.GoSettings);
 
+            TheaterAccessService.Instance.EntitlementsChanged += OnEntitlementsChanged;
+
             _backHandler = () => true;
             MobilePlatform.PushBack(_backHandler);
+        }
+
+        void OnDestroy()
+        {
+            MobilePlatform.PopBack(_backHandler);
+            if (TheaterAccessService.Instance != null)
+                TheaterAccessService.Instance.EntitlementsChanged -= OnEntitlementsChanged;
+        }
+
+        void OnEntitlementsChanged()
+        {
+            RefreshPinLocks();
+            if (string.IsNullOrEmpty(_selectedTheaterId) || _root == null) return;
+
+            TheaterCatalogEntry entry = null;
+            try
+            {
+                var catalog = TheaterCatalogLoader.LoadCatalog();
+                entry = catalog?.theaters?.Find(t => t != null && t.id == _selectedTheaterId);
+            }
+            catch { }
+
+            if (entry != null) ApplySelectedTheater(entry);
+            else RefreshPlayCta();
+        }
+
+        void OnPlayPressed()
+        {
+            var active = AppFlow.GetActiveRunData();
+            bool abandons = active != null &&
+                            !string.IsNullOrEmpty(active.theaterId) &&
+                            !string.Equals(active.theaterId, _selectedTheaterId, StringComparison.Ordinal);
+
+            if (abandons && !_abandonPlayArmed)
+            {
+                _abandonPlayArmed = true;
+                SetLabel(_root, "playBtnLabel", "TAP AGAIN TO ABANDON");
+                SetLabel(_root, "playBtnSub", $"{active.theaterTitle} · phase {active.beatIndex + 1}");
+                _root?.schedule.Execute(() =>
+                {
+                    if (!_abandonPlayArmed) return;
+                    _abandonPlayArmed = false;
+                    RefreshPlayCta();
+                }).StartingIn(4000);
+                return;
+            }
+
+            _abandonPlayArmed = false;
+            AppFlow.BeginTheater(_selectedTheaterId);
         }
 
         void BuildTheaterPins(VisualElement root)
@@ -244,6 +293,7 @@ namespace Genesis.Core
 
                 string theaterId = spec.Id;
                 pin.RegisterCallback<ClickEvent>(_ => SelectTheater(theaterId));
+                ApplyPinLockState(pin, theaterId);
 
                 // Staggered pin fade-in (StartingIn takes delay ms as long)
                 long delayMs = (long)(160f + phaseStep * 220f);
@@ -280,6 +330,11 @@ namespace Genesis.Core
             core.pickingMode = PickingMode.Ignore;
             pin.Add(core);
 
+            var lockBadge = new Label { text = "LOCK" };
+            lockBadge.AddToClassList("main-menu__pin-lock");
+            lockBadge.pickingMode = PickingMode.Ignore;
+            pin.Add(lockBadge);
+
             var chip = new VisualElement();
             chip.AddToClassList("main-menu__pin-chip");
             chip.pickingMode = PickingMode.Ignore;
@@ -295,14 +350,16 @@ namespace Genesis.Core
 
         void SelectTheater(string theaterId)
         {
-            if (string.IsNullOrEmpty(theaterId) || theaterId == _selectedTheaterId)
+            if (string.IsNullOrEmpty(theaterId)) return;
+
+            if (theaterId == _selectedTheaterId)
             {
-                // Second tap on the same pin enters the theater.
-                if (theaterId == _selectedTheaterId)
-                    AppFlow.BeginTheater(_selectedTheaterId);
+                // Second tap on the same pin enters (or opens unlock).
+                OnPlayPressed();
                 return;
             }
 
+            _abandonPlayArmed = false;
             _selectedTheaterId = theaterId;
             TheaterCatalogEntry entry = null;
             try
@@ -325,15 +382,41 @@ namespace Genesis.Core
         {
             if (_root == null) return;
 
-            string id    = entry?.id ?? _selectedTheaterId ?? "hist-1947-radcliffe";
+            string id = entry?.id ?? _selectedTheaterId
+                ?? TheaterAccessService.Instance.GetDefaultFreeTheaterId();
             string title = !string.IsNullOrEmpty(entry?.title) ? entry.title : FallbackTitle(id);
             string year  = entry?.year > 0 ? entry.year.ToString() : FallbackYear(id).ToString();
-            string region = FormatRegion(entry?.region);
+            string region = FormatRegion(entry?.region, id);
+            string premise = ResolvePremise(entry, id);
 
             _selectedTheaterId = id;
             SetLabel(_root, "featuredYear", year);
             SetLabel(_root, "featuredRegion", region);
-            SetLabel(_root, "playBtnLabel", "ENTER THEATER");
+            SetLabel(_root, "featuredTitle", title);
+            SetLabel(_root, "featuredPremise", premise);
+            RefreshPlayCta();
+
+            // Keep the living map in sync with the selected desk.
+            var preview = LoadMapTexture(id, entry?.terrainKey);
+            if (_mapBg != null) ApplyMapTexture(_mapBg, preview);
+            if (_mapBgDeep != null) ApplyMapTexture(_mapBgDeep, preview);
+        }
+
+        void RefreshPlayCta()
+        {
+            if (_root == null) return;
+            string id = _selectedTheaterId;
+            string title = FallbackTitle(id);
+            try
+            {
+                var catalog = TheaterCatalogLoader.LoadCatalog();
+                var entry = catalog?.theaters?.Find(t => t != null && t.id == id);
+                if (!string.IsNullOrEmpty(entry?.title)) title = entry.title;
+            }
+            catch { }
+
+            bool locked = !TheaterAccessService.Instance.CanAccessTheater(id);
+            SetLabel(_root, "playBtnLabel", locked ? "UNLOCK FULL GAME" : "ENTER THEATER");
             SetLabel(_root, "playBtnSub", title);
         }
 
@@ -347,6 +430,40 @@ namespace Genesis.Core
                 else
                     kv.Value.RemoveFromClassList("main-menu__pin--selected");
             }
+        }
+
+        void RefreshPinLocks()
+        {
+            foreach (var kv in _pinById)
+                ApplyPinLockState(kv.Value, kv.Key);
+        }
+
+        static void ApplyPinLockState(VisualElement pin, string theaterId)
+        {
+            if (pin == null) return;
+            bool locked = !TheaterAccessService.Instance.CanAccessTheater(theaterId);
+            pin.EnableInClassList("main-menu__pin--locked", locked);
+        }
+
+        static string ResolvePremise(TheaterCatalogEntry entry, string id)
+        {
+            try
+            {
+                var bundle = TheaterCatalogLoader.LoadTheater(id);
+                if (!string.IsNullOrWhiteSpace(bundle?.scenario?.premise))
+                    return bundle.scenario.premise.Trim();
+            }
+            catch { }
+
+            if (entry != null)
+            {
+                var parts = new List<string>();
+                if (!string.IsNullOrEmpty(entry.era)) parts.Add(entry.era);
+                if (!string.IsNullOrEmpty(entry.region)) parts.Add(entry.region);
+                if (parts.Count > 0) return string.Join(" · ", parts);
+            }
+
+            return "Open the desk. Read the board. Commit under pressure.";
         }
 
         void PlayEntrance(VisualElement root)
@@ -497,10 +614,18 @@ namespace Genesis.Core
             try
             {
                 var catalog = TheaterCatalogLoader.LoadCatalog();
-                var flagship = catalog?.theaters?.Find(t =>
-                    t != null && t.id == "hist-1947-radcliffe");
+                var list = catalog?.theaters;
+                if (list == null || list.Count == 0) return null;
+
+                // Prefer an accessible free desk so Play never opens the paywall cold.
+                var access = TheaterAccessService.Instance;
+                var freeId = access.GetDefaultFreeTheaterId();
+                var free = list.Find(t => t != null && t.id == freeId);
+                if (free != null) return free;
+
+                var flagship = list.Find(t => t != null && t.id == "hist-1947-radcliffe");
                 if (flagship != null) return flagship;
-                if (catalog?.theaters?.Count > 0) return catalog.theaters[0];
+                return list[0];
             }
             catch { }
             return null;
@@ -522,32 +647,49 @@ namespace Genesis.Core
 
         static string FallbackTitle(string id) => id switch
         {
-            "hist-1947-radcliffe" => "India Partition",
-            "hist-1962-cuba"      => "Thirteen Days",
-            "hist-1989-wall"      => "Wall Night",
-            "hist-1917-balfour"   => "Balfour Declaration",
-            "hist-1950-korea"     => "Parallel War",
-            "hist-1956-suez"      => "Canal Crisis",
-            "hist-1938-munich"    => "Munich Window",
+            "hist-1914-july-wire"   => "July Wire",
+            "hist-1905-port-arthur" => "Port Arthur Echo",
+            "hist-1917-balfour"     => "Balfour Declaration",
+            "hist-1917-petrograd"   => "Petrograd Fracture",
+            "hist-1919-versailles"  => "Versailles Table",
+            "hist-1947-radcliffe"   => "India Partition",
+            "hist-1962-cuba"        => "Thirteen Days",
+            "hist-1989-wall"        => "Wall Night",
+            "hist-1950-korea"       => "Parallel War",
+            "hist-1956-suez"        => "Canal Crisis",
+            "hist-1938-munich"      => "Munich Window",
             _ => "Crisis Theater",
         };
 
         static int FallbackYear(string id) => id switch
         {
-            "hist-1947-radcliffe" => 1947,
-            "hist-1962-cuba"      => 1962,
-            "hist-1989-wall"      => 1989,
-            "hist-1917-balfour"   => 1917,
-            "hist-1950-korea"     => 1950,
-            "hist-1956-suez"      => 1956,
-            "hist-1938-munich"    => 1938,
+            "hist-1914-july-wire"   => 1914,
+            "hist-1905-port-arthur" => 1905,
+            "hist-1917-balfour"     => 1917,
+            "hist-1917-petrograd"   => 1917,
+            "hist-1919-versailles"  => 1919,
+            "hist-1947-radcliffe"   => 1947,
+            "hist-1962-cuba"        => 1962,
+            "hist-1989-wall"        => 1989,
+            "hist-1950-korea"       => 1950,
+            "hist-1956-suez"        => 1956,
+            "hist-1938-munich"      => 1938,
             _ => 0,
         };
 
-        static string FormatRegion(string region)
+        static string FormatRegion(string region, string theaterId = null)
         {
             if (string.IsNullOrWhiteSpace(region))
-                return "India · Pakistan · Radcliffe Award";
+            {
+                return theaterId switch
+                {
+                    "hist-1914-july-wire"   => "Europe · Balkans · Capitals",
+                    "hist-1905-port-arthur" => "Manchuria · Sea of Japan",
+                    "hist-1917-balfour"     => "Palestine · London",
+                    "hist-1919-versailles"  => "Paris · Allied Capitals",
+                    _ => "Crisis Desk",
+                };
+            }
 
             var parts = region.Split(new[] { '·', '|' }, StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length <= 3) return region.Trim();

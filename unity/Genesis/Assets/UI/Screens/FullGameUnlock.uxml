@@ -1,0 +1,49 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="project://database/Assets/UI/Theme/Genesis.tss" />
+    <ui:Style src="project://database/Assets/UI/Screens/FullGameUnlock.uss" />
+
+    <ui:VisualElement name="unlockOverlay" class="unlock-overlay">
+        <ui:VisualElement name="unlockCard" class="glass unlock-card">
+
+            <ui:Button name="closeBtn" class="unlock-close" tooltip="Close">
+                <ui:Label text="✕" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Label name="unlockEyebrow" text="GENESIS PRO" class="unlock-eyebrow" picking-mode="Ignore" />
+            <ui:Label name="unlockTitle" text="FULL GAME UNLOCK" class="unlock-title" picking-mode="Ignore" />
+
+            <ui:Label name="unlockBody"
+                      text="Play the first 5 theaters free. Unlock every theater with one purchase."
+                      class="unlock-body"
+                      picking-mode="Ignore" />
+
+            <ui:VisualElement class="unlock-benefit" picking-mode="Ignore">
+                <ui:Label text="✓  All current theaters unlocked permanently"
+                          class="unlock-benefit__line"
+                          picking-mode="Ignore" />
+                <ui:Label text="✓  One-time purchase — not a subscription"
+                          class="unlock-benefit__line"
+                          picking-mode="Ignore" />
+                <ui:Label text="✓  Restorable on reinstall"
+                          class="unlock-benefit__line"
+                          picking-mode="Ignore" />
+            </ui:VisualElement>
+
+            <ui:Label name="priceLabel" text="…" class="unlock-price" picking-mode="Ignore" />
+            <ui:Label name="statusLabel" text="" class="unlock-status" picking-mode="Ignore" />
+
+            <ui:Button name="purchaseBtn" class="btn btn--primary unlock-btn">
+                <ui:Label name="purchaseBtnLabel" text="UNLOCK ALL THEATERS" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="restoreBtn" class="btn btn--secondary unlock-btn unlock-btn--secondary">
+                <ui:Label text="RESTORE PURCHASES" picking-mode="Ignore" />
+            </ui:Button>
+
+            <ui:Button name="backBtn" class="unlock-back">
+                <ui:Label text="Back to theaters" picking-mode="Ignore" />
+            </ui:Button>
+
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

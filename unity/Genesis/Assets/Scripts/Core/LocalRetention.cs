@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Genesis.Auth;
 using Genesis.Data;
+using Genesis.Monetization;
 using UnityEngine;
 
 namespace Genesis.Core
@@ -66,12 +68,16 @@ namespace Genesis.Core
             if (prev == null || score > prev.score)
             {
                 isNewBest = true;
+                var pbKey = PrefPbPrefix + theaterId;
                 PlayerPrefs.SetString(
-                    PrefPbPrefix + theaterId,
+                    pbKey,
                     $"{score}|{grade ?? "C"}|{pathFamily ?? "mixed"}");
+                ProgressMigration.TrackProgressKey(pbKey);
             }
 
-            PlayerPrefs.SetString(PrefLastFamilyPrefix + theaterId, pathFamily ?? "mixed");
+            var familyKey = PrefLastFamilyPrefix + theaterId;
+            PlayerPrefs.SetString(familyKey, pathFamily ?? "mixed");
+            ProgressMigration.TrackProgressKey(familyKey);
             MarkCompleted(theaterId);
             PlayerPrefs.Save();
             return GetPersonalBest(theaterId);
@@ -95,16 +101,22 @@ namespace Genesis.Core
             if (theaters == null || theaters.Count == 0) return null;
 
             var done = LoadCompleted();
+            var access = TheaterAccessService.Instance;
             TheaterCatalogEntry last = null;
             if (!string.IsNullOrEmpty(excludeId))
                 last = theaters.Find(t => t != null && t.id == excludeId);
 
-            // Same era unfinished.
+            bool IsPlayable(TheaterCatalogEntry t) =>
+                t != null &&
+                !string.IsNullOrEmpty(t.id) &&
+                t.id != excludeId &&
+                access.CanAccessTheater(t.id);
+
+            // Same era unfinished (accessible only — avoid cold paywall).
             if (last != null && !string.IsNullOrEmpty(last.era))
             {
                 var peer = theaters.Find(t =>
-                    t != null &&
-                    t.id != excludeId &&
+                    IsPlayable(t) &&
                     t.era == last.era &&
                     !done.Contains(t.id));
                 if (peer != null)
@@ -120,9 +132,8 @@ namespace Genesis.Core
                 }
             }
 
-            // Any unplayed.
-            var unplayed = theaters.Find(t =>
-                t != null && t.id != excludeId && !done.Contains(t.id));
+            // Any unplayed accessible desk.
+            var unplayed = theaters.Find(t => IsPlayable(t) && !done.Contains(t.id));
             if (unplayed != null)
             {
                 return new NextPlay
@@ -135,17 +146,21 @@ namespace Genesis.Core
                 };
             }
 
-            // Replay another theater.
-            var replay = theaters.Find(t => t != null && t.id != excludeId) ?? theaters[0];
-            if (replay == null) return null;
-            return new NextPlay
+            // Replay another accessible theater.
+            var replay = theaters.Find(IsPlayable);
+            if (replay != null)
             {
-                theaterId = replay.id,
-                title = replay.title,
-                year = replay.year,
-                headline = "Redeploy another theater",
-                detail = $"Return to {replay.title}."
-            };
+                return new NextPlay
+                {
+                    theaterId = replay.id,
+                    title = replay.title,
+                    year = replay.year,
+                    headline = "Redeploy another theater",
+                    detail = $"Return to {replay.title}."
+                };
+            }
+
+            return null;
         }
 
         static void MarkCompleted(string theaterId)
@@ -154,6 +169,7 @@ namespace Genesis.Core
             if (set.Add(theaterId))
             {
                 PlayerPrefs.SetString(PrefCompleted, string.Join(",", set));
+                ProgressMigration.TrackProgressKey(PrefCompleted);
             }
         }
 

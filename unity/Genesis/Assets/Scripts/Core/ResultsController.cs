@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Genesis.Atlas;
 using Genesis.Data;
+using Genesis.Monetization;
+using Genesis.Sharing;
 using Genesis.Theater;
 using Genesis.UI.Toolkit;
 using UnityEngine;
@@ -18,8 +20,12 @@ namespace Genesis.Core
     {
         // ── Fields ────────────────────────────────────────────────────────────
         Label _shareStatus;
+        Button _shareBtn;
+        Label _shareBtnLabel;
         LocalRetention.NextPlay _next;
         string _theaterId;
+        RunSummary _run;
+        Func<bool> _backHandler;
 
         // ── Lifecycle ─────────────────────────────────────────────────────────
         void Awake()
@@ -63,16 +69,68 @@ namespace Genesis.Core
             BuildPlacesLearned(root, run);
             LoadMapThumbnail(root, _theaterId);
 
+            _run = run;
             _shareStatus = root.Q<Label>("shareStatus");
+            _shareBtn = root.Q<Button>("shareBtn");
+            _shareBtnLabel = root.Q<Label>("shareBtnLabel") ?? _shareBtn?.Q<Label>();
+            if (_shareBtnLabel != null)
+                _shareBtnLabel.text = "SHARE RESULT";
 
-            WireButton(root, "shareBtn",      () => DoShare(run));
+            if (_shareBtn != null)
+                _shareBtn.clicked += DoShare;
             WireButton(root, "redeployBtn",   () => AppFlow.BeginTheater(_theaterId));
-            WireButton(root, "nextCrisisBtn", () =>
-            {
-                if (_next != null) AppFlow.BeginTheater(_next.theaterId);
-                else AppFlow.GoTheaterSelect();
-            });
+            WireButton(root, "nextCrisisBtn", OnNextCrisis);
             WireButton(root, "codexBtn", CodexOverlay.Open);
+            WireButton(root, "homeBtn", AppFlow.GoMainMenu);
+
+            var nextLabel = root.Q<Button>("nextCrisisBtn")?.Q<Label>();
+            if (nextLabel != null)
+            {
+                nextLabel.text = _next != null && !string.IsNullOrEmpty(_next.title)
+                    ? $"Next · {_next.title}"
+                    : "Browse Atlas";
+            }
+
+            _backHandler = () =>
+            {
+                AppFlow.GoMainMenu();
+                return true;
+            };
+            MobilePlatform.PushBack(_backHandler);
+        }
+
+        void OnDestroy()
+        {
+            MobilePlatform.PopBack(_backHandler);
+        }
+
+        void OnNextCrisis()
+        {
+            if (_next == null || string.IsNullOrEmpty(_next.theaterId))
+            {
+                AppFlow.GoTheaterSelect();
+                return;
+            }
+
+            if (!TheaterAccessService.Instance.CanAccessTheater(_next.theaterId))
+            {
+                AppFlow.GoTheaterSelect();
+                return;
+            }
+
+            AppFlow.BeginTheater(_next.theaterId);
+        }
+
+        void OnEnable()
+        {
+            if (ShareResultService.Instance != null)
+                ShareResultService.Instance.StateChanged += OnShareStateChanged;
+        }
+
+        void OnDisable()
+        {
+            if (ShareResultService.Instance != null)
+                ShareResultService.Instance.StateChanged -= OnShareStateChanged;
         }
 
         // ── Header ────────────────────────────────────────────────────────────
@@ -320,38 +378,57 @@ namespace Genesis.Core
             }
         }
 
-        // ── Share ─────────────────────────────────────────────────────────────
-        void DoShare(RunSummary run)
+        // ── Share (no auth required; does not touch IAP / saves) ───────────────
+        void DoShare()
         {
-            try
-            {
-                string payload = BuildShareText(run);
-                GUIUtility.systemCopyBuffer = payload;
+            var share = ShareResultService.Instance;
+            if (share.IsBusy) return;
 
-                var path = ShareCardRenderer.Render(run);
+            SetShareBusy(true);
+            FlashStatus("Creating share card…");
 
-#if UNITY_ANDROID || UNITY_IOS
-                if (!string.IsNullOrEmpty(path))
-                    Application.OpenURL("file://" + path);
-#endif
-                FlashStatus("Result copied — share card saved!");
-            }
-            catch (Exception ex)
+            share.ShareRun(_run ?? AppFlow.LastRun, (state, detail) =>
             {
-                Debug.LogWarning($"[Genesis] Share failed: {ex.Message}");
-                GUIUtility.systemCopyBuffer = BuildShareText(run);
-                FlashStatus("Copied to clipboard!");
-            }
+                SetShareBusy(false);
+                switch (state)
+                {
+                    case ShareResultState.Success:
+                        FlashStatus(string.IsNullOrEmpty(detail)
+                            ? "Share sheet ready."
+                            : detail);
+                        break;
+                    case ShareResultState.Cancelled:
+                        FlashStatus("Share cancelled.");
+                        break;
+                    case ShareResultState.Failed:
+                        FlashStatus(string.IsNullOrEmpty(detail) ? "Share failed." : detail);
+                        break;
+                    default:
+                        FlashStatus("");
+                        break;
+                }
+            });
         }
 
-        static string BuildShareText(RunSummary run)
+        void OnShareStateChanged()
         {
-            string grade  = !string.IsNullOrEmpty(run.grade) ? run.grade : "C";
-            string orders = run.ordersExecuted != null && run.ordersExecuted.Count > 0
-                ? string.Join(" · ", run.ordersExecuted) : "—";
-            return $"GENESIS · After Action\n{run.theaterTitle} ({run.year})\n" +
-                   $"Rank {grade} · Score {run.score}/100\nPath: {orders}\n" +
-                   "Play Genesis — real geography, real history.";
+            var share = ShareResultService.Instance;
+            if (share == null) return;
+            SetShareBusy(share.IsBusy);
+            if (share.State == ShareResultState.Generating)
+                FlashStatus("Creating share card…");
+            else if (share.State == ShareResultState.Sharing)
+                FlashStatus("Opening share sheet…");
+        }
+
+        void SetShareBusy(bool busy)
+        {
+            if (_shareBtn != null)
+                _shareBtn.SetEnabled(!busy);
+            if (_shareBtnLabel != null && busy)
+                _shareBtnLabel.text = "SHARING…";
+            else if (_shareBtnLabel != null)
+                _shareBtnLabel.text = "SHARE RESULT";
         }
 
         void FlashStatus(string msg)
@@ -359,7 +436,8 @@ namespace Genesis.Core
             if (_shareStatus == null) return;
             _shareStatus.text = msg ?? "";
             CancelInvoke(nameof(ClearShareStatus));
-            Invoke(nameof(ClearShareStatus), 2.0f);
+            if (!string.IsNullOrEmpty(msg))
+                Invoke(nameof(ClearShareStatus), 3.0f);
         }
 
         void ClearShareStatus() { if (_shareStatus != null) _shareStatus.text = ""; }

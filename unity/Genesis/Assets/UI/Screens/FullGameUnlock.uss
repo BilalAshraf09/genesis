@@ -1,0 +1,147 @@
+/* Full Game Unlock — Night Atlas paywall overlay */
+
+.unlock-overlay {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.72);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.unlock-card {
+    width: 720px;
+    max-width: 94%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 28px 24px 20px 24px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.unlock-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.unlock-close > Label {
+    font-size: 22px;
+    color: #A9B3C4;
+}
+
+.unlock-eyebrow {
+    font-size: 12px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1.4px;
+    margin-bottom: 6px;
+    margin-right: 40px;
+}
+
+.unlock-title {
+    font-size: 26px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+    margin-right: 40px;
+    white-space: normal;
+}
+
+.unlock-body {
+    font-size: 15px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    white-space: normal;
+    margin-bottom: 16px;
+}
+
+.unlock-benefit {
+    flex-direction: column;
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    background-color: rgba(23, 35, 58, 0.9);
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.unlock-benefit__line {
+    font-size: 14px;
+    color: #F2EFE6;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    margin-bottom: 6px;
+    white-space: normal;
+}
+
+.unlock-price {
+    font-size: 22px;
+    color: #F5A524;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    -unity-text-align: middle-center;
+    margin-bottom: 8px;
+}
+
+.unlock-status {
+    font-size: 13px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    -unity-text-align: middle-center;
+    white-space: normal;
+    min-height: 20px;
+    margin-bottom: 14px;
+}
+
+.unlock-status--error {
+    color: #E5534B;
+}
+
+.unlock-status--ok {
+    color: #3FB97A;
+}
+
+.unlock-btn {
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    min-height: 56px;
+}
+
+.unlock-btn--secondary {
+    margin-bottom: 6px;
+}
+
+.unlock-btn:disabled {
+    opacity: 0.45;
+}
+
+.unlock-back {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    min-height: 40px;
+}
+
+.unlock-back > Label {
+    font-size: 14px;
+    color: #A9B3C4;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+}
+
+.hidden {
+    display: none;
+}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Genesis.Monetization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,12 +30,14 @@ namespace Genesis.Core
         {
             get
             {
-                var id = PlayerPrefs.GetString(PrefTheaterId, "hist-1947-radcliffe");
-                return string.IsNullOrEmpty(id) ? "hist-1947-radcliffe" : id;
+                var fallback = TheaterAccessService.Instance.GetDefaultFreeTheaterId();
+                var id = PlayerPrefs.GetString(PrefTheaterId, fallback);
+                return string.IsNullOrEmpty(id) ? fallback : id;
             }
             set
             {
-                PlayerPrefs.SetString(PrefTheaterId, value ?? "hist-1947-radcliffe");
+                PlayerPrefs.SetString(PrefTheaterId,
+                    value ?? TheaterAccessService.Instance.GetDefaultFreeTheaterId());
                 PlayerPrefs.Save();
             }
         }
@@ -113,9 +116,12 @@ namespace Genesis.Core
             var data = GetActiveRunData();
             if (data == null)
             {
-                BeginTheater("hist-1947-radcliffe");
+                BeginTheater(TheaterAccessService.Instance.GetDefaultFreeTheaterId());
                 return;
             }
+
+            if (!TheaterAccessService.Instance.EnsureAccessOrShowUnlock(data.theaterId))
+                return;
 
             SelectedTheaterId = data.theaterId;
             CurrentPlayFromShell = true;
@@ -126,6 +132,13 @@ namespace Genesis.Core
 
         public static void BeginTheater(string theaterId)
         {
+            if (string.IsNullOrEmpty(theaterId))
+                theaterId = TheaterAccessService.Instance.GetDefaultFreeTheaterId();
+
+            // Central gate — all UI entry points must pass through here.
+            if (!TheaterAccessService.Instance.EnsureAccessOrShowUnlock(theaterId))
+                return;
+
             ClearActiveRun();
             SelectedTheaterId = theaterId;
             CurrentPlayFromShell = true;

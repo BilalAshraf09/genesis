@@ -94,7 +94,7 @@ namespace Genesis.UI.Toolkit
             style.paddingRight = 0;
             style.paddingTop = 0;
             style.paddingBottom = 0;
-            style.overflow = Overflow.Visible;
+            style.overflow = Overflow.Hidden;
 
             // Unity may re-inject a default text Label; strip anything that isn't ours.
             RegisterCallback<AttachToPanelEvent>(_ => StripDefaultButtonText());

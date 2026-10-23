@@ -20,26 +20,26 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 /* ---- Glass surface ---------------------------------------- */
 
 .glass {
-    background-color: #111A2BDB;
-    border-width: 2px;
-    border-color: #FFFFFF14;
-    border-radius: 24px;
+    background-color: #0B1B2DE6;
+    border-width: 1px;
+    border-color: #244764;
+    border-radius: 16px;
 }
 
 /* ---- Card ------------------------------------------------- */
 
 .card {
-    background-color: #17233A;
-    border-width: 2px;
-    border-color: #FFFFFF14;
-    border-radius: 20px;
-    padding: 20px;
+    background-color: #101E30;
+    border-width: 1.5px;
+    border-color: #244764;
+    border-radius: 14px;
+    padding: 16px;
     flex-shrink: 0;
 }
 
 .card--selected {
-    border-width: 4px;
-    border-color: #F5A524;
+    border-width: 2px;
+    border-color: #D9A441;
 }
 
 /* ---- Chip ------------------------------------------------- */
@@ -93,9 +93,9 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .btn--primary {
-    background-color: #F5A524;
+    background-color: #D9A441;
     height: 120px;
-    border-radius: 20px;
+    border-radius: 16px;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 

@@ -113,6 +113,22 @@ namespace Genesis.Effects
             StartCoroutine(LightingPunch(WorldVerbResolver.FromOrder(order)));
             if (hotspot != null) StartCoroutine(BeaconSettle(hotspot.transform));
 
+            // Persistent board memory — ink scar at epicenter (mesh fallback on Low).
+            if (epicenter.sqrMagnitude > 0.0001f || hotspot != null)
+            {
+                var scarParent = board?.MapRoot != null ? board.MapRoot : transform;
+                var ink = InkColorForOrder(order);
+                float radius = 0.55f + Mathf.Clamp((order.effects?.Count ?? 1) * 0.08f, 0f, 0.45f);
+                Genesis.Theater.GenesisScarDecals.SpawnInkScar(scarParent, epicenter, radius, ink);
+            }
+
+            // High-tier desk dust impulse only — keeps Medium smooth.
+            if (Genesis.Core.GenesisPremiumVisuals.Current >= Genesis.Core.GenesisPremiumVisuals.Tier.High
+                && (epicenter.sqrMagnitude > 0.0001f || hotspot != null))
+            {
+                GenesisDeskDustFactory.Spawn(epicenter + Vector3.up * 0.08f, 1f);
+            }
+
             // ── Primary: map story FX (1.5–2.5 s hero, yielded here) ─────────────
             if (_mapFx != null)
             {
@@ -261,16 +277,49 @@ namespace Genesis.Effects
             var beacon = hotspot.Find("Beacon");
             if (beacon == null) yield break;
             var start = beacon.localScale;
+            // Squash → overshoot → rest at origin (was permanently leaving 0.85×).
             var t = 0f;
-            while (t < 0.35f)
+            const float dur = 0.42f;
+            while (t < dur)
             {
                 t += Time.deltaTime;
-                var k = t / 0.35f;
-                beacon.localScale = Vector3.Lerp(start, start * 0.72f, k);
+                var k = Mathf.Clamp01(t / dur);
+                // Ease-out squash for first 40%, then spring back with slight overshoot.
+                float scaleMul;
+                if (k < 0.4f)
+                {
+                    var sk = k / 0.4f;
+                    scaleMul = Mathf.Lerp(1f, 0.72f, sk * sk);
+                }
+                else
+                {
+                    var rk = (k - 0.4f) / 0.6f;
+                    var spring = 1f - Mathf.Pow(1f - rk, 3f);
+                    scaleMul = Mathf.Lerp(0.72f, 1.06f, spring);
+                    if (rk > 0.7f)
+                        scaleMul = Mathf.Lerp(1.06f, 1f, (rk - 0.7f) / 0.3f);
+                }
+
+                beacon.localScale = start * scaleMul;
                 yield return null;
             }
 
-            beacon.localScale = start * 0.85f;
+            beacon.localScale = start;
+        }
+
+        static Color InkColorForOrder(OrderChoice order)
+        {
+            // Warm contested ink — never invent neon; polarity only tunes hue.
+            int net = 0;
+            if (order?.effects != null)
+            {
+                for (int i = 0; i < order.effects.Count; i++)
+                    if (order.effects[i] != null) net += order.effects[i].weight;
+            }
+
+            if (net >= 2) return new Color(0.22f, 0.42f, 0.28f, 0.7f); // secure green ink
+            if (net <= -2) return new Color(0.55f, 0.18f, 0.14f, 0.75f); // contested red ink
+            return new Color(0.28f, 0.18f, 0.08f, 0.7f); // brass/brown desk ink
         }
     }
 }

@@ -455,7 +455,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .main-menu__resume-btn {
-    background-color: #F5A524;
+    background-color: #E5AD3F;
     border-width: 0;
     border-radius: 14px;
     min-width: 144px;
@@ -603,7 +603,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 /* ── Primary Action CTA Button ───────────────────────────── */
 .main-menu__play-btn {
-    background-color: #F5A524;
+    background-color: #E5AD3F;
     border-width: 0;
     border-radius: 16px;
     min-height: 92px;
@@ -636,7 +636,7 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 
 .main-menu__play-btn:active {
     scale: 0.97 0.97;
-    background-color: #D98C18;
+    background-color: #A67C2E;
 }
 
 /* ── Bottom Navigation Row ───────────────────────────────── */
@@ -661,8 +661,10 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .main-menu__nav-btn > Label {
-    font-size: 25px;
-    color: #F2EFE6;
+    font-size: 18px;
+    color: #F2F5F8;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1.2px;
     -unity-text-align: middle-center;
 }
 

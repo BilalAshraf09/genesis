@@ -13,6 +13,6 @@ namespace Genesis.Monetization
         public const string Description = "Permanently unlock all theaters.";
 
         /// <summary>Dashboard target only — never show as authoritative UI price.</summary>
-        public const string TargetUsdPriceHint = "$4.99";
+        public const string TargetUsdPriceHint = "$5.00";
     }
 }

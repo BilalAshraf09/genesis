@@ -109,6 +109,8 @@ namespace Genesis.UI
             var backBtn = _root.Q<Button>("backButton");
             if (backBtn != null) backBtn.clicked += OnBackButtonPressed;
 
+            WireMapControls();
+
             // Meter strip (fills + percentage labels)
             _meterStrip = new MeterStrip(
                 _root.Q("meterStabFill"),
@@ -119,6 +121,21 @@ namespace Genesis.UI
                 _root.Q<Label>("meterCredValue"),
                 _root.Q<Label>("meterTollValue"),
                 _root.Q<Label>("meterEscValue"));
+        }
+
+        void WireMapControls()
+        {
+            var zoomIn = _root.Q<Button>("mapZoomInBtn");
+            if (zoomIn != null)
+                zoomIn.clicked += () => TheaterSession.Instance?.cameraRig?.ZoomBy(0.82f);
+
+            var zoomOut = _root.Q<Button>("mapZoomOutBtn");
+            if (zoomOut != null)
+                zoomOut.clicked += () => TheaterSession.Instance?.cameraRig?.ZoomBy(1.22f);
+
+            var reset = _root.Q<Button>("mapResetBtn");
+            if (reset != null)
+                reset.clicked += () => TheaterSession.Instance?.cameraRig?.ResetFocus();
         }
 
         // ── Pause dialog ──────────────────────────────────────────────────────

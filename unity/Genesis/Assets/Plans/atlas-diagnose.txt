@@ -1,0 +1,6 @@
+count=25
+eyebrow=1914 · EUROPE IN FLAMES
+title=THEATER SELECTION
+[0] launchId=hist-1905-port-arthur
+[1] launchId=hist-1914-july-wire
+[2] launchId=hist-1917-balfour

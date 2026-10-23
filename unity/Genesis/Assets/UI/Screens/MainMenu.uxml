@@ -107,35 +107,35 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
                     <!-- Tactical Chips -->
                     <ui:VisualElement class="main-menu__chips-row">
                         <ui:VisualElement class="chip chip--warn">
-                            <ui:Label text="⚔️ 3 Phases" class="main-menu__chip-label" />
+                            <ui:Label text="3 PHASES" class="main-menu__chip-label" />
                         </ui:VisualElement>
                         <ui:VisualElement class="chip">
-                            <ui:Label text="📍 6 Flashpoints" class="main-menu__chip-label" />
+                            <ui:Label text="6 FLASHPOINTS" class="main-menu__chip-label" />
                         </ui:VisualElement>
                         <ui:VisualElement class="chip chip--cost">
-                            <ui:Label text="⚠ High Tension" class="main-menu__chip-label" />
+                            <ui:Label text="HIGH TENSION" class="main-menu__chip-label" />
                         </ui:VisualElement>
                     </ui:VisualElement>
 
                     <!-- Primary Action Button -->
                     <ui:Button name="playBtn" class="main-menu__play-btn">
                         <ui:VisualElement class="main-menu__play-btn-stack">
-                            <ui:Label name="playBtnLabel" text="ENTER THEATER ▶" class="main-menu__play-btn-main" />
+                            <ui:Label name="playBtnLabel" text="ENTER THEATER SELECTION" class="main-menu__play-btn-main" />
                             <ui:Label name="playBtnSub" text="India Partition" class="main-menu__play-btn-sub" />
                         </ui:VisualElement>
                     </ui:Button>
                 </ui:VisualElement>
 
-                <!-- Navigation row: Atlas | Codex | Settings -->
+                <!-- Navigation row: Atlas | Codex | Settings (no emoji — V2 mockup) -->
                 <ui:VisualElement class="main-menu__nav-row">
                     <ui:Button name="atlasBtn" class="main-menu__nav-btn">
-                        <ui:Label text="🗺 Atlas" />
+                        <ui:Label text="ATLAS" />
                     </ui:Button>
                     <ui:Button name="codexBtn" class="main-menu__nav-btn main-menu__nav-btn-gap">
-                        <ui:Label text="📖 Codex" />
+                        <ui:Label text="CODEX" />
                     </ui:Button>
                     <ui:Button name="settingsBtn" class="main-menu__nav-btn main-menu__nav-btn-gap">
-                        <ui:Label text="⚙ Settings" />
+                        <ui:Label text="SETTINGS" />
                     </ui:Button>
                 </ui:VisualElement>
 

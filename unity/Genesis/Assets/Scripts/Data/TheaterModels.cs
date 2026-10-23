@@ -27,6 +27,36 @@ namespace Genesis.Data
         public bool free;
     }
 
+    /// <summary>
+    /// Curated Theater Selection slice (Living Atlas mockup: 25 desks, 5 free).
+    /// Display fields may differ from catalog titles; <see cref="launchId"/> is the playable id.
+    /// </summary>
+    [Serializable]
+    public class TheaterSelectionSlice
+    {
+        public string id;
+        public string eyebrow;
+        public string title;
+        public string subtitle;
+        public List<TheaterSelectionEntry> theaters = new();
+    }
+
+    [Serializable]
+    public class TheaterSelectionEntry
+    {
+        public string launchId;
+        public string displayTitle;
+        public string description;
+        public string region;
+        public string difficulty;
+        public string era;
+        public string terrainKey;
+        public bool free;
+        public string objectives;
+        public string challenges;
+        public string intel;
+    }
+
     [Serializable]
     public class TheaterBundle
     {

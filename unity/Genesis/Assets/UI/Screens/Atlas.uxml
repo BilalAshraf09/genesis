@@ -1,51 +1,104 @@
 <!--
-2026-10-02 AI-Tag
-This was created with the help of Assistant, a Unity Artificial Intelligence product.
+   Genesis — Theater Selection (Atlas)
+   Visual target: 1914 Europe in Flames mockup — navy / charcoal / antique gold.
 -->
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <ui:Style src="project://database/Assets/UI/Theme/tokens.uss" />
     <ui:Style src="project://database/Assets/UI/Theme/components.uss" />
     <ui:Style src="project://database/Assets/UI/Screens/Atlas.uss" />
 
-    <!-- Full-screen root, safe-area applied to content by C# -->
     <ui:VisualElement name="atlasRoot" class="atlas-screen">
 
-        <!-- ── HEADER BAR ── -->
+        <!-- ── HEADER ── -->
         <ui:VisualElement name="headerBar" class="atlas-header">
-            <ui:Button name="backBtn" class="atlas-header__back-btn">
-                <ui:Label text="◀" />
-            </ui:Button>
-            <ui:Label text="ATLAS" class="atlas-header__title" />
+            <ui:VisualElement class="atlas-header__left">
+                <ui:Button name="backBtn" class="atlas-header__back-btn">
+                    <ui:Label text="‹" picking-mode="Ignore" />
+                </ui:Button>
+                <ui:VisualElement class="atlas-header__titles">
+                    <ui:Label text="1914 · EUROPE IN FLAMES" class="atlas-header__eyebrow" />
+                    <ui:Label text="THEATER SELECTION" class="atlas-header__title" />
+                    <ui:Label text="Choose a theater to begin your campaign. Five desks are free."
+                              class="atlas-header__sub" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="atlas-header__badges">
+                <ui:VisualElement name="guestBadge" class="atlas-badge atlas-badge--guest">
+                    <ui:Label text="GUEST MODE" class="atlas-badge__title" picking-mode="Ignore" />
+                    <ui:Label name="guestBadgeMeta" text="Play 5 theaters for free"
+                              class="atlas-badge__meta" picking-mode="Ignore" />
+                </ui:VisualElement>
+                <ui:Button name="fullAccessBtn" class="atlas-badge atlas-badge--access">
+                    <ui:Label text="FULL ACCESS" class="atlas-badge__title" picking-mode="Ignore" />
+                    <ui:Label name="fullAccessPrice" text="$5.00" class="atlas-badge__price" picking-mode="Ignore" />
+                    <ui:Label text="Unlock all theaters" class="atlas-badge__meta" picking-mode="Ignore" />
+                </ui:Button>
+            </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ── RESUME BANNER (populated and shown by C# when active run exists) ── -->
+        <!-- ── RESUME BANNER ── -->
         <ui:VisualElement name="resumeBanner" class="atlas-resume-banner">
             <ui:VisualElement class="atlas-resume-banner__info">
                 <ui:Label name="resumeBannerTitle" text="Active Theater"
                           class="atlas-resume-banner__title" />
-                <ui:Label name="resumeBannerMeta"  text="Phase 1/3"
+                <ui:Label name="resumeBannerMeta" text="Phase 1/3"
                           class="atlas-resume-banner__meta" />
             </ui:VisualElement>
             <ui:VisualElement class="atlas-resume-banner__actions">
                 <ui:Button name="resumeBannerBtn" class="atlas-resume-btn">
-                    <ui:Label text="Resume ▶" />
+                    <ui:Label text="Resume ▶" picking-mode="Ignore" />
                 </ui:Button>
                 <ui:Button name="abandonBannerBtn" class="atlas-abandon-btn">
-                    <ui:Label text="Abandon" />
+                    <ui:Label text="Abandon" picking-mode="Ignore" />
                 </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>
 
-        <!-- ── REGION FILTER CHIPS (buttons added dynamically by C#) ── -->
-        <ui:ScrollView name="regionFilterBar" mode="Horizontal"
-                       class="atlas-filter-bar"
-                       horizontal-scrollbar-visibility="Hidden"
-                       vertical-scrollbar-visibility="Hidden" />
+        <!-- ── BODY: portrait = stacked scroll; landscape = detail | grid ── -->
+        <ui:VisualElement name="atlasBody" class="atlas-body">
+            <ui:ScrollView name="theaterList" mode="Vertical"
+                           class="atlas-scroll"
+                           vertical-scrollbar-visibility="Hidden">
+                <ui:VisualElement name="theaterGrid" class="theater-grid" />
 
-        <!-- ── THEATER LIST (cards added dynamically by C#) ── -->
-        <ui:ScrollView name="theaterList" mode="Vertical"
-                       class="atlas-scroll"
-                       vertical-scrollbar-visibility="Hidden" />
+                <ui:Label name="accessFooter"
+                          text="FREE ACCESS: 5 THEATERS  ·  $5 TO UNLOCK ALL"
+                          class="atlas-access-footer" />
+
+                <!-- Portrait: detail lives in scroll. Landscape: C# reparents beside scroll. -->
+                <ui:VisualElement name="theaterDetail" class="theater-detail theater-detail--hidden">
+                    <ui:VisualElement name="detailMap" class="theater-detail__map" />
+                    <ui:VisualElement class="theater-detail__body">
+                        <ui:VisualElement class="theater-detail__meta-row">
+                            <ui:Label name="detailRegion" text="Europe" class="theater-detail__region" />
+                            <ui:Label name="detailDifficulty" text="Medium" class="theater-detail__diff" />
+                        </ui:VisualElement>
+                        <ui:Label name="detailTitle" text="Western Front" class="theater-detail__title" />
+                        <ui:Label name="detailEra" text="1914–1918" class="theater-detail__era" />
+                        <ui:Label name="detailDesc" text="" class="theater-detail__desc" />
+
+                        <ui:VisualElement name="detailTabs" class="theater-detail__tabs">
+                            <ui:Button name="tabOverview" class="theater-detail__tab theater-detail__tab--active">
+                                <ui:Label text="OVERVIEW" picking-mode="Ignore" />
+                            </ui:Button>
+                            <ui:Button name="tabObjectives" class="theater-detail__tab">
+                                <ui:Label text="OBJECTIVES" picking-mode="Ignore" />
+                            </ui:Button>
+                            <ui:Button name="tabIntel" class="theater-detail__tab">
+                                <ui:Label text="INTEL" picking-mode="Ignore" />
+                            </ui:Button>
+                        </ui:VisualElement>
+
+                        <ui:Label name="detailTabBody" text="" class="theater-detail__tab-body" />
+
+                        <ui:Button name="detailPlayBtn" class="theater-detail__play">
+                            <ui:Label name="detailPlayLabel" text="PLAY THEATER →" picking-mode="Ignore" />
+                        </ui:Button>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
 
     </ui:VisualElement>
 </ui:UXML>

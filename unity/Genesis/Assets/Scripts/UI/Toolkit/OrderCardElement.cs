@@ -31,6 +31,15 @@ namespace Genesis.UI.Toolkit
             selectionGlow.pickingMode = PickingMode.Ignore;
             Add(selectionGlow);
 
+            var check = new VisualElement();
+            check.AddToClassList("order-card__check");
+            check.pickingMode = PickingMode.Ignore;
+            var checkMark = new Label { text = "✓" };
+            checkMark.AddToClassList("order-card__check-mark");
+            checkMark.pickingMode = PickingMode.Ignore;
+            check.Add(checkMark);
+            Add(check);
+
             var body = new VisualElement();
             body.AddToClassList("order-card__body");
             body.pickingMode = PickingMode.Ignore;
@@ -78,13 +87,27 @@ namespace Genesis.UI.Toolkit
 
             RegisterCallback<PointerDownEvent>(evt =>
             {
+                EnableInClassList("order-card--pressed", true);
                 onSelect?.Invoke(order);
                 evt.StopPropagation();
             });
+            RegisterCallback<PointerUpEvent>(_ => EnableInClassList("order-card--pressed", false));
+            RegisterCallback<PointerLeaveEvent>(_ => EnableInClassList("order-card--pressed", false));
+            RegisterCallback<PointerCancelEvent>(_ => EnableInClassList("order-card--pressed", false));
         }
 
         public void SetSelected(bool selected) =>
             EnableInClassList("order-card--selected", selected);
+
+        /// <summary>V2: dim non-selected peers when a choice is active.</summary>
+        public void SetDimmed(bool dimmed) =>
+            EnableInClassList("order-card--dimmed", dimmed);
+
+        public void SetDisabled(bool disabled)
+        {
+            EnableInClassList("order-card--disabled", disabled);
+            pickingMode = disabled ? PickingMode.Ignore : PickingMode.Position;
+        }
 
         /// <summary>
         /// Fixed-width band (scroll row). Cards keep a readable constant width.
@@ -264,14 +287,14 @@ namespace Genesis.UI.Toolkit
             _ => "order-card--covert"
         };
 
-        // Short badges free horizontal space for the decision title on phone cards.
+        // Kind badges match mockup labels (Military / Diplomacy / Politics).
         static string KindTitle(string kind) => (kind ?? "").ToLowerInvariant() switch
         {
-            "military" => "MIL",
-            "diplomatic" => "DIPLO",
-            "covert" => "COV",
-            "economic" => "ECON",
-            "political" => "POL",
+            "military" => "MILITARY",
+            "diplomatic" => "DIPLOMACY",
+            "covert" => "COVERT",
+            "economic" => "ECONOMIC",
+            "political" => "POLITICS",
             _ => "ORDER"
         };
 

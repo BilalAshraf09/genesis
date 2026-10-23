@@ -158,18 +158,17 @@ Shader "Genesis/AtlasMap"
                 // Soften coast ring when showing satellite albedo.
                 col = lerp(col, _CoastColor.rgb, cring * _CoastColor.a * (1.0 - saturate(_TerrainBlend) * 0.7));
 
-                // ── Modern Tactical Cartography Overlay (Subtle Lat/Lon Grid) ──
-                // Generates an elegant, fine tactical coordinate grid (12x12 subdivisions)
+                // Lat/lon grid kept near-invisible — overlay grids read as UI, not geography.
                 float2 gridUV = frac(uv * 12.0);
-                float2 gridLine = smoothstep(0.02, 0.0, abs(gridUV - 0.5));
-                float gridIntensity = max(gridLine.x, gridLine.y) * 0.035; // Whisper subtle
-                col += float3(0.4, 0.6, 0.8) * gridIntensity;
+                float2 gridLine = smoothstep(0.012, 0.0, abs(gridUV - 0.5));
+                float gridIntensity = max(gridLine.x, gridLine.y) * 0.012;
+                col += float3(0.55, 0.48, 0.32) * gridIntensity;
 
-                // Subtle vignette around the map edges
+                // Soft edge falloff — less crush than prior vignette so land silhouette stays crisp.
                 float2 vigUV = uv * (1.0 - uv.yx);
                 float vig = vigUV.x * vigUV.y * 15.0;
-                vig = saturate(pow(vig, 0.15));
-                col *= lerp(0.75, 1.0, vig);
+                vig = saturate(pow(vig, 0.22));
+                col *= lerp(0.88, 1.0, vig);
 
                 return half4(col, 1.0);
             }

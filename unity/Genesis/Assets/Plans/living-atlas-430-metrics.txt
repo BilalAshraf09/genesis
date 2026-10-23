@@ -1,0 +1,7 @@
+tag=430
+requested=430x932
+screen=1965x1518
+cards=25 locked=20 cols~=2
+gridPanelW=808.0 ppp=0.505 screenW~=408.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect

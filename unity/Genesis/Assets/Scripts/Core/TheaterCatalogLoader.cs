@@ -52,6 +52,79 @@ namespace Genesis.Core
             }
         }
 
+        /// <summary>
+        /// Loads the curated Living Atlas Theater Selection slice (25 desks, 5 free).
+        /// Falls back to catalog entries 1–25 (5 free + 20 locked) if the slice is missing.
+        /// </summary>
+        public static TheaterSelectionSlice LoadSelectionSlice()
+        {
+            var path = Path.Combine(Application.streamingAssetsPath, TheatersFolder, "selection-1914.json");
+            var raw = StreamingAssetsIO.ReadAllText(path);
+            if (!string.IsNullOrWhiteSpace(raw))
+            {
+                try
+                {
+                    var slice = JsonUtility.FromJson<TheaterSelectionSlice>(raw);
+                    if (slice?.theaters != null && slice.theaters.Count > 0)
+                        return slice;
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning($"[Genesis] selection-1914.json parse failed: {ex.Message}");
+                }
+            }
+
+            return BuildSelectionFallbackFromCatalog();
+        }
+
+        const int SelectionSliceDeskLimit = 25;
+        const int SelectionSliceFreeLimit = 5;
+
+        static TheaterSelectionSlice BuildSelectionFallbackFromCatalog()
+        {
+            var catalog = LoadCatalog();
+            var slice = new TheaterSelectionSlice
+            {
+                id = "fallback-living-atlas-25",
+                eyebrow = "1914 · EUROPE IN FLAMES",
+                title = "THEATER SELECTION",
+                subtitle = "Choose a theater to begin your campaign. Five desks are free.",
+                theaters = new List<TheaterSelectionEntry>()
+            };
+
+            var list = catalog.theaters ?? new List<TheaterCatalogEntry>();
+            int freeTaken = 0, lockedTaken = 0;
+            int lockedLimit = SelectionSliceDeskLimit - SelectionSliceFreeLimit;
+            foreach (var e in list)
+            {
+                if (e == null || string.IsNullOrEmpty(e.id)) continue;
+                bool wantFree = e.free && freeTaken < SelectionSliceFreeLimit;
+                bool wantLocked = !e.free && lockedTaken < lockedLimit;
+                if (!wantFree && !wantLocked) continue;
+
+                slice.theaters.Add(new TheaterSelectionEntry
+                {
+                    launchId = e.id,
+                    displayTitle = e.title,
+                    description = $"{e.era} · {e.region}",
+                    region = e.region,
+                    difficulty = "Medium",
+                    era = e.era,
+                    terrainKey = e.terrainKey,
+                    free = e.free,
+                    objectives = "Complete each phase with a viable after-action grade.",
+                    challenges = "Timed crisis decisions under meter pressure.",
+                    intel = "Markers unlock during play."
+                });
+
+                if (e.free) freeTaken++;
+                else lockedTaken++;
+                if (freeTaken >= SelectionSliceFreeLimit && lockedTaken >= lockedLimit) break;
+            }
+
+            return slice;
+        }
+
         public static TheaterBundle LoadTheater(string theaterId)
         {
             if (string.IsNullOrEmpty(theaterId))

@@ -299,26 +299,26 @@ namespace Genesis.Core
                 key = new GameObject("KeyLight");
                 var l = key.AddComponent<Light>();
                 l.type = LightType.Directional;
-                l.color = new Color(1f, 0.88f, 0.7f);
-                l.intensity = 1.88f;
+                l.color = new Color(1f, 0.9f, 0.74f);
+                l.intensity = 2.05f;
                 l.shadows = LightShadows.Soft;
-                l.shadowStrength = 0.68f;
+                l.shadowStrength = 0.72f;
                 l.shadowBias = 0.04f;
                 l.shadowNormalBias = 0.35f;
-                key.transform.rotation = Quaternion.Euler(44f, -34f, 0f);
+                key.transform.rotation = Quaternion.Euler(48f, -28f, 0f);
             }
             else
             {
                 var l = key.GetComponent<Light>();
                 if (l != null)
                 {
-                    l.intensity = 1.88f;
+                    l.intensity = 2.05f;
                     l.shadows = LightShadows.Soft;
-                    l.shadowStrength = 0.68f;
+                    l.shadowStrength = 0.72f;
                     l.shadowBias = 0.04f;
                     l.shadowNormalBias = 0.35f;
-                    l.color = new Color(1f, 0.88f, 0.7f);
-                    key.transform.rotation = Quaternion.Euler(44f, -34f, 0f);
+                    l.color = new Color(1f, 0.9f, 0.74f);
+                    key.transform.rotation = Quaternion.Euler(48f, -28f, 0f);
                 }
             }
 
@@ -352,10 +352,10 @@ namespace Genesis.Core
                 rim = new GameObject("RimLight");
                 var l = rim.AddComponent<Light>();
                 l.type = LightType.Spot;
-                l.color = new Color(0.92f, 0.78f, 0.55f);
-                l.intensity = 2.1f;
-                l.range = 48f;
-                l.spotAngle = 62f;
+                l.color = new Color(0.94f, 0.8f, 0.58f);
+                l.intensity = 2.35f;
+                l.range = 52f;
+                l.spotAngle = 68f;
                 l.shadows = LightShadows.None;
                 rim.transform.position = new Vector3(5.5f, 15f, -3.5f);
                 rim.transform.LookAt(Vector3.zero);
@@ -365,10 +365,10 @@ namespace Genesis.Core
                 var l = rim.GetComponent<Light>();
                 if (l != null)
                 {
-                    l.intensity = Mathf.Clamp(l.intensity, 1.6f, 2.1f);
-                    l.color = new Color(0.92f, 0.78f, 0.55f);
-                    l.range = Mathf.Min(Mathf.Max(l.range, 40f), 48f);
-                    l.spotAngle = 62f;
+                    l.intensity = Mathf.Clamp(l.intensity, 1.8f, 2.35f);
+                    l.color = new Color(0.94f, 0.8f, 0.58f);
+                    l.range = Mathf.Min(Mathf.Max(l.range, 44f), 52f);
+                    l.spotAngle = 68f;
                 }
             }
 
@@ -446,14 +446,14 @@ namespace Genesis.Core
             RenderSettings.ambientSkyColor = new Color(0.18f, 0.19f, 0.22f);
             RenderSettings.ambientEquatorColor = new Color(0.12f, 0.11f, 0.1f);
             RenderSettings.ambientGroundColor = new Color(0.055f, 0.048f, 0.04f);
-            RenderSettings.ambientIntensity = 1.18f;
-            RenderSettings.fog = true;
+            RenderSettings.ambientIntensity = 1.22f;
+            // Night Atlas policy: fog OFF on the play desk — board/camera clear color
+            // already cover pan edges. Do not re-enable here.
+            RenderSettings.fog = false;
             RenderSettings.fogMode = FogMode.ExponentialSquared;
             RenderSettings.fogColor = new Color(0.04f, 0.048f, 0.055f);
-            // Portrait: lighter fog so parchment/coast silhouette stays in the map band.
-            // Portrait = lighter fog so parchment/coast silhouette stays in the map band.
-            RenderSettings.fogDensity = Screen.height >= Screen.width ? 0.0075f : 0.011f;
-            RenderSettings.reflectionIntensity = 0.34f;
+            RenderSettings.fogDensity = 0f;
+            RenderSettings.reflectionIntensity = 0.38f;
             RenderSettings.subtractiveShadowColor = new Color(0.15f, 0.13f, 0.12f);
         }
 
@@ -478,23 +478,19 @@ namespace Genesis.Core
             if (preferredProfile != null)
             {
                 StripNullVolumeComponents(preferredProfile);
-                if (!ProfileHasLiveComponents(preferredProfile))
-                    ApplyTheaterGrade(preferredProfile);
+                ApplyTheaterGrade(preferredProfile);
                 volume.sharedProfile = preferredProfile;
                 PersistVolumeIfEditor(preferredProfile);
                 return;
             }
 
-            // Shared Genesis asset — finish it if still an empty shell (do NOT early-return).
+            // Always re-author grade so lighting/fog/grade stay one Night Atlas contract
+            // (stale profiles used to early-return and leave murky midtones).
             if (volume.sharedProfile != null && volume.sharedProfile.name.Contains("Genesis"))
             {
                 StripNullVolumeComponents(volume.sharedProfile);
-                if (!ProfileHasLiveComponents(volume.sharedProfile))
-                {
-                    ApplyTheaterGrade(volume.sharedProfile);
-                    PersistVolumeIfEditor(volume.sharedProfile);
-                }
-
+                ApplyTheaterGrade(volume.sharedProfile);
+                PersistVolumeIfEditor(volume.sharedProfile);
                 return;
             }
 
@@ -566,35 +562,36 @@ namespace Genesis.Core
             Upsert(profile, (Bloom bloom) =>
             {
                 // Restrained bloom — brass pins / land never glow plastic neon.
+                // GenesisPremiumVisuals retunes intensity by tier after EnsureVolume.
                 bloom.intensity.Override(0.28f);
                 bloom.threshold.Override(0.95f);
-                bloom.scatter.Override(0.5f);
+                bloom.scatter.Override(0.48f);
             });
             Upsert(profile, (Vignette vignette) =>
             {
-                // Softer vignette — silhouette edges must not crush into void.
-                vignette.intensity.Override(0.2f);
-                vignette.smoothness.Override(0.52f);
+                // Soft desk vignette — frames the teak rim without crushing coast.
+                vignette.intensity.Override(0.18f);
+                vignette.smoothness.Override(0.55f);
                 vignette.color.Override(new Color(0.02f, 0.02f, 0.025f));
             });
             Upsert(profile, (ColorAdjustments color) =>
             {
-                // AAA Phase 1 exposure — lift murky desk midtones for 2-second place read.
-                color.postExposure.Override(0.3f);
-                color.contrast.Override(16f);
-                color.saturation.Override(3f);
-                color.colorFilter.Override(new Color(1f, 0.96f, 0.9f));
+                // Lift murky desk midtones so land / brass / ink separate in 2s.
+                color.postExposure.Override(0.34f);
+                color.contrast.Override(18f);
+                color.saturation.Override(4f);
+                color.colorFilter.Override(new Color(1f, 0.965f, 0.91f));
             });
             Upsert(profile, (FilmGrain grain) =>
             {
-                grain.intensity.Override(0.16f);
-                grain.response.Override(0.7f);
+                grain.intensity.Override(0.14f);
+                grain.response.Override(0.72f);
             });
             Upsert(profile, (LiftGammaGain lgg) =>
             {
-                lgg.lift.Override(new Vector4(0.99f, 0.99f, 1.0f, -0.01f));
-                lgg.gamma.Override(new Vector4(1f, 0.99f, 0.96f, -0.02f));
-                lgg.gain.Override(new Vector4(1.05f, 1.01f, 0.94f, 0.05f));
+                lgg.lift.Override(new Vector4(0.99f, 0.99f, 1.0f, -0.008f));
+                lgg.gamma.Override(new Vector4(1f, 0.995f, 0.97f, -0.015f));
+                lgg.gain.Override(new Vector4(1.06f, 1.02f, 0.95f, 0.055f));
             });
             Upsert(profile, (Tonemapping tone) =>
             {
@@ -602,10 +599,9 @@ namespace Genesis.Core
             });
             Upsert(profile, (ShadowsMidtonesHighlights smh) =>
             {
-                // Phase 1: lift midtones so parchment/pins separate under ACES.
-                smh.shadows.Override(new Vector4(0.93f, 0.94f, 1.0f, -0.04f));
-                smh.midtones.Override(new Vector4(1.04f, 1.01f, 0.96f, 0.04f));
-                smh.highlights.Override(new Vector4(1.04f, 1.0f, 0.92f, 0.03f));
+                smh.shadows.Override(new Vector4(0.94f, 0.95f, 1.0f, -0.03f));
+                smh.midtones.Override(new Vector4(1.05f, 1.02f, 0.97f, 0.05f));
+                smh.highlights.Override(new Vector4(1.05f, 1.01f, 0.93f, 0.035f));
             });
         }
 

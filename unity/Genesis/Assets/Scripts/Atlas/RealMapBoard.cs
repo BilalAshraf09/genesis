@@ -17,7 +17,7 @@ namespace Genesis.Atlas
     ///   4. Crisis border LineRenderers (non-empty borders only, amber dashed)
     ///   5. River LineRenderers (thin blue, if any)
     /// </para>
-    /// <para>Zone cubes, table lip, TextMesh city labels and corridor beams are NOT built here.</para>
+    /// <para>Desk rim is built; zone cubes / TextMesh labels stay off the play path.</para>
     /// </summary>
     public sealed class RealMapBoard : MonoBehaviour
     {
@@ -27,15 +27,17 @@ namespace Genesis.Atlas
         const float CoastY      = 0.012f;   // coastline lines just above
         const float BorderY     = 0.022f;   // crisis borders higher
         const float RiverY      = 0.006f;   // rivers slightly above land
+        const float DeskLipY    = -0.035f;
 
         // ── Line widths (world units at boardWidth 24) ───────────────────────
-        const float CoastWidth  = 0.03f;
-        const float BorderWidth = 0.05f;
-        const float RiverWidth  = 0.018f;
+        const float CoastWidth  = 0.042f;
+        const float BorderWidth = 0.062f;
+        const float RiverWidth  = 0.02f;
 
         // Stored references so Animate* helpers in TheaterBoardBuilder can reach them.
         public Transform BordersRoot  { get; private set; }
         public Transform CoastRoot    { get; private set; }
+        public Transform DeskRimRoot  { get; private set; }
 
         // ── Public entry point ───────────────────────────────────────────────
 
@@ -48,8 +50,9 @@ namespace Genesis.Atlas
             var w = proj.BoardWidth;
             var d = proj.BoardDepth;
 
-            BuildOcean(w, d);
+            BuildOcean(w, d, mask, board);
             BuildLandQuad(board, proj, w, d, relief, mask, terrain);
+            BuildDeskRim(w, d);
             BuildCoastLines(board.geo?.lands, proj);
             BuildCrisisBorders(board.geo?.borders, proj);
             BuildRivers(board.geo?.rivers, proj);
@@ -57,7 +60,7 @@ namespace Genesis.Atlas
 
         // ── Ocean backdrop ───────────────────────────────────────────────────
 
-        void BuildOcean(float w, float d)
+        void BuildOcean(float w, float d, Texture2D mask, BoardData board)
         {
             var go = new GameObject("OceanBackdrop");
             go.transform.SetParent(transform, false);
@@ -65,18 +68,65 @@ namespace Genesis.Atlas
             var mf = go.AddComponent<MeshFilter>();
             var mr = go.AddComponent<MeshRenderer>();
 
-            // Ocean extends well beyond the bbox so camera pan never sees void.
-            mf.sharedMesh = CreateFlatQuadMesh(w * 3.5f, d * 3.5f);
+            // Ocean fills the open map band behind the land quad. Do NOT stamp the coast
+            // mask here — that produced the giant jagged land silhouette outside the map
+            // viewport. Land silhouette belongs only on LandSurface via Genesis/AtlasMap.
+            mf.sharedMesh = CreateFlatQuadMesh(w * 2.4f, d * 2.4f);
             go.transform.localPosition = new Vector3(0f, OceanY, 0f);
 
-            // Subtle gradient: shader is URP/Unlit, colour #0B1220
-            var shader = Shader.Find("Universal Render Pipeline/Unlit");
-            if (shader == null) shader = Shader.Find("Hidden/InternalErrorShader");
-            var mat = new Material(shader) { name = "AtlasOcean" };
-            SetMatColor(mat, new Color(0.043f, 0.071f, 0.125f, 1f)); // #0B1220
+            var water = ParseHex(board?.water ?? board?.geo?.water, new Color(0.024f, 0.075f, 0.129f, 1f));
+            // Solid deep navy basin — mask unused on purpose (see note above).
+            var mat = TheaterMaterialFactory.InkWater(water, coastMask: null);
+            mat.name = "AtlasOceanInk";
             mr.sharedMaterial = mat;
             mr.shadowCastingMode = ShadowCastingMode.Off;
-            mr.receiveShadows    = false;
+            mr.receiveShadows    = true;
+        }
+
+        // ── Restrained antique-brass desk rim around the map bbox ─────────────
+
+        void BuildDeskRim(float w, float d)
+        {
+            DeskRimRoot = new GameObject("DeskRim").transform;
+            DeskRimRoot.SetParent(transform, false);
+            DeskRimRoot.localPosition = new Vector3(0f, DeskLipY, 0f);
+
+            // Hairline brass lip — mockup map viewport, not a heavy desk slab.
+            float margin = Mathf.Max(w, d) * 0.010f;
+            float thickness = Mathf.Clamp(Mathf.Min(w, d) * 0.008f, 0.06f, 0.14f);
+            float outerW = w + margin * 2f;
+            float outerD = d + margin * 2f;
+            var mat = TheaterMaterialFactory.TableLip();
+
+            // Four lip slabs: N/S/E/W — thin geometry, desk edge without visual dominance.
+            SpawnLipSlab(DeskRimRoot, "LipN", new Vector3(0f, 0f,  (d + thickness) * 0.5f),
+                new Vector3(outerW + thickness * 2f, thickness * 0.42f, thickness), mat);
+            SpawnLipSlab(DeskRimRoot, "LipS", new Vector3(0f, 0f, -(d + thickness) * 0.5f),
+                new Vector3(outerW + thickness * 2f, thickness * 0.42f, thickness), mat);
+            SpawnLipSlab(DeskRimRoot, "LipE", new Vector3( (w + thickness) * 0.5f, 0f, 0f),
+                new Vector3(thickness, thickness * 0.42f, d), mat);
+            SpawnLipSlab(DeskRimRoot, "LipW", new Vector3(-(w + thickness) * 0.5f, 0f, 0f),
+                new Vector3(thickness, thickness * 0.42f, d), mat);
+
+            // No oversized void skirt — it read as a second terrain slab around the map.
+            // Ocean backdrop + camera clear color already cover pan edges.
+        }
+
+        static void SpawnLipSlab(Transform parent, string name, Vector3 localPos, Vector3 scale, Material mat)
+        {
+            var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            go.name = name;
+            go.transform.SetParent(parent, false);
+            go.transform.localPosition = localPos;
+            go.transform.localScale = scale;
+            Object.Destroy(go.GetComponent<Collider>());
+            var mr = go.GetComponent<MeshRenderer>();
+            if (mr != null)
+            {
+                mr.sharedMaterial = mat;
+                mr.shadowCastingMode = ShadowCastingMode.On;
+                mr.receiveShadows = true;
+            }
         }
 
         // ── Land surface quad ────────────────────────────────────────────────
@@ -116,16 +166,18 @@ namespace Genesis.Atlas
                 ParseHex(board.water ?? board.geo?.water,   new Color(0.043f, 0.071f, 0.125f)));
 
             // Blue Marble crops carry their own oceans/land — lean on terrain albedo.
+            // Slightly stronger hillshade so relief reads as a physical desk surface.
             bool realisticAlbedo = terrain != null &&
                 terrain.name.IndexOf("terrain_", System.StringComparison.OrdinalIgnoreCase) < 0;
             if (mat.HasProperty("_TerrainBlend"))
-                mat.SetFloat("_TerrainBlend", realisticAlbedo ? 0.92f : 0.22f);
+                mat.SetFloat("_TerrainBlend", realisticAlbedo ? 0.88f : 0.28f);
             if (mat.HasProperty("_HillshadeStr"))
-                mat.SetFloat("_HillshadeStr", realisticAlbedo ? 0.55f : 1.4f);
+                mat.SetFloat("_HillshadeStr", realisticAlbedo ? 0.82f : 1.85f);
 
             mr.sharedMaterial = mat;
             mr.shadowCastingMode = ShadowCastingMode.Off;
-            mr.receiveShadows    = false;
+            // Soft contact from teak lip — physical desk read at the map edge.
+            mr.receiveShadows    = true;
         }
 
         // ── Coastline LineRenderers ──────────────────────────────────────────
@@ -139,8 +191,9 @@ namespace Genesis.Atlas
             // Rotate -90° around X so local Z points to world Y (up) → TransformZ is flat.
             CoastRoot.localRotation = Quaternion.Euler(-90f, 0f, 0f);
 
+            // Parchment foam rim — stronger alpha so land silhouette reads in ≤2s.
             var mat = TheaterMaterialFactory.Unlit(
-                new Color(0.847f, 0.796f, 0.647f, 0.55f), // #D8CBA5
+                new Color(0.88f, 0.78f, 0.56f, 0.78f),
                 "AtlasCoastLine");
 
             foreach (var ring in lands)
@@ -170,8 +223,9 @@ namespace Genesis.Atlas
             BordersRoot.SetParent(transform, false);
             BordersRoot.localRotation = Quaternion.Euler(-90f, 0f, 0f);
 
+            // Contested ink — warm amber, opaque enough to read as crisis, never neon.
             var mat = TheaterMaterialFactory.Unlit(
-                new Color(0.961f, 0.647f, 0.141f, 0.85f), // #F5A524
+                new Color(0.94f, 0.58f, 0.18f, 0.92f),
                 "AtlasCrisisBorder");
 
             foreach (var ring in realBorders)
@@ -294,13 +348,6 @@ namespace Genesis.Atlas
         {
             if (string.IsNullOrEmpty(hex)) return fallback;
             return ColorUtility.TryParseHtmlString(hex, out var c) ? c : fallback;
-        }
-
-        static void SetMatColor(Material mat, Color c)
-        {
-            if (mat == null) return;
-            if (mat.HasProperty("_BaseColor")) mat.SetColor("_BaseColor", c);
-            else if (mat.HasProperty("_Color")) mat.SetColor("_Color", c);
         }
     }
 }

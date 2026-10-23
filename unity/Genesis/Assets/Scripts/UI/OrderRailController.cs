@@ -108,6 +108,13 @@ namespace Genesis.UI
             if (_doc == null)
                 _doc = UiRegistry.CreateDocument("OrderSheet", transform, 20, "OrderSheet");
 
+            if (_doc != null)
+            {
+                var safe = _doc.gameObject.GetComponent<SafeAreaRootBehaviour>()
+                           ?? _doc.gameObject.AddComponent<SafeAreaRootBehaviour>();
+                safe.Configure("safeRoot");
+            }
+
             _root = _doc != null ? _doc.rootVisualElement : null;
         }
 
@@ -169,7 +176,7 @@ namespace Genesis.UI
         void BuildHoldButton()
         {
             _holdButton = new HoldToConfirmButton();
-            _holdButton.SetLabels("HOLD TO COMMIT", null);
+            _holdButton.SetLabels("HOLD TO COMMIT", "Release to cancel");
             _holdButton.Confirmed += () =>
             {
                 // Require an explicit order selection — never silently commit the first card.
@@ -253,7 +260,7 @@ namespace Genesis.UI
             // Peek with no forced selection — player compares, then commits.
             SetHoldButtonArmed(false);
             SetHoldButtonLocked(false);
-            _holdButton?.SetLabels("CHOOSE AN ORDER", "Tap a card or map pin");
+            _holdButton?.SetLabels("CHOOSE AN ORDER", "Tap a card to select");
         }
 
         /// <summary>Bind beat title / briefing into the sheet guidance line.</summary>
@@ -281,15 +288,20 @@ namespace Genesis.UI
         public void SetSelected(string orderId)
         {
             _selectedOrderId = orderId;
+            bool hasSelection = !string.IsNullOrEmpty(orderId);
             foreach (var card in _cards)
-                card.SetSelected(card.Order?.id == orderId);
+            {
+                bool selected = card.Order?.id == orderId;
+                card.SetSelected(selected);
+                card.SetDimmed(hasSelection && !selected);
+            }
         }
 
         public void Lock()
         {
             SetHoldButtonLocked(true);
             foreach (var card in _cards)
-                card.pickingMode = PickingMode.Ignore;
+                card.SetDisabled(true);
         }
 
         public void Hide()

@@ -138,7 +138,7 @@ namespace Genesis.UI.Toolkit
             RegisterCallback<PointerDownEvent>(OnPointerDown, TrickleDown.TrickleDown);
             RegisterCallback<PointerUpEvent>(OnPointerUp, TrickleDown.TrickleDown);
             RegisterCallback<PointerCancelEvent>(OnPointerCancel, TrickleDown.TrickleDown);
-            clicked += OnButtonClicked;
+            // Hold-only commit (V2): ignore Button.clicked — early release cancels.
         }
 
         IVisualElementScheduledItem _armedPulseItem;
@@ -174,36 +174,36 @@ namespace Genesis.UI.Toolkit
             switch (state)
             {
                 case ChromeState.Armed:
-                    bg = new Color(0.961f, 0.647f, 0.141f, 1f); // #F5A524
+                    bg = new Color(0.898f, 0.678f, 0.247f, 1f); // token brass #E5AD3F
                     break;
                 case ChromeState.Holding:
-                    bg = new Color(0.910f, 0.588f, 0.071f, 1f); // #E89612
+                    bg = new Color(0.722f, 0.580f, 0.290f, 1f); // #B8944A
                     break;
                 case ChromeState.Success:
                     bg = new Color(0.247f, 0.725f, 0.478f, 1f); // #3FB97A
                     break;
                 default:
-                    bg = new Color(1f, 1f, 1f, 0.06f);
+                    bg = new Color(0.067f, 0.102f, 0.168f, 0.95f); // navy idle
                     break;
             }
             style.backgroundColor = bg;
             style.backgroundImage = StyleKeyword.None;
             style.borderTopLeftRadius = style.borderTopRightRadius =
-                style.borderBottomLeftRadius = style.borderBottomRightRadius = 20;
+                style.borderBottomLeftRadius = style.borderBottomRightRadius = 14;
 
             bool solid = state != ChromeState.Idle;
             if (_btnLabel != null)
                 _btnLabel.style.color = solid
-                    ? new Color(0.043f, 0.071f, 0.125f, 1f)   // #0B1220
-                    : new Color(0.961f, 0.647f, 0.141f, 1f); // #F5A524
+                    ? new Color(0.024f, 0.078f, 0.129f, 1f)   // #061421
+                    : new Color(0.898f, 0.678f, 0.247f, 1f); // #E5AD3F
             if (_subLabel != null)
                 _subLabel.style.color = solid
-                    ? new Color(0.043f, 0.071f, 0.125f, 0.88f)
-                    : new Color(0.663f, 0.702f, 0.769f, 1f); // #A9B3C4
+                    ? new Color(0.024f, 0.078f, 0.129f, 0.72f)
+                    : new Color(0.659f, 0.725f, 0.788f, 1f); // #A8B9C9
             if (_arrow != null)
                 _arrow.style.color = solid
-                    ? new Color(0.043f, 0.071f, 0.125f, 1f)
-                    : new Color(0.431f, 0.478f, 0.561f, 1f);
+                    ? new Color(0.024f, 0.078f, 0.129f, 1f)
+                    : new Color(0.898f, 0.678f, 0.247f, 1f);
         }
 
         public void SetLocked(bool locked)
@@ -218,12 +218,6 @@ namespace Genesis.UI.Toolkit
             ApplyChrome(_armed && !_locked ? ChromeState.Armed : ChromeState.Idle);
             UpdateFill();
             _ringCanvas.MarkDirtyRepaint();
-        }
-
-        void OnButtonClicked()
-        {
-            if (!_armed || _locked) return;
-            FireConfirm();
         }
 
         void OnPointerDown(PointerDownEvent evt)
@@ -246,18 +240,15 @@ namespace Genesis.UI.Toolkit
         void OnPointerUp(PointerUpEvent evt)
         {
             if (!_holding) return;
-            bool wasHolding = _holding;
+            // V2 mockup: early release cancels — commit only when hold completes (OnTick).
             StopHold();
             evt.StopPropagation();
-            if (wasHolding && _armed && !_locked) FireConfirm();
         }
 
         void OnPointerCancel(PointerCancelEvent evt)
         {
             if (!_holding) return;
-            bool wasHolding = _holding;
             StopHold();
-            if (wasHolding && _armed && !_locked) FireConfirm();
         }
 
         void FireConfirm()

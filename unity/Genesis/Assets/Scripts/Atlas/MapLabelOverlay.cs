@@ -17,7 +17,7 @@ namespace Genesis.Atlas
         const float HudBandTop    = 0.15f;  // below the top HUD bar
         // Fallback when OrderSheet geometry is unavailable. Prefer live sheet height.
         // Matches TheaterCameraRig + OrderSheetLayout peek (~36% panel) + small margin.
-        const float SheetBandBottomFallback = 0.36f;
+        const float SheetBandBottomFallback = 0.30f;
         const int MaxPinLabels    = 4;
         const float LabelDotOffsetX = 12f;  // px right of the projected dot centre
         const float LabelDotOffsetY = -16f; // px up from the projected dot centre

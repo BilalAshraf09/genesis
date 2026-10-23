@@ -1,75 +1,181 @@
 /*
-2026-10-02 AI-Tag
-This was created with the help of Assistant, a Unity Artificial Intelligence product.
+   Genesis — Atlas (Theater Select)
+   Visual target: midnight navy / charcoal / antique gold mockup.
 */
-/* ============================================================
-   Genesis — Atlas (Theater Select)  (Night Atlas)
-   ============================================================ */
 
-/* ── Screen root ─────────────────────────────────────────── */
+/* ── Screen ──────────────────────────────────────────────── */
 .atlas-screen {
     flex-grow: 1;
     flex-direction: column;
-    background-color: #0B1220;
+    background-color: #061321;
 }
 
-/* ── Header bar ──────────────────────────────────────────── */
+/* ── Header ──────────────────────────────────────────────── */
 .atlas-header {
     flex-direction: row;
-    align-items: center;
-    background-color: #111A2BDB;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #0B1B2D;
     border-bottom-width: 1px;
-    border-color: #FFFFFF14;
-    padding-left: 16px;
-    padding-right: 24px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    border-bottom-color: #244764;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 10px;
+    padding-bottom: 12px;
     flex-shrink: 0;
 }
 
+.atlas-header__left {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    margin-right: 8px;
+}
+
 .atlas-header__back-btn {
-    background-color: rgba(0,0,0,0);
-    border-width: 0;
-    border-radius: 12px;
-    width: 72px;
-    height: 72px;
+    background-color: rgba(16, 30, 48, 0.95);
+    border-width: 1px;
+    border-color: #244764;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
+    margin-right: 10px;
+    margin-top: 2px;
+    padding: 0;
+    flex-shrink: 0;
     transition-duration: 0.12s;
 }
 
 .atlas-header__back-btn > Label {
-    font-size: 32px;
-    color: #F2EFE6;
+    font-size: 28px;
+    color: #F1F3F7;
+    -unity-text-align: middle-center;
+    margin-top: -2px;
 }
 
 .atlas-header__back-btn:active {
-    scale: 0.92 0.92;
-    background-color: #FFFFFF14;
+    scale: 0.94 0.94;
+    border-color: #E5AD3F;
+}
+
+.atlas-header__titles {
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+.atlas-header__eyebrow {
+    font-size: 11px;
+    color: #E5AD3F;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1.2px;
+    margin-bottom: 2px;
 }
 
 .atlas-header__title {
-    font-size: 40px;
-    color: #F2EFE6;
+    font-size: 22px;
+    color: #F1F3F7;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    letter-spacing: 6px;
-    flex-grow: 1;
+    letter-spacing: 0.8px;
+    margin-bottom: 3px;
+    white-space: normal;
 }
 
-/* ── Resume banner ───────────────────────────────────────── */
-.atlas-resume-banner {
-    background-color: #111A2BDB;
+.atlas-header__sub {
+    font-size: 12px;
+    color: #A8BCD0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    white-space: normal;
+    max-width: 420px;
+}
+
+.atlas-header__badges {
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: stretch;
+}
+
+.atlas-badge {
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 10px;
+    border-radius: 10px;
     border-width: 1px;
-    border-color: #F5A52440;
-    border-radius: 16px;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-top: 12px;
-    padding: 16px;
+    min-width: 108px;
+    margin-left: 6px;
+}
+
+.atlas-badge--guest {
+    background-color: #101E30;
+    border-color: #244764;
+}
+
+.atlas-badge--access {
+    background-color: rgba(229, 173, 63, 0.12);
+    border-color: #E5AD3F;
+    transition-duration: 0.12s;
+}
+
+.atlas-badge--access:active {
+    scale: 0.97 0.97;
+    background-color: rgba(229, 173, 63, 0.22);
+}
+
+.atlas-badge__title {
+    font-size: 10px;
+    color: #A8BCD0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.atlas-badge--access .atlas-badge__title {
+    color: #FFC95A;
+}
+
+.atlas-badge__price {
+    font-size: 16px;
+    color: #FFC95A;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 1px;
+}
+
+.atlas-badge__meta {
+    font-size: 10px;
+    color: #A8BCD0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    white-space: normal;
+}
+
+.atlas-badge--owned {
+    border-color: #3FB97A;
+    background-color: rgba(63, 185, 122, 0.12);
+}
+
+.atlas-badge--owned .atlas-badge__title,
+.atlas-badge--owned .atlas-badge__price {
+    color: #3FB97A;
+}
+
+/* ── Resume banner (V2: single row, Resume | Abandon) ───── */
+.atlas-resume-banner {
+    background-color: #101E30;
+    border-width: 1px;
+    border-color: rgba(229, 173, 63, 0.35);
+    border-radius: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 10px;
+    padding: 10px 12px;
     flex-direction: row;
     align-items: center;
     flex-shrink: 0;
+    min-height: 56px;
 }
 
 .atlas-resume-banner__info {
@@ -77,126 +183,121 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     flex-shrink: 1;
     min-width: 0;
     flex-direction: column;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 .atlas-resume-banner__title {
-    font-size: 30px;
-    color: #F2EFE6;
+    font-size: 15px;
+    color: #F2F5F8;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    min-width: 0;
 }
 
 .atlas-resume-banner__meta {
-    font-size: 26px;
-    color: #A9B3C4;
-    margin-top: 4px;
+    font-size: 12px;
+    color: #A8B9C9;
+    margin-top: 2px;
 }
 
 .atlas-resume-banner__actions {
-    flex-direction: column;
+    flex-direction: row;
     flex-shrink: 0;
+    align-items: center;
 }
 
 .atlas-resume-btn {
-    background-color: #F5A524;
+    background-color: #E5AD3F;
     border-width: 0;
-    border-radius: 14px;
-    min-width: 140px;
-    height: 68px;
+    border-radius: 10px;
+    min-width: 112px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-    padding-left: 16px;
-    padding-right: 16px;
-    margin-bottom: 6px;
-    transition-duration: 0.12s;
+    margin-right: 8px;
+    margin-bottom: 0;
 }
 
 .atlas-resume-btn > Label {
-    font-size: 26px;
-    color: #1A1206;
+    font-size: 13px;
+    color: #061421;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
 }
 
-.atlas-resume-btn:active { scale: 0.97 0.97; }
-
 .atlas-abandon-btn {
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     border-width: 1px;
-    border-color: #E5534B80;
-    border-radius: 14px;
-    min-width: 140px;
-    height: 52px;
+    border-color: rgba(227, 93, 91, 0.55);
+    border-radius: 10px;
+    min-width: 88px;
+    height: 40px;
     align-items: center;
     justify-content: center;
-    padding-left: 12px;
-    padding-right: 12px;
-    transition-duration: 0.12s;
 }
 
 .atlas-abandon-btn > Label {
-    font-size: 24px;
-    color: #E5534B;
+    font-size: 12px;
+    color: #E35D5B;
 }
 
-.atlas-abandon-btn:active { scale: 0.97 0.97; }
-
-/* ── Region filter row ────────────────────────────────────── */
-.atlas-filter-bar {
-    flex-shrink: 0;
-    margin-top: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
+/* ── Body (portrait stack / landscape master–detail) ─────── */
+.atlas-body {
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 0;
+    min-width: 0;
 }
 
-.atlas-filter-bar > #unity-content-container {
+.atlas-body--landscape {
     flex-direction: row;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
     padding-top: 4px;
-    padding-bottom: 8px;
 }
 
-.region-chip {
-    background-color: #17233A;
-    border-width: 1px;
-    border-color: #FFFFFF14;
-    border-radius: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-right: 8px;
+.atlas-body--landscape .atlas-scroll {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-width: 0;
+    padding-left: 8px;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.atlas-body--landscape .theater-detail {
+    width: 38%;
+    min-width: 320px;
+    max-width: 480px;
     flex-shrink: 0;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-    transition-duration: 0.12s;
+    flex-grow: 0;
+    height: 100%;
+    margin-bottom: 0;
+    margin-right: 0;
 }
 
-.region-chip > Label {
-    font-size: 26px;
-    color: #A9B3C4;
+.atlas-body--landscape .theater-detail__map {
+    height: 42%;
+    min-height: 160px;
+    flex-grow: 0;
 }
 
-.region-chip--active {
-    background-color: #F5A52426;
-    border-color: #F5A524;
+.atlas-body--landscape .theater-detail__body {
+    flex-grow: 1;
 }
 
-.region-chip--active > Label {
-    color: #F5A524;
+.atlas-body--landscape .atlas-access-footer {
+    display: none;
 }
 
-.region-chip:active { scale: 0.95 0.95; }
-
-/* ── Theater list scroll ─────────────────────────────────── */
+/* ── Scroll + grid ───────────────────────────────────────── */
 .atlas-scroll {
     flex-grow: 1;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
     padding-bottom: 24px;
 }
 
@@ -207,24 +308,22 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
     display: none;
 }
 
-.atlas-filter-bar > .unity-scroll-view__horizontal-scroller {
-    height: 0;
-    min-height: 0;
-    opacity: 0;
-    display: none;
+.theater-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 14px;
 }
 
-.atlas-scroll > #unity-content-container {
-    flex-direction: column;
-}
-
-/* ── Theater card ─────────────────────────────────────────── */
+/* ── Theater card ────────────────────────────────────────── */
 .theater-card {
-    background-color: #17233A;
-    border-width: 1px;
-    border-color: #FFFFFF14;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    background-color: #101E30;
+    border-width: 1.5px;
+    border-color: #244764;
+    border-radius: 12px;
+    margin-bottom: 8px;
     overflow: hidden;
     flex-direction: column;
     flex-shrink: 0;
@@ -232,85 +331,362 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
 }
 
 .theater-card:active {
-    scale: 0.98 0.98;
-    border-color: #F5A52480;
+    scale: 0.985 0.985;
+}
+
+.theater-card--selected {
+    border-width: 2px;
+    border-color: #E5AD3F;
+    background-color: #121F32;
+}
+
+.theater-card--locked {
+    border-color: #1A3348;
+}
+
+.theater-card--locked .theater-card__thumb {
+    opacity: 0.55;
 }
 
 .theater-card__thumb {
     width: 100%;
-    height: 188px;
+    height: 88px;
     -unity-background-scale-mode: scale-and-crop;
-    background-color: #0B1220;
+    background-color: #061321;
     position: relative;
+    flex-shrink: 0;
 }
 
-.theater-card--locked .theater-card__thumb {
-    opacity: 0.72;
-}
-
-.theater-card__lock,
-.theater-card__free {
+.theater-card__num {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 18px;
+    top: 6px;
+    left: 6px;
+    font-size: 11px;
+    color: #F1F3F7;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    color: #F2EFE6;
-    background-color: #0B1220CC;
+    background-color: rgba(6, 19, 33, 0.72);
+    border-radius: 6px;
+    padding: 2px 6px;
     border-width: 1px;
-    border-color: #FFFFFF22;
+    border-color: #244764;
 }
 
-.theater-card__lock {
-    color: #F5A524;
-    border-color: #F5A52466;
+.theater-card__badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 10px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.6px;
 }
 
-.theater-card__free {
-    color: #7DCEA0;
-    border-color: #7DCEA066;
+.theater-card__badge--free {
+    color: #FFC95A;
+    background-color: rgba(6, 20, 33, 0.85);
+    border-width: 1px;
+    border-color: rgba(229, 173, 63, 0.55);
+}
+
+.theater-card__lock-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    background-color: rgba(6, 20, 33, 0.78);
+    border-width: 1px;
+    border-color: #E5AD3F;
+    align-items: center;
+    justify-content: center;
+}
+
+.theater-card__lock-icon > Label {
+    font-size: 14px;
+    color: #FFC95A;
+    -unity-text-align: middle-center;
 }
 
 .theater-card__body {
     flex-direction: column;
-    padding: 16px;
-}
-
-.theater-card__year {
-    font-size: 24px;
-    color: #F5A524;
-    margin-bottom: 4px;
+    padding: 8px 9px 9px 9px;
+    flex-grow: 1;
 }
 
 .theater-card__title {
-    font-size: 32px;
-    color: #F2EFE6;
+    font-size: 13px;
+    color: #F1F3F7;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     white-space: normal;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
+    max-height: 32px;
+    overflow: hidden;
 }
 
 .theater-card__premise {
-    font-size: 26px;
-    color: #A9B3C4;
+    font-size: 11px;
+    color: #A8B9C9;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
     white-space: normal;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
+    max-height: 36px;
+    overflow: hidden;
+    overflow: hidden;
+    flex-grow: 1;
 }
 
 .theater-card__footer {
     flex-direction: row;
     align-items: center;
+    margin-bottom: 7px;
+    flex-shrink: 0;
 }
 
-.theater-card__places {
-    font-size: 24px;
-    color: #6E7A8F;
-    flex-grow: 1;
+.theater-card__region,
+.theater-card__diff {
+    font-size: 10px;
+    color: #7A90A8;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.4px;
 }
 
-.theater-card__score {
-    font-size: 24px;
-    color: #F5A524;
+.theater-card__diff {
+    margin-left: auto;
+    color: #A8BCD0;
+}
+
+.theater-card__cta {
+    height: 34px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    flex-shrink: 0;
+    transition-duration: 0.12s;
+}
+
+.theater-card__cta > Label {
+    font-size: 11px;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.4px;
+    -unity-text-align: middle-center;
+}
+
+.theater-card__cta--play {
+    background-color: #E5AD3F;
+    border-width: 0;
+    flex-shrink: 0;
+}
+
+.theater-card__cta--play > Label {
+    color: #061421;
+}
+
+.theater-card--selected .theater-card__cta--play {
+    background-color: #FFC95A;
+}
+
+.theater-card__cta--lock {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 1px;
+    border-color: #E5AD3F;
+    flex-shrink: 0;
+}
+
+.theater-card__cta--lock > Label {
+    color: #FFC95A;
+}
+
+.theater-card__cta:active {
+    scale: 0.97 0.97;
+}
+
+/* ── Access footer ───────────────────────────────────────── */
+.atlas-access-footer {
+    align-self: center;
+    margin-top: 4px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    color: #A8BCD0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 1px;
+    -unity-text-align: middle-center;
+}
+
+/* ── Detail preview ──────────────────────────────────────── */
+.theater-detail {
+    background-color: #0B1B2D;
+    border-width: 1px;
+    border-color: #244764;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-direction: column;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.theater-detail--hidden {
+    display: none;
+}
+
+.theater-detail__map {
+    width: 100%;
+    height: 140px;
+    -unity-background-scale-mode: scale-and-crop;
+    background-color: #061321;
+}
+
+.theater-detail__body {
+    flex-direction: column;
+    padding: 12px 14px 14px 14px;
+}
+
+.theater-detail__meta-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.theater-detail__region {
+    font-size: 11px;
+    color: #E5AD3F;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.8px;
+}
+
+.theater-detail__diff {
+    margin-left: auto;
+    font-size: 11px;
+    color: #A8BCD0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+}
+
+.theater-detail__title {
+    font-size: 22px;
+    color: #F1F3F7;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    margin-bottom: 2px;
+}
+
+.theater-detail__era {
+    font-size: 12px;
+    color: #A8BCD0;
+    margin-bottom: 8px;
+}
+
+.theater-detail__desc {
+    font-size: 13px;
+    color: #C5D0DE;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-Regular SDF.asset");
+    white-space: normal;
+    margin-bottom: 10px;
+}
+
+.theater-detail__tabs {
+    flex-direction: row;
+    margin-bottom: 8px;
+    border-bottom-width: 1px;
+    border-bottom-color: #244764;
+}
+
+.theater-detail__tab {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    padding: 6px 10px;
+    margin-right: 4px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.theater-detail__tab > Label {
+    font-size: 11px;
+    color: #7A90A8;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.8px;
+}
+
+.theater-detail__tab--active {
+    border-bottom-color: #E5AD3F;
+}
+
+.theater-detail__tab--active > Label {
+    color: #FFC95A;
+}
+
+.theater-detail__tab-body {
+    font-size: 12px;
+    color: #A8BCD0;
+    white-space: normal;
+    margin-bottom: 12px;
+    min-height: 48px;
+}
+
+.theater-detail__play {
+    background-color: #E5AD3F;
+    border-width: 0;
+    border-radius: 12px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.12s;
+}
+
+.theater-detail__play > Label {
+    font-size: 14px;
+    color: #061421;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
+    letter-spacing: 0.6px;
+}
+
+.theater-detail__play:active {
+    scale: 0.98 0.98;
+    background-color: #FFC95A;
+}
+
+.theater-detail__play--locked {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 1.5px;
+    border-color: #E5AD3F;
+}
+
+.theater-detail__play--locked > Label {
+    color: #FFC95A;
+}
+
+/* Narrow phones — stack badges under title */
+@media (max-width: 420px) {
+    .atlas-header {
+        flex-direction: column;
+    }
+
+    .atlas-header__badges {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .atlas-badge {
+        flex-grow: 1;
+        margin-left: 0;
+        margin-right: 6px;
+    }
+
+    .atlas-header__title {
+        font-size: 20px;
+    }
+
+    .theater-card__thumb {
+        height: 76px;
+    }
 }

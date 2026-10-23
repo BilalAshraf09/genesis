@@ -13,7 +13,7 @@ namespace Genesis.Theater
     /// Cinematic board camera — frames the full-bleed map, lerps on hotspot focus.
     /// Phase 2: CM PositionComposer framing + BasicMultiChannelPerlin idle noise + ImpulseDefinition.
     /// Phase 3 additions: 1.5s fly-in, one-finger pan + two-finger pinch zoom with bbox clamp,
-    /// portrait framing for map-band (top 14% HUD / bottom 36% order sheet), fog neutralised.
+    /// portrait framing for map-band (top ~12% HUD / bottom ~30% order sheet), fog neutralised.
     /// </summary>
     public class TheaterCameraRig : MonoBehaviour
     {
@@ -47,6 +47,7 @@ namespace Genesis.Theater
         float _baseFov = 38f;
         Transform _lookAt;
         Transform _follow;
+        Coroutine _flyIn;
 
 #if GENESIS_CINEMACHINE
         CinemachineCamera _vcam;
@@ -66,7 +67,9 @@ namespace Genesis.Theater
             
             if (is2DMode)
             {
-                _targetPos = new Vector3(-0.5f, 30f, -3.2f);
+                _targetPos = frameOffset.sqrMagnitude > 0.01f
+                    ? frameOffset
+                    : new Vector3(0f, 30f, -3.2f);
                 _targetRot = Quaternion.Euler(90f, 0f, 0f);
                 _zoomFactor = 1.0f;
             }
@@ -94,13 +97,13 @@ namespace Genesis.Theater
                 return;
             }
 
-            // Closer + slightly lower south desk shot — board lands in the open map band
-            // (bottom rail ≤26%, top HUD ≤14%) instead of clipping under the Order Rail.
-            _baseFov = 44f;
-            frameDistance = 19.2f;
-            focusDistance = 13.4f;
-            frameOffset = new Vector3(0f, 14.4f, -11.6f);
-            focusOffset = new Vector3(0f, 9.1f, -7.4f);
+            // Closer + slightly lower south desk shot — board fills the open map band
+            // (bottom rail ≤30%, top HUD ≤12%) instead of clipping under the Order Rail.
+            _baseFov = 42f;
+            frameDistance = 18.4f;
+            focusDistance = 12.8f;
+            frameOffset = new Vector3(0f, 13.8f, -11.0f);
+            focusOffset = new Vector3(0f, 8.8f, -7.0f);
             frameFogDensity = 0.01f;
         }
 
@@ -442,30 +445,43 @@ namespace Genesis.Theater
                 
                 if (is2DMode)
                 {
+                    // Prefer the live camera aspect (Game View / device) over Screen.*, which in
+                    // the Editor often reports the docked window size instead of the Game View RT.
                     var aspect = cam != null ? cam.aspect : 0.5625f;
-                    
-                    // To truly "fit to screen" horizontally, the camera's half-width in world units 
-                    // (orthoSize * aspect) should match the board's half-width (BoardWidth / 2).
-                    // orthoSize = BoardWidth / (2 * aspect).
-                    // We add a tiny 2% margin to prevent pixel-perfect edge flickering.
-                    baseOrthoSize = (proj.BoardWidth * 0.51f) / aspect;
-                    baseOrthoSize = Mathf.Clamp(baseOrthoSize, 18f, 30f);
+                    aspect = Mathf.Max(0.35f, aspect);
+
+                    // Open map band between CommandHud (~12% top) and OrderSheet (~30% bottom).
+                    // Landscape keeps a thin chrome margin so the desk still reads as framed.
+                    var bandFrac = WantPortraitBoardFraming() ? 0.58f : 0.88f;
+
+                    // COVER that band: width-only fit left a postage-stamp desk in black void on
+                    // portrait (board ~38% of screen height). Min(orthoW, orthoH) fills the band.
+                    var orthoW = (proj.BoardWidth * 0.51f) / aspect;
+                    var orthoH = (proj.BoardDepth * 0.51f) / bandFrac;
+                    baseOrthoSize = Mathf.Min(orthoW, orthoH);
+                    baseOrthoSize = Mathf.Clamp(baseOrthoSize, 8f, 36f);
+
+                    // Slight south bias so the desk sits in the open band (not under the sheet).
+                    var lookZ = WantPortraitBoardFraming() ? proj.BoardDepth * 0.06f : 0f;
+                    frameOffset = new Vector3(0f, 30f, -lookZ);
                 }
             }
 
-            // In portrait 2D mode, the open map band is between HUD (top 14%) and Order Sheet (bottom ~38%).
-            // The center of this open area is at screen Y ≈ 62% (above screen center).
-            // Shifting the camera target to Z = -3.2f centers the entire subcontinent (pins center Z ≈ +2.8f)
-            // right into the center of this open viewport!
-            _targetPos = is2DMode ? new Vector3(-0.5f, 30f, -3.2f) : frameOffset;
+            // Portrait map band: HUD top ~12% / order sheet bottom ~30% → open center ~58% screen Y.
+            _targetPos = frameOffset;
             _panOffset = Vector3.zero;
-            _zoomFactor = 1.0f; 
+            _zoomFactor = 1.0f;
 
-            // Neutralise fog for clean map read.
+            // Night Atlas: fog stays off (matches bootstrap + board builder).
             RenderSettings.fog = false;
 
             if (_follow != null) _follow.position = _targetPos;
-            if (_lookAt != null) _lookAt.position = is2DMode ? new Vector3(-0.5f, 0f, 2.5f) : Vector3.zero;
+            if (_lookAt != null)
+            {
+                _lookAt.position = is2DMode
+                    ? new Vector3(_targetPos.x, 0f, -_targetPos.z * 0.35f)
+                    : Vector3.zero;
+            }
 
             var driven = GetDrivenTransform();
             if (driven != null)
@@ -489,9 +505,13 @@ namespace Genesis.Theater
                 ApplyPortraitScreenYBias(_composer);
             }
 #endif
-            // 1.5s fly-in from wide regional view.
+            // Short settle-in — keep start close to final frame so a stalled coroutine
+            // never leaves the desk as a postage stamp in black void.
             if (isActiveAndEnabled)
-                StartCoroutine(FlyInRoutine(1.5f));
+            {
+                if (_flyIn != null) StopCoroutine(_flyIn);
+                _flyIn = StartCoroutine(FlyInRoutine(1.1f));
+            }
         }
 
         // ── Fly-in ──────────────────────────────────────────────────────────────
@@ -501,8 +521,11 @@ namespace Genesis.Theater
             if (is2DMode)
             {
                 if (cam == null) cam = Camera.main;
-                var startOrtho = baseOrthoSize * 1.5f;
+                // Mild reveal only — 1.72× start previously matched the "broken theater" bug.
+                var startOrtho = baseOrthoSize * 1.22f;
                 var targetOrtho = baseOrthoSize;
+                var startPos = new Vector3(_targetPos.x, 30f, _targetPos.z - 0.9f);
+                var endPos = new Vector3(_targetPos.x + _panOffset.x, 30f, _targetPos.z + _panOffset.z);
                 var t2d = 0f;
                 while (t2d < duration)
                 {
@@ -512,11 +535,18 @@ namespace Genesis.Theater
                     {
                         cam.orthographic = true;
                         cam.orthographicSize = Mathf.Lerp(startOrtho, targetOrtho, k);
-                        cam.transform.position = new Vector3(_targetPos.x + _panOffset.x, 30f, _targetPos.z + _panOffset.z);
+                        cam.transform.position = Vector3.Lerp(startPos, endPos, k);
                         cam.transform.rotation = Quaternion.Euler(90f, 0f, 0f);
                     }
                     yield return null;
                 }
+
+                if (cam != null)
+                {
+                    cam.orthographicSize = targetOrtho;
+                    cam.transform.position = endPos;
+                }
+                _flyIn = null;
                 yield break;
             }
 
@@ -552,6 +582,8 @@ namespace Genesis.Theater
 #endif
                 yield return null;
             }
+
+            _flyIn = null;
         }
 
         // ── Pan / Zoom public API (called by BoardPointerInput) ─────────────────
@@ -581,8 +613,10 @@ namespace Genesis.Theater
             _focusPoint = worldPoint;
             if (is2DMode)
             {
-                // User requested a "fixed" map - do not pan the camera to the selection!
-                // Panning while showing a tooltip makes the map feel like it's "floating".
+                // No pan (keeps desk framed) — absolute soft lean-in, never stack on repeat taps.
+                _zoomFactor = 0.82f;
+                if (isActiveAndEnabled)
+                    StartCoroutine(OrthoPunchRoutine(0.55f));
                 return;
             }
             _targetPos = worldPoint + focusOffset;
@@ -601,9 +635,10 @@ namespace Genesis.Theater
             _zoomFactor = 1f;
             if (is2DMode)
             {
-                // In 2D mode, targetPos is the framed position calculated in FrameBoard.
-                // ResetFocus should return there.
-                _targetPos = new Vector3(-0.5f, 30f, -3.2f);
+                // Return to FrameBoard pose (frameOffset updated from board extents).
+                _targetPos = frameOffset.sqrMagnitude > 0.01f
+                    ? frameOffset
+                    : new Vector3(0f, 30f, -3.2f);
                 return;
             }
             _targetPos = frameOffset;
@@ -619,17 +654,41 @@ namespace Genesis.Theater
         {
             intensity = Mathf.Clamp(intensity, 0.05f, 2.5f);
 #if GENESIS_CINEMACHINE
-            if (_impulse == null) EnsureCinemachineStack();
-            if (_impulse != null)
+            if (!is2DMode)
             {
-                _impulse.GenerateImpulseWithVelocity(
-                    new Vector3(0f, -0.08f, 0.28f) * intensity);
+                if (_impulse == null) EnsureCinemachineStack();
+                if (_impulse != null)
+                {
+                    _impulse.GenerateImpulseWithVelocity(
+                        new Vector3(0f, -0.08f, 0.28f) * intensity);
+                }
             }
 #endif
             if (isActiveAndEnabled)
             {
-                StartCoroutine(PunchRoutine(intensity));
+                if (is2DMode)
+                    StartCoroutine(OrthoPunchRoutine(intensity));
+                else
+                    StartCoroutine(PunchRoutine(intensity));
             }
+        }
+
+        /// <summary>2D Night Atlas — ortho zoom kick (FOV punch is invisible on orthographic cams).</summary>
+        System.Collections.IEnumerator OrthoPunchRoutine(float intensity)
+        {
+            if (cam == null) yield break;
+            var t = 0f;
+            var origin = cam.orthographicSize;
+            var kickMax = Mathf.Max(0.15f, origin * 0.045f) * intensity;
+            while (t < 0.28f)
+            {
+                t += Time.deltaTime;
+                var kick = Mathf.Sin(t / 0.28f * Mathf.PI) * kickMax;
+                cam.orthographicSize = origin - kick;
+                yield return null;
+            }
+
+            cam.orthographicSize = origin;
         }
 
         System.Collections.IEnumerator PunchRoutine(float intensity)

@@ -1,0 +1,6 @@
+tag=390
+requested=390x844
+screen=1965x1518
+uidocs=5
+scene=TheaterPlay
+theater=hist-1914-july-wire

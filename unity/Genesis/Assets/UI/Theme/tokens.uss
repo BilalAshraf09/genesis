@@ -12,25 +12,35 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
    ============================================================ */
 
 :root {
-    /* ---- Colours ------------------------------------------ */
-    --color-ocean:        #0B1220;
-    --color-surface:      #111A2B;
-    --color-surface-2:    #17233A;
-    /* Glass: rgba(17,26,43,0.86) expressed as 8-digit hex */
-    --color-glass:        #111A2BDB;
-    /* Border: rgba(255,255,255,0.08) → alpha 0x14 */
-    --color-border:       #FFFFFF14;
+    /* ---- Colours (1914 / Living Atlas mockup palette) ----- */
+    --color-ocean:        #061421;
+    --color-surface:      #0D2032;
+    --color-surface-2:    #10283D;
+    /* Glass: rgba(13,32,50,0.90) */
+    --color-glass:        #0D2032E6;
+    /* Technical blue outline */
+    --color-border:       #294B64;
 
-    --color-text-primary:   #F2EFE6;
-    --color-text-secondary: #A9B3C4;
-    --color-text-muted:     #6E7A8F;
+    --color-text-primary:   #F2F5F8;
+    --color-text-secondary: #A8B9C9;
+    --color-text-muted:     #7A90A8;
 
-    --color-accent:       #F5A524;
-    --color-gain:         #3FB97A;
-    --color-cost:         #E5534B;
-    --color-escalation:   #E5534B;
-    --color-diplomacy:    #D9B45A;
-    --color-info:         #5AA9E6;
+    --color-accent:       #FFC95A;
+    /* Antique gold — primary actions / selected rims */
+    --color-brass:        #E5AD3F;
+    --color-brass-dim:    #A67C2E;
+    --color-navy-deep:    #061421;
+    --color-navy-panel:   #0D2032;
+    --color-gain:         #39C18A;
+    --color-cost:         #E35D5B;
+    --color-escalation:   #E5AD3F;
+    --color-diplomacy:    #4AADE8;
+    --color-politics:     #8B6FA8;
+    --color-info:         #4AADE8;
+    --color-stab:         #39C18A;
+    --color-cred:         #4AADE8;
+    --color-toll:         #E35D5B;
+    --color-esc:          #E5AD3F;
 
     /* ---- Radii -------------------------------------------- */
     --radius-sm: 10px;

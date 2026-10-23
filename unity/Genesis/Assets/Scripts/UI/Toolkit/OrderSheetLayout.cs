@@ -18,24 +18,24 @@ namespace Genesis.UI.Toolkit
         public const float RefPanelWidth  = 882f;
 
         public const float SheetPadHRef       = 16f;
-        public const float HandleRef          = 18f;
+        public const float HandleRef          = 14f;
         // .drag-handle margin-top in OrderSheet.uss — must be in peek math or the
         // sheet overshoots content and parks navy under HOLD TO COMMIT.
-        public const float HandleMarginTopRef = 8f;
-        // Matches .sheet-header max-height (eyebrow + place + 2-line beat).
-        public const float HeaderRef          = 104f;
-        public const float ScrollGapTopRef    = 8f;
-        public const float ScrollGapBottomRef = 10f;
-        public const float HoldHeightRef      = 92f;
-        public const float GestureMinRef      = 12f;
-        // Content-driven band: header + multi-line title + desc + deltas + pad.
-        // Sized so Peek lands near ~36% panel — matches TheaterCameraRig portrait
-        // map-band framing (HUD ~14% / sheet ~36%). Keep min≈max so the card rail
-        // absorbs peek height (badges pin via margin-top:auto; no navy under HOLD).
-        public const float CardHeightMinRef   = 380f;
-        public const float CardHeightMaxRef   = 390f;
-        public const float CardGapRef         = 10f;
-        public const float CardWidthFloor     = 110f;
+        public const float HandleMarginTopRef = 4f;
+        // Matches .sheet-header (eyebrow + place + 2-line beat) — compact, no dead air.
+        public const float HeaderRef          = 88f;
+        public const float ScrollGapTopRef    = 6f;
+        public const float ScrollGapBottomRef = 8f;
+        public const float HoldHeightRef      = 68f;
+        public const float GestureMinRef      = 10f;
+        // Content-driven card band: kind + title + desc + deltas + pad.
+        // Sized so Peek lands near ~28–32% panel — map stays the visual centerpiece
+        // (HUD ~12% / sheet ~30% / open map ~58%). Keep min≈max so the rail absorbs
+        // peek slack (deltas pin via margin-top:auto; no navy under HOLD).
+        public const float CardHeightMinRef   = 196f;
+        public const float CardHeightMaxRef   = 210f;
+        public const float CardGapRef         = 8f;
+        public const float CardWidthFloor     = 108f;
         public const float ScrollCardWidthRef = 148f;
 
         /// <summary>
@@ -146,12 +146,12 @@ namespace Genesis.UI.Toolkit
             float s = PanelScale(panelHeight);
             // Content-driven peek: handle (+margin) + header + readable cards + hold + inset.
             // Do NOT raise above want — a floor taller than CardHeightMax parks navy
-            // under HOLD TO COMMIT. Cap so the map stays ≥ ~60% of panel.
-            // +12 covers urgency hairline + margin rounding so content fits inside sheet.
+            // under HOLD TO COMMIT. Cap so the map stays ≥ ~65% of panel.
+            // +8 covers urgency hairline + margin rounding so content fits inside sheet.
             float want = (HandleRef + HandleMarginTopRef + HeaderRef
                           + ScrollGapTopRef + ScrollGapBottomRef
-                          + CardHeightMinRef + HoldHeightRef + GestureMinRef + 12f) * s;
-            return Mathf.Min(want, panelHeight * 0.40f);
+                          + CardHeightMinRef + HoldHeightRef + GestureMinRef + 8f) * s;
+            return Mathf.Min(want, panelHeight * 0.34f);
         }
 
         /// <param name="contentWidth">Sheet/panel resolved width (includes padding box).</param>
@@ -206,7 +206,7 @@ namespace Genesis.UI.Toolkit
             {
                 // Narrow content: stack only when the current sheet band can hold
                 // all cards; otherwise use a horizontal scroller with fixed card width.
-                float stackCardH = Scaled(130f, panelHeight);
+                float stackCardH = Scaled(118f, panelHeight);
                 float stackNeed = n * stackCardH + (n - 1) * gap;
                 float bandBudget = Mathf.Max(0f, sheetHeight - reserved);
                 bool canStack = bandBudget >= stackNeed * 0.98f;

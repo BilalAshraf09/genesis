@@ -26,6 +26,7 @@ namespace Genesis.UI.Toolkit
         float _cred = 0.58f;
         float _toll = 0.34f;
         float _esc  = 0.21f;
+        float _prevStab = -1f, _prevCred = -1f, _prevToll = -1f, _prevEsc = -1f;
 
         public MeterStrip(VisualElement stabFill, VisualElement credFill,
                           VisualElement tollFill, VisualElement escFill,
@@ -103,6 +104,10 @@ namespace Genesis.UI.Toolkit
 
         void ApplyAll()
         {
+            FlashIfChanged(_stabFill, _stab, ref _prevStab);
+            FlashIfChanged(_credFill, _cred, ref _prevCred);
+            FlashIfChanged(_tollFill, _toll, ref _prevToll);
+            FlashIfChanged(_escFill,  _esc,  ref _prevEsc);
             SetWidth(_stabFill, _stab);
             SetWidth(_credFill, _cred);
             SetWidth(_tollFill, _toll);
@@ -111,6 +116,17 @@ namespace Genesis.UI.Toolkit
             SetPct(_credValue, _cred);
             SetPct(_tollValue, _toll);
             SetPct(_escValue,  _esc);
+        }
+
+        static void FlashIfChanged(VisualElement el, float next, ref float prev)
+        {
+            if (el == null) return;
+            if (prev >= 0f && Mathf.Abs(next - prev) > 0.004f)
+            {
+                el.AddToClassList("ops-meter-fill--flash");
+                el.schedule.Execute(() => el.RemoveFromClassList("ops-meter-fill--flash")).StartingIn(280);
+            }
+            prev = next;
         }
 
         static void SetWidth(VisualElement el, float pct)

@@ -108,13 +108,9 @@ namespace Genesis.Core
                 return;
             }
 
-            _root.schedule.Execute(() =>
-            {
-                var panel  = _root.panel;
-                var safeEl = _root.Q("safeRoot");
-                if (panel != null && safeEl != null)
-                    SafeAreaRoot.Apply(safeEl, panel);
-            }).StartingIn(0);
+            var safe = doc.gameObject.GetComponent<SafeAreaRootBehaviour>()
+                       ?? doc.gameObject.AddComponent<SafeAreaRootBehaviour>();
+            safe.Configure("safeRoot");
 
             // ── Featured / selected theater (prefer free desk so Play isn't a cold paywall) ──
             var featured = ResolveFeaturedTheater();
@@ -416,7 +412,8 @@ namespace Genesis.Core
             catch { }
 
             bool locked = !TheaterAccessService.Instance.CanAccessTheater(id);
-            SetLabel(_root, "playBtnLabel", locked ? "UNLOCK FULL GAME" : "ENTER THEATER");
+            SetLabel(_root, "playBtnLabel",
+                locked ? "UNLOCK FULL GAME" : "ENTER THEATER SELECTION");
             SetLabel(_root, "playBtnSub", title);
         }
 

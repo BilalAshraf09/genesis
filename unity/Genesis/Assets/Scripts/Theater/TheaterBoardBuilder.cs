@@ -9,12 +9,9 @@ namespace Genesis.Theater
 {
     /// <summary>
     /// Thin adapter over <see cref="Genesis.Atlas.RealMapBoard"/>.
-    /// Builds a cartographic map surface + flat map pins at real geographic coordinates.
-    /// Removed from the build path: void skirt, table lip, extruded land, zone cubes,
-    /// corridor beams, TextMesh city labels, label collision code.
-    /// All public members keep the same signatures so TheaterSession, WorldReactionFX,
-    /// TheaterCameraRig, MapLabelLayout, BoardPointerInput, and any Editor scripts continue
-    /// to compile without changes.
+    /// Builds cartographic map surface + brass beacon pins at real geographic coordinates.
+    /// RealMapBoard owns InkWater ocean, relief land, brass desk rim, coasts/borders.
+    /// Still off the play path: extruded land, zone cubes, corridor beams, TextMesh city labels.
     /// </summary>
     public class TheaterBoardBuilder : MonoBehaviour
     {
@@ -189,9 +186,11 @@ namespace Genesis.Theater
 
                 go.transform.position = pos;
 
-                // HotspotMarker attaches its own SphereCollider in Initialize.
+                // Brass beacon materials — Lit idle/selected so pins read against parchment land.
                 var hs = go.AddComponent<HotspotMarker>();
-                hs.Initialize(marker, null, null);
+                hs.Initialize(marker,
+                    TheaterMaterialFactory.BeaconIdle(),
+                    TheaterMaterialFactory.BeaconSelected());
                 _hotspots[marker.id] = hs;
             }
         }

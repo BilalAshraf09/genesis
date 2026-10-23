@@ -153,14 +153,15 @@ namespace Genesis.Theater
             return mat;
         }
 
-        /// <summary>Warm teak lip — wood frame reads vs ink basin; never void-black wedge.</summary>
+        /// <summary>Antique-brass desk rim — restrained metallic edge vs ink basin.</summary>
         public static Material TableLip()
         {
+            // Antique brass hairline — matches Night Atlas mockup frame (not heavy teak slab).
             return Lit(
-                new Color(0.4f, 0.26f, 0.13f, 1f),
-                metallic: 0.08f,
-                smoothness: 0.34f,
-                emission: Color.black);
+                new Color(0.62f, 0.48f, 0.28f, 1f),
+                metallic: 0.58f,
+                smoothness: 0.44f,
+                emission: new Color(0.72f, 0.52f, 0.22f) * 0.08f);
         }
 
         /// <summary>Matte void skirt under the table — kept dark but off the map strip.</summary>

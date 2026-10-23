@@ -1,0 +1,12 @@
+theaterId=hist-1914-july-wire
+scene=TheaterPlay
+selected=hist-1914-july-wire
+fromShell=True
+screen=1965x1518
+uidocs=5
+  PauseDialog active=True header=False sheet=False
+  OpsHud active=True header=True sheet=False
+  OrderSheet active=True header=False sheet=True
+  Debrief active=True header=False sheet=False
+  MapLabels active=True header=False sheet=False
+TheaterSession=True

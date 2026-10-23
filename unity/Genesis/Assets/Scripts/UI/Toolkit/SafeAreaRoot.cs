@@ -10,6 +10,13 @@ namespace Genesis.UI.Toolkit
     public static class SafeAreaRoot
     {
         /// <summary>
+        /// Max inset per edge in panel units. Prevents ScreenToPanel garbage when
+        /// Game View FixedResolution disagrees with Screen.width (Editor) from
+        /// blowing padding and pushing the HUD/sheet off-screen.
+        /// </summary>
+        public const float MaxInsetPanel = 72f;
+
+        /// <summary>
         /// Apply safe-area insets to <paramref name="root"/> using the panel's coordinate space.
         /// Call once after the panel is attached, then re-call whenever the safe area changes.
         /// </summary>
@@ -26,13 +33,35 @@ namespace Genesis.UI.Toolkit
             if (screenW == 0 || screenH == 0)
                 return;
 
+            // Device Simulator / mismatched Game View often reports a safeArea that
+            // does not fit inside Screen (e.g. Screen 1965×1518, safe 1284×2535).
+            // Applying that through ScreenToPanel crushes the whole UI — skip it.
+            bool safeFitsScreen =
+                safeArea.xMin >= -0.5f
+                && safeArea.yMin >= -0.5f
+                && safeArea.xMax <= screenW + 0.5f
+                && safeArea.yMax <= screenH + 0.5f
+                && safeArea.width > 1f
+                && safeArea.height > 1f;
+
+            bool fullScreenSafe =
+                safeArea.width >= screenW - 1f
+                && safeArea.height >= screenH - 1f
+                && safeArea.x <= 1f
+                && safeArea.y <= 1f;
+
+            if (!safeFitsScreen || fullScreenSafe)
+            {
+                ClearPadding(root);
+                return;
+            }
+
             // Convert screen-space corners to panel-space coordinates.
             Vector2 safeMin = RuntimePanelUtils.ScreenToPanel(panel,
                 new Vector2(safeArea.xMin, screenH - safeArea.yMax));
             Vector2 safeMax = RuntimePanelUtils.ScreenToPanel(panel,
                 new Vector2(safeArea.xMax, screenH - safeArea.yMin));
 
-            // Derive padding from corners. Clamp to non-negative.
             float padLeft   = Mathf.Max(0f, safeMin.x);
             float padTop    = Mathf.Max(0f, safeMin.y);
             float padRight  = Mathf.Max(0f,
@@ -40,10 +69,38 @@ namespace Genesis.UI.Toolkit
             float padBottom = Mathf.Max(0f,
                 RuntimePanelUtils.ScreenToPanel(panel, new Vector2(0f, screenH)).y - safeMax.y);
 
+            if (float.IsNaN(padLeft) || float.IsInfinity(padLeft)) padLeft = 0f;
+            if (float.IsNaN(padTop) || float.IsInfinity(padTop)) padTop = 0f;
+            if (float.IsNaN(padRight) || float.IsInfinity(padRight)) padRight = 0f;
+            if (float.IsNaN(padBottom) || float.IsInfinity(padBottom)) padBottom = 0f;
+
+            // If conversion still produced nonsense relative to the panel, bail.
+            float panelW = root.resolvedStyle.width;
+            float panelH = root.resolvedStyle.height;
+            if (panelW > 8f && panelH > 8f
+                && (padLeft + padRight > panelW * 0.35f || padTop + padBottom > panelH * 0.35f))
+            {
+                ClearPadding(root);
+                return;
+            }
+
+            padLeft   = Mathf.Min(padLeft, MaxInsetPanel);
+            padTop    = Mathf.Min(padTop, MaxInsetPanel);
+            padRight  = Mathf.Min(padRight, MaxInsetPanel);
+            padBottom = Mathf.Min(padBottom, MaxInsetPanel);
+
             root.style.paddingLeft   = padLeft;
             root.style.paddingTop    = padTop;
             root.style.paddingRight  = padRight;
             root.style.paddingBottom = padBottom;
+        }
+
+        static void ClearPadding(VisualElement root)
+        {
+            root.style.paddingLeft = 0;
+            root.style.paddingTop = 0;
+            root.style.paddingRight = 0;
+            root.style.paddingBottom = 0;
         }
     }
 
@@ -67,6 +124,13 @@ namespace Genesis.UI.Toolkit
         private Rect _lastSafeArea = Rect.zero;
         private int  _lastScreenW;
         private int  _lastScreenH;
+
+        /// <summary>Bind to a named child (e.g. atlasRoot / safeRoot). Empty = document root.</summary>
+        public void Configure(string targetElementName)
+        {
+            _targetElementName = targetElementName ?? string.Empty;
+            ForceApply();
+        }
 
         private void Awake()
         {

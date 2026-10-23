@@ -85,6 +85,19 @@ This was created with the help of Assistant, a Unity Artificial Intelligence pro
             <!-- Soft fade so HUD blends into the map -->
             <ui:VisualElement class="hud-map-fade" picking-mode="Ignore" />
 
+            <!-- Floating map controls (right edge) -->
+            <ui:VisualElement name="mapControls" class="map-controls">
+                <ui:Button name="mapZoomInBtn" class="map-controls__btn">
+                    <ui:Label text="+" picking-mode="Ignore" />
+                </ui:Button>
+                <ui:Button name="mapZoomOutBtn" class="map-controls__btn">
+                    <ui:Label text="−" picking-mode="Ignore" />
+                </ui:Button>
+                <ui:Button name="mapResetBtn" class="map-controls__btn">
+                    <ui:Label text="⌖" picking-mode="Ignore" />
+                </ui:Button>
+            </ui:VisualElement>
+
             <!-- Intel chip: shown when a pin is selected -->
             <ui:VisualElement name="intelChip" class="glass intel-chip hidden" picking-mode="Ignore">
                 <ui:VisualElement class="intel-accent" picking-mode="Ignore" />

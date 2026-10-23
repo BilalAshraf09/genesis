@@ -1,0 +1,7 @@
+tag=1920
+requested=1920x1080
+screen=1965x1518
+cards=25 locked=20 cols~=3
+gridPanelW=843.9 ppp=1.391 screenW~=1174.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect

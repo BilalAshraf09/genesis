@@ -1,0 +1,33 @@
+=== Living Atlas 25 matrix ===
+tag=390
+requested=390x844
+screen=1965x1518
+cards=25 locked=20 cols~=2
+gridPanelW=806.3 ppp=0.458 screenW~=369.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect
+---
+tag=430
+requested=430x932
+screen=1965x1518
+cards=25 locked=20 cols~=2
+gridPanelW=808.0 ppp=0.505 screenW~=408.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect
+---
+tag=900
+requested=900x1600
+screen=1965x1518
+cards=25 locked=20 cols~=3
+gridPanelW=894.0 ppp=0.959 screenW~=857.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect
+---
+tag=1920
+requested=1920x1080
+screen=1965x1518
+cards=25 locked=20 cols~=3
+gridPanelW=843.9 ppp=1.391 screenW~=1174.0
+gridKids=25 kid0=TheaterCardElement|name= sliceCount=25 ctrl=True
+scene=TheaterSelect
+---

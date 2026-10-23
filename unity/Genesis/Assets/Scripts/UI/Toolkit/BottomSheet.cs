@@ -20,7 +20,7 @@ namespace Genesis.UI.Toolkit
         // ── Snap enum ─────────────────────────────────────────────────────────
         public enum SnapState { Hidden, Peek, Half, Full }
 
-        // Peek from OrderSheetLayout (map-first ~32–36%); Half/Full for more detail.
+        // Peek from OrderSheetLayout (map-first ~28–32%); Half/Full for more detail.
         const float HalfPct = 0.50f;
         const float FullPct = 0.70f;
         const float HalfMinPx = 420f;

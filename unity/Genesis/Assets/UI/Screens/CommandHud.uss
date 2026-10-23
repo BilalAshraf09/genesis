@@ -31,13 +31,13 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 
 .command-header {
     flex-direction: column;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    background-color: rgba(11, 18, 32, 0.97);
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: rgba(11, 27, 45, 0.96);
     border-bottom-width: 1px;
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: #244764;
     width: 100%;
     align-self: stretch;
 }
@@ -45,26 +45,26 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 .header-main-row {
     flex-direction: row;
     align-items: center;
-    margin-bottom: 6px;
-    padding-bottom: 6px;
-    min-height: 56px;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    min-height: 48px;
     border-bottom-width: 1px;
-    border-bottom-color: rgba(255, 255, 255, 0.10);
+    border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 .back-btn {
-    width: 44px;
-    height: 44px;
-    border-radius: 11px;
-    background-color: rgba(17, 26, 43, 0.95);
-    border-width: 1.5px;
-    border-color: rgba(169, 179, 196, 0.5);
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(16, 30, 48, 0.95);
+    border-width: 1px;
+    border-color: #244764;
+    margin-right: 8px;
     align-items: center;
     justify-content: center;
     padding: 0;
     flex-shrink: 0;
-    transition-duration: 0.15s;
+    transition-duration: 0.12s;
 }
 
 .back-btn > Label {
@@ -75,7 +75,7 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .back-btn:hover {
-    background-color: rgba(245, 165, 36, 0.12);
+    background-color: rgba(196, 163, 90, 0.14);
 }
 
 .header-title-stack {
@@ -90,11 +90,11 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 
 .ops-tag {
     /* Meta: year · place — must stay scannable on small phones */
-    font-size: 13px;
-    color: #F5A524;
+    font-size: 12px;
+    color: var(--color-brass);
     letter-spacing: var(--track-meta);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     opacity: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -105,8 +105,8 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 .header-title-stack > .top-title,
 .top-title.type-screen-title {
     /* Primary theater name — larger than global screen-title token for HUD clarity */
-    font-size: 24px;
-    color: #FFFFFF;
+    font-size: 20px;
+    color: #F1F3F7;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: 0.4px;
     /* Allow 2-line wrap so long theater names stay readable instead of ellipsis */
@@ -115,28 +115,28 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
     text-overflow: clip;
     width: 100%;
     min-width: 0;
-    max-height: 56px;
+    max-height: 48px;
 }
 
-/* Status Group — compact horizontal phase + timer (reference layout) */
+/* Status Group — compact horizontal phase + timer (antique-brass accent) */
 .ops-status-cluster {
     flex-direction: row;
     align-items: center;
-    background-color: rgba(17, 26, 43, 0.98);
-    border-width: 2px;
-    border-color: #F5A524;
-    border-radius: 12px;
-    padding: 6px 10px 8px 10px;
+    background-color: rgba(16, 30, 48, 0.98);
+    border-width: 1px;
+    border-color: #244764;
+    border-radius: 10px;
+    padding: 5px 9px 7px 9px;
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    min-height: 40px;
+    min-height: 36px;
     min-width: 0;
 }
 
 .ops-status-phase {
     font-size: var(--type-meta);
-    color: #F5A524;
+    color: var(--color-brass);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     letter-spacing: var(--track-numeric);
     margin-right: 0;
@@ -185,15 +185,15 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
     left: 0;
     right: 0;
     bottom: 0;
-    height: 3px;
+    height: 2px;
     overflow: hidden;
     opacity: 1;
-    background-color: rgba(245, 165, 36, 0.18);
+    background-color: rgba(196, 163, 90, 0.20);
 }
 
 .ops-timer-fill {
     height: 100%;
-    background-color: #F5A524;
+    background-color: var(--color-brass);
     transition-property: background-color, width;
     transition-duration: 0.35s;
 }
@@ -284,9 +284,9 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 }
 
 .ops-meter-track {
-    height: 7px;
-    background-color: rgba(255, 255, 255, 0.22);
-    border-radius: 3px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.16);
+    border-radius: 2px;
     overflow: hidden;
     width: 100%;
 }
@@ -294,20 +294,58 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 .ops-meter-fill {
     height: 100%;
     border-radius: 2px;
-    transition-duration: 0.6s;
+    transition-property: width, background-color;
+    transition-duration: 0.45s;
     width: 0%;
 }
 
-.ops-meter-fill--stab { background-color: #3FB97A; }
-.ops-meter-fill--cred { background-color: #5AA9E6; }
-.ops-meter-fill--toll { background-color: #E5534B; }
-.ops-meter-fill--esc  { background-color: #F5A524; }
+.ops-meter-fill--flash {
+    background-color: #F2EFE6;
+}
+
+.ops-meter-fill--stab { background-color: #39C18A; }
+.ops-meter-fill--cred { background-color: #4AADE8; }
+.ops-meter-fill--toll { background-color: #E35D5B; }
+.ops-meter-fill--esc  { background-color: #E5AD3F; }
 
 /* Soft blend into map — solid wash only (UITK linear-gradient renders as artifacts) */
 .hud-map-fade {
-    height: 24px;
-    background-color: rgba(11, 18, 32, 0.40);
+    height: 14px;
+    background-color: rgba(6, 19, 33, 0.32);
     flex-shrink: 0;
+}
+
+/* Floating map zoom / recenter — right edge of map band */
+.map-controls {
+    position: absolute;
+    right: 12px;
+    top: 118px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-controls__btn {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    background-color: rgba(16, 30, 48, 0.92);
+    border-width: 1px;
+    border-color: #244764;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.map-controls__btn > Label {
+    font-size: 18px;
+    color: #F1F3F7;
+    -unity-text-align: middle-center;
+}
+
+.map-controls__btn:active {
+    border-color: #E5AD3F;
+    scale: 0.94 0.94;
 }
 
 /* ---- Intel chip ---------------------------------------------- */
@@ -414,19 +452,19 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 .commit-toast {
     align-self: center;
     margin-top: 14px;
-    font-size: 28px;
-    color: var(--color-accent);
+    font-size: 22px;
+    color: var(--color-brass);
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inter-SemiBold SDF.asset");
     -unity-text-align: middle-center;
-    padding: 14px 36px;
-    background-color: rgba(245, 165, 36, 0.16);
-    border-radius: 40px;
+    padding: 10px 28px;
+    background-color: rgba(196, 163, 90, 0.14);
+    border-radius: 28px;
     border-width: 1px;
-    border-color: rgba(245, 165, 36, 0.4);
+    border-color: rgba(196, 163, 90, 0.40);
     opacity: 1;
     scale: 1 1;
     transition-property: opacity, scale;
-    transition-duration: 0.22s;
+    transition-duration: 0.18s;
 }
 
 .commit-toast--enter {
@@ -496,8 +534,8 @@ Uses tokens + component classes from Genesis.tss (loaded via PanelSettings).
 
     .header-title-stack > .top-title,
     .top-title.type-screen-title {
-        font-size: 22px;
-        max-height: 52px;
+        font-size: 18px;
+        max-height: 44px;
     }
 }
 

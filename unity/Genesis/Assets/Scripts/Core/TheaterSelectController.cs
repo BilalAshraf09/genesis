@@ -11,28 +11,50 @@ using UnityEngine.UIElements;
 namespace Genesis.Core
 {
     /// <summary>
-    /// Theater select (Atlas) — UI Toolkit rebuild.
-    /// Lists every catalog theater with region filter chips, map thumbnails,
-    /// places-discovered counts, and personal best scores.
-    /// Public surface (class name, namespace) preserved; internal uGUI removed.
+    /// Theater select (Atlas) — Living Atlas 25-desk grid (5 free / 20 locked),
+    /// guest/full-access badges, selection sync, and detail preview.
     /// </summary>
     public class TheaterSelectController : MonoBehaviour
     {
-        // ── State ──────────────────────────────────────────────────────────────
         FreemiumStub _freemium;
         Func<bool>   _backHandler;
 
-        string _activeRegion = "All";
-        List<TheaterCatalogEntry> _theaters;
-        ScrollView _theaterList;
+        TheaterSelectionSlice _slice;
+        List<TheaterSelectionEntry> _theaters;
+        VisualElement _theaterGrid;
+        ScrollView _theaterScroll;
+        VisualElement _theaterDetail;
+        VisualElement _detailMap;
+        Label _detailRegion;
+        Label _detailDifficulty;
+        Label _detailTitle;
+        Label _detailEra;
+        Label _detailDesc;
+        Label _detailTabBody;
+        Label _detailPlayLabel;
+        Label _guestBadgeMeta;
+        Label _fullAccessPrice;
+        Button _fullAccessBtn;
+        Button _detailPlayBtn;
+        VisualElement _guestBadge;
 
-        // ── Lifecycle ─────────────────────────────────────────────────────────
+        readonly Dictionary<string, TheaterCardElement> _cardById = new();
+        string _selectedId;
+        string _activeTab = "overview";
+        TheaterSelectionEntry _selectedEntry;
+        float _lastGridWidth = -1f;
+        bool _layoutWired;
+        bool _landscapeDetail;
+        VisualElement _atlasBody;
+        VisualElement _accessFooter;
+        VisualElement _detailPortraitHost;
+
         void Awake()
         {
             Application.targetFrameRate = 60;
             EnsureCamera();
 
-            _freemium = FindFirstObjectByType<FreemiumStub>()
+            _freemium = FindAnyObjectByType<FreemiumStub>()
                         ?? new GameObject("FreemiumStub").AddComponent<FreemiumStub>();
 
             BuildUi();
@@ -56,10 +78,12 @@ namespace Genesis.Core
 
         void OnEntitlementsChanged()
         {
-            PopulateTheaterList();
+            RefreshAccessBadges();
+            PopulateTheaterGrid();
+            if (!string.IsNullOrEmpty(_selectedId))
+                SelectTheater(_selectedId, scrollToDetail: false);
         }
 
-        // ── UI build ──────────────────────────────────────────────────────────
         void BuildUi()
         {
             var doc = UiRegistry.CreateDocument("Atlas", transform, 10, "Atlas");
@@ -70,44 +94,121 @@ namespace Genesis.Core
                 return;
             }
 
-            // Apply safe area to the full screen root
-            root.schedule.Execute(() =>
-            {
-                if (root.panel != null)
-                    SafeAreaRoot.Apply(root.Q("atlasRoot") ?? root, root.panel);
-            }).StartingIn(0);
+            var safe = doc.gameObject.GetComponent<SafeAreaRootBehaviour>()
+                       ?? doc.gameObject.AddComponent<SafeAreaRootBehaviour>();
+            safe.Configure("atlasRoot");
 
-            // ── Back button ──
             WireButton(root, "backBtn", AppFlow.GoMainMenu);
-
-            // ── Resume banner ──
             BuildResumeBanner(root);
 
-            // ── Load catalog ──
+            _atlasBody        = root.Q("atlasBody");
+            _theaterGrid      = root.Q("theaterGrid");
+            _theaterScroll    = root.Q<ScrollView>("theaterList");
+            _theaterDetail    = root.Q("theaterDetail");
+            _accessFooter     = root.Q("accessFooter");
+            _detailPortraitHost = _theaterDetail?.parent;
+            _detailMap        = root.Q("detailMap");
+            _detailRegion     = root.Q<Label>("detailRegion");
+            _detailDifficulty = root.Q<Label>("detailDifficulty");
+            _detailTitle      = root.Q<Label>("detailTitle");
+            _detailEra        = root.Q<Label>("detailEra");
+            _detailDesc       = root.Q<Label>("detailDesc");
+            _detailTabBody    = root.Q<Label>("detailTabBody");
+            _detailPlayLabel  = root.Q<Label>("detailPlayLabel");
+            _detailPlayBtn    = root.Q<Button>("detailPlayBtn");
+            _guestBadge       = root.Q("guestBadge");
+            _guestBadgeMeta   = root.Q<Label>("guestBadgeMeta");
+            _fullAccessPrice  = root.Q<Label>("fullAccessPrice");
+            _fullAccessBtn    = root.Q<Button>("fullAccessBtn");
+
+            if (_fullAccessBtn != null)
+                _fullAccessBtn.clicked += () => FullGameUnlockController.Show();
+
+            if (_detailPlayBtn != null)
+                _detailPlayBtn.clicked += OnDetailPlayPressed;
+
+            WireTab(root, "tabOverview", "overview");
+            WireTab(root, "tabObjectives", "objectives");
+            WireTab(root, "tabIntel", "intel");
+
             try
             {
-                var catalog = TheaterCatalogLoader.LoadCatalog();
-                _theaters = catalog.theaters ?? new List<TheaterCatalogEntry>();
+                _slice = TheaterCatalogLoader.LoadSelectionSlice();
+                _theaters = _slice?.theaters ?? new List<TheaterSelectionEntry>();
             }
             catch (Exception ex)
             {
-                Debug.LogWarning($"[Genesis] Atlas: catalog load failed: {ex.Message}");
-                _theaters = new List<TheaterCatalogEntry>();
+                Debug.LogWarning($"[Genesis] Atlas: selection slice load failed: {ex.Message}");
+                _slice = new TheaterSelectionSlice();
+                _theaters = new List<TheaterSelectionEntry>();
             }
 
-            // ── Region filter chips ──
-            BuildRegionFilter(root);
+            ApplySliceHeader(root);
+            RefreshAccessBadges();
+            PopulateTheaterGrid();
 
-            // ── Theater list ──
-            _theaterList = root.Q<ScrollView>("theaterList");
-            PopulateTheaterList();
+            if (!_layoutWired && _theaterGrid != null)
+            {
+                _layoutWired = true;
+                _theaterGrid.RegisterCallback<GeometryChangedEvent>(_ => RelayoutGridIfNeeded());
+                root.RegisterCallback<GeometryChangedEvent>(_ => ApplyBodyLayoutMode());
+                ApplyBodyLayoutMode();
+            }
 
-            // ── Android Back: navigate to main menu ──
+            string initial = null;
+            foreach (var t in _theaters)
+            {
+                if (t == null || string.IsNullOrEmpty(t.launchId)) continue;
+                if (_freemium.CanDeploy(t.launchId))
+                {
+                    initial = t.launchId;
+                    break;
+                }
+            }
+            if (initial == null && _theaters.Count > 0)
+                initial = _theaters[0]?.launchId;
+            if (!string.IsNullOrEmpty(initial))
+                SelectTheater(initial, scrollToDetail: false);
+
             _backHandler = () => { AppFlow.GoMainMenu(); return true; };
             MobilePlatform.PushBack(_backHandler);
         }
 
-        // ── Resume banner ─────────────────────────────────────────────────────
+        void ApplySliceHeader(VisualElement root)
+        {
+            if (_slice == null) return;
+            var eyebrow = root.Q(className: "atlas-header__eyebrow") as Label;
+            if (eyebrow != null && !string.IsNullOrEmpty(_slice.eyebrow))
+                eyebrow.text = _slice.eyebrow;
+            var title = root.Q(className: "atlas-header__title") as Label;
+            if (title != null && !string.IsNullOrEmpty(_slice.title))
+                title.text = _slice.title;
+            var sub = root.Q(className: "atlas-header__sub") as Label;
+            if (sub != null && !string.IsNullOrEmpty(_slice.subtitle))
+                sub.text = _slice.subtitle;
+        }
+
+        void RefreshAccessBadges()
+        {
+            var access = TheaterAccessService.Instance;
+            bool unlocked = access != null && access.IsFullGameUnlocked;
+
+            if (_guestBadge != null)
+                _guestBadge.style.display = unlocked ? DisplayStyle.None : DisplayStyle.Flex;
+
+            if (_guestBadgeMeta != null && !unlocked)
+                _guestBadgeMeta.text = "Play 5 theaters for free";
+
+            if (_fullAccessBtn != null)
+            {
+                _fullAccessBtn.EnableInClassList("atlas-badge--owned", unlocked);
+                _fullAccessBtn.SetEnabled(!unlocked);
+            }
+
+            if (_fullAccessPrice != null)
+                _fullAccessPrice.text = unlocked ? "OWNED" : IapProductIds.TargetUsdPriceHint;
+        }
+
         void BuildResumeBanner(VisualElement root)
         {
             var banner = root.Q("resumeBanner");
@@ -135,202 +236,277 @@ namespace Genesis.Core
             banner.style.display = DisplayStyle.None;
         }
 
-        // ── Region filter ─────────────────────────────────────────────────────
-        void BuildRegionFilter(VisualElement root)
+        void PopulateTheaterGrid()
         {
-            var filterBar = root.Q<ScrollView>("regionFilterBar");
-            if (filterBar == null) return;
-
-            var regions = new List<string> { "All" };
-            foreach (var t in _theaters)
+            if (_theaterGrid == null)
             {
-                if (!string.IsNullOrEmpty(t.region) && !regions.Contains(t.region))
-                    regions.Add(t.region);
+                Debug.LogError("[Genesis] Atlas: theaterGrid is null — UXML bind failed.");
+                return;
             }
 
-            foreach (var region in regions)
-            {
-                var chip = new Button();
-                chip.AddToClassList("region-chip");
-                if (region == _activeRegion) chip.AddToClassList("region-chip--active");
+            _theaterGrid.Clear();
+            _cardById.Clear();
 
-                var lbl = new Label { text = region };
-                chip.Add(lbl);
-
-                var capturedRegion = region;
-                chip.clicked += () =>
-                {
-                    _activeRegion = capturedRegion;
-                    // Update chip active states
-                    filterBar.Query<Button>(className: "region-chip").ForEach(b =>
-                    {
-                        var isActive = b.Q<Label>()?.text == _activeRegion;
-                        if (isActive) b.AddToClassList("region-chip--active");
-                        else b.RemoveFromClassList("region-chip--active");
-                    });
-                    PopulateTheaterList();
-                };
-
-                filterBar.Add(chip);
-            }
-        }
-
-        // ── Theater list ──────────────────────────────────────────────────────
-        void PopulateTheaterList()
-        {
-            if (_theaterList == null) return;
-            _theaterList.Clear();
-
-            foreach (var entry in _theaters)
-            {
-                if (entry == null) continue;
-                if (_activeRegion != "All" &&
-                    !string.Equals(entry.region, _activeRegion, StringComparison.OrdinalIgnoreCase))
-                    continue;
-
-                _theaterList.Add(BuildTheaterCard(entry));
-            }
-
-            if (_theaterList.childCount == 0)
-            {
-                var empty = new Label { text = "No theaters in this region." };
-                empty.AddToClassList("label-caption");
-                _theaterList.Add(empty);
-            }
-        }
-
-        VisualElement BuildTheaterCard(TheaterCatalogEntry entry)
-        {
-            var card = new VisualElement();
-            card.AddToClassList("theater-card");
-
-            bool locked = !_freemium.CanDeploy(entry.id);
-            if (locked)
-                card.AddToClassList("theater-card--locked");
-
-            // Thumbnail
-            var thumb = new VisualElement();
-            thumb.AddToClassList("theater-card__thumb");
-            LoadCardThumbnail(thumb, entry);
-            card.Add(thumb);
-
-            if (locked)
-            {
-                var lockBadge = new Label { text = "FULL GAME" };
-                lockBadge.AddToClassList("theater-card__lock");
-                lockBadge.pickingMode = PickingMode.Ignore;
-                thumb.Add(lockBadge);
-            }
-            else if (_freemium.IsFreeDesk(entry.id) && !TheaterAccessService.Instance.IsFullGameUnlocked)
-            {
-                var freeBadge = new Label { text = "FREE" };
-                freeBadge.AddToClassList("theater-card__free");
-                freeBadge.pickingMode = PickingMode.Ignore;
-                thumb.Add(freeBadge);
-            }
-
-            // Body
-            var body = new VisualElement();
-            body.AddToClassList("theater-card__body");
-
-            var year = new Label { text = entry.year > 0 ? entry.year.ToString() : "—" };
-            year.AddToClassList("theater-card__year");
-            body.Add(year);
-
-            var title = new Label { text = entry.title ?? "Untitled Theater" };
-            title.AddToClassList("theater-card__title");
-            body.Add(title);
-
-            // 1-line description: use era + region as premise substitute
-            string premise = BuildPremiseLine(entry);
-            if (!string.IsNullOrEmpty(premise))
-            {
-                var premiseLbl = new Label { text = premise };
-                premiseLbl.AddToClassList("theater-card__premise");
-                body.Add(premiseLbl);
-            }
-
-            // Footer: places + best score
-            var footer = new VisualElement();
-            footer.AddToClassList("theater-card__footer");
-
-            string placesText = BuildPlacesText(entry.id);
-            if (!string.IsNullOrEmpty(placesText))
-            {
-                var places = new Label { text = placesText };
-                places.AddToClassList("theater-card__places");
-                footer.Add(places);
-            }
-
-            var pb = LocalRetention.GetPersonalBest(entry.id);
-            if (pb != null)
-            {
-                var score = new Label { text = $"{pb.grade}  {pb.score}" };
-                score.AddToClassList("theater-card__score");
-                footer.Add(score);
-            }
-
-            if (footer.childCount > 0)
-                body.Add(footer);
-
-            card.Add(body);
-
-            // Tap: locked → paywall only (BeginTheater also gates as safety net).
-            var capturedId = entry.id;
-            card.RegisterCallback<PointerUpEvent>(_ =>
-            {
-                if (!_freemium.CanDeploy(capturedId))
-                {
-                    _freemium.ShowPaywallStub();
-                    return;
-                }
-
-                AppFlow.BeginTheater(capturedId);
-            });
-
-            return card;
-        }
-
-        static void LoadCardThumbnail(VisualElement thumb, TheaterCatalogEntry entry)
-        {
+            int index = 0;
             try
             {
-                var preview = MapTextureLibrary.LoadUiMapPreview(
-                    entry.id, entry.terrainKey ?? entry.region, size: 384);
-                if (preview != null)
-                    thumb.style.backgroundImage = new StyleBackground(preview);
+                foreach (var entry in _theaters)
+                {
+                    if (entry == null || string.IsNullOrEmpty(entry.launchId)) continue;
+                    index++;
+                    var card = BuildTheaterCard(entry, index);
+                    _theaterGrid.Add(card);
+                    _cardById[entry.launchId] = card;
+                }
             }
             catch (Exception ex)
             {
-                Debug.LogWarning($"[Genesis] Atlas thumb failed for {entry.id}: {ex.Message}");
+                Debug.LogError($"[Genesis] Atlas: PopulateTheaterGrid failed after {index} cards: {ex}");
             }
+
+            if (_theaterGrid.childCount == 0)
+            {
+                var empty = new Label { text = "No theaters available." };
+                empty.AddToClassList("atlas-header__sub");
+                _theaterGrid.Add(empty);
+            }
+
+            _lastGridWidth = -1f;
+            RelayoutGridIfNeeded();
         }
 
-        static string BuildPremiseLine(TheaterCatalogEntry entry)
+        /// <summary>
+        /// V2 landscape: fixed detail pane left, scrollable grid right.
+        /// Portrait: detail stays in the scroll under the grid (mockup stack).
+        /// Uses LogicalScreenWidth so retina phones never flip to landscape layout.
+        /// </summary>
+        void ApplyBodyLayoutMode()
         {
-            var parts = new List<string>();
-            if (!string.IsNullOrEmpty(entry.era))    parts.Add(entry.era);
-            if (!string.IsNullOrEmpty(entry.region)) parts.Add(entry.region);
-            return string.Join(" · ", parts);
-        }
+            if (_atlasBody == null || _theaterDetail == null || _theaterScroll == null)
+                return;
 
-        static string BuildPlacesText(string theaterId)
-        {
+            // Only flip when the Atlas panel itself is landscape. Never key off
+            // Screen.width alone — Editor Game View FixedResolution often disagrees.
+            float panelW = _atlasBody.resolvedStyle.width;
+            float panelH = _atlasBody.resolvedStyle.height;
+            if (panelW < 32f || panelH < 32f) return;
+
+            bool landscape = panelW > panelH * 1.25f;
+
+            if (landscape == _landscapeDetail) return;
+            _landscapeDetail = landscape;
+
+            _atlasBody.EnableInClassList("atlas-body--landscape", landscape);
+
             try
             {
-                int discovered = AtlasCodex.CountFor(theaterId);
-                var content    = AtlasContent.ForTheater(theaterId);
-                int total      = content.Places.Count;
-                if (total == 0 && discovered == 0) return "";
-                return $"Discovered {discovered}/{total}";
+                if (landscape)
+                {
+                    if (_theaterDetail.parent != _atlasBody)
+                    {
+                        _theaterDetail.RemoveFromHierarchy();
+                        _atlasBody.Insert(0, _theaterDetail);
+                    }
+                }
+                else if (_detailPortraitHost != null && _theaterDetail.parent != _detailPortraitHost)
+                {
+                    _theaterDetail.RemoveFromHierarchy();
+                    if (_accessFooter != null && _accessFooter.parent == _detailPortraitHost)
+                    {
+                        int idx = _detailPortraitHost.IndexOf(_accessFooter);
+                        if (idx >= 0)
+                            _detailPortraitHost.Insert(idx + 1, _theaterDetail);
+                        else
+                            _detailPortraitHost.Add(_theaterDetail);
+                    }
+                    else
+                        _detailPortraitHost.Add(_theaterDetail);
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return "";
+                Debug.LogWarning($"[Genesis] Atlas: detail reparent skipped: {ex.Message}");
+            }
+
+            _lastGridWidth = -1f;
+            RelayoutGridIfNeeded();
+        }
+
+        void RelayoutGridIfNeeded()
+        {
+            if (_theaterGrid == null) return;
+            float panelW = _theaterGrid.resolvedStyle.width;
+            if (panelW < 8f) return;
+
+            // Use the grid's rendered pixel width — never bare Screen.width.
+            // Editor often reports the Game View host window (e.g. 1965) while the
+            // panel is phone-sized; that falsely picked 5 columns and broke cards.
+            float ppp = _theaterGrid.panel != null
+                ? Mathf.Max(0.01f, _theaterGrid.panel.scaledPixelsPerPoint)
+                : 1f;
+            float screenW = panelW * ppp;
+            if (Mathf.Abs(screenW - _lastGridWidth) < 0.5f) return;
+            _lastGridWidth = screenW;
+
+            // Portrait phone → 2; large phone / small tablet → 3;
+            // landscape master–detail → 2–3 from pane width; ultra-wide → 5.
+            int cols;
+            if (_landscapeDetail)
+                cols = panelW >= 560f ? 3 : 2;
+            else if (screenW >= 1100f)
+                cols = 5;
+            else if (screenW >= 700f)
+                cols = 3;
+            else
+                cols = 2;
+
+            float gap = 8f;
+            float cardW = (panelW - gap * (cols - 1) - 1f) / cols;
+
+            int i = 0;
+            foreach (var child in _theaterGrid.Children())
+            {
+                if (!child.ClassListContains("theater-card")) continue;
+                child.style.width = cardW;
+                child.style.minWidth = cardW;
+                child.style.maxWidth = cardW;
+                child.style.flexGrow = 0;
+                child.style.flexShrink = 0;
+                child.style.marginRight = ((i % cols) == cols - 1) ? 0f : gap;
+                i++;
             }
         }
 
-        // ── Utilities ─────────────────────────────────────────────────────────
+        TheaterCardElement BuildTheaterCard(TheaterSelectionEntry entry, int number)
+        {
+            bool locked = !_freemium.CanDeploy(entry.launchId);
+            return new TheaterCardElement(
+                entry,
+                number,
+                locked,
+                onSelect: id =>
+                {
+                    SelectTheater(id, scrollToDetail: true);
+                    if (!_freemium.CanDeploy(id))
+                        _freemium.ShowPaywallStub();
+                },
+                onCta: (id, wasLocked) =>
+                {
+                    if (wasLocked || !_freemium.CanDeploy(id))
+                    {
+                        _freemium.ShowPaywallStub();
+                        return;
+                    }
+                    SelectTheater(id, scrollToDetail: false);
+                    AppFlow.BeginTheater(id);
+                });
+        }
+
+        void SelectTheater(string theaterId, bool scrollToDetail)
+        {
+            if (string.IsNullOrEmpty(theaterId)) return;
+            _selectedId = theaterId;
+            _selectedEntry = null;
+            foreach (var t in _theaters)
+            {
+                if (t != null && t.launchId == theaterId)
+                {
+                    _selectedEntry = t;
+                    break;
+                }
+            }
+
+            foreach (var kv in _cardById)
+                kv.Value.SetSelected(kv.Key == theaterId);
+
+            UpdateDetailPanel();
+
+            if (scrollToDetail && !_landscapeDetail && _theaterScroll != null && _theaterDetail != null)
+                _theaterDetail.schedule.Execute(() => _theaterScroll.ScrollTo(_theaterDetail)).StartingIn(0);
+        }
+
+        void UpdateDetailPanel()
+        {
+            if (_theaterDetail == null) return;
+            if (_selectedEntry == null)
+            {
+                _theaterDetail.AddToClassList("theater-detail--hidden");
+                return;
+            }
+
+            _theaterDetail.RemoveFromClassList("theater-detail--hidden");
+
+            bool locked = !_freemium.CanDeploy(_selectedEntry.launchId);
+
+            if (_detailMap != null)
+                TheaterCardElement.LoadThumbnail(_detailMap, _selectedEntry);
+
+            if (_detailRegion != null)
+                _detailRegion.text = TheaterCardElement.ShortRegion(_selectedEntry.region).ToUpperInvariant();
+            if (_detailDifficulty != null)
+                _detailDifficulty.text = (_selectedEntry.difficulty ?? "Medium").ToUpperInvariant();
+            if (_detailTitle != null)
+                _detailTitle.text = (_selectedEntry.displayTitle ?? "").ToUpperInvariant();
+            if (_detailEra != null)
+                _detailEra.text = _selectedEntry.era ?? "";
+            if (_detailDesc != null)
+                _detailDesc.text = _selectedEntry.description ?? "";
+
+            if (_detailPlayBtn != null)
+                _detailPlayBtn.EnableInClassList("theater-detail__play--locked", locked);
+            if (_detailPlayLabel != null)
+                _detailPlayLabel.text = locked
+                    ? TheaterCardElement.UnlockCtaLabel
+                    : TheaterCardElement.PlayCtaLabel;
+
+            RefreshTabBody();
+        }
+
+        void OnDetailPlayPressed()
+        {
+            if (_selectedEntry == null) return;
+            if (!_freemium.CanDeploy(_selectedEntry.launchId))
+            {
+                _freemium.ShowPaywallStub();
+                return;
+            }
+            AppFlow.BeginTheater(_selectedEntry.launchId);
+        }
+
+        void WireTab(VisualElement root, string name, string tabId)
+        {
+            var btn = root.Q<Button>(name);
+            if (btn == null) return;
+            btn.clicked += () =>
+            {
+                _activeTab = tabId;
+                root.Query<Button>(className: "theater-detail__tab").ForEach(b =>
+                    b.RemoveFromClassList("theater-detail__tab--active"));
+                btn.AddToClassList("theater-detail__tab--active");
+                RefreshTabBody();
+            };
+        }
+
+        void RefreshTabBody()
+        {
+            if (_detailTabBody == null || _selectedEntry == null) return;
+            _detailTabBody.text = _activeTab switch
+            {
+                "objectives" => string.IsNullOrEmpty(_selectedEntry.objectives)
+                    ? "Complete each phase with a viable after-action grade."
+                    : _selectedEntry.objectives +
+                      (string.IsNullOrEmpty(_selectedEntry.challenges)
+                          ? ""
+                          : "\n\nChallenges: " + _selectedEntry.challenges),
+                "intel" => string.IsNullOrEmpty(_selectedEntry.intel)
+                    ? "Intel markers unlock during play."
+                    : _selectedEntry.intel,
+                _ => (_selectedEntry.description ?? "") +
+                     $"\n\nDifficulty: {_selectedEntry.difficulty ?? "Medium"}. " +
+                     "Recommended for players comfortable with timed crisis decisions."
+            };
+        }
+
         static void SetLabel(VisualElement root, string name, string text)
         {
             var lbl = root.Q<Label>(name);
@@ -346,11 +522,11 @@ namespace Genesis.Core
         static void EnsureCamera()
         {
             if (Camera.main != null) return;
-            var go  = new GameObject("SelectCamera");
+            var go = new GameObject("SelectCamera");
             var cam = go.AddComponent<Camera>();
-            cam.clearFlags      = CameraClearFlags.SolidColor;
-            cam.backgroundColor = new Color(0.043f, 0.071f, 0.125f);
-            cam.tag             = "MainCamera";
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.024f, 0.075f, 0.129f);
+            cam.tag = "MainCamera";
             go.AddComponent<AudioListener>();
         }
     }
